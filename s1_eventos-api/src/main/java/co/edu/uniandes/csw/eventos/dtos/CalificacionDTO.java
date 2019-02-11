@@ -29,7 +29,7 @@ public class CalificacionDTO implements Serializable {
     /*
         Constructor
     */
-      public EntradaDTO()
+      public CalificacionDTO()
     {
         
     }

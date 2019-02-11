@@ -16,7 +16,7 @@ public class EntradaDTO implements Serializable {
     /*
         Atributo de un tipo por definir que almacena el codigo QR
     */
-    private undefined QR;
+    private String QR;
     /*
         Atributo de tipo string que contiene la descripcion de la entrada
     */
@@ -56,7 +56,7 @@ public class EntradaDTO implements Serializable {
     /**
         @return QR. Retorna el QR
     **/
-    public undefined getQR() {
+    public String getQR() {
         return QR;
     }
     /**
@@ -104,7 +104,7 @@ public class EntradaDTO implements Serializable {
     /**
      * @param QR.  Reinicializa el valor del QR
     **/
-    public void setQR(undefined QR) {
+    public void setQR(String QR) {
         this.QR = QR;
     }
     /**
