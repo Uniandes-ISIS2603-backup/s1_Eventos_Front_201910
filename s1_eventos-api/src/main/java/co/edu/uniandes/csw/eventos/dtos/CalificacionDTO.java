@@ -5,11 +5,13 @@
  */
 package co.edu.uniandes.csw.eventos.dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Juan David Díaz 
  */
-public class CalificacionDTO {
+public class CalificacionDTO implements Serializable {
     /*
         Atributo de tipo int que indica la cantidad de estrellas de la calificacion
     */
