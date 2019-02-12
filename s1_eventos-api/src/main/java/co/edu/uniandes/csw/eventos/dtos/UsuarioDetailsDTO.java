@@ -12,6 +12,7 @@ import java.util.List;
  *
  * @author Nicolas Diaz
  */
+
 public class UsuarioDetailsDTO extends UsuarioDTO implements Serializable {
     //private List<FacturaDTO> facturas;
     //private List<MedioDePagoDTO> mediosDePago;
@@ -19,6 +20,7 @@ public class UsuarioDetailsDTO extends UsuarioDTO implements Serializable {
     //private List<EventoDTO> eventos;
     //private List<EntradaDTO> entradas;
     
+ 
     /**
      * Constructor por defecto.
      */
