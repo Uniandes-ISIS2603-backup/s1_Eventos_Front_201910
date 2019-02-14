@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 /**
@@ -20,7 +22,9 @@ public class EventoEntity extends BaseEntity implements Serializable {
  
 }
     //Atributos
-    
+     @javax.persistence.Id
+    private Long id;
+     
     private String nombre;
     private String descripcion;
     private Date fechaInicio;
@@ -30,7 +34,43 @@ public class EventoEntity extends BaseEntity implements Serializable {
     private boolean privado;
     private int capacidadMaxima;
     private int boletasDisponibles;
-    private long id;
+    
+     @javax.persistence.OneToMany(
+        mappedBy = "evento",
+        fetch = javax.persistence.FetchType.LAZY,
+                cascade = CascadeType.ALL
+    )
+    List<MultimediaEntity> multimedia;
+    
+    @javax.persistence.ManyToMany(
+        mappedBy ="evento",
+        fetch = javax.persistence.FetchType.LAZY
+           )
+    List<PatrocinadorEntity> patrocinadores;
+    
+    @javax.persistence.ManyToMany(
+        mappedBy ="evento",
+        fetch = javax.persistence.FetchType.LAZY
+           )
+    List<OrganizadorEntity> organizadores;
+    
+    @javax.persistence.OneToOne(
+     mappedBy ="evento",
+        fetch = javax.persistence.FetchType.LAZY,
+        cascade = CascadeType.ALL
+           )
+    AgendaEntity agenda;
+    
+     @javax.persistence.ManyToMany(
+        mappedBy ="evento",
+        fetch = javax.persistence.FetchType.LAZY
+           )
+    List<UsuarioEntity> usuarios;
+    
+    
+    
+    
+    
 
     /**
      * @return the nombre
