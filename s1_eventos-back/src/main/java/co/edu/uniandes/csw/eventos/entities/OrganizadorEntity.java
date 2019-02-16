@@ -6,7 +6,11 @@
 package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -15,5 +19,12 @@ import javax.persistence.Entity;
 @Entity
 public class OrganizadorEntity extends BaseEntity implements Serializable {
     
+    @PodamExclude
+    @ManyToMany(mappedBy = "organizadores")
+    private List<EventoEntity> eventos = new ArrayList<>();
+    
+    private String nombre;
+    private String telefono;
+    private String correoElectronico;
     
 }
