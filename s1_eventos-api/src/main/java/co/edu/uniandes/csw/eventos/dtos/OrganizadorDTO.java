@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.eventos.dtos;
 
+import co.edu.uniandes.csw.eventos.entities.OrganizadorEntity;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,36 @@ public class OrganizadorDTO implements Serializable{
      */
     public OrganizadorDTO(){
         
+    }
+    
+    /**
+     * Crea un objeto OrganizadorDTO a partir de un objeto OrganizadorEntity.
+     *
+     * @param organizadorEntity Entidad OrganizadorEntity desde la cual se va a crear el nuevo objeto.
+     *
+     */
+    public OrganizadorDTO(OrganizadorEntity organizadorEntity) {
+        if (organizadorEntity != null) {
+            this.id = organizadorEntity.getId();
+            this.nombre = organizadorEntity.getNombre();
+            this.telefono = organizadorEntity.getTelefono();
+            this.correoElectronico = organizadorEntity.getCorreoElectronico();
+        }
+    }
+
+    /**
+     * Convierte un objeto OrganizadorDTO a OrganizadorEntity.
+     *
+     * @return Nueva objeto OrganizadorEntity.
+     *
+     */
+    public OrganizadorEntity toEntity() {
+        OrganizadorEntity organizadorEntity = new OrganizadorEntity();
+        organizadorEntity.setId(this.getId());
+        organizadorEntity.setNombre(this.getNombre());
+        organizadorEntity.setTelefono(this.getTelefono());
+        organizadorEntity.setCorreoElectronico(this.getCorreoElectronico());
+        return organizadorEntity;
     }
     
     /**

@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.eventos.dtos;
 
+import co.edu.uniandes.csw.eventos.entities.OrganizadorEntity;
+import co.edu.uniandes.csw.eventos.entities.PatrocinadorEntity;
 import java.io.Serializable;
 
 /**
@@ -25,6 +27,39 @@ public class PatrocinadorDTO implements Serializable {
      */
     public PatrocinadorDTO(){
         
+    }
+    
+    /**
+     * Crea un objeto PatrocinadorDTO a partir de un objeto PatrocinadorEntity.
+     *
+     * @param patrocinadorEntity Entidad OrganizadorEntity desde la cual se va a crear el nuevo objeto.
+     *
+     */
+    public PatrocinadorDTO(PatrocinadorEntity patrocinadorEntity) {
+        if (patrocinadorEntity != null) {
+            this.id = patrocinadorEntity.getId();
+            this.nombre = patrocinadorEntity.getNombre();
+            this.imagen = patrocinadorEntity.getImagen();
+            this.rango = patrocinadorEntity.getRango();
+            this.descripcion = patrocinadorEntity.getDescripcion();
+            
+        }
+    }
+
+    /**
+     * Convierte un objeto OrganizadorDTO a OrganizadorEntity.
+     *
+     * @return Nueva objeto PatrocinadorEntity.
+     *
+     */
+    public PatrocinadorEntity toEntity() {
+        PatrocinadorEntity patrocinadorEntity = new PatrocinadorEntity();
+        patrocinadorEntity.setId(this.getId());
+        patrocinadorEntity.setNombre(this.getNombre());
+        patrocinadorEntity.setImagen(this.getImagen());
+        patrocinadorEntity.setRango(this.getRango());
+        patrocinadorEntity.setDescripcion(this.getDescripcion());
+        return patrocinadorEntity;
     }
     
     /**
