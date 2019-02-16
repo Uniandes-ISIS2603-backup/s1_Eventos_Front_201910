@@ -21,10 +21,6 @@ public class PatrocinadorEntity extends BaseEntity implements Serializable{
     @PodamExclude
     @ManyToMany(mappedBy = "patrocinadores")
     private List<EventoEntity> eventos = new ArrayList<>();
-    
-     @PodamExclude
-    @OneToMany(mappedBy = "author",fetch=FetchType.LAZY)
-    private List<MemoriaEntity> memorias = new ArrayList<>();
      
     private String nombre;
     private String imagen;
@@ -101,19 +97,5 @@ public class PatrocinadorEntity extends BaseEntity implements Serializable{
      */
     public void setEventos(List<EventoEntity> eventos) {
         this.eventos = eventos;
-    }
-    
-        /**
-     * @return the memorias
-     */
-    public List<MemoriaEntity> getMemorias() {
-        return memorias;
-    }
-
-    /**
-     * @param memorias the memorias to set
-     */
-    public void setMemorias(List<MemoriaEntity> memorias) {
-        this.memorias = memorias;
     }
 }
