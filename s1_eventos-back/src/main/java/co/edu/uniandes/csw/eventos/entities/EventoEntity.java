@@ -22,38 +22,79 @@ public class EventoEntity extends BaseEntity implements Serializable {
  
 }
     //Atributos
+     /**
+      * Representa el id del evento y es la llave primaria de la bases de datos
+      */
      @javax.persistence.Id
     private Long id;
-     
+     /**
+      * Representa el nombre de un evento
+      */
     private String nombre;
+    /**
+     * Representa la descripcion de un evento
+     */
     private String descripcion;
+    /**
+     * Representa la fecha de inicio del evento
+     */
     private Date fechaInicio;
+    /**
+     * Representa la fecha de fin de un evento
+     */
     private Date fechaFin;
+    /**
+     * Representa los detalles de un evento
+     */
     private String detalles;
+     /**
+     * Representa la categoria de un evento
+     */
     private Categoria categoria;
+     /**
+     * Representa la privacidad de un evento
+     */
     private boolean privado;
+     /**
+     * Representa La capacidad maxima de un evento
+     */
     private int capacidadMaxima;
+     /**
+     * Representa las boletas disponibles  de un evento
+     */
     private int boletasDisponibles;
     
+     /**
+     * Representa los contenido multimedia de un evento
+     */
      @javax.persistence.OneToMany(
         mappedBy = "evento",
         fetch = javax.persistence.FetchType.LAZY,
                 cascade = CascadeType.ALL
     )
     List<MultimediaEntity> multimedia;
-    
+     
+      /**
+     * Representa la lista de patrocinadores de un evento
+     */
     @javax.persistence.ManyToMany(
         mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY
            )
     List<PatrocinadorEntity> patrocinadores;
     
+     /**
+     * Representa la lista de organizadores de un evento
+     */
     @javax.persistence.ManyToMany(
         mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY
            )
     List<OrganizadorEntity> organizadores;
     
+     /**
+     * Representa la agenda de un evento
+     */
     @javax.persistence.OneToOne(
      mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY,
@@ -61,6 +102,9 @@ public class EventoEntity extends BaseEntity implements Serializable {
            )
     AgendaEntity agenda;
     
+     /**
+     * Representa la lista de usuarios  de un evento
+     */
      @javax.persistence.ManyToMany(
         mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY

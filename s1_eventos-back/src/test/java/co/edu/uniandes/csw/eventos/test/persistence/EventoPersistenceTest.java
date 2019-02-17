@@ -11,11 +11,13 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -28,17 +30,40 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class EventoPersistenceTest {
     
+    /**
+     * Inyección de la dependencia a la clase EventoPersistence cuyos métodos
+     * se van a probar.
+     */
+    
     @Inject
     private EventoPersistence ep;
     
+    /**
+     * Contexto de Persistencia que se va a utilizar para acceder a la Base de
+     * datos por fuera de los métodos que se están probando.
+     */
     @PersistenceContext
    private EntityManager em;
     
-    private List<EventoEntity> data;
-    
+    /**
+     * Variable para martcar las transacciones del em anterior cuando se
+     * crean/borran datos para las pruebas.
+     */
      @Inject
        UserTransaction utx;
-   
+     
+     /**
+      * Collecion de Objetos de la clase que se va a probar
+      */
+    private List<EventoEntity> data;
+    
+
+    /**
+     * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
+     * embebido. El jar contiene las clases de EventoEntity, el descriptor de la
+     * base de datos y el archivo beans.xml para resolver la inyección de
+     * dependencias.
+     */
             
             @Deployment
     public static JavaArchive createDeployment() {
@@ -92,7 +117,9 @@ public class EventoPersistenceTest {
     
     
     
-    //
+    /**
+     * test de crear un objeto de EventoEntity
+     */
     
   @Test
 public void createEventoEntityTest() {
@@ -109,6 +136,10 @@ public void createEventoEntityTest() {
    Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
 }
 
+
+    /**
+     * test de obtener todos los objetos de tipo  EventoEntity
+     */
 @Test
 public void findAllEventoEntityTest() {
     List<EventoEntity> list = ep.findAll();
@@ -124,6 +155,11 @@ public void findAllEventoEntityTest() {
     }
     
 }
+
+
+    /**
+     * test de obtener un objeto de EventoEntity
+     */
 @Test
 public void findEventoEntityTest() {
     EventoEntity entity = data.get(0);
@@ -132,8 +168,12 @@ public void findEventoEntityTest() {
     Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
 }
 
+
+    /**
+     * test de actualizar un objeto de EventoEntity
+     */
 @Test
-public void updateXYZTest() {
+public void updateEventoEntityTest() {
     EventoEntity entity = data.get(0);
     PodamFactory factory = new PodamFactoryImpl();
     EventoEntity newEntity = factory.manufacturePojo(EventoEntity.class);
@@ -147,4 +187,17 @@ public void updateXYZTest() {
 
     Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
 }
+
+ /**
+     * test de borrar un objeto de EventoEntity
+     */
+
+@Test
+public void deleteEventoEntityTest() {
+    EventoEntity entity = data.get(0);
+    ep.delete(entity.getId());
+    EventoEntity deleted = em.find(EventoEntity.class, entity.getId());
+    Assert.assertNull(deleted);
+}
+    
 }

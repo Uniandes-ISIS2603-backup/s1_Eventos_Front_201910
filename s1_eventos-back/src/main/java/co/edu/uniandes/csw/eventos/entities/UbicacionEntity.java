@@ -15,11 +15,29 @@ import javax.persistence.Entity;
 @Entity
 public class UbicacionEntity extends BaseEntity implements Serializable {
     
+    /**
+     * Representa el id de una ubicacion , es la llave principal de la base de datos
+     */
+    @javax.persistence.Id
+    private Long id;
+    
+     /**
+     * Representa la latitud de una ubicacion
+     */
      private double latitud;
+     /**
+     * Representa la longitud de una ubicacion
+     */
     private double longitud;
+    /**
+     * Representa el edificio de una ubicacion
+     */
     private String edificio;
+    /**
+     * Representa el salon de una ubicacion
+     */
     private String salon;
-    private boolean nueva;
+     
     
 
     /**
@@ -78,19 +96,7 @@ public class UbicacionEntity extends BaseEntity implements Serializable {
         this.salon = salon;
     }
 
-    /**
-     * @return the nueva
-     */
-    public boolean isNueva() {
-        return nueva;
-    }
-
-    /**
-     * @param nueva the nueva to set
-     */
-    public void setNueva(boolean nueva) {
-        this.nueva = nueva;
-    }
+    
     
     
 }
