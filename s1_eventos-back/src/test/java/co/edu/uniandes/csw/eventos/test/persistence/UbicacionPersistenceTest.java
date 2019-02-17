@@ -5,21 +5,17 @@
  */
 package co.edu.uniandes.csw.eventos.test.persistence;
 
-import co.edu.uniandes.csw.eventos.entities.EventoEntity;
 import co.edu.uniandes.csw.eventos.entities.UbicacionEntity;
-import co.edu.uniandes.csw.eventos.persistence.EventoPersistence;
 import co.edu.uniandes.csw.eventos.persistence.UbicacionPersistence;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
