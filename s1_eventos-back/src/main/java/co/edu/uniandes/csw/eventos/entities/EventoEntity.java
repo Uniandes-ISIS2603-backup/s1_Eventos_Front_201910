@@ -67,12 +67,12 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa los contenido multimedia de un evento
      */
-     @javax.persistence.OneToMany(
-        mappedBy = "evento",
-        fetch = javax.persistence.FetchType.LAZY,
-                cascade = CascadeType.ALL
-    )
-    List<MultimediaEntity> multimedia;
+ //    @javax.persistence.OneToMany(
+ //       mappedBy = "evento",
+ //       fetch = javax.persistence.FetchType.LAZY,
+ //               cascade = CascadeType.ALL
+ //   )
+ //   List<MultimediaEntity> multimedia;
      
       /**
      * Representa la lista de patrocinadores de un evento
@@ -95,21 +95,21 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa la agenda de un evento
      */
-    @javax.persistence.OneToOne(
-     mappedBy ="evento",
-        fetch = javax.persistence.FetchType.LAZY,
-        cascade = CascadeType.ALL
-           )
-    AgendaEntity agenda;
+ //   @javax.persistence.OneToOne(
+ //    mappedBy ="evento",
+ //       fetch = javax.persistence.FetchType.LAZY,
+ //       cascade = CascadeType.ALL
+ //          )
+ //   AgendaEntity agenda;
     
      /**
      * Representa la lista de usuarios  de un evento
      */
-     @javax.persistence.ManyToMany(
-        mappedBy ="evento",
-        fetch = javax.persistence.FetchType.LAZY
-           )
-    List<UsuarioEntity> usuarios;
+ //    @javax.persistence.ManyToMany(
+ //       mappedBy ="evento",
+ //       fetch = javax.persistence.FetchType.LAZY
+ //          )
+ //   List<UsuarioEntity> usuarios;
     
     
     
