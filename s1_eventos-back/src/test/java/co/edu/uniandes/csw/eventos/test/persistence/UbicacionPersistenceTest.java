@@ -12,6 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -20,7 +21,6 @@ import org.junit.Before;
 import org.junit.Test;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
-import javax.transaction.UserTransaction;
 
 
 /**
@@ -50,7 +50,7 @@ public class UbicacionPersistenceTest {
      * crean/borran datos para las pruebas.
      */
     @Inject
-    UserTransaccion utx;
+       UserTransaction utx;
     
     /**
       * Collecion de Objetos de la clase que se va a probar
