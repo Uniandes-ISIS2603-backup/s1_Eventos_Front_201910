@@ -78,7 +78,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
      * Representa la lista de patrocinadores de un evento
      */
     @javax.persistence.ManyToMany(
-        mappedBy ="evento",
+        mappedBy ="eventos",
         fetch = javax.persistence.FetchType.LAZY
            )
     List<PatrocinadorEntity> patrocinadores;
@@ -87,7 +87,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
      * Representa la lista de organizadores de un evento
      */
     @javax.persistence.ManyToMany(
-        mappedBy ="evento",
+        mappedBy ="eventos",
         fetch = javax.persistence.FetchType.LAZY
            )
     List<OrganizadorEntity> organizadores;
