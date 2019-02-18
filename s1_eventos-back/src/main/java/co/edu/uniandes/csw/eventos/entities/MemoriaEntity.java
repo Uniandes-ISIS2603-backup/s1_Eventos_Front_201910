@@ -5,10 +5,31 @@
  */
 package co.edu.uniandes.csw.eventos.entities;
 
+import java.io.Serializable;
+
 /**
  *
- * @author estudiante
+ * @author Nicolas Diaz
  */
-public class MemoriaEntity {
+public class MemoriaEntity extends BaseEntity implements Serializable {
+    
+    private String urlImagen;
+
+    public MemoriaEntity(){
+        
+    }
+    /**
+     * @return the urlImagen
+     */
+    public String getUrlImagen() {
+        return urlImagen;
+    }
+
+    /**
+     * @param urlImagen the urlImagen to set
+     */
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
+    }
     
 }
