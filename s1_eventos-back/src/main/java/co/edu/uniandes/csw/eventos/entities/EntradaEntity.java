@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.eventos.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import java.util.Date;
+import uk.co.jemos.podam.common.PodamExclude;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -16,13 +18,50 @@ import java.util.Date;
 
 @Entity
 public class EntradaEntity extends BaseEntity implements Serializable{
+    
+      @PodamExclude
+      @ManyToOne
+      private UsuarioEntity usuario;
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
+    /**
+     * Codigo QR de la entrada
+     */
     private String QR;
+    
+    /**
+     * Descripcion de la entrada
+     */
     private String descripcion;
+    /**
+     * Precio de la entrada
+     */
     private int precio;
+    /**
+     * Locacion de la entrada
+     */
     private String locacion;
+    /**
+     * Numero de la entrada
+     */
     private int numero;
+    /**
+     * estado disponibilidad de la entrada
+     */
     private boolean disponible;
+    /**
+     * estado de checkIn de la entrada
+     */
     private boolean checkIn;
+    /**
+     * estado de la reserva de la entrada
+     */
     private boolean reservada;
     
     /**

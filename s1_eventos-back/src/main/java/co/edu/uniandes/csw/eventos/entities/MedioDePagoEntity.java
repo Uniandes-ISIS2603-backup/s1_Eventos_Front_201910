@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.eventos.entities;
 import java.util.Date;
 import javax.persistence.Entity;
 import java.io.Serializable;
+import uk.co.jemos.podam.common.PodamExclude;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -15,16 +17,25 @@ import java.io.Serializable;
 @Entity
 public class MedioDePagoEntity extends BaseEntity implements Serializable {
     
+     @PodamExclude
+     @ManyToOne
+     private UsuarioEntity usuario;
     /**
      * id del medio de pago
      */
     private int iden;
     
     /**
-     * 
+     * nombre del titular del medio de pago
      */
     private String titular;
+    /**
+     * codigo de seguridad del medio de pago
+     */
     private int codigoDeSeguridad;
+    /**
+     * fecha de expiracion del medio de pago
+     */
     private Date fechaDeExpiracion;
     
     /**
@@ -71,15 +82,23 @@ public class MedioDePagoEntity extends BaseEntity implements Serializable {
      * Retorna el codigo 
      * @return codigoDeCelular
      */
-    public int getCodigoDeCelular() {
+    public int getCodigoDeSeguridad() {
         return codigoDeSeguridad;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 
     /**
      * Modifica el codigo de celular
      * @param codigoDeSeguridad 
      */
-    public void setCodigoDeCelular(int codigoDeSeguridad) {
+    public void setCodigoDeSeguridad(int codigoDeSeguridad) {
         this.codigoDeSeguridad = codigoDeSeguridad;
     }
 
