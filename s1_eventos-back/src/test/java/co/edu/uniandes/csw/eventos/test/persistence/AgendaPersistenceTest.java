@@ -32,7 +32,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 public class AgendaPersistenceTest {
     
 //    @Inject
-//    private agendaPersistence agendaPersistence;
+//    private AgendaPersistence agendaPersistence;
 //
 //    @PersistenceContext
 //    private EntityManager em;
@@ -50,8 +50,8 @@ public class AgendaPersistenceTest {
 //    @Deployment
 //    public static JavaArchive createDeployment() {
 //        return ShrinkWrap.create(JavaArchive.class)
-//                .addPackage(agendaEntity.class.getPackage())
-//                .addPackage(agendaPersistence.class.getPackage())
+//                .addPackage(AgendaEntity.class.getPackage())
+//                .addPackage(AgendaPersistence.class.getPackage())
 //                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
 //                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
 //    }
@@ -91,7 +91,7 @@ public class AgendaPersistenceTest {
 //    private void insertData() {
 //        PodamFactory factory = new PodamFactoryImpl();
 //        for (int i = 0; i < 3; i++) {
-//            agendaEntity entity = factory.manufacturePojo(agendaEntity.class);
+//            AgendaEntity entity = factory.manufacturePojo(AgendaEntity.class);
 //
 //            em.persist(entity);
 //            data.add(entity);
@@ -104,12 +104,12 @@ public class AgendaPersistenceTest {
 //    @Test
 //    public void createagendaTest() {
 //        PodamFactory factory = new PodamFactoryImpl();
-//        agendaEntity newEntity = factory.manufacturePojo(agendaEntity.class);
-//        agendaEntity result = agendaPersistence.create(newEntity);
+//        AgendaEntity newEntity = factory.manufacturePojo(AgendaEntity.class);
+//        AgendaEntity result = agendaPersistence.create(newEntity);
 //
 //        Assert.assertNotNull(result);
 //
-//        agendaEntity entity = em.find(agendaEntity.class, result.getId());
+//        AgendaEntity entity = em.find(AgendaEntity.class, result.getId());
 //
 //        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
 //    }
@@ -119,11 +119,11 @@ public class AgendaPersistenceTest {
 //     */
 //    @Test
 //    public void getagendasTest() {
-//        List<agendaEntity> list = agendaPersistence.findAll();
+//        List<AgendaEntity> list = agendaPersistence.findAll();
 //        Assert.assertEquals(data.size(), list.size());
-//        for (agendaEntity ent : list) {
+//        for (AgendaEntity ent : list) {
 //            boolean found = false;
-//            for (agendaEntity entity : data) {
+//            for (AgendaEntity entity : data) {
 //                if (ent.getId().equals(entity.getId())) {
 //                    found = true;
 //                }
@@ -137,8 +137,8 @@ public class AgendaPersistenceTest {
 //     */
 //    @Test
 //    public void getagendaTest() {
-//        agendaEntity entity = data.get(0);
-//        agendaEntity newEntity = agendaPersistence.find(entity.getId());
+//        AgendaEntity entity = data.get(0);
+//        AgendaEntity newEntity = agendaPersistence.find(entity.getId());
 //        Assert.assertNotNull(newEntity);
 //        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
 //    }
@@ -148,15 +148,15 @@ public class AgendaPersistenceTest {
 //     */
 //    @Test
 //    public void updateagendaTest() {
-//        agendaEntity entity = data.get(0);
+//        AgendaEntity entity = data.get(0);
 //        PodamFactory factory = new PodamFactoryImpl();
-//        agendaEntity newEntity = factory.manufacturePojo(agendaEntity.class);
+//        AgendaEntity newEntity = factory.manufacturePojo(AgendaEntity.class);
 //
 //        newEntity.setId(entity.getId());
 //
 //        agendaPersistence.update(newEntity);
 //
-//        agendaEntity resp = em.find(agendaEntity.class, entity.getId());
+//        AgendaEntity resp = em.find(AgendaEntity.class, entity.getId());
 //
 //        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
 //    }
@@ -166,9 +166,9 @@ public class AgendaPersistenceTest {
 //     */
 //    @Test
 //    public void deleteagendaTest() {
-//        agendaEntity entity = data.get(0);
+//        AgendaEntity entity = data.get(0);
 //        agendaPersistence.delete(entity.getId());
-//        agendaEntity deleted = em.find(agendaEntity.class, entity.getId());
+//        AgendaEntity deleted = em.find(AgendaEntity.class, entity.getId());
 //        Assert.assertNull(deleted);
 //    }
     
