@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -78,19 +79,17 @@ public class EventoEntity extends BaseEntity implements Serializable {
      * Representa la lista de patrocinadores de un evento
      */
     @javax.persistence.ManyToMany(
-        mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY
            )
-    List<PatrocinadorEntity> patrocinadores;
+    List<PatrocinadorEntity> patrocinadores = new ArrayList<>();
     
      /**
      * Representa la lista de organizadores de un evento
      */
     @javax.persistence.ManyToMany(
-        mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY
            )
-    List<OrganizadorEntity> organizadores;
+    List<OrganizadorEntity> organizadores = new ArrayList<>();
     
      /**
      * Representa la agenda de un evento

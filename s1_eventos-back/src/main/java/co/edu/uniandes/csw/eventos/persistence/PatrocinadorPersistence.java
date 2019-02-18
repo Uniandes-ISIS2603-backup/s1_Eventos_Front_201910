@@ -14,7 +14,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author estudiante
+ * @author Paula Molina 
  */
 @Stateless
 public class PatrocinadorPersistence {
