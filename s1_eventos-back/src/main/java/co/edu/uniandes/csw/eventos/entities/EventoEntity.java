@@ -81,7 +81,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
     @javax.persistence.ManyToMany(
         fetch = javax.persistence.FetchType.LAZY
            )
-    List<PatrocinadorEntity> patrocinadores = new ArrayList<>();
+    private List<PatrocinadorEntity> patrocinadores = new ArrayList<>();
     
      /**
      * Representa la lista de organizadores de un evento
@@ -89,7 +89,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
     @javax.persistence.ManyToMany(
         fetch = javax.persistence.FetchType.LAZY
            )
-    List<OrganizadorEntity> organizadores = new ArrayList<>();
+    private List<OrganizadorEntity> organizadores = new ArrayList<>();
     
      /**
      * Representa la agenda de un evento
@@ -239,5 +239,33 @@ public class EventoEntity extends BaseEntity implements Serializable {
      */
     public void setBoletasDisponibles(int boletasDisponibles) {
         this.boletasDisponibles = boletasDisponibles;
+    }
+    
+    /**
+     * @return the patrocinadores
+     */
+    public List<PatrocinadorEntity> getPatrocinadores() {
+        return patrocinadores;
+    }
+
+    /**
+     * @param patrocinadores the patrocinadores to set
+     */
+    public void setPatrocinadores(List<PatrocinadorEntity> patrocinadores) {
+        this.patrocinadores = patrocinadores;
+    }
+
+    /**
+     * @return the organizadores
+     */
+    public List<OrganizadorEntity> getOrganizadores() {
+        return organizadores;
+    }
+
+    /**
+     * @param organizadores the organizadores to set
+     */
+    public void setOrganizadores(List<OrganizadorEntity> organizadores) {
+        this.organizadores = organizadores;
     }
 }
