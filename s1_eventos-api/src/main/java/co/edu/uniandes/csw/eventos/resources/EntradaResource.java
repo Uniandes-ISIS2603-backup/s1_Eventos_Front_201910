@@ -32,7 +32,7 @@ public class EntradaResource {
     private static final Logger LOGGER = Logger.getLogger(EntradaResource.class.getName());
     
     @POST
-   public EntradaDTO createEvento(EntradaDTO entrada)
+   public EntradaDTO createEntrada(EntradaDTO entrada)
    {
    return entrada;
    }

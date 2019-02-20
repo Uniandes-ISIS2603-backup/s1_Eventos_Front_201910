@@ -5,50 +5,53 @@
  */
 package co.edu.uniandes.csw.eventos.persistence;
 import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
+import java.util.List;
 import java.util.logging.Logger;
-import javax.ejb.*;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.*;
+import co.edu.uniandes.csw.eventos.entities.EntradaEntity;
+
 /**
  *
  * @author estudiante
  */
+
 @Stateless
-public class MedioDePagoPersistence {
+public class EntradaPersistence {
     
-    private static final Logger LOGGER = Logger.getLogger(MedioDePagoPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(EntradaPersistence.class.getName());
     
-    @PersistenceContext (unitName="eventosPU")
+    @PersistenceContext(unitName="eventosPU")
     protected EntityManager em;
     
-    public MedioDePagoEntity create(MedioDePagoEntity entity)
+    public EntradaPersistence create(EntradaPersistence entity)
     {
         em.persist(entity);
         return entity;
     }
     
-    public void delete(Long id)
+     public void delete(Long id)
     {
-        MedioDePagoEntity eliminar = find(id);
+        EntradaPersistence eliminar = find(id);
         em.remove(eliminar);
     }
-    
-    public MedioDePagoEntity find(long id)
+     
+     public EntradaPersistence find(long id)
     {
-        return em.find(MedioDePagoEntity.class, id);
+        return em.find(EntradaPersistence.class, id);
     }
-    
-    public List<MedioDePagoEntity> findAll()
+     
+     public List<EntradaEntity> findAll()
     {
-        TypedQuery query = em.createQuery("select u from EventoEntity u",MedioDePagoEntity.class);
+        TypedQuery query = em.createQuery("select u from EventoEntity u",EntradaEntity.class);
         return query.getResultList();
     }
     
-    public void update(MedioDePagoEntity entity)
+     public void update(EntradaEntity entity)
     {
         em.refresh(entity);
     }
-    
+     
 }
