@@ -6,10 +6,13 @@
 package co.edu.uniandes.csw.eventos.resources;
 
 import co.edu.uniandes.csw.eventos.dtos.PatrocinadorDTO;
+import co.edu.uniandes.csw.eventos.ejb.PatrocinadorLogic;
+import co.edu.uniandes.csw.eventos.entities.PatrocinadorEntity;
 import co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -32,10 +35,17 @@ public class PatrociandorResource {
     
     private static final Logger LOGGER = Logger.getLogger(OrganizadorResource.class.getName());
 
+    @Inject 
+    private PatrocinadorLogic patrocinadorLogic;
+    
     @POST
     public PatrocinadorDTO createPatrocinador(PatrocinadorDTO patrocinador) throws BusinessLogicException {
         
-        return patrocinador;
+        PatrocinadorEntity patrocinadorEntity = patrocinador.toEntity();
+        PatrocinadorEntity nuevoPatrocinadorEntity = patrocinadorLogic.createPatrocinador(patrocinadorEntity);
+        PatrocinadorDTO nuevoOrganizadorDTO = new PatrocinadorDTO(nuevoPatrocinadorEntity);
+        
+        return nuevoOrganizadorDTO;
     }
 
     @GET
