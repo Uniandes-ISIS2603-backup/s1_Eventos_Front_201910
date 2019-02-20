@@ -55,7 +55,7 @@ public class OrganizadorLogic {
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del organizador");
         OrganizadorEntity newOrganizadorEntity = organizadorPersistence.create(organizadorEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de creación del autor");
+        LOGGER.log(Level.INFO, "Termina proceso de creación del organizador");
         return newOrganizadorEntity;
     }
     
@@ -106,7 +106,7 @@ public class OrganizadorLogic {
      * Elimina una instancia de Organizador de la base de datos.
      *
      * @param organizadorId Identificador de la instancia a eliminar.
-     * @throws BusinessLogicException si el autor tiene libros asociados.
+     * @throws BusinessLogicException si el autor tiene eventos asociados.
      */
     public void deleteOrganizador(Long organizadorId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el organizador con id = {0}", organizadorId);
