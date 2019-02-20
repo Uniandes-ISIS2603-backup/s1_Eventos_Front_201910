@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 
 @Path("calificacion")

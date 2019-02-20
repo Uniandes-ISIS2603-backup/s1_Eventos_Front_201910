@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 @Entity
 public class MedioDePagoEntity extends BaseEntity implements Serializable {

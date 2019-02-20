@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 public class MedioDePagoDTO {
     

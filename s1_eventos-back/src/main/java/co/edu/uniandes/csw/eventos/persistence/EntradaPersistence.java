@@ -15,7 +15,7 @@ import co.edu.uniandes.csw.eventos.entities.EntradaEntity;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 
 @Stateless

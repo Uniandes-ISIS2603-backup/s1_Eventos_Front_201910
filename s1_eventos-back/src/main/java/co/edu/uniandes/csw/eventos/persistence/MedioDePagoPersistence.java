@@ -13,7 +13,7 @@ import javax.persistence.TypedQuery;
 import java.util.*;
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 @Stateless
 public class MedioDePagoPersistence {

@@ -15,7 +15,7 @@ import javax.ws.rs.*;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 
 @Path("medioDePago")

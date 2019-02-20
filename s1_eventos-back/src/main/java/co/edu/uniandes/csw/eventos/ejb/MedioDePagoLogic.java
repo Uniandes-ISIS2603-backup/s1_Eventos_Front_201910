@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 @Stateless
 public class MedioDePagoLogic {
