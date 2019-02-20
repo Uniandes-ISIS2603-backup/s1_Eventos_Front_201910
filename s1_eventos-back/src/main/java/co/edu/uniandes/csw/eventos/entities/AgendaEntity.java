@@ -29,7 +29,9 @@ public class AgendaEntity extends BaseEntity implements Serializable{
     List<InvitadoEspecialEntity> invitadosEspeciales = new ArrayList<>();
     
     private String nombre;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date horaInicio;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date rango;
     private String actividad;
      

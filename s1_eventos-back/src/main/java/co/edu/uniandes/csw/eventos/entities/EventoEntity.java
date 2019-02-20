@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,11 +24,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
  
 }
     //Atributos
-     /**
-      * Representa el id del evento y es la llave primaria de la bases de datos
-      */
-     @javax.persistence.Id
-    private Long id;
+   
      /**
       * Representa el nombre de un evento
       */
@@ -39,10 +36,12 @@ public class EventoEntity extends BaseEntity implements Serializable {
     /**
      * Representa la fecha de inicio del evento
      */
+     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaInicio;
     /**
      * Representa la fecha de fin de un evento
      */
+     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaFin;
     /**
      * Representa los detalles de un evento
@@ -94,12 +93,11 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa la agenda de un evento
      */
- //   @javax.persistence.OneToOne(
- //    mappedBy ="evento",
- //       fetch = javax.persistence.FetchType.LAZY,
- //       cascade = CascadeType.ALL
- //          )
- //   AgendaEntity agenda;
+    @javax.persistence.OneToMany(
+       fetch = javax.persistence.FetchType.LAZY,
+        cascade = CascadeType.ALL
+          )
+    List<AgendaEntity> agenda;
     
      /**
      * Representa la lista de usuarios  de un evento
@@ -268,4 +266,13 @@ public class EventoEntity extends BaseEntity implements Serializable {
     public void setOrganizadores(List<OrganizadorEntity> organizadores) {
         this.organizadores = organizadores;
     }
+
+    public List<AgendaEntity> getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(List<AgendaEntity> agenda) {
+        this.agenda = agenda;
+    }
+    
 }
