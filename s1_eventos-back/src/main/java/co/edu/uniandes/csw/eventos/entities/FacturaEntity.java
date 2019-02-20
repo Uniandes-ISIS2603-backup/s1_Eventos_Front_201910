@@ -19,9 +19,9 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class FacturaEntity extends BaseEntity implements Serializable{
 
-//    @PodamExclude
-//    @ManyToMany(mappedBy = "usuarios")
-//    private List<UsuarioEntity> usuarios = new ArrayList<>();
+    @PodamExclude
+    @ManyToOne
+    private UsuarioEntity usuario = new UsuarioEntity();
      
     private String nombre;
     private Date fecha;
@@ -68,17 +68,17 @@ public class FacturaEntity extends BaseEntity implements Serializable{
         this.iva = iva;
     }
     
-//    /**
-//     * @return the Usuarios
-//     */
-//    public List<UsuarioEntity> getUsuarios() {
-//        return usuarios;
-//    }
-//
-//    /**
-//     * @param Usuarios the Usuarios to set
-//     */
-//    public void setUsuarios(List<UsuarioEntity> Usuarios) {
-//        this.usuarios = Usuarios;
-//    }
+     /**
+      * @return the Usuarios
+      */
+     public UsuarioEntity getUsuario() {
+         return usuario;
+     }
+ 
+     /**
+      * @param Usuarios the Usuarios to set
+      */
+     public void setUsuario(UsuarioEntity Usuarios) {
+         this.usuario = Usuarios;
+     }
 }
