@@ -26,7 +26,7 @@ public class EntradaPersistence {
     @PersistenceContext(unitName="eventosPU")
     protected EntityManager em;
     
-    public EntradaPersistence create(EntradaPersistence entity)
+    public EntradaEntity create(EntradaEntity entity)
     {
         em.persist(entity);
         return entity;
@@ -34,13 +34,13 @@ public class EntradaPersistence {
     
      public void delete(Long id)
     {
-        EntradaPersistence eliminar = find(id);
+        EntradaEntity eliminar = find(id);
         em.remove(eliminar);
     }
      
-     public EntradaPersistence find(long id)
+     public EntradaEntity find(long id)
     {
-        return em.find(EntradaPersistence.class, id);
+        return em.find(EntradaEntity.class, id);
     }
      
      public List<EntradaEntity> findAll()

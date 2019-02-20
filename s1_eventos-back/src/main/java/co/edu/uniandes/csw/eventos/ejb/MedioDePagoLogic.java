@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.eventos.ejb;
 
 
 import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
+import co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.eventos.persistence.MedioDePagoPersistence;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,11 +26,33 @@ public class MedioDePagoLogic {
     @Inject
     private MedioDePagoPersistence persistencia;
     
-    public MedioDePagoEntity createMedioDePago(MedioDePagoEntity medioDePagoEntity)
+    public MedioDePagoEntity createMedioDePago(MedioDePagoEntity medioDePagoEntity) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO,"Inicia el proceso de creacion de la editorial");
-       
-        
-        return null;
+        //LOGGER.log(Level.INFO,"Inicia el proceso de creacion de la editorial");
+       if(persistencia.find(medioDePagoEntity.getId())!=null)
+           throw new BusinessLogicException("Ya existe un medio de pago con el id \""+medioDePagoEntity.getId() + "\"");
+       persistencia.create(medioDePagoEntity);
+        return medioDePagoEntity;
     }
+    
+    public void deleteMedioDePago(Long medioDePagoId)
+    {
+        persistencia.delete(medioDePagoId);
+    }
+    
+    public void updateMeioDePago(MedioDePagoEntity medioDePago) throws BusinessLogicException
+    {
+        if(persistencia.find(medioDePago.getId())==null)
+           throw new BusinessLogicException("No existe un medio de pago con el id \""+medioDePago.getId() + "\"");
+    }
+    
+    public MedioDePagoEntity find(Long medioDePagoId)
+    {
+        return persistencia.find(medioDePagoId);
+    }
+    
+    //-----------------------CREO QUE FALTA FIND ALL----------------------------//
+   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
+   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
+   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
 }

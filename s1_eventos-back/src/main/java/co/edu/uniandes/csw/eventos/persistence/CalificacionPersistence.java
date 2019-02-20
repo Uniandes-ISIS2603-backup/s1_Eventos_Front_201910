@@ -27,7 +27,7 @@ public class CalificacionPersistence {
     protected EntityManager em;
     
     
-    public CalificacionPersistence create(CalificacionPersistence entity)
+    public CalificacionEntity create(CalificacionEntity entity)
     {
         em.persist(entity);
         return entity;
@@ -35,13 +35,13 @@ public class CalificacionPersistence {
     
     public void delete(Long id)
     {
-        CalificacionPersistence eliminar = find(id);
+        CalificacionEntity eliminar = find(id);
         em.remove(eliminar);
     }
     
-    public CalificacionPersistence find(long id)
+    public CalificacionEntity find(long id)
     {
-        return em.find(CalificacionPersistence.class, id);
+        return em.find(CalificacionEntity.class, id);
     }
     
     public List<EntradaEntity> findAll()

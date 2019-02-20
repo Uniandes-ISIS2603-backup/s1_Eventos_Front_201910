@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.eventos.resources;
 
 import co.edu.uniandes.csw.eventos.dtos.MedioDePagoDTO;
+import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
 import java.util.logging.Logger;
 import java.util.*;
 import javax.enterprise.context.RequestScoped;
@@ -27,6 +28,7 @@ public class MedioDePagoResource {
 
         public MedioDePagoDTO createMedioDePago(MedioDePagoDTO medioDePago)
     {
+        
         return medioDePago;
     }
     
