@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.eventos.dtos;
 
+import co.edu.uniandes.csw.eventos.entities.CalificacionEntity;
+import co.edu.uniandes.csw.eventos.entities.UsuarioEntity;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -30,7 +32,7 @@ public class EventoDTO implements Serializable{
     private int boletasDisponibles;
     private long id;
     
-    public EventoDTO(){
+    public EventoDTO(UsuarioEntity usuarioEntity){
         
     }
 
