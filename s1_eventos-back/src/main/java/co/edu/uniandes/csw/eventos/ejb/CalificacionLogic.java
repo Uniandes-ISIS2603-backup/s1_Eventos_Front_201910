@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.eventos.ejb;
 import co.edu.uniandes.csw.eventos.entities.CalificacionEntity;
 import co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.eventos.persistence.CalificacionPersistence;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -43,7 +44,6 @@ public class CalificacionLogic {
        if(persistence.find(calificacion.getId())==null)
           throw new BusinessLogicException("No existe una calificacion con el id \""+calificacion.getId() + "\"");
       persistence.update(calificacion);
-      
    }
    
    public CalificacionEntity findCalificacion(Long id)
@@ -51,8 +51,13 @@ public class CalificacionLogic {
        return persistence.find(id);
    }
    
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
+   public CalificacionEntity findByName(String name)
+   {
+       return persistence.findByName(name);
+   }
+   
+   public List<CalificacionEntity> findAll()
+   {
+       return persistence.findAll();
+   }
 }

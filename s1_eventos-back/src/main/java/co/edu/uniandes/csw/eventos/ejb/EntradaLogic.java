@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.eventos.entities.EntradaEntity;
 import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
 import co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.eventos.persistence.EntradaPersistence;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -50,10 +51,14 @@ public class EntradaLogic {
         return persistence.find(entradaId);
     }
     
-    //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
+    public EntradaEntity findByName(String nombre)
+    {
+        return persistence.findByName(nombre);
+    }
     
+    public List<EntradaEntity> findAll()
+    {
+        return persistence.findAll();
+    }
     
 }

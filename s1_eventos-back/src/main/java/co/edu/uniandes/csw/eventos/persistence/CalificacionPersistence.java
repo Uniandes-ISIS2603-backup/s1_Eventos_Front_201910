@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import co.edu.uniandes.csw.eventos.entities.CalificacionEntity;
+import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
 
 /**
  *
@@ -44,7 +45,7 @@ public class CalificacionPersistence {
         return em.find(CalificacionEntity.class, id);
     }
     
-    public List<EntradaEntity> findAll()
+    public List<CalificacionEntity> findAll()
     {
         TypedQuery query = em.createQuery("select u from EventoEntity u",CalificacionEntity.class);
         return query.getResultList();
@@ -53,5 +54,10 @@ public class CalificacionPersistence {
     public void update(CalificacionEntity entity)
     {
         em.refresh(entity);
+    }
+    
+    public CalificacionEntity findByName(String nombre)
+    {
+        return em.find(CalificacionEntity.class,nombre);
     }
 }

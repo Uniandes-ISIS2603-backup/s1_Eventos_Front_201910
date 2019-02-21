@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.eventos.dtos;
+import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
 import java.util.Date;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
@@ -32,6 +35,16 @@ public class MedioDePagoDTO {
      */
     private Date fechaDeExpiracion;
 
+    public MedioDePagoDTO(MedioDePagoEntity medioDePagoEntity)
+    {
+        if(medioDePagoEntity!=null)
+        {
+            this.numero=medioDePagoEntity.getNumero();
+            this.titular=medioDePagoEntity.getTitular();
+            this.codigoDeSeguridad=medioDePagoEntity.getCodigoDeSeguridad();
+            this.fechaDeExpiracion=medioDePagoEntity.getFechaDeExpiracion();
+        }
+    }
     /**
      * reotrna el numero del medio de pago
      * @return numero
@@ -96,5 +109,19 @@ public class MedioDePagoDTO {
         this.fechaDeExpiracion = fechaDeExpiracion;
     }
     
+    public MedioDePagoEntity toEntity()
+    {
+        MedioDePagoEntity medioDePagoEntity = new MedioDePagoEntity();
+        medioDePagoEntity.setNumero(this.numero);
+        medioDePagoEntity.setTitular(this.titular);
+        medioDePagoEntity.setFechaDeExpiracion(this.fechaDeExpiracion);
+        medioDePagoEntity.setCodigoDeSeguridad(this.codigoDeSeguridad);
+        return medioDePagoEntity;
+    }
+    
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
     
 }

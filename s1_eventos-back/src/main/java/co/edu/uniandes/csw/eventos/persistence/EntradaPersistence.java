@@ -54,4 +54,9 @@ public class EntradaPersistence {
         em.refresh(entity);
     }
      
+     public EntradaEntity findByName(String nombre)
+     {
+         return em.find(EntradaEntity.class,nombre);
+     }
+     
 }

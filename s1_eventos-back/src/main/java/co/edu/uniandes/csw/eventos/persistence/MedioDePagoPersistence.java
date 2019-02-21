@@ -40,6 +40,11 @@ public class MedioDePagoPersistence {
         return em.find(MedioDePagoEntity.class, id);
     }
     
+    public MedioDePagoEntity findByName(String nombre)
+    {
+        return em.find(MedioDePagoEntity.class,nombre);
+    }
+    
     public List<MedioDePagoEntity> findAll()
     {
         TypedQuery query = em.createQuery("select u from EventoEntity u",MedioDePagoEntity.class);

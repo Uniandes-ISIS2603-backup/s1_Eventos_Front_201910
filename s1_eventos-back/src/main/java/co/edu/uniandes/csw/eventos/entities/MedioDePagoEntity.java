@@ -23,7 +23,7 @@ public class MedioDePagoEntity extends BaseEntity implements Serializable {
     /**
      * id del medio de pago
      */
-    private int iden;
+    private int numero;
     
     /**
      * nombre del titular del medio de pago
@@ -50,16 +50,16 @@ public class MedioDePagoEntity extends BaseEntity implements Serializable {
      * Retorna el id
      * @return id
      */
-    public int getIden() {
-        return iden;
+    public int getNumero() {
+        return numero;
     }
 
     /**
      * Modifica el id
      * @param id 
      */
-    public void setId(int id) {
-        this.iden = id;
+    public void setNumero(int id) {
+        this.numero = id;
     }
 
     /**

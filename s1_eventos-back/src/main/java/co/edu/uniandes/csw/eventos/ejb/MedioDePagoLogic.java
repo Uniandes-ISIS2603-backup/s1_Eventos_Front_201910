@@ -9,6 +9,7 @@ package co.edu.uniandes.csw.eventos.ejb;
 import co.edu.uniandes.csw.eventos.entities.MedioDePagoEntity;
 import co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.eventos.persistence.MedioDePagoPersistence;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -51,8 +52,14 @@ public class MedioDePagoLogic {
         return persistencia.find(medioDePagoId);
     }
     
-    //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
-   //-----------------------CREO QUE FALTA FIND ALL----------------------------//
+    public MedioDePagoEntity findByName(String nombre)
+    {
+        return persistencia.findByName(nombre);
+    }
+    
+    public List<MedioDePagoEntity> findAll()
+    {
+        return persistencia.findAll();
+    }
+    
 }
