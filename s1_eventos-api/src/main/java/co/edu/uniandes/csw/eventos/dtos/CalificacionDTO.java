@@ -18,7 +18,7 @@ public class CalificacionDTO implements Serializable {
     /*
         Atributo de tipo int que indica la cantidad de estrellas de la calificacion
     */
-   
+   //probando git
     private int estrellas;
     /*
         Atributo de  tipo String que contiene el comentario de la calificacion
