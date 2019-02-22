@@ -70,7 +70,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
         fetch = javax.persistence.FetchType.LAZY,
                 cascade = CascadeType.ALL
     )
-    List<MultimediaEntity> multimedia;
+    private List<MultimediaEntity> multimedia =new ArrayList<MultimediaEntity>();
      
       /**
      * Representa la lista de patrocinadores de un evento
