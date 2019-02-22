@@ -6,7 +6,12 @@
 package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -19,7 +24,14 @@ public class MultimediaEntity extends BaseEntity implements Serializable{
     private String url;
     private String nombre;
     private String tipo;
+    
+    
+     @PodamExclude
+    @ManyToOne
+    private EventoEntity evento;//=new EventoEntity();
+     
 
+   
     /**
      * Constructor por defecto
      */
@@ -65,5 +77,19 @@ public class MultimediaEntity extends BaseEntity implements Serializable{
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    /**
+     * @return the evento
+     */
+    public EventoEntity getEvento() {
+        return evento;
+    }
+
+    /**
+     * @param evento the evento to set
+     */
+    public void setEvento(EventoEntity evento) {
+        this.evento = evento;
     }
 }
