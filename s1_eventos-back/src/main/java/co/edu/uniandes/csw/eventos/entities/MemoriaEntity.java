@@ -6,14 +6,20 @@
 package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author Nicolas Diaz
  */
+@Entity
 public class MemoriaEntity extends BaseEntity implements Serializable {
+
     
     private String urlImagen;
+   
 
     public MemoriaEntity(){
         
@@ -31,5 +37,5 @@ public class MemoriaEntity extends BaseEntity implements Serializable {
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
     }
-    
+
 }

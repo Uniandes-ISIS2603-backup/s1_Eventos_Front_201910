@@ -277,6 +277,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
     public void setAgenda(List<AgendaEntity> agenda) {
         this.agenda = agenda;
     }
+
     public List<MultimediaEntity> getMultimedia() {
         return multimedia;
     }

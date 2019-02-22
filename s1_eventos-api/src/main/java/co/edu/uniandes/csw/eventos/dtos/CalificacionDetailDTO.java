@@ -11,8 +11,10 @@ package co.edu.uniandes.csw.eventos.dtos;
  */
 public class CalificacionDetailDTO extends CalificacionDTO {
     
+    private EventoDTO evento;
+    private UsuarioDTO usuario;
     public CalificacionDetailDTO()
     {
-        
+        //Falta todo
     }
 }

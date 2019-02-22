@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author estudiante
+ * @author Juan David Diaz
  */
 
 @Path("calificacion")
@@ -34,13 +34,13 @@ public class CalificacionResource {
     
     
    @POST
-   public CalificacionDTO createEvento(CalificacionDTO calificacion)
+   public CalificacionDTO createCalificacion(CalificacionDTO calificacion)
    {
    return calificacion;
    }
    
     @GET 
-   public List<CalificacionDTO> getEvento(){
+   public List<CalificacionDTO> getCalificacion(){
        return null;
    }
    
