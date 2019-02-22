@@ -71,7 +71,7 @@ public class UbicacionPersistenceTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(UbicacionEntity.class.getPackage())
-                .addPackage(UbicacionEntity.class.getPackage())
+                .addPackage(UbicacionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml"); 
 }
@@ -121,7 +121,7 @@ public class UbicacionPersistenceTest {
      * test de crear un objeto de UbicacionEntity
      */
   @Test
-public void createEventoEntityTest() {
+public void createUbicacionEntityTest() {
     PodamFactory factory = new PodamFactoryImpl();
     UbicacionEntity newEntity = factory.manufacturePojo(UbicacionEntity.class);
     
@@ -139,7 +139,7 @@ public void createEventoEntityTest() {
      * test de obtener todos los objetos de tipo  UbicacionEntity
      */
 @Test
-public void findAllEventoEntityTest() {
+public void findAllUbicacionEntityTest() {
     List<UbicacionEntity> list = up.findAll();
     Assert.assertEquals(data.size(), list.size());
     for (UbicacionEntity ent : list) {
@@ -158,7 +158,7 @@ public void findAllEventoEntityTest() {
      * test de obtener un objeto de UbicacionEntity
      */
 @Test
-public void findEventoEntityTest() {
+public void findUbicacionEntityTest() {
     UbicacionEntity entity = data.get(0);
     UbicacionEntity newEntity = up.find(entity.getId());
     Assert.assertNotNull(newEntity);
@@ -166,7 +166,7 @@ public void findEventoEntityTest() {
 }
 
 /**
-     * test de actualizar un objeto de EventoEntity
+     * test de actualizar un objeto de UbicacionEntity
      */
 @Test
 public void updateUbicacionEntityTest() {
@@ -188,10 +188,10 @@ public void updateUbicacionEntityTest() {
      */
 
 @Test
-public void deleteEventoEntityTest() {
+public void deleteUbicacionEntityTest() {
     UbicacionEntity entity = data.get(0);
     up.delete(entity.getId());
-    EventoEntity deleted = em.find(EventoEntity.class, entity.getId());
+    UbicacionEntity deleted = em.find(UbicacionEntity.class, entity.getId());
     Assert.assertNull(deleted);
 }
 }
