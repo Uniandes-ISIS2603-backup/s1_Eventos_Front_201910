@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.eventos.dtos;
 
+import co.edu.uniandes.csw.eventos.entities.UsuarioEntity;
+
 /**
  *
  * @author estudiante
@@ -16,8 +18,8 @@ public class EventoDetailDTO extends EventoDTO {
     //private List<s> c;
     //private List<d> c;
     
-    public EventoDetailDTO(){
-        
+    public EventoDetailDTO(UsuarioEntity usuario){
+        super(usuario);
     }
 }
 

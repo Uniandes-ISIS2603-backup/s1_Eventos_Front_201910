@@ -59,7 +59,7 @@ public class CalificacionResource {
    }
    
    @GET
-   @Path("{calificacionId: \\d+}")
+   @Path("{calificacionesId: \\d+}")
    public CalificacionDetailDTO getCalificacion(@PathParam("calificacionesId") Long calificacionId){
        CalificacionEntity calificacionEntity = calificacionLogic.findCalificacion(calificacionId);
        if(calificacionEntity == null)
@@ -71,14 +71,14 @@ public class CalificacionResource {
    }
    
    @PUT
-   @Path("(calificacionId: \\d+")
+   @Path("(calificacionesId: \\d+")
    public CalificacionDTO updateCalificacion (@PathParam("calificacionesId") Long calificacionId, CalificacionDTO calificacion){
        
        return calificacion;
    }
    
    @DELETE
-   @Path("(calificacionId: \\d+)")
+   @Path("(calificacionesId: \\d+)")
    public void deleteCalificacion (@PathParam("calificacionesId") Long calificacionId){
        
    }

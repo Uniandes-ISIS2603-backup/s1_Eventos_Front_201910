@@ -22,6 +22,14 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     private UsuarioEntity usuario;
 
     /**
+     * Constructor
+     */
+    public CalificacionEntity()
+    {
+        
+    }
+    
+    /**
      * retorna el usuario
      * @return usuario
      */
@@ -37,7 +45,6 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
         this.usuario = usuario;
     }
     
-    
     /**
      * Estrellas de la calificacion
      */
@@ -50,14 +57,7 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
      * Estado de recomendado de la calificacion
      */
     private Boolean recomendado;
-
-    /**
-     * Constructor
-     */
-    public CalificacionEntity()
-    {
-        
-    }
+    
     /**
      * Retorna las estrellas de la calificacion
      * @return esstrellas
