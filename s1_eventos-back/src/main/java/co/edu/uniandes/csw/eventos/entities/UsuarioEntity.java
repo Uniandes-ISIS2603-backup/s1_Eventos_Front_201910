@@ -6,7 +6,9 @@
 package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -25,6 +27,36 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     public UsuarioEntity(){
         
     }
+    @PodamExclude
+    @javax.persistence.OneToMany(
+        mappedBy = "usuario",
+        fetch = javax.persistence.FetchType.LAZY
+    )
+    private Collection<CalificacionEntity> calificaciones;
+    @PodamExclude
+    @javax.persistence.OneToMany(
+        mappedBy = "usuario",
+        fetch = javax.persistence.FetchType.LAZY
+    )
+    private Collection<FacturaEntity> facturas;
+    @PodamExclude
+    @javax.persistence.OneToMany(
+        mappedBy = "usuario",
+        fetch = javax.persistence.FetchType.LAZY
+    )
+    private Collection<EntradaEntity> entrada;
+    @PodamExclude
+    @javax.persistence.OneToMany(
+        mappedBy = "usuario",
+        fetch = javax.persistence.FetchType.LAZY
+    )
+    private Collection<MedioDePagoEntity> mediosdepago;
+    @PodamExclude
+    @javax.persistence.OneToMany(
+        mappedBy = "usuario",
+        fetch = javax.persistence.FetchType.LAZY
+    )
+    private Collection<EventoEntity> eventos;
     /**
      * @return the correoElectronico
      */
@@ -94,6 +126,74 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     public void setUnialpino(boolean unialpino) {
         this.unialpino = unialpino;
     }
-    
-    
+
+    /**
+     * @return the calificaciones
+     */
+    public Collection<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(Collection<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+
+    /**
+     * @return the facturas
+     */
+    public Collection<FacturaEntity> getFacturas() {
+        return facturas;
+    }
+
+    /**
+     * @param facturas the facturas to set
+     */
+    public void setFacturas(Collection<FacturaEntity> facturas) {
+        this.facturas = facturas;
+    }
+
+    /**
+     * @return the entrada
+     */
+    public Collection<EntradaEntity> getEntrada() {
+        return entrada;
+    }
+
+    /**
+     * @param entrada the entrada to set
+     */
+    public void setEntrada(Collection<EntradaEntity> entrada) {
+        this.entrada = entrada;
+    }
+
+    /**
+     * @return the mediosdepago
+     */
+    public Collection<MedioDePagoEntity> getMediosdepago() {
+        return mediosdepago;
+    }
+
+    /**
+     * @param mediosdepago the mediosdepago to set
+     */
+    public void setMediosdepago(Collection<MedioDePagoEntity> mediosdepago) {
+        this.mediosdepago = mediosdepago;
+    }
+
+    /**
+     * @return the eventos
+     */
+    public Collection<EventoEntity> getEventos() {
+        return eventos;
+    }
+
+    /**
+     * @param eventos the eventos to set
+     */
+    public void setEventos(Collection<EventoEntity> eventos) {
+        this.eventos = eventos;
+    }
 }
