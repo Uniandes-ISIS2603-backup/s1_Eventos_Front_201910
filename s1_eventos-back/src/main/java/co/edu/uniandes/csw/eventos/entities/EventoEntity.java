@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -20,9 +21,7 @@ import javax.persistence.Temporal;
 @Entity
 public class EventoEntity extends BaseEntity implements Serializable {
     
-     public  enum Categoria{
- 
-}
+     
     //Atributos
    
      /**
@@ -50,7 +49,7 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa la categoria de un evento
      */
-    private Categoria categoria;
+    private String categoria;
      /**
      * Representa la privacidad de un evento
      */
@@ -67,16 +66,19 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa los contenido multimedia de un evento
      */
- //    @javax.persistence.OneToMany(
- //       mappedBy = "evento",
- //       fetch = javax.persistence.FetchType.LAZY,
- //               cascade = CascadeType.ALL
- //   )
- //   List<MultimediaEntity> multimedia;
+    @PodamExclude
+     @javax.persistence.OneToMany(
+        mappedBy = "evento",
+        fetch = javax.persistence.FetchType.LAZY,
+                cascade = CascadeType.ALL
+    )
+    private List<MultimediaEntity> multimedia =new ArrayList<MultimediaEntity>();
      
       /**
      * Representa la lista de patrocinadores de un evento
      */
+        @PodamExclude
+
     @javax.persistence.ManyToMany(
         fetch = javax.persistence.FetchType.LAZY
            )
@@ -84,7 +86,9 @@ public class EventoEntity extends BaseEntity implements Serializable {
     
      /**
      * Representa la lista de organizadores de un evento
-     */
+     */   
+        @PodamExclude
+
     @javax.persistence.ManyToMany(
         fetch = javax.persistence.FetchType.LAZY
            )
@@ -93,26 +97,38 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa la agenda de un evento
      */
+            @PodamExclude
+
     @javax.persistence.OneToMany(
+            mappedBy="evento",
        fetch = javax.persistence.FetchType.LAZY,
         cascade = CascadeType.ALL
           )
-    List<AgendaEntity> agenda;
+    List<AgendaEntity> agenda= new ArrayList<>();;
     
      /**
      * Representa la lista de usuarios  de un evento
      */
- //    @javax.persistence.ManyToMany(
- //       mappedBy ="evento",
- //       fetch = javax.persistence.FetchType.LAZY
- //          )
- //   List<UsuarioEntity> usuarios;
-    
-    
-    
-    
-    
+                @PodamExclude
 
+     @javax.persistence.ManyToMany(
+        mappedBy ="evento",
+        fetch = javax.persistence.FetchType.LAZY
+           )
+    List<UsuarioEntity> usuarios= new ArrayList<>();;
+     
+     /**
+     * Representa la lista de usuarios  de un evento
+     */
+                    @PodamExclude
+
+     @javax.persistence.OneToMany(
+        mappedBy ="evento",
+        fetch = javax.persistence.FetchType.LAZY
+           )
+    private List<EntradaEntity> entradas= new ArrayList<>();;
+    
+    
     /**
      * @return the nombre
      */
@@ -186,14 +202,14 @@ public class EventoEntity extends BaseEntity implements Serializable {
     /**
      * @return the categoria
      */
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
     /**
      * @param categoria the categoria to set
      */
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
@@ -273,6 +289,27 @@ public class EventoEntity extends BaseEntity implements Serializable {
 
     public void setAgenda(List<AgendaEntity> agenda) {
         this.agenda = agenda;
+    }
+    public List<MultimediaEntity> getMultimedia() {
+        return multimedia;
+    }
+
+    public void setMultimedia(List<MultimediaEntity> multimedia) {
+        this.multimedia = multimedia;
+    }
+
+    /**
+     * @return the entradas
+     */
+    public List<EntradaEntity> getEntradas() {
+        return entradas;
+    }
+
+    /**
+     * @param entradas the entradas to set
+     */
+    public void setEntradas(List<EntradaEntity> entradas) {
+        this.entradas = entradas;
     }
     
 }

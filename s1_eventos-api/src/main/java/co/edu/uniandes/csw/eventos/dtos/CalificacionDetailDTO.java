@@ -6,7 +6,9 @@
 package co.edu.uniandes.csw.eventos.dtos;
 
 import co.edu.uniandes.csw.eventos.entities.CalificacionEntity;
+
 import java.io.Serializable;
+
 
 /**
  *
@@ -16,11 +18,12 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
     
     private EventoDTO evento;
     private UsuarioDTO usuario;
+
     public CalificacionDetailDTO(CalificacionEntity calificacionEntity)
     {
         super(calificacionEntity);
-        if(calificacionEntity.getUsuario()!=null)
-            this.evento=new EventoDTO(calificacionEntity.getUsuario());
+       // if(calificacionEntity.getUsuario()!=null)
+         //   this.evento=new EventoDTO(calificacionEntity.getUsuario());
     }
     
     public UsuarioDTO getUsuario()
@@ -45,4 +48,5 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
         }
         return entity;
     }
+    
 }

@@ -88,6 +88,6 @@ public class MedioDePagoLogicTest {
     public void createMedioDePagoTest()throws BusinessLogicException
     {
         MedioDePagoEntity newEntity = factory.manufacturePojo(MedioDePagoEntity.class);
-        newEntity.setUsuario();
+        
     }
 }
