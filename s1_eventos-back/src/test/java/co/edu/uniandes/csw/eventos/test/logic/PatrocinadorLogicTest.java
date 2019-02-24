@@ -52,93 +52,93 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class PatrocinadorLogicTest {
     
-//     private PodamFactory factory = new PodamFactoryImpl();
-//
-//    @Inject
-//    private PatrocinadorLogic patrocinadorLogic;
-//
-//    @PersistenceContext
-//    private EntityManager em;
-//
-//    @Inject
-//    private UserTransaction utx;
-//
-//        private List<PatrocinadorEntity> data = new ArrayList<>();
-//
-//    /**
-//     * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
-//     * El jar contiene las clases, el descriptor de la base de datos y el
-//     * archivo beans.xml para resolver la inyección de dependencias.
-//     */
-//    @Deployment
-//    public static JavaArchive createDeployment() {
-//        return ShrinkWrap.create(JavaArchive.class)
-//                .addPackage(PatrocinadorEntity.class.getPackage())
-//                .addPackage(PatrocinadorLogic.class.getPackage())
-//                .addPackage(PatrocinadorPersistence.class.getPackage())
-//                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
-//                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
-//    }
-//
-//    /**
-//     * Configuración inicial de la prueba.
-//     */
-//    @Before
-//    public void configTest() {
-//        try {
-//            utx.begin();
-//            clearData();
-//            insertData();
-//            utx.commit();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            try {
-//                utx.rollback();
-//            } catch (Exception e1) {
-//                e1.printStackTrace();
-//            }
-//        }
-//    }
-//
-//    /**
-//     * Limpia las tablas que están implicadas en la prueba.
-//     */
-//    private void clearData() {
-//        em.createQuery("delete from EventoEntity").executeUpdate();
-//        em.createQuery("delete from PatrocinadorEntity").executeUpdate();
-//    }
-//
-//    /**
-//     * Inserta los datos iniciales para el correcto funcionamiento de las
-//     * pruebas.
-//     */
-//    private void insertData() {
-//        for (int i = 0; i < 3; i++) {
-//            PatrocinadorEntity entity = factory.manufacturePojo(PatrocinadorEntity.class);
-//            em.persist(entity);
-//            entity.setEventos(new ArrayList<>());
-//            data.add(entity);
-//        }
-//        PatrocinadorEntity patrocinador = data.get(2);
-//        EventoEntity entity = factory.manufacturePojo(EventoEntity.class);
-//        entity.getPatrocinadores().add(patrocinador);
-//        em.persist(entity);
-//        patrocinador.getEventos().add(entity);
-//    }
-//
-//    /**
-//     * Prueba para crear un Patrocinador.
-//     */
-//    @Test
-//    public void createPatrocinadorTest() {
-//        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
-//        PatrocinadorEntity result = patrocinadorLogic.createPatrocinador(newEntity);
-//        Assert.assertNotNull(result);
-//        PatrocinadorEntity entity = em.find(PatrocinadorEntity.class, result.getId());
-//        Assert.assertEquals(newEntity.getId(), entity.getId());
-//        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
-//    }
-//
+     private PodamFactory factory = new PodamFactoryImpl();
+
+    @Inject
+    private PatrocinadorLogic patrocinadorLogic;
+
+    @PersistenceContext
+    private EntityManager em;
+
+    @Inject
+    private UserTransaction utx;
+
+        private List<PatrocinadorEntity> data = new ArrayList<>();
+
+    /**
+     * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
+     * El jar contiene las clases, el descriptor de la base de datos y el
+     * archivo beans.xml para resolver la inyección de dependencias.
+     */
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(PatrocinadorEntity.class.getPackage())
+                .addPackage(PatrocinadorLogic.class.getPackage())
+                .addPackage(PatrocinadorPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+
+    /**
+     * Configuración inicial de la prueba.
+     */
+    @Before
+    public void configTest() {
+        try {
+            utx.begin();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Limpia las tablas que están implicadas en la prueba.
+     */
+    private void clearData() {
+        em.createQuery("delete from EventoEntity").executeUpdate();
+        em.createQuery("delete from PatrocinadorEntity").executeUpdate();
+    }
+
+    /**
+     * Inserta los datos iniciales para el correcto funcionamiento de las
+     * pruebas.
+     */
+    private void insertData() {
+        for (int i = 0; i < 3; i++) {
+            PatrocinadorEntity entity = factory.manufacturePojo(PatrocinadorEntity.class);
+            em.persist(entity);
+            entity.setEventos(new ArrayList<>());
+            data.add(entity);
+        }
+        PatrocinadorEntity patrocinador = data.get(2);
+        EventoEntity entity = factory.manufacturePojo(EventoEntity.class);
+        entity.getPatrocinadores().add(patrocinador);
+        em.persist(entity);
+        patrocinador.getEventos().add(entity);
+    }
+
+    /**
+     * Prueba para crear un Patrocinador.
+     */
+    @Test
+    public void createPatrocinadorTest() {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        PatrocinadorEntity result = patrocinadorLogic.createPatrocinador(newEntity);
+        Assert.assertNotNull(result);
+        PatrocinadorEntity entity = em.find(PatrocinadorEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+    }
+
 //    /**
 //     * Prueba para consultar la lista de Patrocinadores.
 //     */
@@ -156,7 +156,7 @@ public class PatrocinadorLogicTest {
 //            Assert.assertTrue(found);
 //        }
 //    }
-//
+
 //    /**
 //     * Prueba para consultar un Patrocinador.
 //     */
