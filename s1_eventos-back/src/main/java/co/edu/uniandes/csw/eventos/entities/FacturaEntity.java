@@ -22,7 +22,11 @@ public class FacturaEntity extends BaseEntity implements Serializable{
     @PodamExclude
     @ManyToOne
     private UsuarioEntity usuario = new UsuarioEntity();
-     
+    
+    @javax.persistence.ManyToMany(
+        fetch = javax.persistence.FetchType.LAZY
+    )
+    private List<EntradaEntity> entradas;
     private String nombre;
     private Date fecha;
     private Float total;
@@ -81,4 +85,14 @@ public class FacturaEntity extends BaseEntity implements Serializable{
      public void setUsuario(UsuarioEntity Usuarios) {
          this.usuario = Usuarios;
      }
+
+    public List<EntradaEntity> getEntradas() {
+        return entradas;
+    }
+
+    public void setEntradas(List<EntradaEntity> entradas) {
+        this.entradas = entradas;
+    }
+
+    
 }

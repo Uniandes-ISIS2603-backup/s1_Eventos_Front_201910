@@ -88,4 +88,13 @@ public class AgendaEntity extends BaseEntity implements Serializable{
     public void setEventos(EventoEntity eventos) {
         this.eventos = eventos;
     }
+
+    public List<InvitadoEspecialEntity> getInvitadosEspeciales() {
+        return invitadosEspeciales;
+    }
+
+    public void setInvitadosEspeciales(List<InvitadoEspecialEntity> invitadosEspeciales) {
+        this.invitadosEspeciales = invitadosEspeciales;
+    }
+    
 }
