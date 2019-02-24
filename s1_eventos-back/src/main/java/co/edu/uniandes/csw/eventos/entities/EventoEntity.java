@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -65,16 +66,19 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa los contenido multimedia de un evento
      */
+    @PodamExclude
      @javax.persistence.OneToMany(
         mappedBy = "evento",
         fetch = javax.persistence.FetchType.LAZY,
                 cascade = CascadeType.ALL
     )
-    List<MultimediaEntity> multimedia;
+    private List<MultimediaEntity> multimedia =new ArrayList<MultimediaEntity>();
      
       /**
      * Representa la lista de patrocinadores de un evento
      */
+        @PodamExclude
+
     @javax.persistence.ManyToMany(
         fetch = javax.persistence.FetchType.LAZY
            )
@@ -82,7 +86,9 @@ public class EventoEntity extends BaseEntity implements Serializable {
     
      /**
      * Representa la lista de organizadores de un evento
-     */
+     */   
+        @PodamExclude
+
     @javax.persistence.ManyToMany(
         fetch = javax.persistence.FetchType.LAZY
            )
@@ -91,29 +97,36 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa la agenda de un evento
      */
+            @PodamExclude
+
     @javax.persistence.OneToMany(
+            mappedBy="evento",
        fetch = javax.persistence.FetchType.LAZY,
         cascade = CascadeType.ALL
           )
-    List<AgendaEntity> agenda;
+    List<AgendaEntity> agenda= new ArrayList<>();;
     
      /**
      * Representa la lista de usuarios  de un evento
      */
+                @PodamExclude
+
      @javax.persistence.ManyToMany(
         mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY
            )
-    List<UsuarioEntity> usuarios;
+    List<UsuarioEntity> usuarios= new ArrayList<>();;
      
      /**
      * Representa la lista de usuarios  de un evento
      */
+                    @PodamExclude
+
      @javax.persistence.OneToMany(
         mappedBy ="evento",
         fetch = javax.persistence.FetchType.LAZY
            )
-    private List<EntradaEntity> entradas;
+    private List<EntradaEntity> entradas= new ArrayList<>();;
     
     
     /**

@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.eventos.entities;
 
 import java.io.Serializable;
+
+import java.util.List;
 import java.util.Collection;
 import javax.persistence.Entity;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -23,6 +25,10 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     private Double longitud;
     private Double latitud;
     private boolean unialpino;
+    @javax.persistence.ManyToMany(
+        fetch = javax.persistence.FetchType.LAZY
+           )
+    List<UsuarioEntity> eventos;
 
     public UsuarioEntity(){
         
