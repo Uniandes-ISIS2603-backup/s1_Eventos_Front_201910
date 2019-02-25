@@ -33,11 +33,11 @@ public class EventoDetailDTO extends EventoDTO {
     }
     
 public EventoDetailDTO(EventoEntity entity){
-    this.agendas=entity.getAgenda();
+//    this.agendas=entity.getAgenda();
     this.patrocinadores=entity.getPatrocinadores();
     this.organizadores=entity.getOrganizadores();
     this.multimedias=entity.getMultimedia();
-    this.entradas=entity.getEntradas();
+   // this.entradas=entity.getEntradas();
 }
 
     /**

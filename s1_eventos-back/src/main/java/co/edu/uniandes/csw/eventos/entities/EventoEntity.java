@@ -97,36 +97,36 @@ public class EventoEntity extends BaseEntity implements Serializable {
      /**
      * Representa la agenda de un evento
      */
-            @PodamExclude
-
-    @javax.persistence.OneToMany(
-            mappedBy="evento",
-       fetch = javax.persistence.FetchType.LAZY,
-        cascade = CascadeType.ALL
-          )
-    List<AgendaEntity> agenda= new ArrayList<>();;
+//            @PodamExclude
+//
+//    @javax.persistence.OneToMany(
+//            mappedBy="evento",
+//       fetch = javax.persistence.FetchType.LAZY,
+//        cascade = CascadeType.ALL
+//          )
+//    List<AgendaEntity> agenda= new ArrayList<>();
     
-     /**
-     * Representa la lista de usuarios  de un evento
-     */
-                @PodamExclude
-
-     @javax.persistence.ManyToMany(
-        mappedBy ="evento",
-        fetch = javax.persistence.FetchType.LAZY
-           )
-    List<UsuarioEntity> usuarios= new ArrayList<>();;
+//     /**
+//     * Representa la lista de usuarios  de un evento
+//     */
+//                @PodamExclude
+//
+//     @javax.persistence.ManyToMany(
+//        mappedBy ="evento",
+//        fetch = javax.persistence.FetchType.LAZY
+//           )
+//    List<UsuarioEntity> usuarios= new ArrayList<>();
      
      /**
      * Representa la lista de usuarios  de un evento
      */
-                    @PodamExclude
-
-     @javax.persistence.OneToMany(
-        mappedBy ="evento",
-        fetch = javax.persistence.FetchType.LAZY
-           )
-    private List<EntradaEntity> entradas= new ArrayList<>();;
+//                    @PodamExclude
+//
+//     @javax.persistence.OneToMany(
+//        mappedBy ="evento",
+//        fetch = javax.persistence.FetchType.LAZY
+//           )
+//    private List<EntradaEntity> entradas= new ArrayList<>();
     
     
     /**
@@ -283,13 +283,13 @@ public class EventoEntity extends BaseEntity implements Serializable {
         this.organizadores = organizadores;
     }
 
-    public List<AgendaEntity> getAgenda() {
-        return agenda;
-    }
-
-    public void setAgenda(List<AgendaEntity> agenda) {
-        this.agenda = agenda;
-    }
+//    public List<AgendaEntity> getAgenda() {
+//        return agenda;
+//    }
+//
+//    public void setAgenda(List<AgendaEntity> agenda) {
+//        this.agenda = agenda;
+//    }
     public List<MultimediaEntity> getMultimedia() {
         return multimedia;
     }
@@ -298,18 +298,18 @@ public class EventoEntity extends BaseEntity implements Serializable {
         this.multimedia = multimedia;
     }
 
-    /**
-     * @return the entradas
-     */
-    public List<EntradaEntity> getEntradas() {
-        return entradas;
-    }
-
-    /**
-     * @param entradas the entradas to set
-     */
-    public void setEntradas(List<EntradaEntity> entradas) {
-        this.entradas = entradas;
-    }
+//    /**
+//     * @return the entradas
+//     */
+//    public List<EntradaEntity> getEntradas() {
+//        return entradas;
+//    }
+//
+//    /**
+//     * @param entradas the entradas to set
+//     */
+//    public void setEntradas(List<EntradaEntity> entradas) {
+//        this.entradas = entradas;
+//    }
     
 }
