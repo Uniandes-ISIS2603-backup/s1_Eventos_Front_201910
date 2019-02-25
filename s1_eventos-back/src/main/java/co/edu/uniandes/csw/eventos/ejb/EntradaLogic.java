@@ -39,7 +39,7 @@ public class EntradaLogic {
         persistence.delete(entradaId);
     }
     
-    public void updateMeioDePago(EntradaEntity entrada) throws BusinessLogicException
+    public void updateEntrada(EntradaEntity entrada) throws BusinessLogicException
     {
         if(persistence.find(entrada.getId())==null)
            throw new BusinessLogicException("No existe un medio de pago con el id \""+entrada.getId() + "\"");

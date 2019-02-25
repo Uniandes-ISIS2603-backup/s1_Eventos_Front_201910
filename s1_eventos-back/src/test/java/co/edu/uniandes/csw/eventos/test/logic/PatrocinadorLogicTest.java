@@ -128,15 +128,101 @@ public class PatrocinadorLogicTest {
 
     /**
      * Prueba para crear un Patrocinador.
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
      */
     @Test
-    public void createPatrocinadorTest() {
+    public void createPatrocinadorTest() throws BusinessLogicException {
         PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
         PatrocinadorEntity result = patrocinadorLogic.createPatrocinador(newEntity);
         Assert.assertNotNull(result);
         PatrocinadorEntity entity = em.find(PatrocinadorEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con el mismo nombre de un Patrocinador que ya
+     * existe.
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrocinadorConMismoNombreTest() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setNombre(data.get(0).getNombre());
+        patrocinadorLogic.createPatrocinador(newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con Nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrociandorTestConNombreInvalido() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setNombre("");
+        patrocinadorLogic.createPatrocinador(newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con Descripcion inválida
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrociandorTestConDescripcionInvalida() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setDescripcion("");
+        patrocinadorLogic.createPatrocinador(newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con Descripcion inválida
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrociandorTestConImagenInvalida() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setImagen("");
+        patrocinadorLogic.createPatrocinador(newEntity);
+    } 
+    
+    /**
+     * Prueba para crear un Patrocinador con Nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrocinadorTestConNombreInvalido2() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setNombre(null);
+        patrocinadorLogic.createPatrocinador(newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con Descripcion inválido
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrocinadorTestConDescripcionInvalida2() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setDescripcion(null);
+        patrocinadorLogic.createPatrocinador(newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con Descripcion inválido
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrocinadorTestConImagenInvalida2() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setImagen(null);
+        patrocinadorLogic.createPatrocinador(newEntity);
     }
 
     /**
@@ -171,9 +257,10 @@ public class PatrocinadorLogicTest {
 
     /**
      * Prueba para actualizar un Patrocinador.
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
      */
     @Test
-    public void updatePatrocinadorTest() {
+    public void updatePatrocinadorTest() throws BusinessLogicException {
         PatrocinadorEntity entity = data.get(0);
         PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
 
@@ -186,7 +273,91 @@ public class PatrocinadorLogicTest {
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getNombre(), resp.getNombre());
     }
+    
+    /**
+     * Prueba para actualizar un Patrocinador con Nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updatePatrocinadorConNombreInvalidoTest() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        pojoEntity.setNombre("");
+        pojoEntity.setId(entity.getId());
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+    }
+    
+    /**
+     * Prueba para actualizar un Patrocinador con Descripcion inválida
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updatePatrocinadorConDescripcionInvalidaTest() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        pojoEntity.setDescripcion("");
+        pojoEntity.setId(entity.getId());
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+    }
+    
+    /**
+     * Prueba para actualizar un Patrocinador con Imagen inválida
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updatePatrocinadorConImagenInvalidaTest() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        pojoEntity.setImagen("");
+        pojoEntity.setId(entity.getId());
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+    }
 
+    /**
+     * Prueba para actualizar un Patrocinador con Nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updatePatrocinadorConNombreInvalidoTest2() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        pojoEntity.setNombre(null);
+        pojoEntity.setId(entity.getId());
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+    }
+    
+    /**
+     * Prueba para actualizar un Patrocinador con Descripcion inválida
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updatePatrocinadorConDescripcionInvalidaTest2() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        pojoEntity.setDescripcion(null);
+        pojoEntity.setId(entity.getId());
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+    }
+    
+    /**
+     * Prueba para actualizar un Patrocinador con Imagen inválida
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updatePatrocinadorConImagenInvalidaTest2() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        pojoEntity.setImagen(null);
+        pojoEntity.setId(entity.getId());
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+    }
+    
     /**
      * Prueba para eliminar un Patrocinador
      *
@@ -201,7 +372,7 @@ public class PatrocinadorLogicTest {
     }
 
     /**
-     * Prueba para eliminar un Patrocinador asociado a un libro
+     * Prueba para eliminar un Patrocinador asociado a un evento
      *
      * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
      */

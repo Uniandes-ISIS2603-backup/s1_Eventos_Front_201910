@@ -62,8 +62,8 @@ public class EventoPersistence {
      * metodo que encuentra todos los objetos de EventoEntity
      * @return 
      */
-    public List<EventoEntity> findAll(){
-        TypedQuery query = em.createQuery("select u from EventoEntity u",EventoEntity.class);
+     public List<EventoEntity> findAll(){
+        TypedQuery query = em.createQuery("select u from UbicacionEntity u",EventoEntity.class);
     return query.getResultList();
     }
     
@@ -75,6 +75,21 @@ public class EventoPersistence {
     public void update(EventoEntity entity){
        em.merge(entity);
     }
+    
+    public EventoEntity findByName(String pNombre){
+        TypedQuery query = em.createQuery("Select e From EventoEntity e where e.nombre = :nombre", EventoEntity.class);
+        query = query.setParameter("nombre", pNombre);
+        List<EventoEntity> iguales = query.getResultList();
+        EventoEntity result;
+        if (iguales == null) {
+            result = null;
+        } else if (iguales.isEmpty()) {
+            result = null;
+        } else {
+            result = iguales.get(0);
+        }
+        return result;
+    }        
     
     
 }
