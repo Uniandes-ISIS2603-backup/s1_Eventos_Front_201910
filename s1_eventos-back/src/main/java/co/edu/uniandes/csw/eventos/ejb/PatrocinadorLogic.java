@@ -46,17 +46,21 @@ public class PatrocinadorLogic {
     private PatrocinadorPersistence patrocinadorPersistence;
     
     /**
-     * Se encarga de crear un Patrocinador en la base de datos.
+     * Crea una editorial en la persistencia.
      *
-     * @param patrocinadorEntity Objeto de PatrocinadorEntity con los datos nuevos
-     * @return Objeto de PatrocinadorEntity con los datos nuevos y su ID.
+     * @param patrocinadorEntity La entidad que representa el patrocinador a persistir.
+     * @return La entidad del patrocinador luego de persistirla.
+     * @throws BusinessLogicException Si el patrocinador a persistir ya existe.
      */
-    public PatrocinadorEntity createPatrocinador(PatrocinadorEntity patrocinadorEntity)
+    public PatrocinadorEntity createPatrocinador(PatrocinadorEntity patrocinadorEntity)throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del patrocinador");
-        PatrocinadorEntity newPatrocinadorEntity = patrocinadorPersistence.create(patrocinadorEntity);
+        if (patrocinadorPersistence.findByName(patrocinadorEntity.getNombre()) != null) {
+            throw new BusinessLogicException("Ya existe un Patrocinador con el nombre \"" + patrocinadorEntity.getNombre() + "\"");
+        }
+        patrocinadorPersistence.create(patrocinadorEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del patrocinador");
-        return newPatrocinadorEntity;
+        return patrocinadorEntity;
     }
     
     /**

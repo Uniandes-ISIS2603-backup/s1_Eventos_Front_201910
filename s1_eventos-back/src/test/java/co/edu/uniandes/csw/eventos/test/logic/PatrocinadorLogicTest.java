@@ -128,15 +128,29 @@ public class PatrocinadorLogicTest {
 
     /**
      * Prueba para crear un Patrocinador.
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
      */
     @Test
-    public void createPatrocinadorTest() {
+    public void createPatrocinadorTest() throws BusinessLogicException {
         PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
         PatrocinadorEntity result = patrocinadorLogic.createPatrocinador(newEntity);
         Assert.assertNotNull(result);
         PatrocinadorEntity entity = em.find(PatrocinadorEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+    }
+    
+    /**
+     * Prueba para crear un Patrocinador con el mismo nombre de un Patrocinador que ya
+     * existe.
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createPatrocinadorConMismoNombreTest() throws BusinessLogicException {
+        PatrocinadorEntity newEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+        newEntity.setNombre(data.get(0).getNombre());
+        patrocinadorLogic.createPatrocinador(newEntity);
     }
 
     /**
@@ -201,7 +215,7 @@ public class PatrocinadorLogicTest {
     }
 
     /**
-     * Prueba para eliminar un Patrocinador asociado a un libro
+     * Prueba para eliminar un Patrocinador asociado a un evento
      *
      * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
      */
