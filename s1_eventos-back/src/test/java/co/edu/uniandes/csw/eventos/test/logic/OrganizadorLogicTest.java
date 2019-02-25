@@ -139,74 +139,74 @@ public class OrganizadorLogicTest {
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
 
-//    /**
-//     * Prueba para consultar la lista de Organizadores.
-//     */
-//    @Test
-//    public void getOrganizadoresTest() {
-//        List<OrganizadorEntity> list = organizadorLogic.getOrganizadores();
-//        Assert.assertEquals(data.size(), list.size());
-//        for (OrganizadorEntity entity : list) {
-//            boolean found = false;
-//            for (OrganizadorEntity storedEntity : data) {
-//                if (entity.getId().equals(storedEntity.getId())) {
-//                    found = true;
-//                }
-//            }
-//            Assert.assertTrue(found);
-//        }
-//    }
-//    
-//    /**
-//     * Prueba para consultar un Organizador.
-//     */
-//    @Test
-//    public void getOrganizadorTest() {
-//        OrganizadorEntity entity = data.get(0);
-//        OrganizadorEntity resultEntity = organizadorLogic.getOrganizador(entity.getId());
-//        Assert.assertNotNull(resultEntity);
-//        Assert.assertEquals(entity.getId(), resultEntity.getId());
-//        Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
-//    }
-//    
-//    /**
-//     * Prueba para actualizar un Organizador.
-//     */
-//    @Test
-//    public void updateOrganizadorTest() {
-//        OrganizadorEntity entity = data.get(0);
-//        OrganizadorEntity pojoEntity = factory.manufacturePojo(OrganizadorEntity.class);
-//
-//        pojoEntity.setId(entity.getId());
-//
-//        organizadorLogic.updateOrganizador(pojoEntity.getId(), pojoEntity);
-//
-//        OrganizadorEntity resp = em.find(OrganizadorEntity.class, entity.getId());
-//
-//        Assert.assertEquals(pojoEntity.getId(), resp.getId());
-//        Assert.assertEquals(pojoEntity.getNombre(), resp.getNombre());
-//    }
-//
-//    /**
-//     * Prueba para eliminar un Organizador
-//     *
-//     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
-//     */
-//    @Test
-//    public void deleteOrganizadorTest() throws BusinessLogicException {
-//        OrganizadorEntity entity = data.get(0);
-//        organizadorLogic.deleteOrganizador(entity.getId());
-//        OrganizadorEntity deleted = em.find(OrganizadorEntity.class, entity.getId());
-//        Assert.assertNull(deleted);
-//    }
-//
-//    /**
-//     * Prueba para eliminar un Organizador asociado a un evento
-//     *
-//     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
-//     */
-//    @Test(expected = BusinessLogicException.class)
-//    public void deleteOrganizadorConEventoTest() throws BusinessLogicException {
-//        organizadorLogic.deleteOrganizador(data.get(2).getId());
-//    }
+    /**
+     * Prueba para consultar la lista de Organizadores.
+     */
+    @Test
+    public void getOrganizadoresTest() {
+        List<OrganizadorEntity> list = organizadorLogic.getOrganizadores();
+        Assert.assertEquals(data.size(), list.size());
+        for (OrganizadorEntity entity : list) {
+            boolean found = false;
+            for (OrganizadorEntity storedEntity : data) {
+                if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+    
+    /**
+     * Prueba para consultar un Organizador.
+     */
+    @Test
+    public void getOrganizadorTest() {
+        OrganizadorEntity entity = data.get(0);
+        OrganizadorEntity resultEntity = organizadorLogic.getOrganizador(entity.getId());
+        Assert.assertNotNull(resultEntity);
+        Assert.assertEquals(entity.getId(), resultEntity.getId());
+        Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
+    }
+    
+    /**
+     * Prueba para actualizar un Organizador.
+     */
+    @Test
+    public void updateOrganizadorTest() {
+        OrganizadorEntity entity = data.get(0);
+        OrganizadorEntity pojoEntity = factory.manufacturePojo(OrganizadorEntity.class);
+
+        pojoEntity.setId(entity.getId());
+
+        organizadorLogic.updateOrganizador(pojoEntity.getId(), pojoEntity);
+
+        OrganizadorEntity resp = em.find(OrganizadorEntity.class, entity.getId());
+
+        Assert.assertEquals(pojoEntity.getId(), resp.getId());
+        Assert.assertEquals(pojoEntity.getNombre(), resp.getNombre());
+    }
+
+    /**
+     * Prueba para eliminar un Organizador
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test
+    public void deleteOrganizadorTest() throws BusinessLogicException {
+        OrganizadorEntity entity = data.get(0);
+        organizadorLogic.deleteOrganizador(entity.getId());
+        OrganizadorEntity deleted = em.find(OrganizadorEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+
+    /**
+     * Prueba para eliminar un Organizador asociado a un evento
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void deleteOrganizadorConEventoTest() throws BusinessLogicException {
+        organizadorLogic.deleteOrganizador(data.get(2).getId());
+    }
 }
