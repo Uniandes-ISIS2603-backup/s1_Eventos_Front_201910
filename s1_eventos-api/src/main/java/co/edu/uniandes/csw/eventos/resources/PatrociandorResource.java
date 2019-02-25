@@ -75,7 +75,7 @@ public class PatrociandorResource {
 
     @PUT
     @Path("{patrocinadoresId: \\d+}")
-    public PatrocinadorDTO updatePatrocinador(@PathParam("patrocinadoresId") Long patrocinadoresId, PatrocinadorDTO patrocinador) throws WebApplicationException {
+    public PatrocinadorDTO updatePatrocinador(@PathParam("patrocinadoresId") Long patrocinadoresId, PatrocinadorDTO patrocinador) throws BusinessLogicException {
         
         LOGGER.log(Level.INFO, "PatrocinadorResource updatePatrocinador: input: patrocinadoresId: {0} , patrocinador: {1}", new Object[]{patrocinadoresId, patrocinador.toString()});
         patrocinador.setId(patrocinadoresId);
