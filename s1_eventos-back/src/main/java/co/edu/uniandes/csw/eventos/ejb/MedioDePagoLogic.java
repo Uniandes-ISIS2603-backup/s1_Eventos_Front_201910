@@ -41,7 +41,7 @@ public class MedioDePagoLogic {
         persistencia.delete(medioDePagoId);
     }
     
-    public void updateMeioDePago(MedioDePagoEntity medioDePago) throws BusinessLogicException
+    public void updateMedioDePago(MedioDePagoEntity medioDePago) throws BusinessLogicException
     {
         if(persistencia.find(medioDePago.getId())==null)
            throw new BusinessLogicException("No existe un medio de pago con el id \""+medioDePago.getId() + "\"");
