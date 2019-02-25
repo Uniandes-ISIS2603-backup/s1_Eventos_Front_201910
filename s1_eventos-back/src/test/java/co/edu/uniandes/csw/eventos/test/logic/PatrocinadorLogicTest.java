@@ -139,76 +139,76 @@ public class PatrocinadorLogicTest {
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
 
-//    /**
-//     * Prueba para consultar la lista de Patrocinadores.
-//     */
-//    @Test
-//    public void getPatrocinadoresTest() {
-//        List<PatrocinadorEntity> list = patrocinadorLogic.getPatrocinadores();
-//        Assert.assertEquals(data.size(), list.size());
-//        for (PatrocinadorEntity entity : list) {
-//            boolean found = false;
-//            for (PatrocinadorEntity storedEntity : data) {
-//                if (entity.getId().equals(storedEntity.getId())) {
-//                    found = true;
-//                }
-//            }
-//            Assert.assertTrue(found);
-//        }
-//    }
+    /**
+     * Prueba para consultar la lista de Patrocinadores.
+     */
+    @Test
+    public void getPatrocinadoresTest() {
+        List<PatrocinadorEntity> list = patrocinadorLogic.getPatrocinadores();
+        Assert.assertEquals(data.size(), list.size());
+        for (PatrocinadorEntity entity : list) {
+            boolean found = false;
+            for (PatrocinadorEntity storedEntity : data) {
+                if (entity.getId().equals(storedEntity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
 
-//    /**
-//     * Prueba para consultar un Patrocinador.
-//     */
-//    @Test
-//    public void getPatrocinadorTest() {
-//        PatrocinadorEntity entity = data.get(0);
-//        PatrocinadorEntity resultEntity = patrocinadorLogic.getPatrocinador(entity.getId());
-//        Assert.assertNotNull(resultEntity);
-//        Assert.assertEquals(entity.getId(), resultEntity.getId());
-//        Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
-//    }
-//
-//    /**
-//     * Prueba para actualizar un Patrocinador.
-//     */
-//    @Test
-//    public void updatePatrocinadorTest() {
-//        PatrocinadorEntity entity = data.get(0);
-//        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
-//
-//        pojoEntity.setId(entity.getId());
-//
-//        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
-//
-//        PatrocinadorEntity resp = em.find(PatrocinadorEntity.class, entity.getId());
-//
-//        Assert.assertEquals(pojoEntity.getId(), resp.getId());
-//        Assert.assertEquals(pojoEntity.getNombre(), resp.getNombre());
-//    }
-//
-//    /**
-//     * Prueba para eliminar un Patrocinador
-//     *
-//     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
-//     */
-//    @Test
-//    public void deletePatrocinadorTest() throws BusinessLogicException {
-//        PatrocinadorEntity entity = data.get(0);
-//        patrocinadorLogic.deletePatrocinador(entity.getId());
-//        PatrocinadorEntity deleted = em.find(PatrocinadorEntity.class, entity.getId());
-//        Assert.assertNull(deleted);
-//    }
-//
-//    /**
-//     * Prueba para eliminar un Patrocinador asociado a un libro
-//     *
-//     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
-//     */
-//    @Test(expected = BusinessLogicException.class)
-//    public void deletePatrocinadorConEventoTest() throws BusinessLogicException {
-//        patrocinadorLogic.deletePatrocinador(data.get(2).getId());
-//    }
+    /**
+     * Prueba para consultar un Patrocinador.
+     */
+    @Test
+    public void getPatrocinadorTest() {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity resultEntity = patrocinadorLogic.getPatrocinador(entity.getId());
+        Assert.assertNotNull(resultEntity);
+        Assert.assertEquals(entity.getId(), resultEntity.getId());
+        Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
+    }
+
+    /**
+     * Prueba para actualizar un Patrocinador.
+     */
+    @Test
+    public void updatePatrocinadorTest() {
+        PatrocinadorEntity entity = data.get(0);
+        PatrocinadorEntity pojoEntity = factory.manufacturePojo(PatrocinadorEntity.class);
+
+        pojoEntity.setId(entity.getId());
+
+        patrocinadorLogic.updatePatrocinador(pojoEntity.getId(), pojoEntity);
+
+        PatrocinadorEntity resp = em.find(PatrocinadorEntity.class, entity.getId());
+
+        Assert.assertEquals(pojoEntity.getId(), resp.getId());
+        Assert.assertEquals(pojoEntity.getNombre(), resp.getNombre());
+    }
+
+    /**
+     * Prueba para eliminar un Patrocinador
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test
+    public void deletePatrocinadorTest() throws BusinessLogicException {
+        PatrocinadorEntity entity = data.get(0);
+        patrocinadorLogic.deletePatrocinador(entity.getId());
+        PatrocinadorEntity deleted = em.find(PatrocinadorEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+
+    /**
+     * Prueba para eliminar un Patrocinador asociado a un libro
+     *
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void deletePatrocinadorConEventoTest() throws BusinessLogicException {
+        patrocinadorLogic.deletePatrocinador(data.get(2).getId());
+    }
 
 }
 
