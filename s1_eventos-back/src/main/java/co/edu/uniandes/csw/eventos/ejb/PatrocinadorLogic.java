@@ -50,11 +50,21 @@ public class PatrocinadorLogic {
      *
      * @param patrocinadorEntity La entidad que representa el patrocinador a persistir.
      * @return La entidad del patrocinador luego de persistirla.
-     * @throws BusinessLogicException Si el patrocinador a persistir ya existe.
+     * @throws BusinessLogicException Si el patrocinador a persistir ya existe o si el nombre, descripcion y/o imagen no son validos
      */
     public PatrocinadorEntity createPatrocinador(PatrocinadorEntity patrocinadorEntity)throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del patrocinador");
+        
+        if (!validateNombre(patrocinadorEntity.getNombre())) {
+            throw new BusinessLogicException("El Nombre es inválido");
+        }
+        if (!validateDescripcion(patrocinadorEntity.getDescripcion())) {
+            throw new BusinessLogicException("La Descripcion es inválida");
+        }
+        if (!validateImagen(patrocinadorEntity.getImagen())) {
+            throw new BusinessLogicException("La Imagen es inválida");
+        }
         if (patrocinadorPersistence.findByName(patrocinadorEntity.getNombre()) != null) {
             throw new BusinessLogicException("Ya existe un Patrocinador con el nombre \"" + patrocinadorEntity.getNombre() + "\"");
         }
@@ -97,10 +107,20 @@ public class PatrocinadorLogic {
      * @param patrocinadorId Identificador de la instancia a actualizar
      * @param patrocinadorEntity Instancia de PatrocinadorEntity con los nuevos datos.
      * @return Instancia de PatrocinadorEntity con los datos actualizados.
+     * @throws BusinessLogicException si el nombre, descripcion y/o imagen de la actualización es inválido
      */
-    public PatrocinadorEntity updatePatrocinador(Long patrocinadorId, PatrocinadorEntity patrocinadorEntity) {
+    public PatrocinadorEntity updatePatrocinador(Long patrocinadorId, PatrocinadorEntity patrocinadorEntity) throws BusinessLogicException {
         
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el organizador con id = {0}", patrocinadorId);
+        if (!validateNombre(patrocinadorEntity.getNombre())) {
+            throw new BusinessLogicException("El Nombre es inválido");
+        }
+        if (!validateDescripcion(patrocinadorEntity.getDescripcion())) {
+            throw new BusinessLogicException("La Descripcion es inválida");
+        }
+        if (!validateImagen(patrocinadorEntity.getImagen())) {
+            throw new BusinessLogicException("La Imagen es inválida");
+        }
         PatrocinadorEntity newPatrocinadorEntity = patrocinadorPersistence.update(patrocinadorEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar el organizador con id = {0}", patrocinadorId);
         return newPatrocinadorEntity;
@@ -121,5 +141,35 @@ public class PatrocinadorLogic {
         
         patrocinadorPersistence.delete(patrocinadorId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el patrocinador con id = {0}", patrocinadorId);
+    }
+    
+    /**
+     * Verifica que el Nombre no sea invalido.
+     *
+     * @param nombre a verificar
+     * @return true si el Nombre es valido.
+     */
+    private boolean validateNombre(String nombre) {
+        return !(nombre == null || nombre.isEmpty());
+    }
+    
+    /**
+     * Verifica que la Descripcion no sea invalida.
+     *
+     * @param descripcion a verificar
+     * @return true si la Descripcion es valido.
+     */
+    private boolean validateDescripcion(String descripcion) {
+        return !(descripcion == null || descripcion.isEmpty());
+    }
+    
+    /**
+     * Verifica que la Imagen no sea invalida.
+     *
+     * @param imagen a verificar
+     * @return true si la Imagen es valido.
+     */
+    private boolean validateImagen(String imagen) {
+        return !(imagen == null || imagen.isEmpty());
     }
 }
