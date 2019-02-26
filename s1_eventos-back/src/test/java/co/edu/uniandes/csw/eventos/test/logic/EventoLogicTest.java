@@ -110,7 +110,6 @@ public class EventoLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from EventoEntity").executeUpdate();
-        em.createQuery("delete from PatrocinadorEntity").executeUpdate();
     }
 
     /**
@@ -200,68 +199,8 @@ public class EventoLogicTest {
        return  rnd.nextInt(500);
     }
     
-       /**
-     * Prueba para crear un Patrocinador.
-     */
-  
     
-    @Test(expected = BusinessLogicException.class)
-    public void UpdateEventoMismoNombre() throws BusinessLogicException{
-        EventoEntity newEntity= factory.manufacturePojo(EventoEntity.class);
-        newEntity.setNombre(data.get(0).getNombre());
-         eventoLogic.update(newEntity);
-        
-    }
-    
-    @Test(expected = BusinessLogicException.class)
-    public void updateEventoFechaInicio() throws BusinessLogicException{
-        EventoEntity newEntity= factory.manufacturePojo(EventoEntity.class);
-        Date antesActual=new Date();
-        antesActual.setYear(1990);
-        newEntity.setFechaInicio(antesActual);
- eventoLogic.update(newEntity);        
-    }
-    
-      @Test(expected = BusinessLogicException.class)
-    public void updateEventoFechasFin() throws BusinessLogicException{
-        EventoEntity newEntity= factory.manufacturePojo(EventoEntity.class);
-        Date fechaFin=new Date();
-        Date fechaInicio=new Date();
-        fechaFin.setYear(2018);
-        fechaInicio.setYear(2019);
-        newEntity.setFechaInicio(fechaInicio);
-        newEntity.setFechaFin(fechaFin);
- eventoLogic.update(newEntity);        
-    }
-     @Test(expected = BusinessLogicException.class)
-    public void updateEventoboletasDisponiblesNeg() throws BusinessLogicException{
-        EventoEntity newEntity= factory.manufacturePojo(EventoEntity.class);
-     newEntity.setBoletasDisponibles((int)Math.random()*-8+1);
- eventoLogic.update(newEntity);    }
-    
-    
-     @Test(expected = BusinessLogicException.class)
-    public void updateEventoCantidadMaxNeg() throws BusinessLogicException{
-        EventoEntity newEntity= factory.manufacturePojo(EventoEntity.class);
-     newEntity.setCapacidadMaxima((int)Math.random()*-8+1);
- eventoLogic.update(newEntity);    }
-    
-    
-     @Test(expected = BusinessLogicException.class)
-    public void updateEventoboletasDispCAntMax() throws BusinessLogicException{
-        EventoEntity newEntity= factory.manufacturePojo(EventoEntity.class);
-        int boletasDisp=generarNumeroAleatoreo();
-        int cantmax=generarNumeroAleatoreo();
-        while(boletasDisp<cantmax){
-           cantmax=generarNumeroAleatoreo();
-        }
-        
-     newEntity.setBoletasDisponibles(boletasDisp);
-     newEntity.setCapacidadMaxima(cantmax);
-         eventoLogic.update(newEntity);
-    }
-    
-       public void deleteEventoEntityTest() throws BusinessLogicException {
+   public void deleteEventoEntityTest() throws BusinessLogicException {
         EventoEntity entity = data.get(0);
         eventoLogic.deleteEvento(entity.getId());
         EventoEntity deleted = em.find(EventoEntity.class, entity.getId());
@@ -269,21 +208,21 @@ public class EventoLogicTest {
     }
 
  
-//    
-//       @Test
-//    public void findAllEventoEntityTest() {
-//        List<EventoEntity> list = eventoLogic.findAllEvento();
-//        Assert.assertEquals(list.size(), data.size());
-//        for (EventoEntity ent : list) {
-//            boolean found = false;
-//            for (EventoEntity entity : data) {
-//                if (ent.getId().equals(entity.getId())) {
-//                    found = true;
-//                }
-//            }
-//            Assert.assertTrue(found);
-//        }
-//    }
+    
+       @Test
+    public void findAllEventoEntityTest() {
+        List<EventoEntity> list = eventoLogic.findAllEvento();
+        Assert.assertEquals(list.size(), data.size());
+        for (EventoEntity ent : list) {
+            boolean found = false;
+            for (EventoEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
 
     /**
      * test de obtener un objeto de EventoEntity

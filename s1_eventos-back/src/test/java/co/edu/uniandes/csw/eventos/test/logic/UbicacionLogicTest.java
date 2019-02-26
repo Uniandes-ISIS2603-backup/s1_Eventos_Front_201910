@@ -86,7 +86,7 @@ public class UbicacionLogicTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from EventoEntity").executeUpdate();
+        em.createQuery("delete from UbicacionEntity").executeUpdate();
     }
 
     /**
@@ -217,21 +217,21 @@ public class UbicacionLogicTest {
         newEntity.setLongitud(longitud);
         ubicacionLogic.updateUbicacion(newEntity.getId(), newEntity);
     }
-//    @Test
-//    public void findAllUbicacionEntityTest() {
-//        List<UbicacionEntity> list = ubicacionLogic.findAllUbicacion();
-//        Assert.assertEquals(list.size(), data.size());
-//        for (UbicacionEntity ent : list) {
-//            boolean found = false;
-//            for (UbicacionEntity entity : data) {
-//                if (ent.getId().equals(entity.getId())) {
-//                    found = true;
-//                }
-//            }
-//            Assert.assertTrue(found);
-//        }
-//
-//    }
+    @Test
+    public void findAllUbicacionEntityTest() {
+        List<UbicacionEntity> list = ubicacionLogic.findAllUbicacion();
+        Assert.assertEquals(list.size(), data.size());
+        for (UbicacionEntity ent : list) {
+            boolean found = false;
+            for (UbicacionEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+
+    }
 
     /**
      * test de obtener un objeto de UbicacionEntity

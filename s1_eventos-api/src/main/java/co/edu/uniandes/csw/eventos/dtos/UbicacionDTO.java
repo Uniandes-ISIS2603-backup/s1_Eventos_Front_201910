@@ -14,9 +14,11 @@ import java.io.Serializable;
  */
 public class UbicacionDTO implements Serializable {
     //Atributos
+    
     private double latitud;
     private double longitud;
     private String nombre;
+    private Long id;
     
     public UbicacionDTO(){
         
@@ -82,6 +84,20 @@ public class UbicacionDTO implements Serializable {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
