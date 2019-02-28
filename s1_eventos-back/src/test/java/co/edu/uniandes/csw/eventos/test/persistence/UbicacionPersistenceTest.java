@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.eventos.test.persistence;
 import co.edu.uniandes.csw.eventos.entities.EventoEntity;
 import co.edu.uniandes.csw.eventos.entities.UbicacionEntity;
 import co.edu.uniandes.csw.eventos.persistence.UbicacionPersistence;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -27,7 +28,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author Mateo Vallejo
  */
 @RunWith(Arquillian.class)
 public class UbicacionPersistenceTest {
@@ -58,7 +59,7 @@ public class UbicacionPersistenceTest {
     /**
       * Collecion de Objetos de la clase que se va a probar
       */
-    private List<UbicacionEntity> data;
+    private List<UbicacionEntity> data= new ArrayList<>();
    
          
     /**
@@ -114,7 +115,7 @@ public class UbicacionPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from OrganizadorEntity").executeUpdate();
+        em.createQuery("delete from UbicacionEntity").executeUpdate();
     
     }
      /**
@@ -141,7 +142,7 @@ public void createUbicacionEntityTest() {
 @Test
 public void findAllUbicacionEntityTest() {
     List<UbicacionEntity> list = up.findAll();
-    Assert.assertEquals(data.size(), list.size());
+    Assert.assertEquals(list.size(),data.size());
     for (UbicacionEntity ent : list) {
         boolean found = false;
         for (UbicacionEntity entity : data) {

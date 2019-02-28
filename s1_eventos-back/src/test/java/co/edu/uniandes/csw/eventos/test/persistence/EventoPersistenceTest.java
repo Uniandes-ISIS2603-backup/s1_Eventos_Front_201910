@@ -55,7 +55,7 @@ public class EventoPersistenceTest {
     /**
      * Collecion de Objetos de la clase que se va a probar
      */
-    private List<EventoEntity> data= new ArrayList<>();
+    private List<EventoEntity> data = new ArrayList<>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
@@ -97,9 +97,9 @@ public class EventoPersistenceTest {
      * Inserta los datos iniciales para el correcto funcionamiento de las
      * pruebas.
      */
-    private void insertData() {
+     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             EventoEntity entity = factory.manufacturePojo(EventoEntity.class);
 
             em.persist(entity);
@@ -111,7 +111,7 @@ public class EventoPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from OrganizadorEntity").executeUpdate();
+        em.createQuery("delete from EventoEntity").executeUpdate();
     }
 
     /**
@@ -133,7 +133,7 @@ public class EventoPersistenceTest {
     @Test
     public void findAllEventoEntityTest() {
         List<EventoEntity> list = ep.findAll();
-        Assert.assertEquals(data.size(), list.size());
+        Assert.assertEquals(data.size(),list.size());
         for (EventoEntity ent : list) {
             boolean found = false;
             for (EventoEntity entity : data) {
@@ -143,7 +143,6 @@ public class EventoPersistenceTest {
             }
             Assert.assertTrue(found);
         }
-
     }
 
     /**

@@ -28,7 +28,7 @@ public class MultimediaDTO implements Serializable {
             this.url = multimediaEntity.getUrl();
             this.nombre = multimediaEntity.getNombre();
             this.tipo = multimediaEntity.getTipo();
-            this.memoria = multimediaEntity.isMemoria();
+//            this.memoria = multimediaEntity.isMemoria();
         }
     }
     public MultimediaEntity toEntity(){
@@ -37,7 +37,7 @@ public class MultimediaDTO implements Serializable {
         multimediaEntity.setUrl(this.getUrl());
         multimediaEntity.setNombre(this.getNombre());
         multimediaEntity.setTipo(this.getTipo());
-        multimediaEntity.setMemoria(this.isMemoria());
+//        multimediaEntity.setMemoria(this.isMemoria());
         return multimediaEntity;
     }
 
