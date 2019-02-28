@@ -39,6 +39,15 @@ public class OrganizadorResource {
     @Inject
     private OrganizadorLogic organizadorLogic;
     
+    /**
+     * Crea un nuevo organizador con la informacion que se recibe en el cuerpo de la
+     * petición y se regresa un objeto identico con un id auto-generado por la
+     * base de datos.
+     *
+     * @param organizador {@link OrganizadorDTO} - EL organizador que se desea guardar.
+     * @return JSON {@link OrganizadorDTO} - El organizador guardado con el atributo id autogenerado.
+     * @throws BusinessLogicException Si el patrocinador a persistir ya existe o si el nombre, descripcion y/o imagen no son validos
+     */
     @POST
     public OrganizadorDTO createOrganizador(OrganizadorDTO organizador) throws BusinessLogicException {
         
@@ -49,6 +58,12 @@ public class OrganizadorResource {
         return nuevoOrganizadorDTO;
     }
 
+    /**
+     * Busca y devuelve todos los organizadores que existen en la aplicacion.
+     *
+     * @return JSONArray {@link OrganizadorDetailDTO} - Los organizadores encontrados en la
+     * aplicación. Si no hay ninguno retorna una lista vacía.
+     */
     @GET
     public List<OrganizadorDTO> getOrganizadores() {
         
@@ -58,6 +73,15 @@ public class OrganizadorResource {
         return listaOrganizadores;
     }
 
+    /**
+     * Busca el organizador con el id asociado recibido en la URL y lo devuelve.
+     *
+     * @param organizadoresId Identificador del organizador que se esta buscando. Este debe
+     * ser una cadena de dígitos.
+     * @return JSON {@link OrganizadorDetailDTO} - El organizador buscado
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra el organizador.
+     */
     @GET
     @Path("{organizadoresId: \\d+}")
     public OrganizadorDTO getOrganizador(@PathParam("organizadoresId") Long organizadoresId) throws WebApplicationException {
@@ -72,6 +96,18 @@ public class OrganizadorResource {
         return detailDTO;
     }
 
+    /**
+     * Actualiza el organizador con el id recibido en la URL con la información que se
+     * recibe en el cuerpo de la petición.
+     *
+     * @param organizadoresId Identificador del organizador que se desea actualizar. Este
+     * debe ser una cadena de dígitos.
+     * @param organizador {@link OrganizadorDetailDTO} El organizador que se desea guardar.
+     * @return JSON {@link OrganizadorDetailDTO} - El organizador guardado.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra el organizador a
+     * actualizar.
+     */
     @PUT
     @Path("{organizadoresId: \\d+}")
     public OrganizadorDTO updateOrganizador(@PathParam("organizadoresId") Long organizadoresId, OrganizadorDTO organizador) throws WebApplicationException {
@@ -85,6 +121,16 @@ public class OrganizadorResource {
         return detailDTO;
     }
 
+    /**
+     * Borra el organizador con el id asociado recibido en la URL.
+     *
+     * @param organizadoresId Identificador del organizador que se desea borrar. Este debe
+     * ser una cadena de dígitos.
+     * @throws co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException
+     * si el autor tiene eventos asociados
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper}
+     * Error de lógica que se genera cuando no se encuentra el organizador a borrar.
+     */
     @DELETE
     @Path("{organizadoresId: \\d+}")
     public void deleteOrganizador(@PathParam("organizadoresId") Long organizadoresId) throws BusinessLogicException {
