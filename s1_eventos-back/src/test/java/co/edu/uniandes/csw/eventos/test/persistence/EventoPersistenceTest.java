@@ -111,7 +111,7 @@ public class EventoPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from OrganizadorEntity").executeUpdate();
+        em.createQuery("delete from EventoEntity").executeUpdate();
     }
 
     /**
@@ -133,7 +133,7 @@ public class EventoPersistenceTest {
     @Test
     public void findAllEventoEntityTest() {
         List<EventoEntity> list = ep.findAll();
-        Assert.assertEquals(list.size(), data.size());
+        Assert.assertEquals(data.size(),list.size());
         for (EventoEntity ent : list) {
             boolean found = false;
             for (EventoEntity entity : data) {

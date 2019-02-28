@@ -63,7 +63,7 @@ public class EventoPersistence {
      * @return 
      */
      public List<EventoEntity> findAll(){
-        TypedQuery query = em.createQuery("select u from UbicacionEntity u",EventoEntity.class);
+        TypedQuery query = em.createQuery("select u from EventoEntity u",EventoEntity.class);
     return query.getResultList();
     }
     

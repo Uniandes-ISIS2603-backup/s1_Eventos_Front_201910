@@ -115,7 +115,7 @@ public class UbicacionPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from OrganizadorEntity").executeUpdate();
+        em.createQuery("delete from UbicacionEntity").executeUpdate();
     
     }
      /**

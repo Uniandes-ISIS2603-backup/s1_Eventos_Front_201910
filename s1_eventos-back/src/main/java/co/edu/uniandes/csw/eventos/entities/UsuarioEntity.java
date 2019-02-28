@@ -25,10 +25,6 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     private Double longitud;
     private Double latitud;
     private boolean unialpino;
-    @javax.persistence.ManyToMany(
-        fetch = javax.persistence.FetchType.LAZY
-           )
-    List<UsuarioEntity> usuarios;
 
     public UsuarioEntity(){
         
