@@ -25,7 +25,6 @@ package co.edu.uniandes.csw.eventos.resources;
 
 import co.edu.uniandes.csw.eventos.dtos.OrganizadorDTO;
 import co.edu.uniandes.csw.eventos.dtos.OrganizadorDetailDTO;
-import co.edu.uniandes.csw.eventos.dtos.PatrocinadorDTO;
 import co.edu.uniandes.csw.eventos.ejb.OrganizadorLogic;
 import co.edu.uniandes.csw.eventos.entities.OrganizadorEntity;
 import co.edu.uniandes.csw.eventos.exceptions.BusinessLogicException;
