@@ -13,6 +13,13 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import { FacturasComponent } from './facturas/facturas.component';
+import { AgendasComponent } from './agendas/agendas.component';
+import { InvitadosComponent } from './invitados/invitados.component';
+import { FacturasListComponent } from './facturas/facturas-list/facturas-list.component';
+import { FacturasDetailComponent } from './facturas/facturas-detail/facturas-detail.component';
+import { AgendasListComponent } from './agendas/agendas-list/agendas-list.component';
+import { InvitadosListComponent } from './invitados/invitados-list/invitados-list.component';
 
 
 
@@ -21,7 +28,14 @@ import {AuthModule} from './auth/auth.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        FacturasComponent,
+        AgendasComponent,
+        InvitadosComponent,
+        FacturasListComponent,
+        FacturasDetailComponent,
+        AgendasListComponent,
+        InvitadosListComponent
     ],
     imports: [
         BrowserModule,
