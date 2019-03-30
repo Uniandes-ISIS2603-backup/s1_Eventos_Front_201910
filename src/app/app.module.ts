@@ -14,7 +14,9 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 
-
+import {EntradaModule} from './entrada/entrada.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 
 
 
@@ -38,7 +40,10 @@ import {AuthModule} from './auth/auth.module';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+        EntradaModule,
+        CalificacionModule,
+        MedioDePagoModule
     ],
     bootstrap: [AppComponent],
     providers: [
