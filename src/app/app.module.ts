@@ -17,7 +17,9 @@ import { FacturaModule } from './factura/factura.module';
 import { AgendaModule } from './agenda/agenda.module';
 import { InvitadoModule } from './invitado/invitado.module';
 
-
+import {EntradaModule} from './entrada/entrada.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 
 
 
@@ -45,7 +47,10 @@ import { InvitadoModule } from './invitado/invitado.module';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+        EntradaModule,
+        CalificacionModule,
+        MedioDePagoModule
     ],
     bootstrap: [AppComponent],
     providers: [
