@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" *ngFor = "let invitado of invitados">
+            <figure class="figure" routerLink="/invitados/{{invitado.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-fluid" src='{{invitado.image}}' alt="{{invitado.name}}" />                                     
+                </div>
+                <figcaption class="title-caption text-center">{{invitado.name}}</figcaption>
+                
+            </figure>
+        </div>
+    </div>
+</div>

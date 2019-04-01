@@ -5,6 +5,13 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { Agenda } from '../agenda/agenda';
+import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
+import { Factura } from '../factura/factura';
+import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
+import { Invitado } from '../invitado/invitado';
+import { InvitadoListComponent } from '../invitado/invitado-list/invitado-list.component';
+import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
 import {OrganizadorDetailComponent } from '../organizador/organizador-detail/organizador-detail.component';
@@ -62,6 +69,40 @@ const routes: Routes = [
                         only: ['GUEST']
                     }
                 }
+            }
+        ]
+    },
+    {
+        path: 'agendas',
+        component: Agenda,
+        children:[
+            {
+                path:'list',
+                component: AgendaListComponent,
+            }
+        ]
+    },
+    {
+        path: 'facturas',
+        component: Factura,
+        children:[
+            {
+                path:'list',
+                component: FacturaListComponent,
+            },
+            {
+                path: ':id',
+                component: FacturaDetailComponent,
+            }
+        ]
+    },
+    {
+        path: 'invitados',
+        component: Invitado,
+        children:[
+            {
+                path:'list',
+                component: InvitadoListComponent,
             }
         ]
     },
