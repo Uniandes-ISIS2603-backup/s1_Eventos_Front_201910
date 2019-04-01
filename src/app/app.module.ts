@@ -13,13 +13,9 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-import { FacturasComponent } from './facturas/facturas.component';
-import { AgendasComponent } from './agendas/agendas.component';
-import { InvitadosComponent } from './invitados/invitados.component';
-import { FacturasListComponent } from './facturas/facturas-list/facturas-list.component';
-import { FacturasDetailComponent } from './facturas/facturas-detail/facturas-detail.component';
-import { AgendasListComponent } from './agendas/agendas-list/agendas-list.component';
-import { InvitadosListComponent } from './invitados/invitados-list/invitados-list.component';
+import { FacturaModule } from './factura/factura.module';
+import { AgendaModule } from './agenda/agenda.module';
+import { InvitadoModule } from './invitado/invitado.module';
 
 
 
@@ -29,13 +25,7 @@ import { InvitadosListComponent } from './invitados/invitados-list/invitados-lis
 @NgModule({
     declarations: [
         AppComponent,
-        FacturasComponent,
-        AgendasComponent,
-        InvitadosComponent,
-        FacturasListComponent,
-        FacturasDetailComponent,
-        AgendasListComponent,
-        InvitadosListComponent
+        
     ],
     imports: [
         BrowserModule,
@@ -45,6 +35,9 @@ import { InvitadosListComponent } from './invitados/invitados-list/invitados-lis
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        FacturaModule,
+        AgendaModule,
+        InvitadoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
