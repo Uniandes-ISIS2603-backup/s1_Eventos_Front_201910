@@ -1,3 +1,4 @@
+
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -13,8 +14,8 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-import {UsuarioModule} from './usuario/usuario.module';
-import {MultimediaModule} from './multimedia/multimedia.module';
+import {OrganizadorModule } from './organizador/organizador.module';
+import {PatrocinadorModule } from './patrocinador/patrocinador.module';
 
 import {EntradaModule} from './entrada/entrada.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
@@ -23,10 +24,11 @@ import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 
 
 
+
+
 @NgModule({
     declarations: [
-        AppComponent,
-        
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -36,9 +38,6 @@ import {MedioDePagoModule} from './medioDePago/medioDePago.module';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
-        FacturaModule,
-        AgendaModule,
-        InvitadoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
@@ -63,3 +62,4 @@ import {MedioDePagoModule} from './medioDePago/medioDePago.module';
     ]
 })
 export class AppModule {}
+
