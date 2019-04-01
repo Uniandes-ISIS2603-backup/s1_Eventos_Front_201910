@@ -13,6 +13,9 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import { FacturaModule } from './factura/factura.module';
+import { AgendaModule } from './agenda/agenda.module';
+import { InvitadoModule } from './invitado/invitado.module';
 
 
 
@@ -21,7 +24,8 @@ import {AuthModule} from './auth/auth.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        
     ],
     imports: [
         BrowserModule,
@@ -31,6 +35,9 @@ import {AuthModule} from './auth/auth.module';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        FacturaModule,
+        AgendaModule,
+        InvitadoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
