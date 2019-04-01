@@ -16,14 +16,17 @@ import {AuthModule} from './auth/auth.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {MultimediaModule} from './multimedia/multimedia.module';
 
-
+import {EntradaModule} from './entrada/entrada.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 
 
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        
     ],
     imports: [
         BrowserModule,
@@ -33,6 +36,9 @@ import {MultimediaModule} from './multimedia/multimedia.module';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        FacturaModule,
+        AgendaModule,
+        InvitadoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
@@ -41,6 +47,9 @@ import {MultimediaModule} from './multimedia/multimedia.module';
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
+        EntradaModule,
+        CalificacionModule,
+        MedioDePagoModule
         UsuarioModule,
         MultimediaModule
     ],
