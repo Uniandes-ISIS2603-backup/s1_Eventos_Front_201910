@@ -17,6 +17,9 @@ import {AuthModule} from './auth/auth.module';
 import {OrganizadorModule } from './organizador/organizador.module';
 import {PatrocinadorModule } from './patrocinador/patrocinador.module';
 
+import {EntradaModule} from './entrada/entrada.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 
 
 
@@ -43,8 +46,11 @@ import {PatrocinadorModule } from './patrocinador/patrocinador.module';
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
-        OrganizadorModule,
-        PatrocinadorModule
+        EntradaModule,
+        CalificacionModule,
+        MedioDePagoModule
+        UsuarioModule,
+        MultimediaModule
     ],
     bootstrap: [AppComponent],
     providers: [
