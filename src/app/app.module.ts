@@ -13,6 +13,9 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {OrganizadorModule } from './organizador/organizador.module';
+import {PatrocinadorModule } from './patrocinador/patrocinador.module';
+
 
 
 
@@ -38,7 +41,9 @@ import {AuthModule} from './auth/auth.module';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+        OrganizadorModule,
+        PatrocinadorModule
     ],
     bootstrap: [AppComponent],
     providers: [
