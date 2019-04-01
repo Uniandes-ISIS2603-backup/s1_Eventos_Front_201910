@@ -19,6 +19,9 @@ import {PatrocinadorModule } from './patrocinador/patrocinador.module';
 import {EventoModule } from './evento/evento.module';
 import {UbicacionModule } from './ubicacion/ubicacion.module';
 
+import {EntradaModule} from './entrada/entrada.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 
 
 
@@ -49,6 +52,11 @@ import {UbicacionModule } from './ubicacion/ubicacion.module';
         PatrocinadorModule,
         UbicacionModule,
         EventoModule
+        EntradaModule,
+        CalificacionModule,
+        MedioDePagoModule
+        UsuarioModule,
+        MultimediaModule
     ],
     bootstrap: [AppComponent],
     providers: [
