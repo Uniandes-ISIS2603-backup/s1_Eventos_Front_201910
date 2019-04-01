@@ -16,6 +16,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {OrganizadorModule } from './organizador/organizador.module';
 import {PatrocinadorModule } from './patrocinador/patrocinador.module';
+import {EventoModule } from './evento/evento.module';
+import {UbicacionModule } from './ubicacion/ubicacion.module';
 
 
 
@@ -44,7 +46,9 @@ import {PatrocinadorModule } from './patrocinador/patrocinador.module';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         OrganizadorModule,
-        PatrocinadorModule
+        PatrocinadorModule,
+        UbicacionModule,
+        EventoModule
     ],
     bootstrap: [AppComponent],
     providers: [
