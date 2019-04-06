@@ -1,9 +1,18 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2" *ngFor = "let factura of facturas">
-            <figure class="figure" routerLink="/facturas/{{factura.id}}" style="cursor: pointer;"> 
-                <figcaption class="title-caption text-center">{{factura.id}}</figcaption>
-            </figure>
-        </div>
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Fecha de Pago</th>
+                    <th scope="col">Iva</th>
+                    <th scope="col">Total</th>
+                </tr>
+            <tbody>
+              <tr *ngFor = "let factura of facturas">
+                    <th scope ="row">{{factura.id}}</th>
+              </tr>
+            </tbody>
+        </table>
     </div>
 </div>

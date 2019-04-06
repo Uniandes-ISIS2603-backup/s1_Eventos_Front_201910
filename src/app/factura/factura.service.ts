@@ -7,8 +7,8 @@ import { FacturaDetail } from './factura-detail';
 
 
 import { environment } from '../../environments/environment';
-const API_URL = environment.apiURL;
-const facturas = '/facturas';
+const API_URL = '../../assets';
+const facturas = '/facturas.json';
 
 
 /**
