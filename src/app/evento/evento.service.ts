@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+
 import { Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Evento } from './evento';
-
+import {EventoDetail}from './evento-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
@@ -52,4 +53,12 @@ export class EventoService {
     createEvento(evento): Observable<Evento> {
         return this.http.post<Evento>(API_URL + eventos, evento);
     }
+
+     /**
+    * Returns the Observable object with the details of an agenda retrieved from the API
+    * @returns The agenda details
+    */
+   getEventoDetail(EventoId): Observable<EventoDetail> {
+    return this.http.get<EventoDetail>(API_URL + eventos + '/' + EventoId);
+}
 }

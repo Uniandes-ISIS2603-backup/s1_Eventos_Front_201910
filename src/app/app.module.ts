@@ -1,3 +1,8 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
@@ -77,4 +82,6 @@ import {MultimediaModule} from './multimedia/multimedia.module';
     ]
 })
 export class AppModule {}
+
+
 
