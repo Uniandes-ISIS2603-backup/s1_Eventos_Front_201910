@@ -35,7 +35,7 @@ export class OrganizadorService {
     
     /**
     * Creates an organizador
-    * @param author The new organizador
+    * @param invitado The new organizador
     * @returns The confirmation that the organizador was created
     */
     createOrganizador(organizador): Observable<Organizador> {

@@ -15,6 +15,10 @@ export class Invitado {
     */
     name: string;
 
+    /**
+     * info del invitado
+     */
+    info:string;
     
 
 }

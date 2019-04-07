@@ -42,7 +42,7 @@ describe('FacturaListComponent', () => {
     it('a Factura should be a Factura (first and last)', () => {
         component.facturas = facturas;
         //revisar todos los libros
-        expect(component.facturas[0].name).toEqual(facturas[0].name);
-        expect(component.facturas[facturas.length - 1].name).toEqual(facturas[facturas.length - 1].name);
+        expect(component.facturas[0].fecha).toEqual(facturas[0].fecha);
+        expect(component.facturas[facturas.length - 1].fecha).toEqual(facturas[facturas.length - 1].fecha);
     });
 });

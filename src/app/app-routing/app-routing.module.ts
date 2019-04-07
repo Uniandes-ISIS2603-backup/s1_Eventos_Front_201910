@@ -74,7 +74,6 @@ const routes: Routes = [
     },
     {
         path: 'agendas',
-        component: Agenda,
         children:[
             {
                 path:'list',
@@ -84,7 +83,6 @@ const routes: Routes = [
     },
     {
         path: 'facturas',
-        component: Factura,
         children:[
             {
                 path:'list',
@@ -98,7 +96,6 @@ const routes: Routes = [
     },
     {
         path: 'invitados',
-        component: Invitado,
         children:[
             {
                 path:'list',
