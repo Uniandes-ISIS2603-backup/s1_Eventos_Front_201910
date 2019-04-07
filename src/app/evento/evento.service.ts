@@ -6,8 +6,8 @@ import {Evento} from './evento';
 import {EventoDetail} from './evento-detail';
 
 
-import { enviroment} from '../../environments/environment';
-const API_URL = enviroments.apiURL;
+import { environment} from '..environments/environment';
+const API_URL = environment.apiURL;
 const eventos = '/eventos';
 
 
@@ -23,6 +23,6 @@ export class EventoService {
    }
    
    getEventoDetail(evento_Id): Observable<EventoDetail>{
-       return this.http.get<EventoDetail>(API_URL + eventos + '/'+ eventoId);
+       return this.http.get<EventoDetail>(API_URL + eventos + '/'+ evento_Id);
    }
 }
