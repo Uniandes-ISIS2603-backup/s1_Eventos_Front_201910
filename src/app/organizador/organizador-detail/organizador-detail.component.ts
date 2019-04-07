@@ -25,7 +25,7 @@ export class OrganizadorDetailComponent implements OnInit {
   ) { }
   
       /**
-    * El id del agenda que viene en el path get .../organizadores/organizador_id
+    * El id del invitado que viene en el path get .../organizadores/organizador_id
     */
     organizador_id: number;
     /**

@@ -35,7 +35,7 @@ export class PatrocinadorService {
     
     /**
     * Creates an patrocinador
-    * @param agenda The new patrocinador
+    * @param invitado The new patrocinador
     * @returns The confirmation that the patrocinador was created
     */
     createPatrocinador(patrocinador): Observable<Patrocinador> {

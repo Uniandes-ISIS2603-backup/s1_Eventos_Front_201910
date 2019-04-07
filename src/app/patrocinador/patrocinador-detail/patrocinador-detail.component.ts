@@ -25,7 +25,7 @@ export class PatrocinadorDetailComponent implements OnInit {
   ) { }
   
       /**
-    * El id del agenda que viene en el path get .../patrocinadores/patrocinador_id
+    * El id del invitado que viene en el path get .../patrocinadores/patrocinador_id
     */
     patrocinador_id: number;
     
