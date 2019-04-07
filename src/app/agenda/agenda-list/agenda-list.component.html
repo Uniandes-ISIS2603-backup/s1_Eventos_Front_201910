@@ -1,15 +1,43 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2" *ngFor = "let agenda of agendas">
-            <figure class="figure" routerLink="/agendas/{{agenda.id}}" style="cursor: pointer;"> 
-                <div class="img-thumbnail border-0">                        
-                    <img class="img-fluid" src='{{agenda.image}}' alt="{{agenda.name}}" />                                     
-                </div>
-                <figcaption class="title-caption text-center">{{agenda.name}}</figcaption>
-                <div *ngFor = "let author of agenda.authors">
-                    <figcaption class="author-caption text-center" routerLink="/authors/{{author.id}}">{{author.name}}</figcaption>
-                </div>
-            </figure>
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center" >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an agenda</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Agenda´s Name</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let agenda of agendas" >
+                        <td style="cursor: pointer;" (click)="onSelected(agenda.id)"> <dd>{{agenda.name}}</dd>
+                </td>
+                <td >
+                    <button class="btn btn-primary" (click)="showHideEdit(agenda.id)"><span class="fa fa-pencil"></span></button>
+                </td>
+                <td >
+                    <button class="btn btn-danger" (click)="deleteAgenda(agenda.id)"><span class="fa fa-trash"></span></button>
+                </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+        <div class="col-8">
+            <div *ngIf="showView">
+                <app-agenda-detail [agendaDetail]="selectedAgenda"></app-agenda-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-agenda-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-agenda-edit [agenda]="selectedAgenda" (cancel)="showHideEdit(selectedAgenda.id)" (update)="updateAgenda()" ></app-agenda-edit>
+            </div>
+        </div>   
     </div>
 </div>

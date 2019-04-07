@@ -1,13 +1,40 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2" *ngFor = "let invitado of invitados">
-            <figure class="figure" routerLink="/invitados/{{invitado.id}}" style="cursor: pointer;"> 
-                <div class="img-thumbnail border-0">                        
-                    <img class="img-fluid" src='{{invitado.image}}' alt="{{invitado.name}}" />                                     
-                </div>
-                <figcaption class="title-caption text-center">{{invitado.name}}</figcaption>
-                
-            </figure>
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center" >
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an invitado</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Invitado´s Name</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let invitado of invitados" >
+                        <td style="cursor: pointer;" (click)="onSelected(invitado.id)"> <dd>{{invitado.name}}</dd>
+                </td>
+                <td >
+                    <button class="btn btn-primary" (click)="showHideEdit(invitado.id)"><span class="fa fa-pencil"></span></button>
+                </td>
+                <td >
+                    <button class="btn btn-danger" (click)="deleteInvitado(invitado.id)"><span class="fa fa-trash"></span></button>
+                </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+        <div class="col-8">
+            <div *ngIf="showCreate">
+                <app-invitado-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-invitado-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-invitado-edit [invitado]="selectedInvitado" (cancel)="showHideEdit(selectedInvitado.id)" (update)="updateInvitado()" ></app-invitado-edit>
+            </div>
+        </div>   
     </div>
 </div>
