@@ -5,10 +5,11 @@ import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 
-import { EventoListComponent } from './evento/evento-list/evento-list.component';
-import { EventoCreateComponent } from './evento/evento-create/evento-create.component';
-import { EventoDetailComponent } from './evento/evento-detail/evento-detail.component';
+
 import {EventoService} from './evento.service';
+import { EventoListComponent } from './evento-list/evento-list.component';
+import { EventoCreateComponent } from './evento-create/evento-create.component';
+import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,8 @@ import {EventoService} from './evento.service';
   ],
   declarations: [EventoListComponent, EventoCreateComponent, EventoDetailComponent],
   providers:[EventoService],
-  bootstrap:[EventoListComponent]
+  bootstrap:[EventoListComponent],
+  exports:[EventoListComponent]
+
 })
 export class EventoModule { }

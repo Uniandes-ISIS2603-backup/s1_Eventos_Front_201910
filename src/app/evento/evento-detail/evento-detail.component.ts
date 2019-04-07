@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
-import { EventoService } from '../../evento.service';
-import { Evento } from '../../evento';
-import { EventoDetail } from '../../evento-detail';
+import { EventoService } from '../evento.service';
+import { EventoDetail } from '../evento-detail';
 @Component({
   selector: 'app-evento-detail',
   templateUrl: './evento-detail.component.html',

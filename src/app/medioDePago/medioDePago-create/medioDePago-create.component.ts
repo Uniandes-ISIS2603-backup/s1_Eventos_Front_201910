@@ -4,9 +4,9 @@ import { MedioDePagoService } from '../medioDePago.service';
 import { MedioDePago } from '../medioDePago';
 
 @Component({
-  selector: 'app-organizador-create',
-  templateUrl: './organizador-create.component.html',
-  styleUrls: ['./organizador-create.component.css']
+  selector: 'app-medioDePago-create',
+  templateUrl: './medioDePago-create.component.html',
+  styleUrls: ['./medioDePago-create.component.css']
 })
 export class MedioDePagoCreateComponent implements OnInit {
 
