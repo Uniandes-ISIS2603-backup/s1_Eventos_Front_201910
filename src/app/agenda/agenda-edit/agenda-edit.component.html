@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Edit an agenda</h2>
+        <br>
+        <form name="agenda" (ngSubmit)="f.form.valid && editAgenda()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <label for="agendaName"><b>Name</b></label>
+                <input type="text" name="agendaName" class="form-control" id="agendaName" [(ngModel)]="agenda.name"
+                       #agendaName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaName.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>The agenda's name is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="agendaBirthDate"><b>Birth date</b></label>
+                <div [ngClass]="{ 'is-invalid': f.submitted && agendaBirthDate.invalid }">
+                    <input class="form-control" id="agendaBirthDate" name="agendaBirthDate" dateFormat="YYYY-MM-dd"
+                       [(ngModel)]="agenda.birthDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+                       #agendaBirthDate="ngModel" [ngClass]="{'is-invalid': f.submitted && agendaBirthDate.invalid }"
+                       required>
+                       <div class="invalid-feedback">
+                        <div>The agenda's birth date is missing</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="agendaDescription"><b>Description</b></label>
+                <textarea name="agendaDescription" class="form-control" id="agendaDescription" [(ngModel)]="agenda.description"
+                          #agendaDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaDescription.invalid }"
+                          required></textarea>
+                <div class="invalid-feedback">
+                    <div>The agenda's description is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="agendaImage"><b>Image</b></label>
+                <input type="text" name="agendaImage" class="form-control" id="agendaImage" [(ngModel)]="agenda.image"
+                       #agendaImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && agendaImage.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>The agenda's image is missing</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <i  style="padding-right: 1em;"class="fa fa-save " (click)="editAgenda()"></i>
+          
+            <i class="fa fa-ban" (click)="cancelEdition()"></i>
+        </div>
+    </div>
+</div>
+<br>
+<br>

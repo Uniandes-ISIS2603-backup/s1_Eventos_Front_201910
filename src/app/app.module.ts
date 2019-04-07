@@ -21,9 +21,13 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {OrganizadorModule } from './organizador/organizador.module';
 import {PatrocinadorModule } from './patrocinador/patrocinador.module';
+
 import {EventoModule } from './evento/evento.module';
 import {UbicacionModule } from './ubicacion/ubicacion.module';
-import { UsuarioModule} from './usuario/usuario.module';
+
+import { FacturaModule } from './factura/factura.module';
+import { AgendaModule } from './agenda/agenda.module';
+import { InvitadoModule } from './invitado/invitado.module';
 import {EntradaModule} from './entrada/entrada.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {MedioDePagoModule} from './medioDePago/medioDePago.module';
@@ -45,6 +49,9 @@ import {MultimediaModule} from './multimedia/multimedia.module';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        FacturaModule,
+        AgendaModule,
+        InvitadoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Create an invitado</h2>
+        <br>
+        <form name="invitado" (ngSubmit)="f.form.valid && createAgenda()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="invitadoName"><b>Name</b></label>
+                <input type="text" name="invitadoName" class="form-control" id="invitadoName" [(ngModel)]="invitado.name"
+                    #invitadoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && invitadoName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The invitado's name is missing</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="invitadoInfo"><b>Info</b></label>
+                <textarea name="invitadoInfo" maxlength=255 class="form-control" id="invitadoInfo" [(ngModel)]="invitado.description"
+                    #invitadoInfo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && invitadoInfo.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>The invitado's info is missing</div>
+                </div>
+            </div>
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
