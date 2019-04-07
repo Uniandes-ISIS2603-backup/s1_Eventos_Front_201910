@@ -26,6 +26,8 @@ import { InvitadoModule } from './invitado/invitado.module';
 import {EntradaModule} from './entrada/entrada.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {MedioDePagoModule} from './medioDePago/medioDePago.module';
+import {UsuarioModule} from './usuario/usuario.module';
+import {MultimediaModule} from './multimedia/multimedia.module';
 
 
 
@@ -58,10 +60,10 @@ import {MedioDePagoModule} from './medioDePago/medioDePago.module';
         OrganizadorModule,
         PatrocinadorModule,
         UbicacionModule,
-        EventoModule
+        EventoModule,
         EntradaModule,
         CalificacionModule,
-        MedioDePagoModule
+        MedioDePagoModule,
         UsuarioModule,
         MultimediaModule
     ],
