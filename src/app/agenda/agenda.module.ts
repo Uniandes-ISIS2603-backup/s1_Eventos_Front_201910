@@ -6,6 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AgendaDetailComponent } from './agenda-detail/agenda-detail.component';
+import { AgendaCreateComponent } from './agenda-create/agenda-create.component';
+import { AgendaEditComponent } from './agenda-edit/agenda-edit.component';
+import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [
@@ -13,10 +17,11 @@ import { FormsModule } from '@angular/forms';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        NgbModule
     ],
     declarations: [
-        AgendaListComponent
+        AgendaListComponent,AgendaDetailComponent,AgendaCreateComponent,AgendaEditComponent
     ],
     providers: [AgendaService],
     exports: [AgendaListComponent]

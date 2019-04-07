@@ -7,8 +7,8 @@ import { FacturaDetail } from './factura-detail';
 
 
 import { environment } from '../../environments/environment';
-const API_URL = '../../assets';
-const facturas = '/facturas.json';
+const API_URL =  environment.apiURL;
+const facturas = '/facturas';
 
 
 /**
@@ -32,8 +32,8 @@ export class FacturaService {
     }
     
     /**
-    * Returns the Observable object with the details of an author retrieved from the API
-    * @returns The author details
+    * Returns the Observable object with the details of an agenda retrieved from the API
+    * @returns The agenda details
     */
     getFacturaDetail(FacturaId): Observable<FacturaDetail> {
         return this.http.get<FacturaDetail>(API_URL + facturas + '/' + FacturaId);
