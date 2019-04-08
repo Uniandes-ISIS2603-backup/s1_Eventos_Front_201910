@@ -4,20 +4,24 @@
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear un usuario</button>
+                    (click)="showHideCreate()">Create an usuario</button>
             </div>
             <br>
             <br>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Correo Electronico</th>    
+                        <th>Name</th>    
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let usuario of usuarios">
                         <td style="cursor: pointer;">
-                <dd class="figure-caption" routerLink="/usuarios/{{usuario.id}}">{{usuario.correoElectronico}}</dd>
+                <dd class="figure-caption" routerLink="/usuarios/{{usuario.id}}">{{usuario.name}}</dd>
+                </td>
+                <td>
+                    <button [ngClass]="{ 'btn-primary': (!showEdit || usuario_edit_id != usuario.id), 'btn-danger': (showEdit && usuario_edit_id == usuario.id) }"
+                        type="button" class="btn" (click)="showHideEdit(usuario.id)">Edit</button>
                 </td>
                 </tr>
                 </tbody>
@@ -26,6 +30,9 @@
         <div class="col-md-8">
             <div *ngIf="showCreate">
                 <app-usuario-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-usuario-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-usuario-edit [usuario_id]="usuario_edit_id" (cancel)="showHideEdit(usuario_edit_id)" (update)="updateUsuario()"></app-usuario-edit>
             </div>
         </div>
 

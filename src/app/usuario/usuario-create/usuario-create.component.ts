@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 
-import { UsuarioService } from '../usuario.service';
+import {UsuarioService} from '../usuario.service';
 
-import { Usuario } from '../usuario';
+import {Usuario} from '../usuario';
 
 @Component({
     selector: 'app-usuario-create',
@@ -21,7 +21,7 @@ export class UsuarioCreateComponent implements OnInit {
     constructor(
         private usuarioService: UsuarioService,
         private toastrService: ToastrService
-    ) { }
+    ) {}
 
     /**
     * The new usuario
@@ -43,14 +43,16 @@ export class UsuarioCreateComponent implements OnInit {
     /**
     * Creates a new usuario
     */
-    createUsuario(): void {
+    createUsuario(): Usuario {
         this.usuarioService.createUsuario(this.usuario)
-            .subscribe(() => {
+            .subscribe((usuario) => {
+                this.usuario = usuario;
                 this.create.emit();
-                this.toastrService.success("El usuario fue creado", "Creacion de usuario");
+                this.toastrService.success("The usuario was created", "Usuario creation");
             }, err => {
                 this.toastrService.error(err, "Error");
             });
+        return this.usuario;
     }
 
     /**

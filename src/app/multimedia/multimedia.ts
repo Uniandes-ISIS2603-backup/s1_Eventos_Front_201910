@@ -2,7 +2,7 @@
 * This class represents a Multimedia. 
 * It contains all the information relevant to the multimedia.
 */
-export interface Multimedia {
+export class Multimedia {
     /**
     * The multimedia
     */
