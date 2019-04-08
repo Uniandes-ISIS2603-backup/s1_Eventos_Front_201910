@@ -20,7 +20,7 @@ export class AuthService {
     start (): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        this.permissionsService.loadPermissions(['edit_agenda_permission', 'delete_agenda_permission', 'leave_review']);
         const role = localStorage.getItem('role');
         if (!role) {
             this.setGuestRole();
@@ -44,7 +44,7 @@ export class AuthService {
 
     setAdministratorRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('ADMIN', ['edit_agenda_permission', 'delete_agenda_permission']);
         localStorage.setItem('role', 'ADMIN');
     }
 

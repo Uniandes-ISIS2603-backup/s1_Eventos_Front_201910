@@ -3,5 +3,5 @@
  */
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:8080/s1_Eventos-api/api'
+  apiURL: 'http://localhost:8080/s1_eventos-api/api'
 };

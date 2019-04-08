@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an usuario</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let usuario of usuarios">
+                        <td style="cursor: pointer;">
+                <dd class="figure-caption" routerLink="/usuarios/{{usuario.id}}">{{usuario.name}}</dd>
+                </td>
+                <td>
+                    <button [ngClass]="{ 'btn-primary': (!showEdit || usuario_edit_id != usuario.id), 'btn-danger': (showEdit && usuario_edit_id == usuario.id) }"
+                        type="button" class="btn" (click)="showHideEdit(usuario.id)">Edit</button>
+                </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <div *ngIf="showCreate">
+                <app-usuario-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-usuario-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-usuario-edit [usuario_id]="usuario_edit_id" (cancel)="showHideEdit(usuario_edit_id)" (update)="updateUsuario()"></app-usuario-edit>
+            </div>
+        </div>
+
+    </div>
+</div>

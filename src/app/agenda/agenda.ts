@@ -15,25 +15,20 @@ export class Agenda {
     */
     name: string;
 
-    /**
-    * The Agenda's ISBN
-    */
-    isbn: string;
 
     /**
-    * A brief summary of the Agenda
+    * The activity of the Agenda
     */
-    description: string;
+    actividad: string;
 
     /**
-    * The location of the Agenda's image
-    */
-    image: string;
-
-    /**
-     * The Agenda's publishing date
+     * The Agenda's end date
      */
-    publishingdate: any;
+    horaFinal: any;
     
+    /**
+     * The Agenda's start date
+     */
+    horaInicio: any;
 
 }

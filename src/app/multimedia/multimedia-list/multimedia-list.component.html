@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" *ngFor = "let multimedia of multimedias">
+            <figure class="figure" routerLink="/multimedias/{{multimedia.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-fluid" src='{{multimedia.url}}' alt="{{multimedia.nombre}}" />                                     
+                </div>
+                <figcaption class="title-caption text-center">{{multimedia.nombre}}</figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
