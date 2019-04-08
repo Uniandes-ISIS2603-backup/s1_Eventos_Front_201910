@@ -20,6 +20,7 @@ import {UsuarioEditComponent} from './usuario-edit/usuario-edit.component';
         FormsModule
     ],
     declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
-    providers: [UsuarioService]
+    providers: [UsuarioService],
+    exports: [UsuarioListComponent]
 })
 export class UsuarioModule {}
