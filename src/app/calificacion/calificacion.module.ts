@@ -9,10 +9,14 @@ import { CalificacionCreateComponent } from '../calificacion/calificacion-create
     imports:[
         CommonModule
     ],
-    declarations: [CalificacionListComponent, CalificacionDetailComponent,CalificacionCreateComponent],
+    declarations: [CalificacionListComponent, 
+                    CalificacionDetailComponent,
+                    CalificacionCreateComponent],
     providers: [
         CalificacionService
     ],
-    exports:[CalificacionListComponent]
+    exports:[CalificacionListComponent,
+            CalificacionDetailComponent,
+            CalificacionCreateComponent]
 })
 export class CalificacionModule{}
