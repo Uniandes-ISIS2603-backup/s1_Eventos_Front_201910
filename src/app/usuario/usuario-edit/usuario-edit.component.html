@@ -2,21 +2,22 @@
     <div class="col-3"></div>
     <div class="col-6">
         <br>
-        <h2 class="text-center">Create an usuario</h2>
+        <h2 class="text-center">Editar un usuario</h2>
         <br>
-        <form correoElectronico="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+        <form correoElectronico="usuario" (ngSubmit)="f.form.valid && editUsuario()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="usuarioCorreoElectronico"><b>Correo Electronico</b></label>
                 <input type="text" correoElectronico="usuarioCorreoElectronico" class="form-control" id="usuarioCorreoElectronico" [(ngModel)]="usuario.correoElectronico"
-                    #usuarioCorreoElectronico="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioCorreoElectronico.invalid }" required>
+                    #usuarioCorreoElectronico="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioCorreoElectronico.invalid }"
+                    required>
                 <div class="invalid-feedback">
-                    <div>Falta el correo electronico</div>
+                    <div>The usuario's correo Electronico is missing</div>
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
                 <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
             </div>
         </form>
     </div>

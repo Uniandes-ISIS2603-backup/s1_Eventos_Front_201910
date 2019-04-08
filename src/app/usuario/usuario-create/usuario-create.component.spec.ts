@@ -1,44 +1,71 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {APP_BASE_HREF} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
-import {ActivatedRoute, convertToParamMap} from '@angular/router';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
-import {AppModule} from '../../app.module';
+import {ToastrService} from 'ngx-toastr';
 
-import { UsuarioCreateComponent } from './usuario-create.component';
-import {AppRoutingModule} from '../../app-routing/app-routing.module';
 import {UsuarioService} from '../usuario.service';
+
 import {Usuario} from '../usuario';
 
-describe('UsuarioCreateComponent', () => {
-	let component: UsuarioCreateComponent;
-	let fixture: ComponentFixture<UsuarioCreateComponent>;
-    
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [AppRoutingModule, HttpClientModule, AppModule],
-            declarations: [],
-            providers: [
-                {
-                    provide: APP_BASE_HREF,
-                    useValue: ''
-                }, 
-                UsuarioService,
-                {
-                    provide: ActivatedRoute,
-                    useValue: {
-                        snapshot: {
-                           paramMap: convertToParamMap({id: 100})
-                        }
-                    }
-                }
-            ]
-        }).compileComponents();
-    }));
+@Component({
+    selector: 'app-usuario-create',
+    templateUrl: './usuario-create.component.html',
+    styleUrls: ['./usuario-create.component.css']
+})
+export class UsuarioCreateComponent implements OnInit {
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(UsuarioCreateComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-});
+    /**
+    * Constructor for the component
+    * @param usuarioService The usuarios' services provider
+    * @param toastrService The toastr to show messages to the user 
+    */
+    constructor(
+        private usuarioService: UsuarioService,
+        private toastrService: ToastrService
+    ) {}
+
+    /**
+    * The new usuario
+    */
+    usuario: Usuario;
+
+    /**
+    * The output which tells the parent component
+    * that the user no longer wants to create an usuario
+    */
+    @Output() cancel = new EventEmitter();
+
+    /**
+    * The output which tells the parent component
+    * that the user created a new usuario
+    */
+    @Output() create = new EventEmitter();
+
+    /**
+    * Creates a new usuario
+    */
+    createUsuario(): Usuario {
+        this.usuarioService.createUsuario(this.usuario)
+            .subscribe((usuario) => {
+                this.usuario = usuario;
+                this.create.emit();
+                this.toastrService.success("The usuario was created", "Usuario creation");
+            }, err => {
+                this.toastrService.error(err, "Error");
+            });
+        return this.usuario;
+    }
+
+    /**
+    * Informs the parent component that the user no longer wants to create an usuario
+    */
+    cancelCreation(): void {
+        this.cancel.emit();
+    }
+
+    /**
+    * This function will initialize the component
+    */
+    ngOnInit() {
+        this.usuario = new Usuario();
+    }
+}

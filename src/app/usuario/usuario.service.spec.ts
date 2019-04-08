@@ -11,6 +11,7 @@ describe('Service: UsuarioService', () => {
     let injector: TestBed;
     let service: UsuarioService;
 	const usuarios: Usuario[] = require('../../assets/usuarios.json');
+    
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientModule, AppModule],
@@ -31,7 +32,7 @@ describe('Service: UsuarioService', () => {
 	
 	it('#createUsuario should return value from observable',
     (done: DoneFn) => {
-    let usuario:Usuario = {id:0,correoElectronico:"abc12@uniandes.edu.co",contrasena:"abcABC123#", longitud:-50, latitud:-50, unialpino:false};
+    let usuario:Usuario = {id:100,correoElectronico:"prueba@prueba.prueba",contrasena:"Prueba1234#",longitud:90,latitud:90,unialpino:false};
     service.createUsuario(usuario).subscribe(value => {
         expect(value.correoElectronico).toEqual(usuario.correoElectronico);
         done();
@@ -42,6 +43,15 @@ describe('Service: UsuarioService', () => {
     (done: DoneFn) => {
     service.getUsuarioDetail(usuarios[0].id).subscribe(value => {
         expect(value.correoElectronico).toEqual(usuarios[0].correoElectronico);
+        done();
+        });
+    });
+	
+	it('#updateUsuario should return the usuario updated',
+    (done: DoneFn) => {
+	let usuario:Usuario = {id:100,correoElectronico:"prueba@prueba.prueba",contrasena:"Prueba1234#",longitud:90,latitud:90,unialpino:false};
+    service.updateUsuario(usuario).subscribe(value => {
+        expect(value.correoElectronico).toEqual(usuario.correoElectronico);
         done();
         });
     });

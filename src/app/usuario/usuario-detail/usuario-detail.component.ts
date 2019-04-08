@@ -36,7 +36,7 @@ export class UsuarioDetailComponent implements OnInit {
     usuario_id: number;
 
     /**
-    * The method which retrieves the detail of an usuario
+    * The method which retrieves the details of an usuario
     */
     getUsuarioDetail(): void {
         this.usuarioService.getUsuarioDetail(this.usuario_id)

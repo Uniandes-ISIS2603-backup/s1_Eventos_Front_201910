@@ -15,7 +15,6 @@ const usuarios = '/usuarios';
 */
 @Injectable()
 export class UsuarioService {
-
     /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
@@ -24,7 +23,7 @@ export class UsuarioService {
 
     /**
     * Returns the Observable object containing the list of usuarios retrieved from the API
-    * @returns The list of eventos in real time
+    * @returns The list of usuarios in real time
     */
     getUsuarios(): Observable<Usuario[]> {
         return this.http.get<Usuario[]>(API_URL + usuarios);
@@ -43,7 +42,16 @@ export class UsuarioService {
     * @param usuario The usuario which will be created
     * @returns The confirmation of the usuario's creation
     */
-    createUsuario(usuario): Observable<UsuarioDetail> {
-        return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
+    createUsuario(usuario): Observable<Usuario> {
+        return this.http.post<Usuario>(API_URL + usuarios, usuario);
+    }
+    
+    /**
+    * Updates an usuario
+    * @param usuario The usuario which will be update
+    * @returns The confirmation of the usuario's update
+    */
+    updateUsuario(usuario): Observable<UsuarioDetail> {
+        return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.id, usuario);
     }
 }
