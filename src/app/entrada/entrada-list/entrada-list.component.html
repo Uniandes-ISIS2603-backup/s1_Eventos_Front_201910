@@ -1,3 +1,45 @@
 <p>
     entrada-list works!
   </p>
+
+  <div class="container-fluid">
+        <div class="container-fluid">
+                <div class="row justify-content-center align-left" >
+                  <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                      (click)="showHideCreate()">Crear una entrada</button>
+                </div>
+              </div>
+    <div *ngIf="showCreate">
+        <app-entrada-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-entrada-create>
+    </div>
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Id</th>    
+              <th>Número</th>   
+              <th>Locación</th>   
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Disponible</th>
+              <th>Check-In</th> 
+              <th>Reservado</th>  
+              <th>QR</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let entrada of entradas">
+              <td>{{entrada.id}}</td>
+              <td>{{entrada.numero}}</td>
+              <td>{{entrada.locacion}}</td>
+              <td>{{entrada.descripcion}}</td>
+              <td>{{entrada.precio}}</td>
+              <td>{{entrada.disponible}}</td>
+              <td>{{entrada.checkIn}}</td>
+              <td>{{entrada.reservado}}</td>
+              <td>{{entrada.QR}}</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  
+  

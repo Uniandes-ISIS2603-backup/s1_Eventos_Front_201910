@@ -5,6 +5,8 @@ export class Calificacion{
     */
     id: number;
 
+    estrellas: number;
+    
     /**
      * El comentario de la calificación
      */

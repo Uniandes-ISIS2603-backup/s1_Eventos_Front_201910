@@ -14,6 +14,8 @@ export class CalificacionListComponent implements OnInit {
 
         calificaciones: Calificacion[];
 
+        showCreate: boolean;
+
         getCalificaciones(): void{
             this.calificacionService.getCalificaciones().subscribe(
                 calificaciones => {
@@ -21,5 +23,13 @@ export class CalificacionListComponent implements OnInit {
                 });
         }
 
-    ngOnInit() {}
+        showHideCreate(): void{
+            this.showCreate=!this.showCreate;
+        }
+
+    ngOnInit() {
+        this.showCreate = false;
+        this.getCalificaciones();
+    }
+        
     }

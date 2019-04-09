@@ -1,4 +1,32 @@
 <p>
     calificacion-list works!
   </p>
-  
+  <div class="container-fluid">
+        <div class="row justify-content-center align-left" >
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear calificación</button>
+        </div>
+      </div>
+  <div class="container-fluid">
+        <div *ngIf="showCreate">
+            <app-calificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-calificacion-create>
+         </div>
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Id</th> 
+              <th>Estrellas</th> 
+              <th>Comentario</th> 
+              <th>Recomendado</th>    
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let calificacion of calificaciones">
+              <td>{{calificacion.id}}</td>
+              <td>{{calificacion.estrellas}}</td>
+              <td>{{calificacion.comentario}}</td>
+              <td>{{calificacion.recomendado}}</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
