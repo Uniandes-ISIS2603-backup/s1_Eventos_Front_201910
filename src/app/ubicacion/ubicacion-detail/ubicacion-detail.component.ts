@@ -2,8 +2,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
 
 import { UbicacionService } from '../ubicacion.service';
-import { UbicacionDetail } from '../ubicacion-detail';
 import {Ubicacion} from '../ubicacion'
+
 
 @Component({
   selector: 'app-ubicacion-detail',
@@ -27,18 +27,18 @@ export class UbicacionDetailComponent implements OnInit {
     /**
     * The ubicacion whose details are shown
     */
-    ubicacionDetail: UbicacionDetail;
+    ubicacion: Ubicacion;
 
  getUbicacionDetail(): void {
-         this.ubicacionService.getUbicacionDetail(this.ubicacion_id)
-            .subscribe(ubicacionDetail => {
-                this.ubicacionDetail = ubicacionDetail;
+         this.ubicacionService.getUbicacion(this.ubicacion_id)
+            .subscribe(ubicacion => {
+                this.ubicacion = ubicacion;
             });
     }
 
  ngOnInit() {
         this.ubicacion_id = + this.route.snapshot.paramMap.get('id');
-        this.ubicacionDetail = new UbicacionDetail();
+        this.ubicacion = new Ubicacion();
         this.getUbicacionDetail();
         
     }

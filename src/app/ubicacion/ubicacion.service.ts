@@ -4,7 +4,6 @@ import { Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Ubicacion } from './ubicacion';
-import {UbicacionDetail}from './ubicacion-detail';
 
 
 import { environment } from '../../environments/environment';
@@ -55,11 +54,5 @@ export class UbicacionService {
         return this.http.post<Ubicacion>(API_URL + ubicaciones, ubicacion);
     }
 
-     /**
-    * Returns the Observable object with the details of an agenda retrieved from the API
-    * @returns The agenda details
-    */
-   getUbicacionDetail(ubicacion_id): Observable<UbicacionDetail> {
-    return this.http.get<UbicacionDetail>(API_URL + ubicaciones + '/' + ubicacion_id);
-}
+   
 }

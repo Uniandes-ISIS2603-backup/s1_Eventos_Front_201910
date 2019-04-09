@@ -3,7 +3,8 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 import {UbicacionService} from '../ubicacion.service';
 import {Ubicacion} from '../ubicacion';
-import {UbicacionDetail} from '../ubicacion-detail';
+
+
 
 @Component({
   selector: 'app-ubicacion-edit',
