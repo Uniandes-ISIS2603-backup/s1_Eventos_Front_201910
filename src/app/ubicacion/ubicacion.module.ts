@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UbicacionService} from './ubicacion.service';
-
 import {BrowserModule} from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { UbicacionListComponent } from './ubicacion-list/ubicacion-list.component';
+import { UbicacionDetailComponent } from './ubicacion-detail/ubicacion-detail.component';
+import { UbicacionCreateComponent } from './ubicacion-create/ubicacion-create.component';
+import { UbicacionEditComponent } from './ubicacion-edit/ubicacion-edit.component';
 
 
 @NgModule({
@@ -14,10 +17,10 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  declarations: [],
-providers : [],
-bootstrap:[ ],
-  exports:[ ]
+  declarations: [UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent],
+providers : [UbicacionService],
+bootstrap:[UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent ],
+  exports:[UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent ]
 
 })
 export class UbicacionModule { }

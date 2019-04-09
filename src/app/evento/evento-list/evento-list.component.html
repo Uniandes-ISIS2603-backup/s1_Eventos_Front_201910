@@ -1,47 +1,47 @@
 <p>
   evento-list works!
 </p>
-<div class = 'container-fluid'>
-    <p>
-heroes-list works!
-</p>
 
-     <a *ngFor="let evento  of eventos">
+<div class = 'container-fluid'>
+ 
+    <div class ="row">
+        <div class =" col" *ngFor="let evento of eventos">
 
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">{{evento.name}}</h5>
+    <h5 class="card-title">funciona hiujeputa<!--{{evento.name}}--></h5>
     <p class="card-text">
         <!-- DETALLES DESPUES SE BORRAN-->
       <p>
-      id:{{evento.id}}
+      id:<!--{{evento.id}}-->
       </p>
       <p>
-      nombre:{{evento.name}}
+      nombre:<!--{{evento.name}}-->
       </p>
       <p>
-      descripcion{{evento.address}}
+      descripcion:<!--{{evento.address}}-->
       </p>
       <p>
-      fechaInicio{{evento.fechaInicio}}
+      fechaInicio:<!--{{evento.fechaInicio}}-->
       </p>
       <p>
-      detalles{{cliente.detalles}}
+      detalles:<!--{{cliente.detalles}}-->
       <p>
-      privado{{evento.privado}}
+      privado:<!--{{evento.privado}}-->
       </p>
       <p>
-      capacidadMaxima{{evento.capacidadMaxima}}
+      capacidadMaxima:<!--{{evento.capacidadMaxima}}-->
       </p>
       <p>
-      boletasDisponibles{{evento.boletasDisponibles}}
+      boletasDisponibles:<!--{{evento.boletasDisponibles}}-->
       
       
 
     </p>
     <a href="#" class="btn btn-primary">Ver Detalle</a>
   </div>
-
+</div>
+   </div>
 </div>
 
 
