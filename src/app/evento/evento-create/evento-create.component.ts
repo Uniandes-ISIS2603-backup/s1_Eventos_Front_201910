@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {DatePipe} from '@angular/common';
-import {ToastrService} from 'ngx-toastr';
 
 import {EventoService} from '../evento.service';
 import {Evento}from '../evento';
 
-import {PatrocinadorService}from'../../patrocinador/patrocinador.service';
-import {Patrocinador}from'../../patrocinador/patrocinador';
-import {OrganizadorService}from'../../organizador/organizador.service';
-import {Organizador}from'../../organizador/organizador';
 
 
 
@@ -21,9 +15,7 @@ import {Organizador}from'../../organizador/organizador';
 export class EventoCreateComponent implements OnInit {
 
   constructor(
-        private dp: DatePipe,
         private eventoService: EventoService,
-        private toastrService: ToastrService,
         private router: Router
     ) {}
 
@@ -47,7 +39,6 @@ agendasEvento:Agenda[];*/
                 this.evento.id = evento.id;
                 this.router.navigate(['/eventos/' + evento.id]);
             }, err => {
-                this.toastrService.error(err, 'Error');
             });
         return this.evento;
     }
