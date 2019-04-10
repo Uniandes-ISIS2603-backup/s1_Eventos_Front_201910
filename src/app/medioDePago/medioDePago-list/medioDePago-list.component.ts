@@ -23,6 +23,14 @@ export class MedioDePagoListComponent implements OnInit {
                 });
         }
 
+        modifFecha(fec): string{
+            let fechaM1: string[] = fec.toString().split("T");
+            let fechaM2: string[] = fechaM1[0].split("-");
+            let anio = fechaM2[0];
+            let mes = fechaM2[1];
+            return mes+"/"+anio;
+        }
+
         showHideCreate(): void{
             this.showCreate=!this.showCreate;
         }

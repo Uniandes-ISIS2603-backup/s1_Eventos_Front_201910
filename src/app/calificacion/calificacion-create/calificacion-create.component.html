@@ -5,9 +5,9 @@
   <form name="calif" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm" novalidate>
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control" placeholder="eliga">
-          <option>Eliga...</option>
+        <label for="inputState">Estrellas</label>
+        <select id="inputState" name="calificacionEstrellas" class="form-control" id="calificacionEstrellas"  [(ngModel)]="calificacion.estrellas"
+        #estrellas="ngModel" [ngClass]="{'is-invalid': f.submitted && calificacionName.invalid }" required>
           <option>0</option>
           <option>1</option>
           <option>2</option>
@@ -18,12 +18,13 @@
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault02">Comentario</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="" [(ngModel)]="calificacion.comentario" #comentario="ngModel" 
+        <input type="text" name="calificacionComentario" class="form-control" id="validationDefault02" placeholder="Escriba aquí..." value="" [(ngModel)]="calificacion.comentario" #comentario="ngModel" 
         [ngClass]="{ 'is-invalid': f.submitted && calificacion.invalid}" required>
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault02">Lo recomiendo</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="" required>
+        <input type="text" name="calificacionRecomendado" class="form-control" id="validationDefault02" placeholder="Y/N" value="" [(ngModel)]="calificacion.recomendado" #recomendado="ngModel" 
+        [ngClass]="{ 'is-invalid': f.submitted && calificacion.invalid}" required>
       </div>
 
     </div>
@@ -35,6 +36,6 @@
         </label>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button class="btn btn-primary" type="submit">Crear</button>
   </form>
 </div>
