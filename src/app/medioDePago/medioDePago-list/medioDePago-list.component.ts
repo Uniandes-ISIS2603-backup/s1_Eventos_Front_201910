@@ -20,6 +20,7 @@ export class MedioDePagoListComponent implements OnInit {
             this.medioDePagoService.getMediosDePago().subscribe(
                 mediosDePago => {
                     this.mediosDePago=mediosDePago;
+                    
                 });
         }
 
