@@ -26,6 +26,10 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { Multimedia } from '../multimedia/multimedia';
 import { MultimediaListComponent } from '../multimedia/multimedia-list/multimedia-list.component';
 import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
+
+import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
+import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
+import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
 const routes: Routes = [
 
     {
@@ -125,6 +129,33 @@ const routes: Routes = [
             {
                 path:'list',
                 component: MultimediaListComponent,
+            }
+        ]
+    },
+    {
+        path: 'calificaciones',
+        children:[
+            {
+                path:'list',
+                component: CalificacionListComponent,
+            }
+        ]
+    },
+    {
+        path: 'entradas',
+        children:[
+            {
+                path:'list',
+                component: EntradaListComponent,
+            }
+        ]
+    },
+    {
+        path: 'mediosDePago',
+        children:[
+            {
+                path:'list',
+                component: MedioDePagoListComponent,
             }
         ]
     },
