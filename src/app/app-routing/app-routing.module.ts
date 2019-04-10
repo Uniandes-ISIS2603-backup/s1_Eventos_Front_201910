@@ -19,6 +19,13 @@ import {OrganizadorDetailComponent } from '../organizador/organizador-detail/org
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
 import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
 
+import { Usuario } from '../usuario/usuario';
+import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
+
+import { Multimedia } from '../multimedia/multimedia';
+import { MultimediaListComponent } from '../multimedia/multimedia-list/multimedia-list.component';
+import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
 const routes: Routes = [
 
     {
@@ -74,7 +81,6 @@ const routes: Routes = [
     },
     {
         path: 'agendas',
-        component: Agenda,
         children:[
             {
                 path:'list',
@@ -84,7 +90,6 @@ const routes: Routes = [
     },
     {
         path: 'facturas',
-        component: Factura,
         children:[
             {
                 path:'list',
@@ -98,11 +103,28 @@ const routes: Routes = [
     },
     {
         path: 'invitados',
-        component: Invitado,
         children:[
             {
                 path:'list',
                 component: InvitadoListComponent,
+            }
+        ]
+    },
+    {
+        path: 'usuarios',
+        children:[
+            {
+                path:'list',
+                component: UsuarioListComponent,
+            }
+        ]
+    },
+    {
+        path: 'multimedias',
+        children:[
+            {
+                path:'list',
+                component: MultimediaListComponent,
             }
         ]
     },
