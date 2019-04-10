@@ -19,6 +19,17 @@ import {OrganizadorDetailComponent } from '../organizador/organizador-detail/org
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
 import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
 
+import { Usuario } from '../usuario/usuario';
+import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
+
+import { Multimedia } from '../multimedia/multimedia';
+import { MultimediaListComponent } from '../multimedia/multimedia-list/multimedia-list.component';
+import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
+
+import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
+import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
+import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
 const routes: Routes = [
 
     {
@@ -100,6 +111,51 @@ const routes: Routes = [
             {
                 path:'list',
                 component: InvitadoListComponent,
+            }
+        ]
+    },
+    {
+        path: 'usuarios',
+        children:[
+            {
+                path:'list',
+                component: UsuarioListComponent,
+            }
+        ]
+    },
+    {
+        path: 'multimedias',
+        children:[
+            {
+                path:'list',
+                component: MultimediaListComponent,
+            }
+        ]
+    },
+    {
+        path: 'calificaciones',
+        children:[
+            {
+                path:'list',
+                component: CalificacionListComponent,
+            }
+        ]
+    },
+    {
+        path: 'entradas',
+        children:[
+            {
+                path:'list',
+                component: EntradaListComponent,
+            }
+        ]
+    },
+    {
+        path: 'mediosDePago',
+        children:[
+            {
+                path:'list',
+                component: MedioDePagoListComponent,
             }
         ]
     },
