@@ -41,4 +41,13 @@ export class PatrocinadorService {
     createPatrocinador(patrocinador): Observable<Patrocinador> {
         return this.http.post<Patrocinador>(API_URL + patrocinadores, patrocinador);
     }
+    
+    /**
+    * Updates an patrocinador
+    * @param patrocinador The patrocinador which will be update
+    * @returns The confirmation of the patrocinador update
+    */
+    updatePatrocinador(patrocinador): Observable<PatrocinadorDetail> {
+        return this.http.put<PatrocinadorDetail>(API_URL + patrocinadores + '/' + patrocinador.id, patrocinador);
+    }
 }
