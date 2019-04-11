@@ -4,18 +4,14 @@ import { EntradaListComponent } from './entrada-list/entrada-list.component';
 import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
 import {EntradaService} from './entrada.service';
 import { EntradaCreateComponent } from '../entrada/entrada-create/entrada-create.component';
-import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
     imports:[
-        CommonModule,FormsModule
+        CommonModule
     ],
-    declarations: [EntradaListComponent, 
-                    EntradaDetailComponent,
-                   EntradaCreateComponent],
+    declarations: [EntradaListComponent, EntradaDetailComponent, EntradaCreateComponent],
     providers: [EntradaService],
-    exports:[EntradaListComponent, 
-            EntradaDetailComponent, 
-            EntradaCreateComponent]
+    exports:[EntradaListComponent, EntradaDetailComponent, EntradaCreateComponent]
 })
 export class EntradaModule{}
