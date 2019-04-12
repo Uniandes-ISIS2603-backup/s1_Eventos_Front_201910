@@ -6,11 +6,14 @@ import { CalificacionService } from '../calificacion.service';
 
 import { CalificacionDetail } from '../calificacion-detail';
 import { Calificacion } from '../calificacion';
+import { DatePipe } from '@angular/common';
+import { CalifEstre } from '../califEstre';
 
 @Component({
     selector: 'app-calificacion-detail',
     templateUrl: './calificacion-detail.component.html',
-    styleUrls: ['./calificacion-detail.component.css']
+    styleUrls: ['./calificacion-detail.component.css'],
+    providers: [DatePipe]
   })
   export class CalificacionDetailComponent implements OnInit {
 
@@ -29,14 +32,14 @@ import { Calificacion } from '../calificacion';
         this.calificacionService.getCalificacionDetail(this.calificacion_id)
             .subscribe(calificacionDetail => {
                 this.calificacionDetail = calificacionDetail
-                calificacionDetail.estreNumb= new Array<number>(Number(calificacionDetail.estrellas))
-                console.log(calificacionDetail.estreNumb);
               });
     }
 
     showHideEdit(): void{
         this.showEdit=!this.showEdit;
     }
+
+
 
     ngOnInit() {
       

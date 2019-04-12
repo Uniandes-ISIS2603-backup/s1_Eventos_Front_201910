@@ -107,5 +107,5 @@
     </div>
 
     <div *ngIf="showEdit">
-        <app-calificacion-edit></app-calificacion-edit>
+        <app-calificacion-edit [calificacion]="calificacionDetail" (cancel)="showHideEdit()"></app-calificacion-edit>
     </div>

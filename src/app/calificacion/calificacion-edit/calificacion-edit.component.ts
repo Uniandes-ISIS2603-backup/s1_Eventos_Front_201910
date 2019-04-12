@@ -12,12 +12,38 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class CalificacionEditComponent implements OnInit{
 
-    constructor(){
-        
+    constructor(
+        private dp: DatePipe,
+        private calificacionaService: CalificacionService,
+        private toastrService: ToastrService,
+    ){}
+
+    @Input() calificacion: CalificacionDetail
+
+    @Output() cancel = new EventEmitter();
+
+    @Output() update = new EventEmitter();
+
+
+
+    cancelEdition(): void{
+        this.cancel.emit();
     }
 
-    ngOnInit() {
-       
+    editCalificacion(): void{
+        this.calificacionaService.updateCalificacion(this.calificacion).subscribe(()=>{
+            this.toastrService.success("La calificación se actualizó", "Calificacion");
+        });
+        this.update.emit();
+    }
+
+    ngOnInit(){
+        console.log("enrtaaaaasldkalñsd");
+        console.log(this.calificacion);
+    }
+
+    ngOnChanges() {
+       this.ngOnInit();
     }
 
     

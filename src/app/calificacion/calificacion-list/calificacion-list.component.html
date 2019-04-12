@@ -8,19 +8,13 @@
         <h2 class="text-center">Calificaciones</h2>
         
         <div class="card" *ngFor = "let calificacion of calificaciones" >
-            <td style="cursor: pointer;" (click)="onSelected(calificacion.id)"> <dd>{{calificacion.id}}</dd>
-                
+            <td style="cursor: pointer;" (click)="onSelected(calificacion.id)"> <dd>Id Calificación: {{calificacion.id}}</dd>
             </div>
             <div *ngIf="showView">
                     <app-calificacion-detail [calificacionDetail]="selectedCalificacion" ></app-calificacion-detail>
                 </div>
+            
     </div>
-
-    <div *ngIf="showEdit">
-      <app-calificacion-edit></app-calificacion-edit>
-    </div>
-
-
 
 <div class="container-fluid">
   <div class="row justify-content-center align-left" >
@@ -31,3 +25,7 @@
         <app-calificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-calificacion-create>
      </div>
   </div>
+
+  <div *ngIf="showEdit">
+      <app-calificacion-edit></app-calificacion-edit>
+    </div>

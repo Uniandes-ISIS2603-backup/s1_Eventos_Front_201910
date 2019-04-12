@@ -5,6 +5,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { ModalDialogService } from 'ngx-modal-dialog';
 import {  ToastrService } from 'ngx-toastr';
 import { CalificacionDetail } from '../calificacion-detail';
+import {CalifEstre} from '../califEstre';
 @Component({
     selector: 'app-calificacion-list',
     templateUrl: './calificacion-list.component.html',
@@ -21,6 +22,8 @@ export class CalificacionListComponent implements OnInit {
 
         calificaciones: Calificacion[];
 
+        califEstre: CalifEstre[];
+
         calificacion_id: number;
 
         showCreate: boolean;
@@ -35,9 +38,6 @@ export class CalificacionListComponent implements OnInit {
             this.calificacionService.getCalificaciones().subscribe(
                 calificaciones => {
                     this.calificaciones=calificaciones;
-                    calificaciones.forEach(function(calificacion){
-                        calificacion.estreNumb = new Array<number>(Number(calificacion.estrellas));
-                    });
                 });
              
         }
@@ -77,7 +77,6 @@ export class CalificacionListComponent implements OnInit {
         getCalificacionDetail(): void{
             this.calificacionService.getCalificacionDetail(this.calificacion_id).subscribe(selectedCalificacion=>{
                 this.selectedCalificacion=selectedCalificacion;
-                this.selectedCalificacion.estreNumb = new Array<number>(Number(this.selectedCalificacion.estrellas));
             })
         }
 
@@ -92,6 +91,7 @@ export class CalificacionListComponent implements OnInit {
         this.selectedCalificacion=undefined;
         this.calificacion_id=undefined;
         this.getCalificaciones();
+        
     }
         
     }
