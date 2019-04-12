@@ -21,6 +21,10 @@ export class CalificacionService{
         return this.http.get<Calificacion[]>(API_URL + calificaciones);
     }
 
+    addDeAcuerdo(calificacion): void{
+        this.http.put<Calificacion[]>(API_URL + calificaciones+'/'+calificacion.id,calificacion);
+    }
+
     getCalificacionDetail(calificacionId): Observable<CalificacionDetail> {
         return this.http.get<CalificacionDetail>(API_URL + calificaciones + '/' + calificacionId);
     }

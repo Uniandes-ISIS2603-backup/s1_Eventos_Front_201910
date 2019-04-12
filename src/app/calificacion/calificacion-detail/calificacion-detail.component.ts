@@ -23,15 +23,24 @@ import { Calificacion } from '../calificacion';
 
     calificacion_id: number;
 
+    showEdit: boolean;
+
     getCalificacionDetail(): void {
         this.calificacionService.getCalificacionDetail(this.calificacion_id)
             .subscribe(calificacionDetail => {
                 this.calificacionDetail = calificacionDetail
-            });
+                calificacionDetail.estreNumb= new Array<number>(Number(calificacionDetail.estrellas))
+                console.log(calificacionDetail.estreNumb);
+              });
+    }
+
+    showHideEdit(): void{
+        this.showEdit=!this.showEdit;
     }
 
     ngOnInit() {
       
+        this.showEdit=false;
         this.calificacion_id = +this.route.snapshot.paramMap.get('id');
         if (this.calificacion_id){
         this.calificacionDetail = new CalificacionDetail();
