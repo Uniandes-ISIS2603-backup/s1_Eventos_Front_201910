@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,6 +19,8 @@ import { CalifEstre } from '../califEstre';
 
     @Input() calificacionDetail: CalificacionDetail;
 
+    @Output() cancel = new EventEmitter();
+    
     constructor(
         private route: ActivatedRoute,
         private calificacionService: CalificacionService 
@@ -39,7 +41,9 @@ import { CalifEstre } from '../califEstre';
         this.showEdit=!this.showEdit;
     }
 
-
+    cancelView(): void{
+      this.cancel.emit();
+  }
 
     ngOnInit() {
       

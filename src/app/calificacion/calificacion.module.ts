@@ -16,12 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
     ],
     declarations: [CalificacionListComponent, 
                     CalificacionDetailComponent,
+                    CalificacionEditComponent,
                     CalificacionCreateComponent, 
-                    CalificacionEditComponent],
+                   ],
     providers: [
         CalificacionService
     ],
-    exports:[CalificacionListComponent,
+    exports:[CalificacionListComponent
             ]
 })
 export class CalificacionModule{}

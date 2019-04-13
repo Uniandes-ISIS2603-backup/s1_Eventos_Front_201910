@@ -28,4 +28,11 @@ export class MedioDePagoService {
     createMedioDePago(medioDePago): Observable<MedioDePago> {
         return this.http.post<MedioDePago>(API_URL + mediosDePago, medioDePago);
     }
+
+    updateMedioDePago(medioDePago): Observable<MedioDePagoDetail>{
+        console.log("perroFlag")
+        console.log(medioDePago)
+        console.log(medioDePago.id)
+         return this.http.put<MedioDePagoDetail>(API_URL+mediosDePago+'/'+medioDePago.id,medioDePago);
+    }
 }

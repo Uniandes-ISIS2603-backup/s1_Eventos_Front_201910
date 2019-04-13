@@ -11,7 +11,7 @@
             <td style="cursor: pointer;" (click)="onSelected(calificacion.id)"> <dd>Id Calificación: {{calificacion.id}}</dd>
             </div>
             <div *ngIf="showView">
-                    <app-calificacion-detail [calificacionDetail]="selectedCalificacion" ></app-calificacion-detail>
+                    <app-calificacion-detail [calificacionDetail]="selectedCalificacion" (cancel)="showHideView()" ></app-calificacion-detail>
                 </div>
             
     </div>
@@ -19,7 +19,7 @@
 <div class="container-fluid">
   <div class="row justify-content-center align-left" >
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-            (click)="showHideCreate()">Crear calificación</button>
+            (click)="showHideCreate()">Crear entrada</button>
   </div>
     <div *ngIf="showCreate">
         <app-calificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-calificacion-create>

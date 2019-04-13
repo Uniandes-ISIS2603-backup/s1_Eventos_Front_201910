@@ -50,6 +50,10 @@ export class CalificacionListComponent implements OnInit {
             this.showCreate=!this.showCreate;
         }
 
+        showHideView(): void{
+            this.showView=false;
+        }
+
         onSelected(calificacion_id: number){
             console.log('corre');
             this.showCreate=false;
@@ -91,7 +95,6 @@ export class CalificacionListComponent implements OnInit {
         this.selectedCalificacion=undefined;
         this.calificacion_id=undefined;
         this.getCalificaciones();
-        
     }
         
     }

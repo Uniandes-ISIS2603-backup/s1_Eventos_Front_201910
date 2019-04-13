@@ -24,8 +24,6 @@ export class CalificacionEditComponent implements OnInit{
 
     @Output() update = new EventEmitter();
 
-
-
     cancelEdition(): void{
         this.cancel.emit();
     }
