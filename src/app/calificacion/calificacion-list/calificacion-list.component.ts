@@ -6,6 +6,10 @@ import { ModalDialogService } from 'ngx-modal-dialog';
 import {  ToastrService } from 'ngx-toastr';
 import { CalificacionDetail } from '../calificacion-detail';
 import {CalifEstre} from '../califEstre';
+
+/**
+ * Componente que lista todos los calificaciones
+ */
 @Component({
     selector: 'app-calificacion-list',
     templateUrl: './calificacion-list.component.html',
@@ -13,6 +17,13 @@ import {CalifEstre} from '../califEstre';
 })
 export class CalificacionListComponent implements OnInit {
 
+    /**
+     * Constructor del componente calificacion list
+     * @param calificacionService 
+     * @param modalDialogService 
+     * @param viewRef 
+     * @param toastrService 
+     */
     constructor(
         private calificacionService: CalificacionService,
         private modalDialogService: ModalDialogService,
@@ -20,20 +31,45 @@ export class CalificacionListComponent implements OnInit {
         private toastrService: ToastrService
         ){}
 
+        /**
+         * Lista de todos los calificaciones
+         */
         calificaciones: Calificacion[];
 
+        /**
+         * Numero id del calificacion que se vera en detail
+         */
         califEstre: CalifEstre[];
 
+         /**
+         * Numero id del calificacion que se vera en detail
+         */
         calificacion_id: number;
 
+         /**
+         * Variable que controla la aparicion del componente create
+         */
         showCreate: boolean;
 
+         /**
+         * Variable que controla la aparicion del componente edit
+         */
         showEdit: boolean;
 
+        /**
+         * Variable que controla la aparicion del componente showView
+         */
         showView: boolean;
 
+        /**
+         * Variable que almacena el calificacion seleccionado, para enviarselo al componente detail y que este muestre
+         * toda la info
+         */
         selectedCalificacion: Calificacion;
 
+        /**
+         * Inicializa el arreglo de calificaciones trayendo la info desde service
+         */
         getCalificaciones(): void{
             this.calificacionService.getCalificaciones().subscribe(
                 calificaciones => {
@@ -46,14 +82,25 @@ export class CalificacionListComponent implements OnInit {
             
         }
 
+        /**
+         * Metodo que se encarga de establecer la condicion para que el componente create aparezca o se esconda
+         */
         showHideCreate(): void{
             this.showCreate=!this.showCreate;
         }
 
+        /**
+         * Metodo que se encarga de establecer la condicion para que el componente detail aparezca o se esconda
+         */
         showHideView(): void{
             this.showView=false;
         }
 
+        /**
+         * Metodo que establece las condiciones que se deben dar cuando un usuario de clic sobre un elemento de la lista
+         * para que seguidamente aparezca el detail de dicho elemento
+         * @param calificacion_id id del calificacion seleccionado
+         */
         onSelected(calificacion_id: number){
             console.log('corre');
             this.showCreate=false;
@@ -64,6 +111,10 @@ export class CalificacionListComponent implements OnInit {
             this.getCalificacionDetail();
         }
 
+         /**
+        * Metodo que controla la aparicion del componente edit para un detail
+        * @param calificacion_id 
+        */
         showHideEdit(calificacion_id: number): void{
             console.log("llega a showHideEdit");
             console.log(calificacion_id);
@@ -78,6 +129,9 @@ export class CalificacionListComponent implements OnInit {
             }
         }
 
+        /**
+         * Metodo que obtiene el calificacion detail
+         */
         getCalificacionDetail(): void{
             this.calificacionService.getCalificacionDetail(this.calificacion_id).subscribe(selectedCalificacion=>{
                 this.selectedCalificacion=selectedCalificacion;
@@ -89,6 +143,9 @@ export class CalificacionListComponent implements OnInit {
             this.showView=true;
         }
 
+        /**
+         * Al crear el componente, generar las condiciones que se establecen al interior del metodo
+         */
     ngOnInit() {
         this.showCreate = false;
         this.showEdit=false;
