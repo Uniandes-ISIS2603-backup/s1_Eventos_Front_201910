@@ -18,6 +18,8 @@ export class PatrocinadorDetailComponent implements OnInit {
     * The Patrocinador
     */
    @Input() patrocinadorDetail: PatrocinadorDetail;
+   
+   showEdit: boolean;
     
     /**
     * The constructor of the component
@@ -55,6 +57,7 @@ export class PatrocinadorDetailComponent implements OnInit {
         if (this.patrocinador_id){
         this.patrocinadorDetail = new PatrocinadorDetail();
         this.getPatrocinadorDetail();
+        this.showEdit = true;
         }
     }
 

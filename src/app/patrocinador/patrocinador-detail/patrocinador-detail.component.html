@@ -1,16 +1,44 @@
-<div class="panel-body">
-    <div class="border margin">
-        <p class="display-4" align="center">  <font size="6">{{patrocinadorDetail.nombre}} </font><p> 
-        <div class="row">
-            <div class="col">
-                <dl>     
-                    <dt>Rango</dt>
-                    <dd>{{patrocinadorDetail.rango}}</dd>
-                    <dt>Url</dt>
-                    <dd>{{patrocinadorDetail.url}}</dd>
-                </dl>
+<div class="panel panel-default"> 
+    <div>
+        <div class="border margin">
+            <h1 class="display-4" align="center">
+                <font size="6">{{patrocinadorDetail.nombre}}</font>
+            </h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="thumb">
+                                <img class="img-fluid" src="{{patrocinadorDetail.imagen}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="showEdit" >
+                        <br>
+                        <div class="row justify-content-center align-self-center">
+                            <button class="btn btn-primary text-center btn-lg" routerLink="/patrocinadores/{{patrocinadorDetail.id}}/edit">EDITAR</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <br>
+                    <br>
+                    <dl>  
+                        <hr>
+                        <dt> URL</dt>
+                        <dd>{{patrocinadorDetail.descripcion}}</dd>
+                        <hr>
+                        <dt class="bold">Rango</dt>
+                        <dd>{{patrocinadorDetail.rango}}</dd>
+                    </dl>
+                    <div >
             </div>
-
         </div>
     </div>
 </div>
+</div>
+</div>
+
+
+

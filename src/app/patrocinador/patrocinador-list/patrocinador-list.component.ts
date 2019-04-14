@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 
 import { PatrocinadorService } from '../patrocinador.service';
 import { Patrocinador } from '../patrocinador';
-import { PatrocinadorDetail } from '../patrocinador-detail';
 
 @Component({
   selector: 'app-patrocinador-list',
@@ -34,19 +33,8 @@ export class PatrocinadorListComponent implements OnInit {
             });
     }
     
-    onSelected(patrocinador_id: number):void {
-        
-        this.patrocinador_id = patrocinador_id;
-        this.selectedPatrocinador = new PatrocinadorDetail();
-        this.getPatrocinadorDetail();
-    }
     
-    getPatrocinadorDetail(): void {
-        this.patrocinadorService.getPatrocinadorDetail(this.patrocinador_id)
-            .subscribe(selectedPatrocinador => {
-                this.selectedPatrocinador = selectedPatrocinador
-            });
-    }
+
 
     /**
     * This will initialize the component by retrieving the list of patrocinadores from the service

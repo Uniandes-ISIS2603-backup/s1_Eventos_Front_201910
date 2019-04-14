@@ -18,8 +18,9 @@ import {OrganizadorDetailComponent } from '../organizador/organizador-detail/org
 import {OrganizadorCreateComponent } from '../organizador/organizador-create/organizador-create.component';
 
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
-import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
-import {PatrocinadorCreateComponent } from '../patrocinador/patrocinador-create/patrocinador-create.component';
+import {PatrocinadorCreateComponent} from '../patrocinador/patrocinador-create/patrocinador-create.component';
+import {PatrocinadorDetailComponent} from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
+import {PatrocinadorEditComponent} from '../patrocinador/patrocinador-edit/patrocinador-edit.component';
 
 import { Usuario } from '../usuario/usuario';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
@@ -60,13 +61,16 @@ const routes: Routes = [
                 component: PatrocinadorListComponent
             },
             {
-                path: ':id',
-                component: PatrocinadorDetailComponent
+                path: 'add',
+                component: PatrocinadorCreateComponent  
             },
             {
-                path: 'add',
-                component: PatrocinadorCreateComponent
-                
+                path: ':id',
+                component: PatrocinadorDetailComponent  
+            },
+            {
+                path: ':id/edit',
+                component: PatrocinadorEditComponent
             }
         ]
     },
