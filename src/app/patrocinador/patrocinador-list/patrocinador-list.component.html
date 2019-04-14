@@ -1,3 +1,27 @@
-<p>
-  patrocinador-list works!
-</p>
+
+
+<div class="container-fluid">
+    <h1 class="display-4" align="center">
+          <font size="6">PATROCINADORES</font>
+    </h1>
+    <br>
+    
+    <div class="row">
+        <div class="col" ></div>
+        <div class="col" >
+            <button type="button" class="btn btn-outline-primary btn-block btn-lg ">Crear Patrocinador</button>
+        </div>
+        <div class="col" ></div>
+    </div>
+    
+    <br>
+    <div class="row">
+        <div class="col-md-3" *ngFor = "let patrocinador of patrocinadores" >
+             <figure class="figure" routerLink="/patrocinadores/{{patrocinador.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-fluid" src='{{patrocinador.imagen}}' alt="{{patrocinador.nombre}}" />                                     
+                </div>
+            </figure>
+        </div>
+    </div> 
+</div>

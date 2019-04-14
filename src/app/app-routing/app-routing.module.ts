@@ -15,9 +15,11 @@ import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
 import {OrganizadorDetailComponent } from '../organizador/organizador-detail/organizador-detail.component';
+import {OrganizadorCreateComponent } from '../organizador/organizador-create/organizador-create.component';
 
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
 import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
+import {PatrocinadorCreateComponent } from '../patrocinador/patrocinador-create/patrocinador-create.component';
 
 import { Usuario } from '../usuario/usuario';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
@@ -38,6 +40,11 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: OrganizadorDetailComponent
+            },
+            {
+                path: 'add',
+                component: OrganizadorCreateComponent
+                
             }
         ]
     },
@@ -51,6 +58,11 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: PatrocinadorDetailComponent
+            },
+            {
+                path: 'add',
+                component: PatrocinadorCreateComponent
+                
             }
         ]
     },
