@@ -4,15 +4,20 @@ import { CalificacionListComponent } from './calificacion-list/calificacion-list
 import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
 import { CalificacionService } from './calificacion.service';
 import { CalificacionCreateComponent } from '../calificacion/calificacion-create/calificacion-create.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports:[
-        CommonModule
+        CommonModule, FormsModule
     ],
-    declarations: [CalificacionListComponent, CalificacionDetailComponent,CalificacionCreateComponent],
+    declarations: [CalificacionListComponent, 
+                    CalificacionDetailComponent,
+                    CalificacionCreateComponent],
     providers: [
         CalificacionService
     ],
-    exports:[CalificacionListComponent]
+    exports:[CalificacionListComponent,
+            CalificacionDetailComponent,
+            CalificacionCreateComponent]
 })
 export class CalificacionModule{}

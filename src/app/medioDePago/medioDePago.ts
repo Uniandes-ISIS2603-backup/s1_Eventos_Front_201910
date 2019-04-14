@@ -4,7 +4,9 @@ export class MedioDePago{
 
     titular: string;
 
-    codigoDeSeguridad: number;
+    numero: string;
+
+    codigoDeSeguridad: string;
 
     fechaDeExpiracion: Date;
 }
