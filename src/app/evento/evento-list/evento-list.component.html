@@ -1,48 +1,39 @@
 <p>
   evento-list works!
 </p>
+  <div class="row justify-content-end">
+      <div class="col  offset-md-4">
+        <button>Create</button>
+      </div>
+</div>
+
 
 <div class = 'container-fluid'>
- 
-    <div class ="row">
-        <div class =" col" *ngFor="let evento of eventos">
+  <div class ="row">
+    <div class="col-12 col-sm-6 col-md-8">
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">funciona hiujeputa<!--{{evento.name}}--></h5>
-    <p class="card-text">
-        <!-- DETALLES DESPUES SE BORRAN-->
-      <p>
-      id:<!--{{evento.id}}-->
-      </p>
-      <p>
-      nombre:<!--{{evento.name}}-->
-      </p>
-      <p>
-      descripcion:<!--{{evento.address}}-->
-      </p>
-      <p>
-      fechaInicio:<!--{{evento.fechaInicio}}-->
-      </p>
-      <p>
-      detalles:<!--{{cliente.detalles}}-->
-      <p>
-      privado:<!--{{evento.privado}}-->
-      </p>
-      <p>
-      capacidadMaxima:<!--{{evento.capacidadMaxima}}-->
-      </p>
-      <p>
-      boletasDisponibles:<!--{{evento.boletasDisponibles}}-->
-      
-      
+     <tr *ngFor="let evento  of eventos">
 
-    </p>
-    <a href="#" class="btn btn-primary">Ver Detalle</a>
+      <div class="card" style="width: 16rem;">
+        <div class="cardody">
+          <h4 class="card-title">{{evento.nombre}}</h4>
+          <img class="card-img-top" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
+        <div class="card-body">
+              <div class="row">
+                <div class ="col">
+                <a href="#" class="btn btn-primary" routerLink = 'clientes/detail'>Ver </a>
+                </div>
+                <div class ="col">
+                <a href="#" class="btn btn-primary" routerLink = 'clientes/edit'>Editar</a>
+                </div>
+              </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
-   </div>
-</div>
+  <router-outlet></router-outlet> 
 
 
 

@@ -1,3 +1,192 @@
 <p>
-  evento-edit works!
+
 </p>
+<div class = 'container-fluid'>
+  <div class="row justify-content-center">
+  <div class="card">
+    <div class="card-header">
+    Editar
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class ="col">
+          <h5 class="card-title"> aca va el nombre del evento a editar</h5>
+        </div>
+        <div class="col-3">
+          <div class="checkbox">
+          <label><input type="checkbox" value="">Privado</label>
+        </div>
+        </div>
+      </div>
+      <!-- Campos a llenar-->
+      <!--nombre-->
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Nombre</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="(nombre actual del evento)">
+      </div>
+      </div>
+      <!-- patrocinador-->
+
+      <div class="form-group">
+          <div class="row">
+            <div class="col-3">
+              <label for="exampleFormControlSelect1">Patrocinadores:</label>
+            </div>
+          <div class="col">
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>patrocinador 1</option>
+              <option>patrocinador 2</option>
+              <option>patrocinador 3</option>
+              <option>patrocinador 4</option>
+              <option>patrocinador 5</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <button>Add</button>
+          </div>
+          </div>
+      </div>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            patrocinador actual 1
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            patrocinador actual 2
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+            patrocinador actual 3
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+          
+        </ul>
+        <!--Organizador-->
+        
+      <div class="form-group" style="margin-top:20px">
+       <div class="row">
+        <div class="col-3">
+        <label for="exampleFormControlSelect1">Organizadores:</label>
+        </div>
+          <div class="col">
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>organizador 1</option>
+              <option>organizador 2</option>
+              <option>organizador 3</option>
+              <option>organizador 4</option>
+              <option>organizador 5</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <button>Add</button>
+          </div>
+          </div>
+      </div>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            organizador actual 1
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            organizador actual 2
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+            organizador actual 3
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+          
+        </ul>
+        <!-- Agendas-->
+
+        <div class="form-group" style="margin-top:20px">
+       <div class="row">
+        <div class="col-3">
+        <label for="exampleFormControlSelect1">Agendas:</label>
+        </div>
+          
+          <div class="col-3">
+            <button>Add</button>
+          </div>
+          </div>
+      </div>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Agenda actual 1
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Agenda actual 2
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+            Agenda actual 3
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>         
+          </li>
+          
+        </ul>
+        <!-- Fechas-->
+        <div class="row"style="margin-top:20px">
+          <div class ="col" >
+            <label>Fecha de Inicio:</label>
+            <input class="form-control" >
+          </div>        
+          <div class="col" >
+            <label for="pwd">Fecha de Fin:</label>
+            <input type="password" class="form-control" id="pwd">
+          </div>
+        </div>
+<!--descripcion y detalles-->
+            <label style="margin-top:10px">Descripcion:</label>
+            <input class="form-control" >
+            <label style="margin-top:10px">Detalles:</label>
+            <input class="form-control" >
+            <!-- capacidad y boletas disponibles-->
+            <div class="row"style="margin-top:10px">
+          <div class ="col" >
+            <label>Capacidad:</label>
+          </div>
+          <div class="col-2">
+            <input class="form-control" >
+          </div>        
+          <div class="col" >
+            <label for="pwd">Boletas disponibles:</label>
+          </div>
+          <div class ="col-2">
+            <input type="password" class="form-control" id="pwd">
+          </div>
+        </div>
+
+        <div class="row justify-content-around"style="margin-top:30px">
+          <div class ="col">
+            <button type="button" class="btn btn-success">edit</button>
+          </div>
+          <div class ="col">
+            <button type="button" class="btn btn-danger">Cancel</button>
+          </div>
+        </div>
+       
+        
+    </div>
+  </div>
+  </div>
+</div>

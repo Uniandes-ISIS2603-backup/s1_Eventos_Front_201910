@@ -53,6 +53,4 @@ export class UbicacionService {
     createUbicacion(ubicacion): Observable<Ubicacion> {
         return this.http.post<Ubicacion>(API_URL + ubicaciones, ubicacion);
     }
-
-   
 }
