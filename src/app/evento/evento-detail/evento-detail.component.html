@@ -1,8 +1,9 @@
-<div class="container-fluid">
-  <p>
+<!-- 
+<p>
   evento-detail works!
   </p>
- 
+ <div class="container-fluid">
+
   <div class ="row">
     <button > Back</button>
   </div>
@@ -21,7 +22,7 @@
                 <div class="navbar-nav mr-auto mt-0">
                   <ul class="nav nav-tabs">    
                     <li class="nav-item">
-                      <a id="detallesTag" class="nav-link" >Detalles</a>
+                      <a id="detallesTag" class="nav-link" routerLink="/eventos/{{evento.id}}/detalles" >Detalles</a>
                     </li>
                     <li class="nav-item">
                         <a id="entradaTag" class="nav-link" routerLink="/eventos/{{evento.id}}/entradas">Entradas</a>

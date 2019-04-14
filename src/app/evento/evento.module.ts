@@ -8,6 +8,7 @@ import { EventoListComponent } from './evento-list/evento-list.component';
 import { EventoCreateComponent } from './evento-create/evento-create.component';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { EventoEditComponent } from './evento-edit/evento-edit.component';
+import { EventoDetallesComponent } from './evento-detail/evento-detalles/evento-detalles.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { EventoEditComponent } from './evento-edit/evento-edit.component';
     HttpClientModule,
     FormsModule,
   ],
-  declarations: [EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent],
+  declarations: [EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent],
   providers:[EventoService],
   bootstrap:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent],
   exports:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent]
