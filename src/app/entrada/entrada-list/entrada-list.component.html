@@ -6,11 +6,9 @@
         <h2 class="text-center">Entradas</h2>
 
         <div class="card" *ngFor = "let entrada of entradas" >
-                <td style="cursor: pointer;" (click)="onSelected(entrada.id)"> <dd>Id entrada: {{entrada.id}}</dd>
+                <td style="cursor: pointer;" (click)="onSelected(entrada.id)" routerLink="/entradas/{{entrada.id}}"> <dd>Id entrada: {{entrada.id}}</dd>
                 </div>
-                <div *ngIf="showView">
-                        <app-entrada-detail [entradaDetail]="selectedEntrada" (cancel)="showHideView()" ></app-entrada-detail>
-        </div>
+                
   </div>
   
 <div class="container-fluid">

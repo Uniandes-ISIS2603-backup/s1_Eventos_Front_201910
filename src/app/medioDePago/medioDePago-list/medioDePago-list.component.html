@@ -3,17 +3,15 @@
     <table class="table table-striped">
       <tbody>
           <tr *ngFor = "let medioDePago of mediosDePago">
-              <td style="cursor: pointer;" (click)="onSelected(medioDePago.id)"> <dd>Id Medio De Pago: {{medioDePago.id}}</dd>
+              <td style="cursor: pointer;" (click)="onSelected(medioDePago.id)" routerLink="/mediosDePago/{{medioDePago.id}}"> <dd>Id Medio De Pago: {{medioDePago.id}}</dd>
           </tr>
-          <div *ngIf="showView">
-              <app-medioDePago-detail [medioDePagoDetail]="selectedMedioDePago" (cancel)="showHideView()" ></app-medioDePago-detail>
-          </div>
+          
       </tbody>
   </table>
   <div class="container-fluid">
         <div class="row justify-content-center align-left" >
           <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-              (click)="showHideCreate()">Crear un medio de pago</button>
+              (click)="showHideCreate()">Crear un medio de pago!</button>
         </div>
       </div>
 <div *ngIf="showCreate">

@@ -30,6 +30,9 @@ import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multi
 import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
 import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
 import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
+import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
+import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
+import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
 const routes: Routes = [
 
     {
@@ -120,6 +123,18 @@ const routes: Routes = [
             {
                 path:'list',
                 component: UsuarioListComponent,
+            },
+            {
+                path:'999/calificaciones',
+                component: CalificacionListComponent
+            },
+            {
+                path:'999/mediosDePago',
+                component: MedioDePagoListComponent
+            },
+            {
+                path:'999/entradas',
+                component: EntradaListComponent
             }
         ]
     },
@@ -138,6 +153,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: CalificacionListComponent,
+            },
+            {
+                path: ':id',
+                component: CalificacionDetailComponent,
             }
         ]
     },
@@ -147,6 +166,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: EntradaListComponent,
+            },
+            {
+                path: ':id',
+                component: EntradaDetailComponent,
             }
         ]
     },
@@ -156,7 +179,20 @@ const routes: Routes = [
             {
                 path:'list',
                 component: MedioDePagoListComponent,
+            },
+            {
+                path: ':id',
+                component: MedioDePagoDetailComponent,
             }
+        ]
+    },
+    {
+        path: 'eventos',
+        children:[
+            {
+                path:'999/calificaciones',
+                component: CalificacionListComponent,
+            },
         ]
     },
     {
