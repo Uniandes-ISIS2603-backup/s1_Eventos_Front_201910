@@ -31,6 +31,7 @@ export class EntradaCreateComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
 
+
     /**
     * Emits the signal to tell the parent component that the
     * user no longer wants to create an user

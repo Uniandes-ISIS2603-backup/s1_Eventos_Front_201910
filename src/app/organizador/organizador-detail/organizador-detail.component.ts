@@ -1,11 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { OrganizadorService } from '../organizador.service';
-
-import { OrganizadorDetail } from '../organizador-detail';
 import { Organizador } from '../organizador';
+import { OrganizadorDetail } from '../organizador-detail';
 
 @Component({
   selector: 'app-organizador-detail',
@@ -14,22 +12,28 @@ import { Organizador } from '../organizador';
 })
 export class OrganizadorDetailComponent implements OnInit {
 
-    /**
-    * The Organizador
-    */
-    @Input() organizadorDetail: OrganizadorDetail;
-    
   constructor(
-        private route: ActivatedRoute,
-        private organizadorService: OrganizadorService 
-  ) { }
+    private organizadorService: OrganizadorService,
+    private route: ActivatedRoute
   
-      /**
-    * El id del invitado que viene en el path get .../organizadores/organizador_id
+  ) { }
+
+ /**
+    * The organizador whose details we want to show
+    */
+    organizadorDetail: OrganizadorDetail;
+
+
+
+    /**
+    * The organizador id retrieved from the address
     */
     organizador_id: number;
+    
+    showEdit: boolean;
+
     /**
-    * The method which obtains the organizador whose details we want to show
+    * The method which retrieves the eventos of a organizador
     */
     getOrganizadorDetail(): void {
         this.organizadorService.getOrganizadorDetail(this.organizador_id)
@@ -38,13 +42,15 @@ export class OrganizadorDetailComponent implements OnInit {
             });
     }
 
-  ngOnInit() {
-      
+    /**
+    * The method which initializes the component
+    * We need to initialize the editorial so it is never considered as undefined
+    */
+    ngOnInit() {
         this.organizador_id = +this.route.snapshot.paramMap.get('id');
-        if (this.organizador_id){
         this.organizadorDetail = new OrganizadorDetail();
         this.getOrganizadorDetail();
-  }
+        this.showEdit = true;
+    }
 
-}
 }
