@@ -1,10 +1,26 @@
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <p class="h4 p-3">Usuario: {{usuarioDetail.correoElectronico}}</p>
-        <br>
-        <div class="row border margin">
-            <p class="h4 p-3">Eventos: </p>
-            
-        </div>
+<div class="row">
+    <p class="h3 p-3">{{usuarioDetail.correoElectronico}}</p>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <dl>  
+            <hr>
+            <dt>Contraseña</dt>
+            <dd>{{usuarioDetail.contrasenia}}</dd>
+            <hr>
+            <dt>Latitud</dt>
+            <dd>{{usuarioDetail.latitud}}</dd>
+            <hr>
+            <dt>Longitud</dt>
+            <dd>{{usuarioDetail.longitud}}</dd>
+            <hr>
+            <dt>Unialpino</dt>
+            <dd>{{usuarioDetail.unialpino}}</dd>
+            <hr>            
+        </dl>
     </div>
+</div>
+<br>
+<div class="row justify-content-center">
+     <button type="button" class="btn btn-primary" routerLink="/usuarios/list">Volver</button>
 </div>
