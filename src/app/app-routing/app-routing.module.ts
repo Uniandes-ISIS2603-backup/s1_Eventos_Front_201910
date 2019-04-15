@@ -39,8 +39,7 @@ import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multi
 
 import {Evento} from '../evento/evento';
 import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.component';
-import {EventoCreateComponent} from  '../evento/evento-create/evento-create.component';
-import {EventoEditComponent} from  '../evento/evento-edit/evento-edit.component';
+
 import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
 
 const routes: Routes = [
@@ -54,16 +53,6 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: EventoDetailComponent
-            },
-            {
-                path: 'add',
-                component: EventoCreateComponent,
-               
-            },
-            {
-                path: ':id/edit',
-                component: EventoEditComponent,
-                
             }
     ]
     } ,
