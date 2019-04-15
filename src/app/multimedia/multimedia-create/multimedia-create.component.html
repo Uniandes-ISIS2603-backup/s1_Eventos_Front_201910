@@ -1,17 +1,42 @@
 <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-2"></div>
+    <div class="col-12">
         <br>
-        <h2 class="text-center">Crear multimedia</h2>
+        <h3 class="text-center">Crear multimedia</h3>
         <br>
         <form nombre="multimedia" (ngSubmit)="f.form.valid && createMultimedia()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="multimediaNombre"><b>Nombre</b></label>
-                <input type="text" nombre="multimediaNombre" class="form-control" id="multimediaNombre" [(ngModel)]="multimedia.nombre"
+                <input type="text" name="multimediaNombre" class="form-control" id="multimediaNombre" [(ngModel)]="multimedia.nombre"
                     #multimediaNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && multimediaNombre.invalid }" required>
+                <small id="contrasenaHelp" class="form-text text-muted">No puede contener espacios.</small>
                 <div class="invalid-feedback">
                     <div>Falta el nombre de la multimedia</div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="multimediaUrl"><b>URL</b></label>
+                <input type="text" name="multimediaUrl" class="form-control" id="multimediaUrl" [(ngModel)]="multimedia.url"
+                    #multimediaUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && multimediaUrl.invalid }" required>
+                <small id="contrasenaHelp" class="form-text text-muted">Asegúrese de que su URL inicie por http:// o https://</small>
+                <div class="invalid-feedback">
+                    <div>Falta la URL de la multimedia</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="multimediaTipo"><b>Tipo</b></label>
+                <input type="text" name="multimediaTipo" class="form-control" id="multimediaTipo" [(ngModel)]="multimedia.tipo"
+                    #multimediaTipo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && multimediaTipo.invalid }" required>
+                <small id="contrasenaHelp" class="form-text text-muted">No use caracteres especiales ni tíldes.</small>
+                <div class="invalid-feedback">
+                    <div>Falta el tipo de la multimedia</div>
+                </div>
+            </div>
+            <div class="form-group" align="center">
+                <input name="multimediaMemoria" class="form-check-input" type="checkbox" id="multimediaMemoria" ng-true-value=true
+                    ng-false-value=false ng-checked="multimedia.memoria" [(ngModel)]="multimedia.memoria"
+                    #multimediaMemoria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && multimediaTipo.invalid }">
+                <label class="form-check-label" for="multimediaMemoria"><b>Memoria</b></label>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Crear</button>
@@ -20,5 +45,5 @@
             </div>
         </form>
     </div>
-    <div class="col-3"></div>
+    <div class="col-2"></div>
 </div>

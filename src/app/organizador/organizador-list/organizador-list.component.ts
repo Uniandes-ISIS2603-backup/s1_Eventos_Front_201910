@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { Component, OnInit} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 import { OrganizadorService } from '../organizador.service';
 import { Organizador } from '../organizador';
-import { OrganizadorDetail } from '../organizador-detail';
+//import { OrganizadorDetail } from '../organizador-detail';
 
 @Component({
   selector: 'app-organizador-list',
@@ -32,14 +31,14 @@ export class OrganizadorListComponent implements OnInit {
     selectedOrganizador : Organizador;
     
     
-    /**
-    * Shows the organizador
-    */
-    onSelected(organizador_id: number):void {
-        this.organizador_id = organizador_id;
-        this.selectedOrganizador = new OrganizadorDetail();
-        this.getOrganizadorDetail();
-    }
+//    /**
+//    * Shows the organizador
+//    */
+//    onSelected(organizador_id: number):void {
+//        this.organizador_id = organizador_id;
+//        this.selectedOrganizador = new OrganizadorDetail();
+//        this.getOrganizadorDetail();
+//    }
     
     /**
     * Asks the service to update the list of organizadores
@@ -51,12 +50,12 @@ export class OrganizadorListComponent implements OnInit {
             });
     }
 
-    getOrganizadorDetail(): void {
-        this.organizadorService.getOrganizadorDetail(this.organizador_id)
-            .subscribe(selectedOrganizador => {
-                this.selectedOrganizador = selectedOrganizador
-            });
-    }
+//    getOrganizadorDetail(): void {
+//        this.organizadorService.getOrganizadorDetail(this.organizador_id)
+//            .subscribe(selectedOrganizador => {
+//                this.selectedOrganizador = selectedOrganizador
+//            });
+//    }
     /**
     * This will initialize the component by retrieving the list of organizadores from the service
     * This method will be called when the component is created
