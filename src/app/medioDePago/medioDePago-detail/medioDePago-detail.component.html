@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    <div class="container" id="tourpackages-carousel">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="thumbnail">
+              <div class="caption">
+                <div class='col-lg-12'>
+                    <span class="glyphicon glyphicon-credit-card"></span>
+                    
+                </div>
+                <div class='col-lg-12 well well-add-card'>
+                    <h4>{{medioDePagoDetail.titular}}</h4>
+                </div>
+                <div class='col-lg-12'>
+                    <p>{{numTar(medioDePagoDetail.numero)}}</p>
+                    <p >Expira: {{modifFecha(medioDePagoDetail.fechaDeExpiracion)}}</p>
+                </div>
+                <button class="btn btn-primary" (click)="showHideEdit()"><span class="fa fa-pencil"></span></button>
+                <button  class="fa fa-window-close" (click)="cancelView()"></button>
+
+            </div>
+          </div>
+        </div>
+      </div><!-- End row -->
+    </div><!-- End container -->
+
+      <div *ngIf="showEdit">
+          <app-medioDePago-edit [medioDePago]="medioDePagoDetail" (cancel)="showHideEdit()"></app-medioDePago-edit>
+    </div>

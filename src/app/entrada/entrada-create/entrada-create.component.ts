@@ -1,17 +1,23 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 import { EntradaService } from '../entrada.service';
+import { DatePipe } from '@angular/common';
+import {ToastrService} from 'ngx-toastr';
 import { Entrada } from '../entrada';
 
 @Component({
   selector: 'app-entrada-create',
   templateUrl: './entrada-create.component.html',
-  styleUrls: ['./entrada-create.component.css']
+  styleUrls: ['./entrada-create.component.css'],
+  providers: [DatePipe]
 })
 export class EntradaCreateComponent implements OnInit {
 
   constructor(
-     private entradaService: EntradaService
+    private dp: DatePipe,
+     private entradaService: EntradaService,
+     private toastrService: ToastrService
   ) { }
   
    /**
@@ -31,6 +37,14 @@ export class EntradaCreateComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
 
+    createEntrada():Entrada{
+      this.entradaService.createEntrada(this.entrada).subscribe((entrada)=>{
+        this.entrada=entrada;
+        this.create.emit();
+        this.toastrService.success("La entrada fue creada","Creacion");
+      })
+      return this.entrada;
+    }
 
     /**
     * Emits the signal to tell the parent component that the
