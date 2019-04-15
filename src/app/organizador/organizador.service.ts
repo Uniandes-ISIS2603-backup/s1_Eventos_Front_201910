@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { Organizador } from './organizador';
@@ -38,8 +36,8 @@ export class OrganizadorService {
     * @param invitado The new organizador
     * @returns The confirmation that the organizador was created
     */
-    createOrganizador(organizador): Observable<Organizador> {
-        return this.http.post<Organizador>(API_URL + organizadores, organizador);
+    createOrganizador(organizador): Observable<OrganizadorDetail> {
+        return this.http.post<OrganizadorDetail>(API_URL + organizadores, organizador);
     }
     
     /**

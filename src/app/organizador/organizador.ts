@@ -11,9 +11,19 @@
     id: number;
 
     /**
-     * El nombre del patrocinador
+     * El nombre del organizador
      */
-    name: string;
+    nombre: string;
+    
+    /**
+     * El telefono del organizador
+     */
+    telefono: string;
+    
+    /**
+     * El correo electronico del organizador
+     */
+    correoElectronico: string;
  }
 
 

@@ -14,8 +14,9 @@ import { InvitadoListComponent } from '../invitado/invitado-list/invitado-list.c
 import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
-import {OrganizadorDetailComponent } from '../organizador/organizador-detail/organizador-detail.component';
 import {OrganizadorCreateComponent } from '../organizador/organizador-create/organizador-create.component';
+import {OrganizadorEditComponent} from '../organizador/organizador-edit/organizador-edit.component';
+import {OrganizadorDetailComponent} from '../organizador/organizador-detail/organizador-detail.component';
 
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
 import {PatrocinadorCreateComponent} from '../patrocinador/patrocinador-create/patrocinador-create.component';
@@ -43,14 +44,18 @@ const routes: Routes = [
                 component: OrganizadorListComponent
             },
             {
-                path: ':id',
-                component: OrganizadorDetailComponent
+                path: 'add',
+                component: OrganizadorCreateComponent  
             },
             {
-                path: 'add',
-                component: OrganizadorCreateComponent
-                
+                path: ':id/edit',
+                component: OrganizadorEditComponent
+            },
+            {
+                path: ':id',
+                component: OrganizadorDetailComponent  
             }
+            
         ]
     },
     {
