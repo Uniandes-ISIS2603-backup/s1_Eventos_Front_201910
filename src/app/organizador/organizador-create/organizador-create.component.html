@@ -1,3 +1,47 @@
-<p>
-  organizador-create works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <br>
+            <h2 class="display-4" align="center"><font size="6">CREAR ORGANIZADOR</font></h2>
+            <br>
+            <form name="organizador" (ngSubmit)="f.form.valid && createOrganizador()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="organizadorNombre"><b>Nombre</b></label>
+                    <input type="text" name="organizadorNombre" class="form-control" id="organizadorNombre" [(ngModel)]="organizador.nombre"
+                        #organizadorNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar el nombre del organizador</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="organizadorCorreoElectronico"><b>Correo Electronico</b></label>
+                    <input type="text" name="organizadorCorreoElectronico" class="form-control" id="organizadorCorreoElectronico" [(ngModel)]="organizador.correoElectronico"
+                        #organizadorCorreoElectronico="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorCorreoElectronico.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar el Correo Electronico del organizador</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="organizadorTelefono"><b>Telefono</b></label>
+                    <input type="text" name="organizadorTelefono" class="form-control" id="organizadorTelefono" [(ngModel)]="organizador.telefono"
+                        #organizadorTelefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorTelefono.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar el Telefono del organizador</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger btn-lg" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
