@@ -21,10 +21,14 @@ import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/
 
 import { Usuario } from '../usuario/usuario';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
+import { UsuarioEditComponent } from '../usuario/usuario-edit/usuario-edit.component';
+import { UsuarioCreateComponent } from '../usuario/usuario-create/usuario-create.component';
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 
 import { Multimedia } from '../multimedia/multimedia';
 import { MultimediaListComponent } from '../multimedia/multimedia-list/multimedia-list.component';
+import { MultimediaEditComponent } from '../multimedia/multimedia-edit/multimedia-edit.component';
+import { MultimediaCreateComponent } from '../multimedia/multimedia-create/multimedia-create.component';
 import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
 const routes: Routes = [
 
@@ -114,8 +118,22 @@ const routes: Routes = [
         path: 'usuarios',
         children:[
             {
-                path:'list',
-                component: UsuarioListComponent,
+                path: 'list',
+                component: UsuarioListComponent
+            },
+            {
+                path: 'add',
+                component: UsuarioCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: ':id/edit',
+                component: UsuarioEditComponent
+            },
+            {
+                path: ':id',
+                component: UsuarioDetailComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },
@@ -123,8 +141,22 @@ const routes: Routes = [
         path: 'multimedias',
         children:[
             {
-                path:'list',
-                component: MultimediaListComponent,
+                path: 'list',
+                component: MultimediaListComponent
+            },
+            {
+                path: 'add',
+                component: MultimediaCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: ':id/edit',
+                component: MultimediaEditComponent
+            },
+            {
+                path: ':id',
+                component: MultimediaDetailComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },
