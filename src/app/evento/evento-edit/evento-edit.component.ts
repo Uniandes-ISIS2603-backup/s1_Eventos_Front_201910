@@ -13,13 +13,14 @@ import {EventoDetail} from '../evento-detail';
 export class EventoEditComponent implements OnInit {
 
   constructor(
-        private eventoService: EventoService,        private router: Router,
+        private eventoService: EventoService,        
+        private router: Router,
         private route: ActivatedRoute
     ) {}
 
-evento:Evento;
+evento:Evento; 
 evento_id:number;
-
+ 
  /**
     * Retrieves the information of the evento which will be updated
     */

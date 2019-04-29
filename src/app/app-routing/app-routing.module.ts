@@ -39,8 +39,9 @@ import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multi
 
 import {Evento} from '../evento/evento';
 import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.component';
-
 import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
+import {EventoCreateComponent} from '../evento/evento-create/evento-create.component';
+import {EventoEditComponent} from '../evento/evento-edit/evento-edit.component';
 
 const routes: Routes = [
     {
@@ -52,11 +53,33 @@ const routes: Routes = [
             },
             {
                 path: ':id',
-                component: EventoDetailComponent
-            }
-    ]
+                component: EventoDetailComponent,
+                //runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'add',
+                component: EventoCreateComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+            },
+            {
+                path: ':id/edit',
+                component: EventoEditComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+                
+            } 
+        ]
     } ,
-
+        
     {
         path: 'organizadores',
         children: [
