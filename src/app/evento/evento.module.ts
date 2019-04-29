@@ -9,13 +9,14 @@ import { EventoCreateComponent } from './evento-create/evento-create.component';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { EventoEditComponent } from './evento-edit/evento-edit.component';
 import { EventoDetallesComponent } from './evento-detail/evento-detalles/evento-detalles.component';
-
+import {AppRoutingModule} from '../app-routing/app-routing.module';
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule ,
   ],
   declarations: [EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent],
   providers:[EventoService],
