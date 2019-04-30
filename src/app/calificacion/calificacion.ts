@@ -19,4 +19,6 @@ export class Calificacion{
 
     deAcuerdo: number;
 
+    estreNumb;
+
  }

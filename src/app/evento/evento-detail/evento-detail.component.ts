@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 
 import { EventoService } from '../evento.service';
 import { EventoDetail } from '../evento-detail';
+import {Evento} from '../evento'
+
 @Component({
   selector: 'app-evento-detail',
   templateUrl: './evento-detail.component.html',
@@ -13,7 +17,11 @@ export class EventoDetailComponent implements OnInit {
   constructor(
   private eventoService: EventoService,
         private route: ActivatedRoute,
-        private router: Router) { }
+        private modalDialogService: ModalDialogService,
+        private router: Router,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService
+    ) { }
 
 /**
     * The evento's id retrieved from the path
