@@ -9,8 +9,8 @@ export class Evento{
     id:number;
     nombre:string;
     descripcion:string;
-    fechaInicio:Date;
-    fehcaFin:Date;
+    fechaInicio:any;
+    fechaFin:any;
     detalles:string;
     privado:boolean;
     capacidadMaxima:number;
