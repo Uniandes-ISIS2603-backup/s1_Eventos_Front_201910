@@ -34,6 +34,11 @@ import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {MultimediaModule} from './multimedia/multimedia.module';
 
+
+
+
+
+
 @NgModule({
     declarations: [
         AppComponent

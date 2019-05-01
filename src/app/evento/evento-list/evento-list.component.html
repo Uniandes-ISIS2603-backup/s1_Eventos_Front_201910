@@ -1,48 +1,28 @@
-<p>
-  evento-list works!
-</p>
 <div class = 'container-fluid'>
-    <p>
-heroes-list works!
-</p>
-
-     <a *ngFor="let evento  of eventos">
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{evento.name}}</h5>
-    <p class="card-text">
-        <!-- DETALLES DESPUES SE BORRAN-->
-      <p>
-      id:{{evento.id}}
-      </p>
-      <p>
-      nombre:{{evento.name}}
-      </p>
-      <p>
-      descripcion{{evento.address}}
-      </p>
-      <p>
-      fechaInicio{{evento.fechaInicio}}
-      </p>
-      <p>
-      detalles{{cliente.detalles}}
-      <p>
-      privado{{evento.privado}}
-      </p>
-      <p>
-      capacidadMaxima{{evento.capacidadMaxima}}
-      </p>
-      <p>
-      boletasDisponibles{{evento.boletasDisponibles}}
-      
-      
-
-    </p>
-    <a href="#" class="btn btn-primary">Ver Detalle</a>
-  </div>
-
-</div>
-
+    <div class="col">
+                <button href="#" class="btn btn-primary" routerLink = "eventos/">Crear </button>
+    </div>
+  <div class ="row">
+    <div *ngFor= "let evento of eventos">
+      <div class="card" style="width: 16rem;">
+        <div class="cardody">
+          <h4 class="card-title">{{evento.nombre}}</h4>
+          <img class="card-img-top" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
+        <div class="card-body">
+             <!-- DETALLES DESPUES SE BORRAN-->
+              <div class="row">
+                <div class ="col">
+                <button href="#" class="btn btn-primary" routerLink = "/eventos/{{evento.id}}">Ver </button>
+                </div>
+                <div class ="col">
+                <button href="#" class="btn btn-primary" >Editar</button>
+                </div>
+              </div>
+        </div>
+      </div>
+     </div>
+    </div>
+    </div>
+</div> 
 
 
