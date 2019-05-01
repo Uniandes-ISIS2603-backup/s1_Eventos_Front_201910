@@ -1,22 +1,37 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
+
 import { OrganizadorListComponent } from '../organizador/organizador-list/organizador-list.component';
-import { OrganizadorDetailComponent } from '../organizador/organizador-detail/organizador-detail.component';
 import {OrganizadorService} from './organizador.service';
-import { OrganizadorCreateComponent } from '../organizador/organizador-create/organizador-create.component';
+
+import { EventoModule } from '../evento/evento.module';
+import { OrganizadorCreateComponent } from './organizador-create/organizador-create.component';
+import { OrganizadorEditComponent } from './organizador-edit/organizador-edit.component';
+import { OrganizadorDetailComponent } from './organizador-detail/organizador-detail.component';
+
+
 
 @NgModule({
   imports: [
-    CommonModule
+  
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        EventoModule
+        
   ],
-  declarations: [OrganizadorListComponent, OrganizadorDetailComponent, OrganizadorCreateComponent],
-  providers: [
-      OrganizadorService
-  ],
+  declarations: [OrganizadorListComponent, OrganizadorCreateComponent, OrganizadorEditComponent, OrganizadorDetailComponent],
+  providers: [ OrganizadorService ],
   exports: [
-    OrganizadorListComponent,
-    OrganizadorDetailComponent,
-    OrganizadorCreateComponent
+   
+    OrganizadorListComponent, OrganizadorEditComponent
+    
   ]
 })
 export class OrganizadorModule { }

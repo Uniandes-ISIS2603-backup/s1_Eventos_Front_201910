@@ -1,3 +1,20 @@
-<p>
-    medioDePago-list works!
-  </p>
+
+  <div class="container-fluid">
+    <table class="table table-striped">
+      <tbody>
+          <tr *ngFor = "let medioDePago of mediosDePago">
+              <td style="cursor: pointer;" (click)="onSelected(medioDePago.id)" routerLink="/mediosDePago/{{medioDePago.id}}"> <dd>Id Medio De Pago: {{medioDePago.id}}</dd>
+          </tr>
+          
+      </tbody>
+  </table>
+  <div class="container-fluid">
+        <div class="row justify-content-center align-left" >
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear un medio de pago!</button>
+        </div>
+      </div>
+<div *ngIf="showCreate">
+<app-medioDePago-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-medioDePago-create>
+</div>
+  </div>

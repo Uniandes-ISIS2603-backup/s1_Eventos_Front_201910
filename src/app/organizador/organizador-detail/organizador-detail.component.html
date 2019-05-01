@@ -1,3 +1,37 @@
-<p>
-  organizador-detail works!
-</p>
+<div class="col-md-12">
+    <div class="container-fluid">   
+        <h1 class="display-4" >
+                <font size="6">{{organizadorDetail.nombre}}</font>
+        </h1>
+        <br>
+<!--        <div class="row border margin">
+            <p class="h3 p-3">Eventos </p>
+            <app-evento-list [eventos]="organizadorDetail.eventos"></app-evento-list>
+        </div>-->
+
+        <div class="col-md-4">
+            <dl>
+                <hr>
+                <dt class="bold">Correo Electronico</dt>
+                 <dd>{{organizadorDetail.correoElectronico}}</dd>
+                <hr>
+                <dt> Telefono</dt>
+                <dd>{{organizadorDetail.telefono}}</dd> 
+            </dl>
+            <br>
+            <div *ngIf="showEdit" >
+                <br>
+                <div class="row justify-content-center align-self-center">
+                    <button class="btn btn-primary text-center btn-lg" routerLink="/organizadores/{{organizadorDetail.id}}/edit">Editar</button>
+                </div>
+                 <br>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

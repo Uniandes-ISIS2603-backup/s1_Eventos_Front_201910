@@ -14,10 +14,14 @@ import { InvitadoListComponent } from '../invitado/invitado-list/invitado-list.c
 import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
-import {OrganizadorDetailComponent } from '../organizador/organizador-detail/organizador-detail.component';
+import {OrganizadorCreateComponent } from '../organizador/organizador-create/organizador-create.component';
+import {OrganizadorEditComponent} from '../organizador/organizador-edit/organizador-edit.component';
+import {OrganizadorDetailComponent} from '../organizador/organizador-detail/organizador-detail.component';
 
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
-import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
+import {PatrocinadorCreateComponent} from '../patrocinador/patrocinador-create/patrocinador-create.component';
+import {PatrocinadorDetailComponent} from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
+import {PatrocinadorEditComponent} from '../patrocinador/patrocinador-edit/patrocinador-edit.component';
 
 import { Usuario } from '../usuario/usuario';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
@@ -30,6 +34,13 @@ import { MultimediaListComponent } from '../multimedia/multimedia-list/multimedi
 import { MultimediaEditComponent } from '../multimedia/multimedia-edit/multimedia-edit.component';
 import { MultimediaCreateComponent } from '../multimedia/multimedia-create/multimedia-create.component';
 import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
+
+import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
+import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
+import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
+import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
+import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
+import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
 const routes: Routes = [
 
     {
@@ -40,9 +51,18 @@ const routes: Routes = [
                 component: OrganizadorListComponent
             },
             {
+                path: 'add',
+                component: OrganizadorCreateComponent  
+            },
+            {
+                path: ':id/edit',
+                component: OrganizadorEditComponent
+            },
+            {
                 path: ':id',
-                component: OrganizadorDetailComponent
+                component: OrganizadorDetailComponent  
             }
+            
         ]
     },
     {
@@ -53,8 +73,16 @@ const routes: Routes = [
                 component: PatrocinadorListComponent
             },
             {
+                path: 'add',
+                component: PatrocinadorCreateComponent  
+            },
+            {
                 path: ':id',
-                component: PatrocinadorDetailComponent
+                component: PatrocinadorDetailComponent  
+            },
+            {
+                path: ':id/edit',
+                component: PatrocinadorEditComponent
             }
         ]
     },
@@ -158,6 +186,54 @@ const routes: Routes = [
                 component: MultimediaDetailComponent,
                 runGuardsAndResolvers: 'always'
             }
+        ]
+    },
+    {
+        path: 'calificaciones',
+        children:[
+            {
+                path:'list',
+                component: CalificacionListComponent,
+            },
+            {
+                path: ':id',
+                component: CalificacionDetailComponent,
+            }
+        ]
+    },
+    {
+        path: 'entradas',
+        children:[
+            {
+                path:'list',
+                component: EntradaListComponent,
+            },
+            {
+                path: ':id',
+                component: EntradaDetailComponent,
+            }
+        ]
+    },
+    {
+        path: 'mediosDePago',
+        children:[
+            {
+                path:'list',
+                component: MedioDePagoListComponent,
+            },
+            {
+                path: ':id',
+                component: MedioDePagoDetailComponent,
+            }
+        ]
+    },
+    {
+        path: 'eventos',
+        children:[
+            {
+                path:'999/calificaciones',
+                component: CalificacionListComponent,
+            },
         ]
     },
     {

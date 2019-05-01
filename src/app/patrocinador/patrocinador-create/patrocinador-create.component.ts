@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import {Router} from '@angular/router';
 import { PatrocinadorService } from '../patrocinador.service';
+
 import { Patrocinador } from '../patrocinador';
 
 @Component({
@@ -11,37 +13,45 @@ import { Patrocinador } from '../patrocinador';
 export class PatrocinadorCreateComponent implements OnInit {
 
   constructor(
-    private patrocinadorService: PatrocinadorService
-  ) { }
   
+        private patrocinadorService: PatrocinadorService,
+        private toastrService: ToastrService,
+        private router: Router      
+  ) { }
+
     /**
-    * El nuevo patrocinador
+    * The new patrocinador
     */
     patrocinador: Patrocinador;
-
+    
 /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an patrocinador
-    */
-    @Output() cancel = new EventEmitter();
-
-    /**
-    * The output which tells the parent component
-    * that the user created a new patrocinador
-    */
-    @Output() create = new EventEmitter();
-
-    /**
-    * Emits the signal to tell the parent component that the
-    * user no longer wants to create an user
+    * Cancels the creation of the new book
+    * Redirects to the books' list page
     */
     cancelCreation(): void {
-        this.cancel.emit();
+        this.toastrService.warning('The Patrocinador wasn\'t created', 'Patrocinador creation');
+        this.router.navigate(['/patrocinadores/list']);
     }
-    
-  ngOnInit() {
-      
-      this.patrocinador = new Patrocinador();
-  }
 
+    /**
+    * Creates a new Patrocinador
+    */
+    createPatrocinador(): Patrocinador {
+        this.patrocinadorService.createPatrocinador(this.patrocinador)
+            .subscribe(patrocinador => {
+                this.patrocinador.id = patrocinador.id;
+                this.router.navigate(['/patrocinadores/' + patrocinador.id]);
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+        return this.patrocinador;
+    }
+
+    /**
+    * This function will initialize the component
+    */
+    ngOnInit() {
+        this.patrocinador = new Patrocinador();
+
+    }
 }

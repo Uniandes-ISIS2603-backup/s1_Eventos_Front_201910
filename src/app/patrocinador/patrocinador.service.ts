@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { Patrocinador } from './patrocinador';
-import { PatrocinadorDetail } from './patrocinador-detail';
+import {PatrocinadorDetail} from './patrocinador-detail';
 
 
 import { environment } from '../../environments/environment';
@@ -26,6 +25,15 @@ export class PatrocinadorService {
     }
     
     /**
+    * Creates a new patrocinador
+    * @param patrocinador The new patrocinador
+    * @returns The patrocinador with its new id if it was created, false if it wasn't
+    */
+    createPatrocinador(patrocinador): Observable<PatrocinadorDetail> {
+        return this.http.post<PatrocinadorDetail>(API_URL + patrocinadores, patrocinador);
+    }
+    
+    /**
     * Returns the Observable object with the details of an patrocinador retrieved from the API
     * @returns The patrocinador details
     */
@@ -34,11 +42,13 @@ export class PatrocinadorService {
     }
     
     /**
-    * Creates an patrocinador
-    * @param invitado The new patrocinador
-    * @returns The confirmation that the patrocinador was created
+    * Updates a new patrocinador
+    * @param book patrocinador updated patrocinador
+    * @returns The updated patrocinador
     */
-    createPatrocinador(patrocinador): Observable<Patrocinador> {
-        return this.http.post<Patrocinador>(API_URL + patrocinadores, patrocinador);
+    updatePatrocinador(patrocinador): Observable<PatrocinadorDetail> {
+        return this.http.put<PatrocinadorDetail>(API_URL + patrocinadores + '/' + patrocinador.id, patrocinador);
     }
+    
+
 }

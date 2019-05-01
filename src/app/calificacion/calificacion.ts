@@ -5,6 +5,8 @@ export class Calificacion{
     */
     id: number;
 
+    estrellas: string;
+    
     /**
      * El comentario de la calificación
      */
@@ -13,5 +15,8 @@ export class Calificacion{
     /**
      * recomendado?
      */
-    recomendado: boolean;
+    recomendado: string;
+
+    deAcuerdo: number;
+
  }
