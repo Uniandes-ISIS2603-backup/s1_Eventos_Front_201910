@@ -13,7 +13,22 @@
     /**
      * El nombre del Patrocinador
      */
-    name: string;
+    nombre: string;
+    
+    /**
+     * La imagen del Patrocinador
+     */
+    imagen: string;
+    
+    /**
+     * El rango del Patrocinador
+     */
+    rango: string
+    
+    /**
+     * El url de la pagina web del Patrocinador
+     */
+    url: string;
  }
 
 

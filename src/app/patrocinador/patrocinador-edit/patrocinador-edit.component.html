@@ -1,3 +1,60 @@
-<p>
-  patrocinador-edit works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+                <h1 class="display-4" align="center">
+                    <font size="6">EDITAR PATROCINADOR</font>
+                 </h1>       
+            <br>
+           <form name="patrocinador" (ngSubmit)="f.form.valid && updatePatrocinador()" #f="ngForm" novalidate> 
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumb">
+                            <img class="img-fluid" src="{{patrocinador.imagen}}"/>
+                        </div>
+                    </div>
+                
+                 <div class="col-md-7">
+                   <div class="form-group">
+                        <label for="patrocinadorNombre"><b>Nombre</b></label>
+                        <input type="text" name="patrocinadorNombre" class="form-control" id="patrocinadorNombre" [(ngModel)]="patrocinador.nombre"
+                        #patrocinadorNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && patrocinadorNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar el nombre del patrocinador</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patrocinadorDescripcion"><b>URL</b></label>
+                    <input type="text" name="patrocinadorDescripcion" class="form-control" id="patrocinadorDescripcion" [(ngModel)]="patrocinador.descripcion"
+                        #patrocinadorDescripcion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && patrocinadorDescripcion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar el URL del patrocinador</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="patrocinadorImagen"><b>Imagen</b></label>
+                    <input type="text" name="patrocinadorImagen" class="form-control" id="patrocinadorImagen" [(ngModel)]="patrocinador.imagen"
+                        #patrocinadorImagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && patrocinadorImagen.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar la imagen del patrocinador</div>
+                    </div>
+                </div>
+                     
+               </div>
+             </div>  
+                 
+                 <div class="row form-inline justify-content-center ">
+                    <button type="submit" class="btn btn-primary btn-lg">Edit</button>
+
+                    <div class="divider"></div>
+
+                    <button type="button" class="btn btn-danger btn-lg" (click)="cancelEdition()">Cancel</button>
+                </div>
+            </form>
+           
+                   
+            
+            
+        </div>
+    </div>
+</div>

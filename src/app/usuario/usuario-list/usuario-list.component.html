@@ -4,24 +4,33 @@
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Create an usuario</button>
+                    (click)="showHideCreate()">Crear un usuario</button>
             </div>
             <br>
             <br>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>    
+                        <th>Correo Electrónico</th>
+                        <th></th>
+                        <th>Coordenadas</th>
+                        <th>Unialpino</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let usuario of usuarios">
                         <td style="cursor: pointer;">
-                <dd class="figure-caption" routerLink="/usuarios/{{usuario.id}}">{{usuario.name}}</dd>
+                <dd class="figure-caption" routerLink="/usuarios/{{usuario.id}}">{{usuario.correoElectronico}}</dd>
                 </td>
                 <td>
-                    <button [ngClass]="{ 'btn-primary': (!showEdit || usuario_edit_id != usuario.id), 'btn-danger': (showEdit && usuario_edit_id == usuario.id) }"
-                        type="button" class="btn" (click)="showHideEdit(usuario.id)">Edit</button>
+                    <button [ngClass]="{ 'btn-outline-primary': (!showEdit || usuario_edit_id != usuario.id), 'btn-danger': (showEdit && usuario_edit_id == usuario.id) }"
+                        type="button" class="btn" (click)="showHideEdit(usuario.id)">Editar</button>
+                </td>
+                <td>
+                    {{usuario.latitud}},{{usuario.longitud}}
+                </td>
+                <td>
+                    {{usuario.unialpino}}
                 </td>
                 </tr>
                 </tbody>
