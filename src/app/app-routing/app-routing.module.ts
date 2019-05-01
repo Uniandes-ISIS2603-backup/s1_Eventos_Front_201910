@@ -8,9 +8,11 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
-import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
 import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
-
+import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
+import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
+import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
+import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
 
 import { Agenda } from '../agenda/agenda';
 import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
@@ -239,6 +241,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: CalificacionListComponent,
+            },
+            {
+                path: ':id',
+                component: CalificacionDetailComponent,
             }
         ]
     },
@@ -248,6 +254,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: EntradaListComponent,
+            },
+            {
+                path: ':id',
+                component: EntradaDetailComponent,
             }
         ]
     },
@@ -257,6 +267,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: MedioDePagoListComponent,
+            },
+            {
+                path: ':id',
+                component: MedioDePagoDetailComponent,
             }
         ]
     },

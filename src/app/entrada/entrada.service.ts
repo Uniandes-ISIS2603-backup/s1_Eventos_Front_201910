@@ -29,4 +29,8 @@ export class EntradaService {
         return this.http.post<Entrada>(API_URL + entradas, entrada);
     }
 
+    updateEntrada(entrada): Observable<EntradaDetail>{
+        return this.http.put<EntradaDetail>(API_URL+entradas+'/'+entrada.id,entrada);
+    }
+
 }
