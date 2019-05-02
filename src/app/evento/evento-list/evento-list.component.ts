@@ -36,7 +36,7 @@ export class EventoListComponent implements OnInit {
     private eventoService: EventoService,
       private route: ActivatedRoute) {  }
 /**
-    * Shows the author
+    * Shows the evento
     */
     onSelected(evento_id: number): void {
         this.showCreate = false;

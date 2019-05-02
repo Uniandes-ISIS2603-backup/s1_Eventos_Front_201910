@@ -3,7 +3,7 @@ import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angula
 
 import { UbicacionService } from '../ubicacion.service';
 import {Ubicacion} from '../ubicacion'
-
+ 
 
 @Component({
   selector: 'app-ubicacion-detail',
@@ -35,6 +35,7 @@ export class UbicacionDetailComponent implements OnInit {
                 this.ubicacion = ubicacion;
             });
     }
+    
 
  ngOnInit() {
         this.ubicacion_id = + this.route.snapshot.paramMap.get('id');
@@ -43,4 +44,10 @@ export class UbicacionDetailComponent implements OnInit {
         
     }
 
+
+ 
 }
+
+
+
+

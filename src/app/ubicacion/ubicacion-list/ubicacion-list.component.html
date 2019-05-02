@@ -1,23 +1,40 @@
-
 <div class ='container-fluid'>
-  <div class="row">
-    <div class='col'>
-        <table class ='table'>
-            <thead id='titular' class='thead'>
-                <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    <th></th>
-                </tr>
-            </thead>
-                <div *ngFor= "let ubicacion of ubicaciones">
-                    <td>{{ubicacion.id}}</td>
-                    <td>{{ubicacion.nombre}}</td>
-                    <td><button>Edit</button></td>
-                </div>
-        </table>
+    <div class="row">
+  <div class='col-sm'>
+    <table class ='table'>
+      <thead id='titular' class='thead'>
+        <tr>
+          <th>Nombre</th>
+          <th>Latitud</th>
+          <th>Longitud</th>
+          <th></th>
+          <th>   <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear</button>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+     <tr *ngFor="let ubicacion  of ubicaciones">
+  
+        <td> {{ubicacion.nombre}}</td>
+        <td> {{ubicacion.latitud}}</td>
+        <td>{{ubicacion.longitud}}</td>
+        <td><button class="btn btn-primary" (click)="showHideEdit(ubicacion.id)">Editar<span class="fa fa-pencil"></span></button></td>
+      </tr>
+    </table>
+       <div *ngIf="showCreate">
+                <app-ubicacion-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate">
+                    
+                </app-ubicacion-create>
+            </div>
+             <div *ngIf="showEdit">
+                <app-ubicacion-edit [ubicacion]="selectedUbicacion" (cancel)="showHideEdit(selectedUbicacion.id)" (update)="updateUbicacion()" ></app-ubicacion-edit>
+            </div>
+</div> 
+    <div class="col-sm">
+        <!--<h2>Ubicacion</h2>-->
+        <app-ubicacion-detail></app-ubicacion-detail>
+    </div>
     </div>
   </div>
-    <div class="col"><button>Create</button></div>
-</div>
-   
+    
