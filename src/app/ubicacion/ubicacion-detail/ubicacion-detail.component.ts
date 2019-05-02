@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 import { UbicacionService } from '../ubicacion.service';
 import {Ubicacion} from '../ubicacion'
@@ -12,41 +12,9 @@ import {Ubicacion} from '../ubicacion'
 })
 export class UbicacionDetailComponent implements OnInit {
 
-  constructor(
-  private ubicacionService: UbicacionService,
-        private route: ActivatedRoute,
-        private router: Router,
-        private viewRef: ViewContainerRef,
-    ) { }
+    public ngOnInit() { }
 
-/**
-    * The ubicacion's id retrieved from the path
-    */
-    ubicacion_id: number;
-
-    /**
-    * The ubicacion whose details are shown
-    */
-    ubicacion: Ubicacion;
-
- getUbicacionDetail(): void {
-         this.ubicacionService.getUbicacion(this.ubicacion_id)
-            .subscribe(ubicacion => {
-                this.ubicacion = ubicacion;
-            });
-    }
-    
-
- ngOnInit() {
-        this.ubicacion_id = + this.route.snapshot.paramMap.get('id');
-        this.ubicacion = new Ubicacion();
-        this.getUbicacionDetail();
-        
-    }
-
-
- 
-}
+}   
 
 
 
