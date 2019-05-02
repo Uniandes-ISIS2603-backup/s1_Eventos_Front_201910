@@ -1,9 +1,9 @@
-import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
-import {DatePipe} from '@angular/common';
 import {OrganizadorService} from '../organizador.service';
 import {OrganizadorDetail} from '../organizador-detail';
-import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-organizador-edit',
@@ -13,68 +13,58 @@ import {ToastrService} from 'ngx-toastr';
 export class OrganizadorEditComponent implements OnInit {
 
   constructor(
-  private organizadorService: OrganizadorService,
-  private toastrService: ToastrService
+        private organizadorService: OrganizadorService,
+        private toastrService: ToastrService,
+        private router: Router,
+        private route: ActivatedRoute
+  
   ) { }
 
   /**
-    * The id of the organizador that the user wants to edit
-    * This is passed as a parameter by the parent component
+    * The organizador which will be updated
     */
-    @Input() organizador_id: number;
+    organizador: OrganizadorDetail
 
-/**
-    * The organizador id as received from the parent component
-    */
-    @Input() organizador: OrganizadorDetail;
-
-    /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an organizador
-    */
-    @Output() cancel = new EventEmitter();
-
-    /**
-    * The output which tells the parent component
-    * that the user updated a new organizador
-    */
-    @Output() update = new EventEmitter();
-
-    /**
-    * Retrieves the information of the organizador
+    organizador_id: number;
+    
+     /**
+    * Retrieves the information of the organizador which will be updated
     */
     getOrganizador(): void {
         this.organizadorService.getOrganizadorDetail(this.organizador_id)
             .subscribe(organizador => {
-                this.organizador = organizador;
-            });
+            this.organizador = organizador;
+
+        });
     }
     
-    /**
-    * Updates the information of the organizador
-    */
-    editOrganizador(): void {
-        this.organizadorService.updateOrganizador(this.organizador)
-            .subscribe(() => {
-                this.toastrService.success("La informa del organizador fue actualizada", "Organizador edition");
-            });
-        this.update.emit();
-    }
-
-    /**
-    * Emits the signal to tell the parent component that the
-    * user no longer wants to create an user
+     /**
+    * Cancels the edition of the organizador
     */
     cancelEdition(): void {
-        this.cancel.emit();
+        this.toastrService.warning('The organizador wasn\'t edited', 'Organizador edition');
+        this.router.navigate(['/organizadores/' + this.organizador.id]);
+    }
+    
+        /**
+    * This function updates the organizador
+    */
+    updateOrganizador(): void {
+            this.organizadorService.updateOrganizador(this.organizador)
+                .subscribe(() => {
+                    this.router.navigate(['/organizadores/' + this.organizador.id]);
+                    this.toastrService.success("The organizador was successfully edited", 'Organizador edition');
+                });
+        
     }
 
-    /**
-    * The function which initializes the component
-    */
-    ngOnInit() {
-        this.organizador = new OrganizadorDetail();
+  ngOnInit() {
+      
+      this.organizador_id = +this.route.snapshot.paramMap.get('id');
+        if (this.organizador_id){
         this.getOrganizador();
-    }
+        }
+  }
 
 }
+

@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import {Router} from '@angular/router';
 import { OrganizadorService } from '../organizador.service';
+
 import { Organizador } from '../organizador';
 
 @Component({
@@ -11,36 +13,46 @@ import { Organizador } from '../organizador';
 export class OrganizadorCreateComponent implements OnInit {
 
   constructor(
-     private organizadorService: OrganizadorService
-  ) { }
   
-   /**
-    * El nuevo organizador
+        private organizadorService: OrganizadorService,
+        private toastrService: ToastrService,
+        private router: Router      
+  ) { }
+
+    /**
+    * The new organizador
     */
     organizador: Organizador;
-
+    
 /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an organizador
-    */
-    @Output() cancel = new EventEmitter();
-
-    /**
-    * The output which tells the parent component
-    * that the user created a new organizador
-    */
-    @Output() create = new EventEmitter();
-
-    /**
-    * Emits the signal to tell the parent component that the
-    * user no longer wants to create an user
+    * Cancels the creation of the new organizador
+    * Redirects to the organizador' list page
     */
     cancelCreation(): void {
-        this.cancel.emit();
+        this.toastrService.warning('The Organizador wasn\'t created', 'Organizador creation');
+        this.router.navigate(['/organizadores/list']);
     }
-    
-  ngOnInit() {
-      this.organizador = new Organizador();
-  }
 
+    /**
+    * Creates a new Organizador
+    */
+    createOrganizador(): Organizador {
+        this.organizadorService.createOrganizador(this.organizador)
+            .subscribe(organizador => {
+                this.organizador.id = organizador.id;
+                this.router.navigate(['/organizadores/' + organizador.id]);
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+        return this.organizador;
+    }
+
+    /**
+    * This function will initialize the component
+    */
+    ngOnInit() {
+        this.organizador = new Organizador();
+
+    }
 }
+
