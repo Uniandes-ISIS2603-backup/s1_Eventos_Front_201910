@@ -16,13 +16,14 @@ export class UbicacionListComponent implements OnInit {
     /**
     * The list of Ubicaciones to display
     */
-    @Input() 
     ubicaciones: Ubicacion[];
 
     /**
     * The component's constructor
     */
-    constructor(private ubicacionService: UbicacionService,  private route: ActivatedRoute) {  }
+    constructor(
+    private ubicacionService: UbicacionService,  
+    private route: ActivatedRoute) {  }
     
     /**
     * This method retrieves all the Ubicaciones in the Ubicacionestore to show them in the list

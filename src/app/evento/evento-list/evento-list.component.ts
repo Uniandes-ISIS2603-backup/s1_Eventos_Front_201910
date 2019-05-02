@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import 'rxjs/add/operator/filter';
 
 
 import { Evento } from '../../evento/evento';

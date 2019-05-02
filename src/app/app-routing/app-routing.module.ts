@@ -43,6 +43,15 @@ import {EventoListComponent} from  '../evento/evento-list/evento-list.component'
 import {EventoCreateComponent} from '../evento/evento-create/evento-create.component';
 import {EventoEditComponent} from '../evento/evento-edit/evento-edit.component';
 
+import {Ubicacion} from '../ubicacion/ubicacion';
+import {UbicacionListComponent} from '../ubicacion/ubicacion-list/ubicacion-list.component';
+import {UbicacionCreateComponent} from '../ubicacion/ubicacion-create/ubicacion-create.component';
+import {UbicacionEditComponent} from '../ubicacion/ubicacion-edit/ubicacion-edit.component';
+
+ 
+
+
+
 const routes: Routes = [
     {
      path:'eventos',
@@ -79,7 +88,36 @@ const routes: Routes = [
             } 
         ]
     } ,
-        
+    {
+       path:'ubicaciones',
+        children:[
+            {   
+                path: 'list',
+                component: UbicacionListComponent
+            },
+            {
+                path: 'add',
+                component: UbicacionCreateComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+            },
+            {
+                path: ':id/edit',
+                component: UbicacionEditComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+                
+            } 
+        ]
+    } ,  
     {
         path: 'organizadores',
         children: [
@@ -215,7 +253,8 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     }
-];
+]
+;
 
 @NgModule({
     imports: [

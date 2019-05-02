@@ -1,25 +1,23 @@
-<p>
-cliente-list works!
-</p>
 
 <div class ='container-fluid'>
   <div class="row">
-  
-  <div class='col'>
-    <table class ='table'>
-      <thead id='titular' class='thead'>
-        <tr>
-          <th>id</th>
-          <th>nombre</th>
-          <th></th>
-        </tr>
-      </thead>
-      <td>1</td>
-      <td>ml-502</td>
-      <td><button>Edit</button></td>
-    </table>
+    <div class='col'>
+        <table class ='table'>
+            <thead id='titular' class='thead'>
+                <tr>
+                    <th>id</th>
+                    <th>nombre</th>
+                    <th></th>
+                </tr>
+            </thead>
+                <div *ngFor= "let ubicacion of ubicaciones">
+                    <td>{{ubicacion.id}}</td>
+                    <td>{{ubicacion.nombre}}</td>
+                    <td><button>Edit</button></td>
+                </div>
+        </table>
+    </div>
   </div>
-  <div class="col"><button>Create</button>
-  </div>
+    <div class="col"><button>Create</button></div>
 </div>
    
