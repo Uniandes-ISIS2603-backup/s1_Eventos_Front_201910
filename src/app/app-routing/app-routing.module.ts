@@ -50,6 +50,9 @@ import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.comp
 import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
 import {EventoCreateComponent} from '../evento/evento-create/evento-create.component';
 import {EventoEditComponent} from '../evento/evento-edit/evento-edit.component';
+import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
+import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
+import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
 
 const routes: Routes = [
     {
@@ -239,6 +242,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: CalificacionListComponent,
+            },
+            {
+                path: ':id',
+                component: CalificacionDetailComponent,
             }
         ]
     },
@@ -248,6 +255,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: EntradaListComponent,
+            },
+            {
+                path: ':id',
+                component: EntradaDetailComponent,
             }
         ]
     },
@@ -257,6 +268,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: MedioDePagoListComponent,
+            },
+            {
+                path: ':id',
+                component: MedioDePagoDetailComponent,
             }
         ]
     },

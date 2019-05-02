@@ -22,6 +22,5 @@ import { HttpClientModule } from '@angular/common/http';
                 ],
     providers: [EntradaService],
     exports:[EntradaListComponent]
-
 })
 export class EntradaModule{}

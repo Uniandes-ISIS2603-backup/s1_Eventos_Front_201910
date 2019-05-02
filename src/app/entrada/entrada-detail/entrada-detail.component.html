@@ -1,142 +1,38 @@
 <article class="ticket">
-        <header class="ticket__wrapper">
-          <div class="ticket__header">
-            Nombre evento - #{{entradaDetail.numero}}
-            <button class="btn btn-primary" (click)="showHideEdit()"><span class="fa fa-pencil"></span></button>
-            <button  class="fa fa-window-close" (click)="cancelView()"></button>
-            </div>
-        </header>
-        <div class="ticket__divider">
-          <div class="ticket__notch"></div>
-          <div class="ticket__notch ticket__notch--right"></div>
+    <header class="ticket__wrapper">
+      <div class="ticket__header">
+        Nombre evento - #{{entradaDetail.numero}}
+        <button class="btn btn-primary" (click)="showHideEdit()"><span class="fa fa-pencil"></span></button>
+        <button  class="fa fa-window-close" (click)="cancelView()"></button>
         </div>
-        <div class="ticket__body">
-          <section class="ticket__section">
-              <div class="plane">
-                  <div class="cockpit">
-                    <h1>Escenario</h1>
-                  </div>
-                  <ol class="cabin fuselage">
-                    <li class="row row--1">
-                      <ol class="seats" type="A">
-                        <li class="seat">
-                          <input type="checkbox" id="1A" />
-                          <label for="1A">1A</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="1B" />
-                          <label for="1B">1B</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="1C" />
-                          <label for="1C">1C</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="1D" />
-                          <label for="1D">1D</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="1E" />
-                          <label for="1E">1E</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="1F" />
-                          <label for="1F">1F</label>
-                        </li>
-                        <li class="seat">
-                            <input type="checkbox" id="1F" />
-                            <label for="1F">1F</label>
-                          </li>
-                          <li class="seat">
-                              <input type="checkbox" id="1F" />
-                              <label for="1F">1F</label>
-                            </li>
-                           
-                          
-                      </ol>
-                    </li>
-                    <li class="row row--2">
-                      <ol class="seats" type="A">
-                        <li class="seat">
-                          <input type="checkbox" id="2A" />
-                          <label for="2A">2A</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="2B" />
-                          <label for="2B">2B</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="2C" />
-                          <label for="2C">2C</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="2D" />
-                          <label for="2D">2D</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="2E" />
-                          <label for="2E">2E</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="2F" />
-                          <label for="2F">2F</label>
-                        </li>
-                      </ol>
-                    </li>
-                  
-                    <li class="row row--5">
-                      <ol class="seats" type="A">
-                        <li class="seat">
-                          <input type="checkbox" id="5A" />
-                          <label for="5A">5A</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="5B" />
-                          <label for="5B">5B</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="5C" />
-                          <label for="5C">5C</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="5D" />
-                          <label for="5D">5D</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="5E" />
-                          <label for="5E">5E</label>
-                        </li>
-                        <li class="seat">
-                          <input type="checkbox" id="5F" />
-                          <label for="5F">5F</label>
-                        </li>
-                      </ol>
-                    </li>
-                  </ol>
-                  </div>
-            <h3>Descripción</h3>
-            <p>{{entradaDetail.descripcion}}</p>
-            <p>Localidad: {{entradaDetail.locacion}}</p>
-            
-          </section>
-         
-          <section class="ticket__section">
-            <h3>Estado de la entrada</h3>
-            <p>Disponible: {{entradaDetail.disponible}}</p>
-            <p>CheckIn: {{entradaDetail.checkIn}}</p>
-            <p>Reservada: {{entradaDetail.reservado}}</p>
-            <a href="">Consultar código QR</a>
-          </section>
-        </div>
-        <footer class="ticket__footer">
-          <span>Precio entrada</span>
-          <span>$ {{entradaDetail.precio}}
-          </span>
-        </footer>
-      </article>
-
-    <div *ngIf="showEdit">
-          <app-entrada-edit [entrada]="entradaDetail" (cancel)="showHideEdit()"></app-entrada-edit>
+    </header>
+    <div class="ticket__divider">
+      <div class="ticket__notch"></div>
+      <div class="ticket__notch ticket__notch--right"></div>
     </div>
+    <div class="ticket__body">
+      <section class="ticket__section">
+        <h3>Descripción</h3>
+        <p>{{entradaDetail.descripcion}}</p>
+        <p>Localidad: {{entradaDetail.locacion}}</p>
+        
+      </section>
+     
+      <section class="ticket__section">
+        <h3>Estado de la entrada</h3>
+        <p>Disponible: {{entradaDetail.disponible}}</p>
+        <p>CheckIn: {{entradaDetail.checkIn}}</p>
+        <p>Reservada: {{entradaDetail.reservado}}</p>
+        <a href="">Consultar código QR</a>
+      </section>
+    </div>
+    <footer class="ticket__footer">
+      <span>Precio entrada</span>
+      <span>$ {{entradaDetail.precio}}
+      </span>
+    </footer>
+  </article>
 
-      
+<div *ngIf="showEdit">
+      <app-entrada-edit [entrada]="entradaDetail" (cancel)="showHideEdit()"></app-entrada-edit>
+</div>

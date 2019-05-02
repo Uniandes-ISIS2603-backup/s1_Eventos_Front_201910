@@ -1,32 +1,21 @@
-<p>
-    medioDePago-list works!
-  </p>
- 
-  <div class="container-fluid">
+
+<div class="container-fluid">
     <table class="table table-striped">
-      <thead>
-          <tr>
-              <th>Id</th>    
-              <th>Titular</th>   
-              <th>Número</th>
-              <th>Código de seguridad</th>   
-              <th>Fecha de expiración</th>   
-          </tr>
-      </thead>
       <tbody>
           <tr *ngFor = "let medioDePago of mediosDePago">
-              <td>{{medioDePago.id}}</td>
-              <td>{{medioDePago.titular}}</td>
-              <td>{{medioDePago.numero}}</td>
-              <td>{{medioDePago.codigoDeSeguridad}}</td>
-              <td>{{modifFecha(medioDePago.fechaDeExpiracion)}}</td>
+              <td style="cursor: pointer;" (click)="onSelected(medioDePago.id)" > <dd>Id Medio De Pago: {{medioDePago.id}}</dd>
           </tr>
+
+          <div *ngIf="showView">
+              <app-medioDePago-detail [medioDePagoDetail]="selectedMedioDePago" ></app-medioDePago-detail>
+            </div>
+          
       </tbody>
   </table>
   <div class="container-fluid">
         <div class="row justify-content-center align-left" >
           <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-              (click)="showHideCreate()">Crear un medio de pago</button>
+              (click)="showHideCreate()">Crear un medio de pago!</button>
         </div>
       </div>
 <div *ngIf="showCreate">

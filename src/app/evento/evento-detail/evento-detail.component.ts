@@ -33,6 +33,9 @@ export class EventoDetailComponent implements OnInit {
     */
     eventoDetail: EventoDetail;
 
+    showCalif: boolean;
+
+
  getEventoDetail(): void {
          this.eventoService.getEventoDetail(this.evento_id)
             .subscribe(eventoDetail => {
@@ -40,10 +43,19 @@ export class EventoDetailComponent implements OnInit {
             });
     }
 
+    showCalificaciones(): void{
+        console.log('Se llama showCalif');
+        this.showCalif=true;
+    }
+
+
+
  ngOnInit() {
         this.evento_id = + this.route.snapshot.paramMap.get('id');
+        console.log("Este es el id del evento"+this.evento_id);
         this.eventoDetail = new EventoDetail();
         this.getEventoDetail();
+        this.showCalif=false;
         
     }
 
