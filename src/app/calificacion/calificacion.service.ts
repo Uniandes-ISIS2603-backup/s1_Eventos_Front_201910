@@ -50,7 +50,12 @@ export class CalificacionService{
      * @param calificacion  - objetoDTO de califiacion
      */
     createCalificacion(calificacion): Observable<Calificacion> {
+        console.log('HOLA')
         return this.http.post<Calificacion>(API_URL + calificaciones, calificacion);
+    }
+
+    createEventoCalificacion(eventoId,calificacionId,calificacion):Observable<Calificacion>{
+        return this.http.post<Calificacion>(API_URL+'/eventos/'+eventoId+'/calificaciones/'+calificacionId,calificacion);
     }
 
     /**
@@ -64,6 +69,7 @@ export class CalificacionService{
     getEventoCalificaciones(eventoId):Observable<Calificacion[]>{
         return this.http.get<Calificacion[]>(API_URL+eventos+'/'+eventoId+'/'+'calificaciones');
     }
+
 
     //updateEventoCalificaciones(eventoId,calificaciones: Calificacion[]): Observable<Calificacion[]>{
       //  return this.http.put<Calificacion[]>(API_URL+eventos+'/'+eventoId+'/'+calificaciones);
