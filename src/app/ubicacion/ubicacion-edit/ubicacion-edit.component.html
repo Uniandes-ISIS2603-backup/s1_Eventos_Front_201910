@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Editar una ubicacion</h2>
+            <br>
+            <form name="ubicacion" (ngSubmit)="f.form.valid && editUbicacion()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="ubicacionNombre"><b>Nombre</b></label>
+                    <input type="text" name="ubicacionNombre" class="form-control" id="ubicacionNombre" [(ngModel)]="ubicacion.nombre"
+                        #ubicacionNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionNombre.invalid }" required >
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="ubicacionLatitud"><b>Latitud</b></label>
+                    <input type="text" name="ubicacionLatitud" class="form-control" id="ubicacionLatitud" [(ngModel)]="ubicacion.latitud"
+                        #ubicacionLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionLatitud.invalid }" required >
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div> 
+                </div>
+                <div class="form-group">
+                    <label for="ubicacionLongitud"><b>Longitud</b></label>
+                    <input type="text" name="ubicacionLongitud" class="form-control" id="ubicacionLongitud" [(ngModel)]="ubicacion.longitud"
+                        #ubicacionLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionLongitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div> 
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

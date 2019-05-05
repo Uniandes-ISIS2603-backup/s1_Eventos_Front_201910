@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntradaEditComponent } from './entrada-edit.component';
+import { HereMapComponent } from './here-map.component';
 
-describe('EntradaEditComponent', () => {
-  let component: EntradaEditComponent;
-  let fixture: ComponentFixture<EntradaEditComponent>;
+describe('HereMapComponent', () => {
+  let component: HereMapComponent;
+  let fixture: ComponentFixture<HereMapComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EntradaEditComponent ]
+      declarations: [ HereMapComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EntradaEditComponent);
+    fixture = TestBed.createComponent(HereMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
