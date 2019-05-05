@@ -234,8 +234,22 @@ const routes: Routes = [
         path: 'usuarios',
         children:[
             {
-                path:'list',
-                component: UsuarioListComponent,
+                path: 'list',
+                component: UsuarioListComponent
+            },
+            {
+                path: 'add',
+                component: UsuarioCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: ':id/edit',
+                component: UsuarioEditComponent
+            },
+            {
+                path: ':id',
+                component: UsuarioDetailComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },
@@ -243,8 +257,22 @@ const routes: Routes = [
         path: 'multimedias',
         children:[
             {
-                path:'list',
-                component: MultimediaListComponent,
+                path: 'list',
+                component: MultimediaListComponent
+            },
+            {
+                path: 'add',
+                component: MultimediaCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: ':id/edit',
+                component: MultimediaEditComponent
+            },
+            {
+                path: ':id',
+                component: MultimediaDetailComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },
