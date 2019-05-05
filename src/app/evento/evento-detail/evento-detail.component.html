@@ -1,11 +1,28 @@
 <div class="container-fluid">   
     <div class ="row">
-        <button > Back</button>
+       <button href="#" class="btn btn-primary" routerLink = "/eventos/list">Back </button>
     </div>
     <div class="row">
         <div class="col-4">
             <img class="img-detail" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
         </div>
+        <div>
+            <h3>Detalles</h3>
+             <ul type = "square">
+         <li>Nombre:{{eventoDetail.nombre}}</li>
+         <li>descripcion:{{eventoDetail.descripcion}}</li>
+         <li>fechaInicio:{{eventoDetail.fechaInicio}}</li>
+         <li>fechaFin:{{eventoDetail.fechaFin}}</li>
+         <li>detalles:{{eventoDetail.detalles}}</li>
+         <li>privado:{{eventoDetail.privado}}</li>
+         <li>capacidadMaxima:{{eventoDetail.capacidadMaxima}}</li>
+         <li>boletasDisponibles:{{eventoDetail.boletasDisponibles}}</li>
+ 
+      </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
     <div class ="col" >
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"></a>
@@ -16,12 +33,8 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav mr-auto mt-0">
                   <ul class="nav nav-tabs">    
-                     <li class="nav-item">
-                      <a id="descripcionEvento" class="nav-link" >Descripcion</a>
-                      
-                    </li>
                     <li class="nav-item">
-                      <a id="entradaTag" class="nav-link">Entradas</a>
+                      <a id="entradaTag" class="nav-link" routerLink = "/entradas/list">Entradas</a>
                     </li>
                    <li class="nav-item">
                       <a id="organizadoresTag" class="nav-link"> Organizadores</a> 
@@ -33,21 +46,23 @@
                       <a id="calificacionTag" class="nav-link" >Calificaciones</a>
                    </li>
                     <li class="nav-item">
-                      <a id="detallesTag" class="nav-link">Detalles</a>
-                    </li>
-                    <li class="nav-item">
                       <a id="multimediaTag" class="nav-link" >Multimedia</a>
                    </li>
                     <li class="nav-item">
                       <a id="agendasTag" class="nav-link"> Agendas</a>
                     </li>
+                            <router-outlet></router-outlet>
+
                   </ul>
                 </div>
+                  
               </div>
       </nav>
   </div>
 </div>
+    
 </div>
+
 
     
     

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 import {UbicacionService} from '../ubicacion.service';
 import {Ubicacion} from '../ubicacion';
@@ -15,33 +16,52 @@ export class UbicacionEditComponent implements OnInit {
 
   constructor(
         private ubicacionService: UbicacionService,        private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private toastrService: ToastrService
     ) {}
 
-ubicacion:Ubicacion;
-ubicacion_id:number;
+@Input() ubicacion: Ubicacion;
 
- /**
-    * Retrieves the information of the ubicacion which will be updated
+/**
+    * The output which tells the parent component
+    * that the user no longer wants to create an author
     */
-    getUbicacion(): void {
-        this.ubicacionService.getUbicacion(this.ubicacion_id).subscribe(ubicacion => {
-            this.ubicacion = ubicacion;
-        });
-    }
+    @Output() cancel = new EventEmitter();
+
+    /**
+    * The output which tells the parent component
+    * that the user updated a new author
+    */
+    @Output() update = new EventEmitter();
+
+
+  
 /**
     * This function updates the ubicacion
     */
-    updateUbicacion(): void {
+    editUbicacion(): void {
         this.ubicacionService.updateUbicacion(this.ubicacion)
             .subscribe(() => {
                 this.router.navigate(['/ubicaciones/' + this.ubicacion.id]);
             });
     }
 
+    /**
+    * Emits the signal to tell the parent component that the
+    * user no longer wants to create an user
+    */
+    cancelEdition(): void {
+        this.cancel.emit();
+    }
+
+ /**
+    * This function will be called when the user chooses another author to edit
+    */
+    ngOnChanges() {
+        this.ngOnInit();
+    }
+    
 ngOnInit() {
-        this.ubicacion_id = +this.route.snapshot.paramMap.get('id');
-        this.getUbicacion();
         
     }
 

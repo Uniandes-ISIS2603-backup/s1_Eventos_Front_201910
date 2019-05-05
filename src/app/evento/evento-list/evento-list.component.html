@@ -1,6 +1,10 @@
 <div class = 'container-fluid'>
     <div class="col">
-                <button href="#" class="btn btn-primary" routerLink = "eventos/">Crear </button>
+        <div class="row justify-content-center align-self-center" >
+            
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear</button>
+          
     </div>
   <div class ="row">
     <div *ngFor= "let evento of eventos">
@@ -15,7 +19,8 @@
                 <button href="#" class="btn btn-primary" routerLink = "/eventos/{{evento.id}}">Ver </button>
                 </div>
                 <div class ="col">
-                <button href="#" class="btn btn-primary" >Editar</button>
+                    <button class="btn btn-primary" (click)="showHideEdit(evento.id)">Editar<span class="fa fa-pencil"></span></button>
+               
                 </div>
               </div>
         </div>
@@ -23,6 +28,15 @@
      </div>
     </div>
     </div>
+          <div *ngIf="showCreate">
+                <app-evento-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate">
+                    
+                </app-evento-create>
+            </div>
+             <div *ngIf="showEdit">
+                <app-evento-edit [evento]="selectedEvento" (cancel)="showHideEdit(selectedEvento.id)" (update)="updateEvento()" ></app-evento-edit>
+            </div>
 </div> 
+</div>
 
 

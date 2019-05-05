@@ -1,38 +1,42 @@
-
-<div class = 'container-fluid'>
-  <div class="row justify-content-center">
-    <div class="card">
-      <div class="card-header">Editar</div>
-        <div class="card-body">
-          <h5 class="card-title"> aca va el nombre del evento a editar</h5>
-      <!-- Campos a llenar-->
-      <!--nombre-->
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-3 col-form-label">Nombre</label>
-          <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword" placeholder="(nombre actual de la ubicacion)">
-          </div>
-        </div>
-        <!-- Fechas-->
-        <div class="row"style="margin-top:20px">
-          <div class ="col" >
-            <label>Longitud</label>
-            <input class="form-control" >
-          </div>        
-          <div class="col" >
-            <label for="pwd">Latitud</label>
-            <input type="password" class="form-control" id="pwd">
-          </div>
-        </div>
-        <div class="row"style="margin-top:20px">
-            <div class ="col-2">
-            <button type="button" class="btn btn-success">edit</button>
-            </div>
-            <div class ="col">
-            <button type="button" class="btn btn-danger">Cancel</button>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Crear una ubicacion</h2>
+            <br>
+            <form name="ubicacion" (ngSubmit)="f.form.valid && createUbicacion()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="ubicacionNombre"><b>Nombre</b></label>
+                    <input type="text" name="ubicacionNombre" class="form-control" id="ubicacionNombre" [(ngModel)]="ubicacion.nombre"
+                        #ubicacionNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="ubicacionLatitud"><b>Latitud</b></label>
+                    <input type="text" name="ubicacionLatitud" class="form-control" id="ubicacionLatitud" [(ngModel)]="ubicacion.latitud"
+                        #ubicacionLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionLatitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div>  
+                </div>
+                <div class="form-group">
+                    <label for="ubicacionLongitud"><b>Longitud</b></label>
+                    <input type="text" name="ubicacionLongitud" class="form-control" id="ubicacionLongitud" [(ngModel)]="ubicacion.longitud"
+                        #ubicacionLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionLongitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div> 
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+            <br>
         </div>
     </div>
-  </div>
-  </div>
 </div>
