@@ -1,11 +1,23 @@
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <p class="h4 p-3">Multimedia: {{multimediaDetail.nombre}}</p>
-        <br>
-        <div class="row border margin">
-            <p class="h4 p-3">Evento: {{multimediaDetail.evento}}</p>
-            <p class="h4 p-3">Organizadores: </p>
-            
-        </div>
+<div class="row">
+    <p class="h3 p-3">{{multimediaDetail.nombre}}</p>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-fluid" src="{{multimediaDetail.url}}"/>
     </div>
+    <div class="col-md-4">
+        <dl>  
+            <hr>
+            <dt> Tipo</dt>
+            <dd>{{multimediaDetail.tipo}}</dd>
+            <hr>
+            <dt>Memoria</dt>
+            <dd>{{multimediaDetail.memoria}}</dd>
+            <hr>
+        </dl>
+    </div>
+</div>
+<br>
+<div class="row justify-content-center">
+     <button type="button" class="btn btn-primary" routerLink="/multimedias/list">Volver</button>
 </div>

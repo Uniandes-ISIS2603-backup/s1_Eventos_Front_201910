@@ -1,12 +1,33 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2" *ngFor = "let multimedia of multimedias">
-            <figure class="figure" routerLink="/multimedias/{{multimedia.id}}" style="cursor: pointer;"> 
-                <div class="img-thumbnail border-0">                        
-                    <img class="img-fluid" src='{{multimedia.url}}' alt="{{multimedia.nombre}}" />                                     
-                </div>
-                <figcaption class="title-caption text-center">{{multimedia.nombre}}</figcaption>
-            </figure>
+   <br>
+   <h1 class="text-center">Lista de multimedias</h1>
+   <div class="row justify-content-center align-self-center">
+      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+      (click)="showHideCreate()">Crear multimedia</button>
+   </div>
+   <br>
+   <hr>
+   <div class="row justify-content-center align-self-center" >
+      <div *ngIf="showCreate">
+         <app-multimedia-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-multimedia-create>
+      </div>
+      <div *ngIf="showEdit">
+         <app-multimedia-edit [multimedia_id]="multimedia_edit_id" (cancel)="showHideEdit(multimedia_edit_id)" (update)="updateMultimedia()"></app-multimedia-edit>
+      </div>
+   </div>
+   <br>
+   <br>
+   <div class="row">
+      <div class="col-md-4" *ngFor = "let multimedia of multimedias">
+        <div class="card" style="width: 20rem;">                        
+           <img class="card-img-top" src='{{multimedia.url}}' alt="{{multimedia.nombre}}" routerLink="/multimedias/{{multimedia.id}}" style="cursor: pointer;" />                                     
+        <div class="card-body">
+        <h5 class="card-title" routerLink="/multimedias/{{multimedia.id}}" style="cursor: pointer;">{{multimedia.nombre}}</h5>
+        <p class="card-text">Es Memoria: {{multimedia.memoria}}</p>
+        <button [ngClass]="{ 'btn-primary': (!showEdit || multimedia_edit_id != multimedia.id), 'btn-danger': (showEdit && multimedia_edit_id == multimedia.id) }"
+                    type="button" class="btn" (click)="showHideEdit(multimedia.id)">Editar</button>
         </div>
-    </div>
+        </div>
+      </div>
+   </div>
 </div>

@@ -1,27 +1,33 @@
 import {NgModule} from '@angular/core';
+
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+
+import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
+import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
+import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
+
+
 import { Agenda } from '../agenda/agenda';
 import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
+
 import { Factura } from '../factura/factura';
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
+
 import { Invitado } from '../invitado/invitado';
 import { InvitadoListComponent } from '../invitado/invitado-list/invitado-list.component';
+
 import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
-import {OrganizadorCreateComponent } from '../organizador/organizador-create/organizador-create.component';
-import {OrganizadorEditComponent} from '../organizador/organizador-edit/organizador-edit.component';
-import {OrganizadorDetailComponent} from '../organizador/organizador-detail/organizador-detail.component';
+import {OrganizadorDetailComponent } from '../organizador/organizador-detail/organizador-detail.component';
 
 import {PatrocinadorListComponent} from '../patrocinador/patrocinador-list/patrocinador-list.component';
-import {PatrocinadorCreateComponent} from '../patrocinador/patrocinador-create/patrocinador-create.component';
-import {PatrocinadorDetailComponent} from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
-import {PatrocinadorEditComponent} from '../patrocinador/patrocinador-edit/patrocinador-edit.component';
+import {PatrocinadorDetailComponent } from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
 
 import { Usuario } from '../usuario/usuario';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
@@ -31,14 +37,87 @@ import { Multimedia } from '../multimedia/multimedia';
 import { MultimediaListComponent } from '../multimedia/multimedia-list/multimedia-list.component';
 import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
 
-import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
-import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
-import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
-import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
-import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
-import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
-const routes: Routes = [
+import {Evento} from '../evento/evento';
+import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.component';
+import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
+import {EventoCreateComponent} from '../evento/evento-create/evento-create.component';
+import {EventoEditComponent} from '../evento/evento-edit/evento-edit.component';
 
+import {Ubicacion} from '../ubicacion/ubicacion';
+import {UbicacionListComponent} from '../ubicacion/ubicacion-list/ubicacion-list.component';
+import {UbicacionCreateComponent} from '../ubicacion/ubicacion-create/ubicacion-create.component';
+import {UbicacionEditComponent} from '../ubicacion/ubicacion-edit/ubicacion-edit.component';
+
+ 
+
+
+
+const routes: Routes = [
+    {
+     path:'eventos',
+        children:[
+            {   
+                path: 'list',
+                component: EventoListComponent
+            },
+            {
+                path: ':id',
+                component: EventoDetailComponent,
+                //runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'add',
+                component: EventoCreateComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+            },
+            {
+                path: ':id/edit',
+                component: EventoEditComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+                
+            } 
+        ]
+    } ,
+    {
+       path:'ubicaciones',
+        children:[
+            {   
+                path: 'list',
+                component: UbicacionListComponent
+            },
+            {
+                path: 'add',
+                component: UbicacionCreateComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+            },
+            {
+                path: ':id/edit',
+                component: UbicacionEditComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+                
+            } 
+        ]
+    } ,  
     {
         path: 'organizadores',
         children: [
@@ -47,18 +126,9 @@ const routes: Routes = [
                 component: OrganizadorListComponent
             },
             {
-                path: 'add',
-                component: OrganizadorCreateComponent  
-            },
-            {
-                path: ':id/edit',
-                component: OrganizadorEditComponent
-            },
-            {
                 path: ':id',
-                component: OrganizadorDetailComponent  
+                component: OrganizadorDetailComponent
             }
-            
         ]
     },
     {
@@ -69,16 +139,8 @@ const routes: Routes = [
                 component: PatrocinadorListComponent
             },
             {
-                path: 'add',
-                component: PatrocinadorCreateComponent  
-            },
-            {
                 path: ':id',
-                component: PatrocinadorDetailComponent  
-            },
-            {
-                path: ':id/edit',
-                component: PatrocinadorEditComponent
+                component: PatrocinadorDetailComponent
             }
         ]
     },
@@ -144,18 +206,6 @@ const routes: Routes = [
             {
                 path:'list',
                 component: UsuarioListComponent,
-            },
-            {
-                path:'999/calificaciones',
-                component: CalificacionListComponent
-            },
-            {
-                path:'999/mediosDePago',
-                component: MedioDePagoListComponent
-            },
-            {
-                path:'999/entradas',
-                component: EntradaListComponent
             }
         ]
     },
@@ -174,10 +224,6 @@ const routes: Routes = [
             {
                 path:'list',
                 component: CalificacionListComponent,
-            },
-            {
-                path: ':id',
-                component: CalificacionDetailComponent,
             }
         ]
     },
@@ -187,10 +233,6 @@ const routes: Routes = [
             {
                 path:'list',
                 component: EntradaListComponent,
-            },
-            {
-                path: ':id',
-                component: EntradaDetailComponent,
             }
         ]
     },
@@ -200,20 +242,7 @@ const routes: Routes = [
             {
                 path:'list',
                 component: MedioDePagoListComponent,
-            },
-            {
-                path: ':id',
-                component: MedioDePagoDetailComponent,
             }
-        ]
-    },
-    {
-        path: 'eventos',
-        children:[
-            {
-                path:'999/calificaciones',
-                component: CalificacionListComponent,
-            },
         ]
     },
     {
@@ -224,7 +253,8 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     }
-];
+]
+;
 
 @NgModule({
     imports: [
