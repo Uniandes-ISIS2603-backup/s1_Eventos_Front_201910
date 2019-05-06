@@ -12,7 +12,7 @@ import { } from '@types/googlemaps';
 })
 export class UbicacionDetailComponent implements OnInit {
 
-ubicacion:Ubicacion;
+@Input() ubicacion:Ubicacion;
 ubicacion_id:number;
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
