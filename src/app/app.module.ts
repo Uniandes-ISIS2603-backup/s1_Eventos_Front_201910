@@ -34,6 +34,8 @@ import {MedioDePagoModule} from './medioDePago/medioDePago.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {MultimediaModule} from './multimedia/multimedia.module';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 
 
@@ -70,7 +72,11 @@ import {MultimediaModule} from './multimedia/multimedia.module';
         CalificacionModule,
         MedioDePagoModule,
         UsuarioModule,
-        MultimediaModule
+        MultimediaModule,
+        AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAG-ZBqKa9jq3Ch8zs6XZIHCMx3EZxEMr8'
+
+    })
     ],
     bootstrap: [AppComponent],
     providers: [
