@@ -17,7 +17,7 @@ export class EventoDetail extends Evento{
     organizadores:Organizador[];
     multimedias: Multimedia[];
     agendas: Agenda[];
-    usuario: Usuario[];
+    usuarios: Usuario[];
     entradas: Entrada[];
     calificaciones:Calificacion[];
 }

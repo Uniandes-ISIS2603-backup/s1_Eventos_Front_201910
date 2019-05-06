@@ -1,17 +1,59 @@
-<p>
-    evento-detail works!
-</p>
-<p>
-<p> id:{{eventoDetail.id}};</p>
-<p> nombre:{{eventoDetail.nombre}};</p>
-<p> descripcion:{{eventoDetail.descripcion}};</p>
-<p> fechaInicio:{{eventoDetail.fechaInicio}};</p>
-<p> fehcaFin:{{eventoDetail.fehcaFin}};</p>
-<p> detalles:{{eventoDetail.detalles}};</p>
-<p> privado:{{eventoDetail.privado}};</p>
-<p> capacidadMaxima:{{eventoDetail.capacidadMaxima}};</p>
-<p> boletasDisponibles:{{eventoDetail.boletasDisponibles}};</p>
+<div class="container-fluid">   
+    <div class ="row">
+        <button > Back</button>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img class="img-detail" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
+        </div>
+    <div class ="col" >
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto mt-0">
+                  <ul class="nav nav-tabs">    
+                     <li class="nav-item">
+                      <a id="descripcionEvento" class="nav-link" >Descripcion</a>
+                      
+                    </li>
+                    <li class="nav-item">
+                      <a id="entradaTag" class="nav-link">Entradas</a>
+                    </li>
+                   <li class="nav-item">
+                      <a id="organizadoresTag" class="nav-link"> Organizadores</a> 
+                    </li>
+                    <li class="nav-item">
+                      <a id="patrocinadoresTag" class="nav-link" >Patrocinadores</a>
+                    </li>
+                    <li class="nav-item">
+                      <td id="calificacionTag" style="cursor: pointer;" class="nav-link"  (click)="showCalificaciones()" >Calificaciones</td>
+                     
+                   </li>
+                    <li class="nav-item">
+                      <a id="detallesTag" class="nav-link">Detalles</a>
+                    </li>
+                    <li class="nav-item">
+                      <a id="multimediaTag" class="nav-link" >Multimedia</a>
+                   </li>
+                    <li class="nav-item">
+                      <a id="agendasTag" class="nav-link"> Agendas</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+      </nav>
+      <div *ngIf="showCalif">
+          <app-calificacion-list></app-calificacion-list>
+        </div>
+  </div>
+</div>
+</div>
 
-
-
-
+    
+ 
+  

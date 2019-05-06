@@ -1,16 +1,26 @@
 import {NgModule} from '@angular/core';
+
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+
+import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
+import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
+import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
+
+
 import { Agenda } from '../agenda/agenda';
 import { AgendaListComponent } from '../agenda/agenda-list/agenda-list.component';
+
 import { Factura } from '../factura/factura';
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
+
 import { Invitado } from '../invitado/invitado';
 import { InvitadoListComponent } from '../invitado/invitado-list/invitado-list.component';
+
 import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
@@ -35,14 +45,52 @@ import { MultimediaEditComponent } from '../multimedia/multimedia-edit/multimedi
 import { MultimediaCreateComponent } from '../multimedia/multimedia-create/multimedia-create.component';
 import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
 
-import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
-import {MedioDePagoListComponent} from '../medioDePago/medioDePago-list/medioDePago-list.component';
-import {EntradaListComponent} from '../entrada/entrada-list/entrada-list.component';
+import {Evento} from '../evento/evento';
+import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.component';
+import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
+import {EventoCreateComponent} from '../evento/evento-create/evento-create.component';
+import {EventoEditComponent} from '../evento/evento-edit/evento-edit.component';
 import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
 import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
 import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
-const routes: Routes = [
 
+const routes: Routes = [
+    {
+     path:'eventos',
+        children:[
+            {   
+                path: 'list',
+                component: EventoListComponent
+            },
+            {
+                path: ':id',
+                component: EventoDetailComponent,
+                //runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'add',
+                component: EventoCreateComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+            },
+            {
+                path: ':id/edit',
+                component: EventoEditComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+                
+            } 
+        ]
+    } ,
+        
     {
         path: 'organizadores',
         children: [
@@ -225,15 +273,6 @@ const routes: Routes = [
                 path: ':id',
                 component: MedioDePagoDetailComponent,
             }
-        ]
-    },
-    {
-        path: 'eventos',
-        children:[
-            {
-                path:'999/calificaciones',
-                component: CalificacionListComponent,
-            },
         ]
     },
     {

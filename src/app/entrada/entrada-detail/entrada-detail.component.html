@@ -1,40 +1,38 @@
 <article class="ticket">
-        <header class="ticket__wrapper">
-          <div class="ticket__header">
-            Nombre evento - #{{entradaDetail.numero}}
-            <button class="btn btn-primary" (click)="showHideEdit()"><span class="fa fa-pencil"></span></button>
-            <button  class="fa fa-window-close" (click)="cancelView()"></button>
-            </div>
-        </header>
-        <div class="ticket__divider">
-          <div class="ticket__notch"></div>
-          <div class="ticket__notch ticket__notch--right"></div>
+    <header class="ticket__wrapper">
+      <div class="ticket__header">
+        Nombre evento - #{{entradaDetail.numero}}
+        <button class="btn btn-primary" (click)="showHideEdit()"><span class="fa fa-pencil"></span></button>
+        <button  class="fa fa-window-close" (click)="cancelView()"></button>
         </div>
-        <div class="ticket__body">
-          <section class="ticket__section">
-            <h3>Descripción</h3>
-            <p>{{entradaDetail.descripcion}}</p>
-            <p>Localidad: {{entradaDetail.locacion}}</p>
-            
-          </section>
-         
-          <section class="ticket__section">
-            <h3>Estado de la entrada</h3>
-            <p>Disponible: {{entradaDetail.disponible}}</p>
-            <p>CheckIn: {{entradaDetail.checkIn}}</p>
-            <p>Reservada: {{entradaDetail.reservado}}</p>
-            <a href="">Consultar código QR</a>
-          </section>
-        </div>
-        <footer class="ticket__footer">
-          <span>Precio entrada</span>
-          <span>$ {{entradaDetail.precio}}
-          </span>
-        </footer>
-      </article>
-
-    <div *ngIf="showEdit">
-          <app-entrada-edit [entrada]="entradaDetail" (cancel)="showHideEdit()"></app-entrada-edit>
+    </header>
+    <div class="ticket__divider">
+      <div class="ticket__notch"></div>
+      <div class="ticket__notch ticket__notch--right"></div>
     </div>
+    <div class="ticket__body">
+      <section class="ticket__section">
+        <h3>Descripción</h3>
+        <p>{{entradaDetail.descripcion}}</p>
+        <p>Localidad: {{entradaDetail.locacion}}</p>
+        
+      </section>
+     
+      <section class="ticket__section">
+        <h3>Estado de la entrada</h3>
+        <p>Disponible: {{entradaDetail.disponible}}</p>
+        <p>CheckIn: {{entradaDetail.checkIn}}</p>
+        <p>Reservada: {{entradaDetail.reservado}}</p>
+        <a href="">Consultar código QR</a>
+      </section>
+    </div>
+    <footer class="ticket__footer">
+      <span>Precio entrada</span>
+      <span>$ {{entradaDetail.precio}}
+      </span>
+    </footer>
+  </article>
 
-      
+<div *ngIf="showEdit">
+      <app-entrada-edit [entrada]="entradaDetail" (cancel)="showHideEdit()"></app-entrada-edit>
+</div>

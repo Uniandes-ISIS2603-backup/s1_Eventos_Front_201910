@@ -1,10 +1,11 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
-import {NgForm} from '@angular/forms'
+import {NgForm} from '@angular/forms';
 
 import { Calificacion } from '../calificacion';
 import { DatePipe } from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {CalificacionService} from '../calificacion.service';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * Componente create calificacion
@@ -25,6 +26,7 @@ export class CalificacionCreateComponent implements OnInit {
    */
     constructor(
         private dp: DatePipe,
+        private route: ActivatedRoute,
         private calificacionService: CalificacionService,
         private toastrService: ToastrService
      ) { }
@@ -45,18 +47,22 @@ export class CalificacionCreateComponent implements OnInit {
      */
      @Output() create = new EventEmitter();
 
+     evento_id: number;
 
      /**
      * Llama a MedioDePagoService que se encarga de realizar la petición http POST
      */
      createCalificacion(): Calificacion{
          console.log(this.calificacion);
+         console.log(' SE LLAMA AL CREATE CALIF')
          this.calificacionService.createCalificacion(this.calificacion).subscribe((calificacion)=>{
              this.calificacion = calificacion;
              this.create.emit();
              this.toastrService.success("La calificacion fue creada","Creacion");
 
          })
+
+         this.calificacionService.createEventoCalificacion(this.evento_id,this.calificacion.id,this.calificacion);
          return this.calificacion;
      }
 
@@ -72,5 +78,7 @@ export class CalificacionCreateComponent implements OnInit {
    */
      ngOnInit() {
         this.calificacion = new Calificacion();
+        this.evento_id = + this.route.snapshot.paramMap.get('id');
+        console.log('el evento es: '+this.evento_id);
     }
 }
