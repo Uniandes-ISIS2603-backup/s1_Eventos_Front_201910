@@ -12,7 +12,7 @@ import { EventoModule } from '../evento/evento.module';
 import { OrganizadorCreateComponent } from './organizador-create/organizador-create.component';
 import { OrganizadorEditComponent } from './organizador-edit/organizador-edit.component';
 import { OrganizadorDetailComponent } from './organizador-detail/organizador-detail.component';
-
+import {EventoService} from '../evento/evento.service';
 
 
 @NgModule({
@@ -26,12 +26,10 @@ import { OrganizadorDetailComponent } from './organizador-detail/organizador-det
         EventoModule
         
   ],
-  declarations: [OrganizadorListComponent, OrganizadorCreateComponent, OrganizadorEditComponent, OrganizadorDetailComponent],
-  providers: [ OrganizadorService ],
+  declarations: [],
+  providers: [ OrganizadorService,EventoService ],
   exports: [
    
-    OrganizadorListComponent, OrganizadorEditComponent
-    
   ]
 })
 export class OrganizadorModule { }
