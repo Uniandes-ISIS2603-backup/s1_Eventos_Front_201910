@@ -9,19 +9,16 @@ import { EntradaEditComponent } from './entrada-edit/entrada-edit.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { EventoService } from '../evento/evento.service';
 
 @NgModule({
     imports:[
         CommonModule,FormsModule,AppRoutingModule,HttpClientModule,
         NgbModule
     ],
-    declarations: [EntradaListComponent, 
-                    EntradaDetailComponent,
-                   EntradaCreateComponent,
-                   EntradaEditComponent
+    declarations: [
                 ],
-    providers: [EntradaService],
-    exports:[EntradaListComponent]
-
+    providers: [EntradaService,EventoService],
+    exports:[]
 })
 export class EntradaModule{}

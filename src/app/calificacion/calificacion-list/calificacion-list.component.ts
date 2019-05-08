@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewContainerRef } from '@angular/core';
+import { Component, Input,OnInit,ViewContainerRef } from '@angular/core';
 import {CalificacionService} from '../calificacion.service';
 import {Calificacion} from '../calificacion';
 import { forEach } from '@angular/router/src/utils/collection';
@@ -6,6 +6,8 @@ import { ModalDialogService } from 'ngx-modal-dialog';
 import {  ToastrService } from 'ngx-toastr';
 import { CalificacionDetail } from '../calificacion-detail';
 import {CalifEstre} from '../califEstre';
+import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 /**
  * Componente que lista todos los calificaciones
@@ -26,10 +28,13 @@ export class CalificacionListComponent implements OnInit {
      */
     constructor(
         private calificacionService: CalificacionService,
+        private route: ActivatedRoute,
         private modalDialogService: ModalDialogService,
         private viewRef: ViewContainerRef,
         private toastrService: ToastrService
         ){}
+
+        @Input() eventoId: number;
 
         /**
          * Lista de todos los calificaciones
@@ -56,6 +61,8 @@ export class CalificacionListComponent implements OnInit {
          */
         showEdit: boolean;
 
+        evento_id: number;
+
         /**
          * Variable que controla la aparicion del componente showView
          */
@@ -65,17 +72,16 @@ export class CalificacionListComponent implements OnInit {
          * Variable que almacena el calificacion seleccionado, para enviarselo al componente detail y que este muestre
          * toda la info
          */
-        selectedCalificacion: Calificacion;
+        selectedCalificacion: CalificacionDetail;
 
         /**
          * Inicializa el arreglo de calificaciones trayendo la info desde service
          */
         getCalificaciones(): void{
-            this.calificacionService.getCalificaciones().subscribe(
+            this.calificacionService.getEventoCalificaciones(this.evento_id).subscribe(
                 calificaciones => {
                     this.calificaciones=calificaciones;
                 });
-             
         }
 
         addDeAcuerdo(): void{
@@ -93,7 +99,11 @@ export class CalificacionListComponent implements OnInit {
          * Metodo que se encarga de establecer la condicion para que el componente detail aparezca o se esconda
          */
         showHideView(): void{
-            this.showView=false;
+            if(this.showView==true)
+                this.showView=false;
+            else
+                this.showView=true;
+            console.log(this.showView);
         }
 
         /**
@@ -105,7 +115,7 @@ export class CalificacionListComponent implements OnInit {
             console.log('corre');
             this.showCreate=false;
             this.showEdit=false;
-            this.showView=true;
+            this.showHideView();
             this.calificacion_id=calificacion_id;
             this.selectedCalificacion=new CalificacionDetail();
             this.getCalificacionDetail();
@@ -147,11 +157,14 @@ export class CalificacionListComponent implements OnInit {
          * Al crear el componente, generar las condiciones que se establecen al interior del metodo
          */
     ngOnInit() {
+        this.evento_id = + this.route.snapshot.paramMap.get('id');
+        console.log("Este es el id"+this.evento_id);
         this.showCreate = false;
         this.showEdit=false;
         this.selectedCalificacion=undefined;
         this.calificacion_id=undefined;
         this.getCalificaciones();
+        this.showView=false;
     }
         
     }

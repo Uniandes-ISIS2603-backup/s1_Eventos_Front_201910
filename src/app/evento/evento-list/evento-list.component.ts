@@ -18,8 +18,9 @@ export class EventoListComponent implements OnInit {
     /**
     * The list of Eventos to display
     */
+    @Input() 
     eventos: Evento[];
-    
+
     selectedEvento: Evento;
     
     showCreate:boolean;
@@ -77,6 +78,9 @@ export class EventoListComponent implements OnInit {
                 this.eventos = eventos;
             });
     }
+   
+
+
     /**
     * The method which initializes the component
     */

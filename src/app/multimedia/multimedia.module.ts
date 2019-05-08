@@ -10,7 +10,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { MultimediaDetailComponent } from './multimedia-detail/multimedia-detail.component';
 import { MultimediaCreateComponent } from './multimedia-create/multimedia-create.component';
 import { MultimediaEditComponent } from './multimedia-edit/multimedia-edit.component';
-
+import{EventoService} from '../evento/evento.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -19,8 +19,8 @@ import { MultimediaEditComponent } from './multimedia-edit/multimedia-edit.compo
     CommonModule,
     FormsModule
   ],
-  declarations: [MultimediaListComponent, MultimediaDetailComponent, MultimediaCreateComponent, MultimediaEditComponent],
-  providers: [MultimediaService],
+  declarations: [],
+  providers: [MultimediaService,EventoService],
   bootstrap: [MultimediaListComponent]
 })
 export class MultimediaModule { }
