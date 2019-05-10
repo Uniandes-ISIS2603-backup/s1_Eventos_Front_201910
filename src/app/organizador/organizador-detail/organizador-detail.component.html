@@ -1,15 +1,13 @@
 <div class="col-md-12">
     <div class="container-fluid">   
-        <h1 class="display-4" >
+        
+
+        <div class="row">
+        <div class="col-md-4">
+            <h1 class="display-4" >
                 <font size="6">{{organizadorDetail.nombre}}</font>
         </h1>
         <br>
-<!--        <div class="row border margin">
-            <p class="h3 p-3">Eventos </p>
-            <app-evento-list [eventos]="organizadorDetail.eventos"></app-evento-list>
-        </div>-->
-
-        <div class="col-md-4">
             <dl>
                 <hr>
                 <dt class="bold">Correo Electronico</dt>
@@ -27,7 +25,24 @@
                  <br>
             </div>
         </div>
-
+        <div class="col-md-8">
+        <h1 align="center" class="display-4" >
+            <font size="6">Eventos</font>
+        </h1>
+            <br>
+        <div class="row">
+            <div class="col-md-4" *ngFor = "let evento of organizadorDetail.eventos">
+                <br>
+                <div class="card">                        
+                    <img class="card-img-top" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="{{evento.nombre}}" routerLink="/eventos/{{evento.id}}" style="cursor: pointer;" />                                     
+                <div class="card-body">
+                <h5 class="card-title" routerLink="/eventos/{{evento.id}}" style="cursor: pointer;">{{evento.nombre}}</h5>
+            </div>
+        </div>
+        </div>   
+        </div>
+        </div>
+        </div>
     </div>
 </div>
 
