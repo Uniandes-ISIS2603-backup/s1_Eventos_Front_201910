@@ -1,41 +1,41 @@
 <div class='container-fluid'>
-    <br>
-    <h2 class="text-center">Crear nueva calificación</h2>
-    <br>
-    <form name="calif" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm" novalidate>
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label for="inputState">Estrellas</label>
-          <select id="inputState" name="calificacionEstrellas" class="form-control" id="calificacionEstrellas"  [(ngModel)]="calificacion.estrellas"
-          #estrellas="ngModel">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationDefault02">Comentario</label>
-          <input type="text" name="calificacionComentario" class="form-control" id="validationDefault02" placeholder="Escriba aquí..." value="" [(ngModel)]="calificacion.comentario" #comentario="ngModel" 
-          [ngClass]="{ 'is-invalid': f.submitted && calificacion.invalid}" required>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationDefault02">Lo recomiendo</label>
-          <input type="text" name="calificacionRecomendado" class="form-control" id="validationDefault02" placeholder="Y/N" value="" [(ngModel)]="calificacion.recomendado" #recomendado="ngModel" 
-          [ngClass]="{ 'is-invalid': f.submitted && calificacion.invalid}" required>
-        </div>
-  
+  <br>
+  <h2 class="text-center">Crear nueva calificación</h2>
+  <br>
+  <form name="calif" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm" novalidate>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="inputState">Estrellas</label>
+        <select id="inputState" name="calificacionEstrellas" class="form-control" id="calificacionEstrellas"  [(ngModel)]="calificacion.estrellas"
+        #estrellas="ngModel">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
       </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-          <label class="form-check-label" for="invalidCheck2">
-            Agree to terms and conditions
-          </label>
-        </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Comentario</label>
+        <input type="text" name="calificacionComentario" class="form-control" id="validationDefault02" placeholder="Escriba aquí..." value="" [(ngModel)]="calificacion.comentario" #comentario="ngModel" 
+        [ngClass]="{ 'is-invalid': f.submitted && calificacion.invalid}" required>
       </div>
-      <button class="btn btn-primary" type="submit">Crear</button>
-    </form>
-  </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Lo recomiendo</label>
+        <input type="text" name="calificacionRecomendado" class="form-control" id="validationDefault02" placeholder="Y/N" value="" [(ngModel)]="calificacion.recomendado" #recomendado="ngModel" 
+        [ngClass]="{ 'is-invalid': f.submitted && calificacion.invalid}" required>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          Agree to terms and conditions
+        </label>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Crear</button>
+  </form>
+</div>

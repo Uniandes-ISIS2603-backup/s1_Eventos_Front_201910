@@ -11,7 +11,6 @@ import { MedioDePagoDetail } from './medioDePago-detail';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const mediosDePago = '/mediosDePago';
-const usuarios = '/usuarios';
 
 /**
  * Clase service, se encarga de obtener la informacion por medio de http de la base de datos (servidor desplegado de back)
@@ -54,9 +53,5 @@ export class MedioDePagoService {
      */
     updateMedioDePago(medioDePago): Observable<MedioDePagoDetail>{
          return this.http.put<MedioDePagoDetail>(API_URL+mediosDePago+'/'+medioDePago.id,medioDePago);
-    }
-
-    getUsuarioMediosDePago(usuarioId):Observable<MedioDePago[]>{
-        return this.http.get<MedioDePago[]>(API_URL+usuarios+'/'+usuarioId+'/'+'mediosDePago');
     }
 }

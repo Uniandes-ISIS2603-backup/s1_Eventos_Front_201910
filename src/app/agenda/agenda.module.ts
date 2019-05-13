@@ -10,7 +10,7 @@ import { AgendaDetailComponent } from './agenda-detail/agenda-detail.component';
 import { AgendaCreateComponent } from './agenda-create/agenda-create.component';
 import { AgendaEditComponent } from './agenda-edit/agenda-edit.component';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {EventoService} from '../evento/evento.service';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -21,9 +21,9 @@ import {EventoService} from '../evento/evento.service';
         NgbModule
     ],
     declarations: [
-        
+        AgendaListComponent,AgendaDetailComponent,AgendaCreateComponent,AgendaEditComponent
     ],
-    providers: [AgendaService,EventoService],
-    exports: []
+    providers: [AgendaService],
+    exports: [AgendaListComponent]
 })
 export class AgendaModule { }

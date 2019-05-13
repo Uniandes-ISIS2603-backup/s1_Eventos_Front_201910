@@ -28,13 +28,12 @@ export class UsuarioDetailComponent implements OnInit {
     */
     usuarioDetail: UsuarioDetail;
 
-    showMP: boolean;
+
 
     /**
     * The usuario's id retrieved from the address
     */
     usuario_id: number;
-
 
     /**
     * The method which retrieves the details of an usuario
@@ -46,10 +45,6 @@ export class UsuarioDetailComponent implements OnInit {
             });
     }
 
-    showMediosDePago(): void{
-        this.showMP=!this.showMP;
-    }
-
     /**
     * The method which initializes the component
     * We need to initialize the usuario so it is never considered as undefined
@@ -58,7 +53,6 @@ export class UsuarioDetailComponent implements OnInit {
         this.usuario_id = +this.route.snapshot.paramMap.get('id');
         this.usuarioDetail = new UsuarioDetail();
         this.getUsuarioDetail();
-        this.showMP=false;
     }
 
 }

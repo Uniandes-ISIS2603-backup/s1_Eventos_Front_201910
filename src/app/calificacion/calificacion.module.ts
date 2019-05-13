@@ -9,7 +9,6 @@ import { CalificacionEditComponent } from './calificacion-edit/calificacion-edit
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { EventoService } from '../evento/evento.service';
 
 /**
  * Modulo de calificacion
@@ -23,12 +22,15 @@ import { EventoService } from '../evento/evento.service';
         CommonModule, FormsModule,AppRoutingModule,HttpClientModule,
         NgbModule
     ],
-    declarations: [ 
+    declarations: [CalificacionListComponent, 
+                    CalificacionDetailComponent,
+                    CalificacionEditComponent,
+                    CalificacionCreateComponent, 
                    ],
     providers: [
-        CalificacionService,EventoService
+        CalificacionService
     ],
-    exports:[
+    exports:[CalificacionListComponent
             ]
 })
 export class CalificacionModule{}

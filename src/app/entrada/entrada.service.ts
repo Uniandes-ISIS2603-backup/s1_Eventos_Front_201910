@@ -11,7 +11,6 @@ import { EntradaDetail } from './entrada-detail';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const entradas = '/entradas';
-const eventos = '/eventos';
 
 @Injectable()
 export class EntradaService {
@@ -34,8 +33,4 @@ export class EntradaService {
         return this.http.put<EntradaDetail>(API_URL+entradas+'/'+entrada.id,entrada);
     }
 
-getEventoEntradas(eventoId):Observable<Entrada[]>{
-        return this.http.get<Entrada[]>(API_URL+eventos+'/'+eventoId+'/'+'entradas');
-    }
-    
 }

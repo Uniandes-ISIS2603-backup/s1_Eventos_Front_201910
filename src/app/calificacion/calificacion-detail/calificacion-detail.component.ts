@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,8 +7,7 @@ import { CalificacionService } from '../calificacion.service';
 import { CalificacionDetail } from '../calificacion-detail';
 import { Calificacion } from '../calificacion';
 import { DatePipe } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
-import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { CalifEstre } from '../califEstre';
 
 /**
  * Component detail de calificacion
@@ -43,10 +42,7 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
      */
     constructor(
         private route: ActivatedRoute,
-        private calificacionService: CalificacionService,
-        private viewRef: ViewContainerRef,
-        private toastrService: ToastrService,
-        private modalDialogService: ModalDialogService 
+        private calificacionService: CalificacionService 
   ) { }
 
   /**
@@ -54,8 +50,6 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
    *  detail.
    */
     calificacion_id: number;
-
-    evento_id: number;
 
     /**
      * Variable para mostar o no el detail
@@ -72,33 +66,6 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
                 this.calificacionDetail = calificacionDetail
               });
     }
-
-    delete(): void{
-      console.log('VAMOS A BORRAR A ESTE HP');
-      console.log(this.calificacionDetail.id+' EL ID DE LA CALIF A BORRAR');
-      this.modalDialogService.openDialog(this.viewRef,{
-        title: 'Borrar calificacion',
-        childComponent: SimpleModalComponent,
-        data: {text: 'Estoy seguro de borrar esta calificacion'},
-        actionButtons:[
-          {
-            text: 'Si',
-            buttonClass:'btn btn-danger',
-            onAction: ()=>{
-              this.calificacionService.deleteCalificacion(this.calificacion_id,this.calificacionDetail.id)
-              .subscribe(calif =>{
-                this.toastrService.success("La calificacion fue eliminada", "Calificacion eliminada");
-              }, err=>{
-                this.toastrService.error(err,"Error");
-              });
-              return true;
-            }
-          },
-          {text: 'No',onAction:()=>true}
-        ]
-      });
-    }
-  
 
     /**
      * Muestra o esconde el componente edit, cambiando una variable booleana
