@@ -1,3 +1,4 @@
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -85,7 +86,9 @@
                 RtJYUgDMURYpc6Jy5cBIdWttUAFkS4leoTv+nTbaLEXVBaETLfW1jilfClxopsPqhPbZULHlBUhF8VsHNy8efPGjRuT6xGn0
                 cdFP6X/dtBYu3Ury0FkSjjR7579/uNPnj9/cf3xo0cc8NGjx9dfPH/4yce/f5Z8mx6K/gvA4b5uDRl7TQAAAABJRU5ErkJggg==" class="img img-rounded img-fluid"/>
                 <button class="btn btn-primary" (click)="showHideEdit()"><span class="fa fa-pencil"></span></button>
-                <button  class="fa fa-window-close" (click)="cancelView()"></button>
+                <button class="btn bt-primary"  (click)="delete()"><span class = "fa fa-trash"aria-hidden="true"></span> </button>
+                
+                
             </div>
             
             <div class="col-md-10">
@@ -109,4 +112,3 @@
 
     <div *ngIf="showEdit">
         <app-calificacion-edit [calificacion]="calificacionDetail" (cancel)="showHideEdit()"></app-calificacion-edit>
-    </div>

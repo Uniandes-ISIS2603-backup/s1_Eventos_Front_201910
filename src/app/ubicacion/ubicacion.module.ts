@@ -8,7 +8,6 @@ import { UbicacionListComponent } from './ubicacion-list/ubicacion-list.componen
 import { UbicacionDetailComponent } from './ubicacion-detail/ubicacion-detail.component';
 import { UbicacionCreateComponent } from './ubicacion-create/ubicacion-create.component';
 import { UbicacionEditComponent } from './ubicacion-edit/ubicacion-edit.component';
-import { HereMapComponent } from './here-map/here-map.component';
 
 
 @NgModule({
@@ -18,7 +17,7 @@ import { HereMapComponent } from './here-map/here-map.component';
     HttpClientModule,
     FormsModule,
   ],
-  declarations: [UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent, HereMapComponent],
+  declarations: [UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent],
 providers : [UbicacionService],
 bootstrap:[UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent ],
   exports:[UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent ]
