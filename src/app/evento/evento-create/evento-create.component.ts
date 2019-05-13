@@ -4,9 +4,6 @@ import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {EventoService} from '../evento.service';
 import {Evento}from '../evento';
-import {OrganizadorService}from '../../organizador/organizador.service';
-import {Organizador} from '../../organizador/organizador';
-import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
 
 
 @Component({
@@ -20,7 +17,7 @@ export class EventoCreateComponent implements OnInit {
   constructor(
         private dp: DatePipe,
         private eventoService: EventoService,
-        private organizadorService:OrganizadorService,
+        //private organizadorService:OrganizadorService,
         private router: Router,
         private toastrService: ToastrService
 
@@ -28,10 +25,9 @@ export class EventoCreateComponent implements OnInit {
 
 evento:Evento;
 /**entradasEvento:Entrada[];
-patrocinadoresEvento:Patrocinador[];*/
+patrocinadoresEvento:Patrocinador[];
 organizadoresEvento:Organizador[];
-organizadores:Organizador[];
-/**
+agendasEvento:Agenda[];
 
 @agendasEvento:Agenda[];*/
 @Output() cancel=new EventEmitter();
@@ -44,7 +40,7 @@ organizadores:Organizador[];
     }
 
 
-getOrganizadores():void{
+/*getOrganizadores():void{
              this.organizadorService.getOrganizadores()
             .subscribe(o => {
                 this.organizadores = o;
