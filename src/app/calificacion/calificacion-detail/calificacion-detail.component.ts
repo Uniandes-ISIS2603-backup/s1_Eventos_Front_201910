@@ -7,7 +7,6 @@ import { CalificacionService } from '../calificacion.service';
 import { CalificacionDetail } from '../calificacion-detail';
 import { Calificacion } from '../calificacion';
 import { DatePipe } from '@angular/common';
-import { CalifEstre } from '../califEstre';
 import { ToastrService } from 'ngx-toastr';
 import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 

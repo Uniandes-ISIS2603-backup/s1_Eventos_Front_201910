@@ -1,9 +1,9 @@
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { Component, OnInit, ElementRef Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { UbicacionService } from '../ubicacion.service';
 import {Ubicacion} from '../ubicacion'
 import { ViewChild } from '@angular/core';
-import { } from '@types/googlemaps';
+import { } from 'googlemaps';
 
 @Component({
   selector: 'app-ubicacion-detail',
@@ -12,7 +12,7 @@ import { } from '@types/googlemaps';
 })
 export class UbicacionDetailComponent implements OnInit {
 
-ubicacion:Ubicacion;
+@Input() ubicacion:Ubicacion;
 ubicacion_id:number;
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
@@ -25,8 +25,8 @@ ubicacion_id:number;
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
-}
-}   
+} 
+ 
 
 
 

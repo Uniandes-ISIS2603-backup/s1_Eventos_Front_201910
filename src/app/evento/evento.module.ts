@@ -63,17 +63,6 @@ import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.com
   MultimediaListComponent,MultimediaEditComponent,MultimediaCreateComponent,MultimediaDetailComponent,
     PatrocinadorListComponent,PatrocinadorEditComponent,PatrocinadorCreateComponent,PatrocinadorDetailComponent
   ],
-
-  declarations: [
-  EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent,
-  CalificacionListComponent,CalificacionEditComponent,CalificacionCreateComponent,CalificacionDetailComponent,
-  EntradaListComponent,EntradaEditComponent,EntradaCreateComponent, EntradaDetailComponent,
-  AgendaListComponent,AgendaEditComponent,AgendaCreateComponent,AgendaDetailComponent,
-  OrganizadorListComponent,OrganizadorEditComponent,OrganizadorCreateComponent,OrganizadorDetailComponent,
-  MultimediaListComponent,MultimediaEditComponent,MultimediaCreateComponent,MultimediaDetailComponent
-    PatrocinadorListComponent,PatrocinadorEditComponent,PatrocinadorCreateComponent,PatrocinadorDetailComponent
-
-  ],
   providers:[EventoService],
 
   bootstrap:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent],

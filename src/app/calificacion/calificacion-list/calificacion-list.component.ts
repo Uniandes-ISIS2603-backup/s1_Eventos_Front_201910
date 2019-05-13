@@ -5,7 +5,6 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { ModalDialogService } from 'ngx-modal-dialog';
 import {  ToastrService } from 'ngx-toastr';
 import { CalificacionDetail } from '../calificacion-detail';
-import {CalifEstre} from '../califEstre';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
@@ -41,10 +40,7 @@ export class CalificacionListComponent implements OnInit {
          */
         calificaciones: Calificacion[];
 
-        /**
-         * Numero id del calificacion que se vera en detail
-         */
-        califEstre: CalifEstre[];
+       
 
          /**
          * Numero id del calificacion que se vera en detail
@@ -83,7 +79,7 @@ export class CalificacionListComponent implements OnInit {
                     this.calificaciones=calificaciones;
                 });
         }
-
+ 
         addDeAcuerdo(): void{
             
         }
