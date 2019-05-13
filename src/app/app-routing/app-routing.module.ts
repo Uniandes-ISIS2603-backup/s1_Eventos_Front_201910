@@ -50,6 +50,14 @@ import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.comp
 import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
 import {EventoCreateComponent} from '../evento/evento-create/evento-create.component';
 import {EventoEditComponent} from '../evento/evento-edit/evento-edit.component';
+
+import {Ubicacion} from '../ubicacion/ubicacion';
+import {UbicacionDetailComponent} from  '../ubicacion/ubicacion-detail/ubicacion-detail.component';
+import {UbicacionListComponent} from  '../ubicacion/ubicacion-list/ubicacion-list.component';
+import {UbicacionCreateComponent} from '../ubicacion/ubicacion-create/ubicacion-create.component';
+import {UbicacionEditComponent} from '../ubicacion/ubicacion-edit/ubicacion-edit.component';
+
+
 import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
 import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
 import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
@@ -80,6 +88,41 @@ const routes: Routes = [
             {
                 path: ':id/edit',
                 component: EventoEditComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+                
+            } 
+        ]
+    } ,
+    {
+     path:'ubicaciones',
+        children:[
+            {   
+                path: 'list',
+                component: UbicacionListComponent
+            },
+            {
+                path: ':id',
+                component: UbicacionDetailComponent,
+                //runGuardsAndResolvers: 'always'
+            },
+            {
+                path: 'add',
+                component: UbicacionCreateComponent,
+//                canActivate: [NgxPermissionsGuard],
+//                data: {
+//                    permissions: {
+//                        only: ['ADMIN']
+//                    }
+//                }
+            },
+            {
+                path: ':id/edit',
+                component: UbicacionEditComponent,
 //                canActivate: [NgxPermissionsGuard],
 //                data: {
 //                    permissions: {
