@@ -21,17 +21,17 @@ export class PatrocinadorListComponent implements OnInit {
     @Input() patrocinadores: Patrocinador[];
     patrocinador_id: number;
     selectedPatrocinador : Patrocinador;
-    
+    evento_id:number;
     
     /**
     * Asks the service to update the list of patrocinadores
     */
-    getPatrocinadores(): void {
-        this.patrocinadorService.getPatrocinadores()
-            .subscribe(patrocinadores => {
-                this.patrocinadores = patrocinadores;
-            });
-    }
+    getPatrocinadores(): void{
+            this.patrocinadorService.getEventoPatrocinadores(this.evento_id).subscribe(
+                p => {
+                    this.patrocinadores=p;
+                });
+        }
     
     
 
