@@ -1,3 +1,4 @@
+
 import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EntradaListComponent } from './entrada-list/entrada-list.component';
@@ -22,3 +23,4 @@ import { EventoService } from '../evento/evento.service';
     exports:[]
 })
 export class EntradaModule{}
+

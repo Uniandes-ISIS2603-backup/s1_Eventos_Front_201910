@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
@@ -40,7 +41,9 @@ import {AgendaListComponent} from '../agenda/agenda-list/agenda-list.component';
 import { AgendaEditComponent } from '../agenda/agenda-edit/agenda-edit.component';
 import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.component';
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
-    
+    import {DatePipe} from '@angular/common';
+
+
                 
 @NgModule({
   imports: [
@@ -49,7 +52,18 @@ import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.com
     HttpClientModule,
     FormsModule,
     AppRoutingModule ,
+    NgbModule
   ],
+  declarations: [
+  EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent,
+  CalificacionListComponent,CalificacionEditComponent,CalificacionCreateComponent,CalificacionDetailComponent,
+  EntradaListComponent,EntradaEditComponent,EntradaCreateComponent, EntradaDetailComponent,
+  AgendaListComponent,AgendaEditComponent,AgendaCreateComponent,AgendaDetailComponent,
+  OrganizadorListComponent,OrganizadorEditComponent,OrganizadorCreateComponent,OrganizadorDetailComponent,
+  MultimediaListComponent,MultimediaEditComponent,MultimediaCreateComponent,MultimediaDetailComponent,
+    PatrocinadorListComponent,PatrocinadorEditComponent,PatrocinadorCreateComponent,PatrocinadorDetailComponent
+  ],
+
   declarations: [
   EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent,
   CalificacionListComponent,CalificacionEditComponent,CalificacionCreateComponent,CalificacionDetailComponent,
@@ -61,6 +75,7 @@ import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.com
 
   ],
   providers:[EventoService],
+
   bootstrap:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent],
   exports:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent,CalificacionListComponent]
 
