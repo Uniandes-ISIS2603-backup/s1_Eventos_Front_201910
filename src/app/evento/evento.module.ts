@@ -43,6 +43,7 @@ import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.com
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
     import {DatePipe} from '@angular/common';
 
+
                 
 @NgModule({
   imports: [
@@ -62,7 +63,19 @@ import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.com
   MultimediaListComponent,MultimediaEditComponent,MultimediaCreateComponent,MultimediaDetailComponent,
     PatrocinadorListComponent,PatrocinadorEditComponent,PatrocinadorCreateComponent,PatrocinadorDetailComponent
   ],
-  providers:[EventoService,DatePipe],
+
+  declarations: [
+  EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent,
+  CalificacionListComponent,CalificacionEditComponent,CalificacionCreateComponent,CalificacionDetailComponent,
+  EntradaListComponent,EntradaEditComponent,EntradaCreateComponent, EntradaDetailComponent,
+  AgendaListComponent,AgendaEditComponent,AgendaCreateComponent,AgendaDetailComponent,
+  OrganizadorListComponent,OrganizadorEditComponent,OrganizadorCreateComponent,OrganizadorDetailComponent,
+  MultimediaListComponent,MultimediaEditComponent,MultimediaCreateComponent,MultimediaDetailComponent
+    PatrocinadorListComponent,PatrocinadorEditComponent,PatrocinadorCreateComponent,PatrocinadorDetailComponent
+
+  ],
+  providers:[EventoService],
+
   bootstrap:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent],
   exports:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent,CalificacionListComponent]
 

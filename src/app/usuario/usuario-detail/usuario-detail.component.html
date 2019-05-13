@@ -3,6 +3,9 @@
 </div>
 <div class="row">
     <div class="col-md-4">
+
+            <td id="calificacionTag" style="cursor: pointer;" class="nav-link"  (click)="showMediosDePago()" >Medios de pago</td>         
+
         <dl>  
             <hr>
             <dt>Contraseña</dt>
@@ -16,11 +19,18 @@
             <hr>
             <dt>Unialpino</dt>
             <dd>{{usuarioDetail.unialpino}}</dd>
-            <hr>            
+            <hr>   
+           
         </dl>
+        
     </div>
+    <div *ngIf="showMP">
+            <app-medioDePago-list></app-medioDePago-list>
+          </div>
+
 </div>
 <br>
 <div class="row justify-content-center">
      <button type="button" class="btn btn-primary" routerLink="/usuarios/list">Volver</button>
 </div>
+

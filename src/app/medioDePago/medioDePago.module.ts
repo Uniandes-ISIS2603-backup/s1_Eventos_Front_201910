@@ -26,7 +26,9 @@ import { MedioDePagoEditComponent } from  './medioDePago-edit/medioDePago-edit.c
         FormsModule,
         NgbModule
     ],
-    declarations: [MedioDePagoListComponent,MedioDePagoDetailComponent,MedioDePagoCreateComponent,MedioDePagoEditComponent],
+
+    declarations: [],
+
     providers: [MedioDePagoService],
     exports:[]
 })
