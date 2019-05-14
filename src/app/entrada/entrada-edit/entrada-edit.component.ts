@@ -43,6 +43,4 @@ export class EntradaEditComponent implements OnInit{
     ngOnChanges() {
        this.ngOnInit();
     }
-
-
 }

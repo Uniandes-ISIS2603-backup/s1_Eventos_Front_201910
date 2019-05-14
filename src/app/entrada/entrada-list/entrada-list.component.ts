@@ -24,16 +24,19 @@ export class EntradaListComponent implements OnInit {
 
         entrada_id: number;
 
+evento_id:number;
+
         showEdit: boolean;
 
         showView: boolean;
 
         selectedEntrada: Entrada;
 
-        getEntradas(): void{
-            this.entradaService.getEntradas().subscribe(
-                entradas => {
-                    this.entradas=entradas;
+        
+         getEntradas(): void{
+            this.entradaService.getEventoEntradas(this.evento_id).subscribe(
+                e => {
+                    this.entradas=e;
                 });
         }
 
