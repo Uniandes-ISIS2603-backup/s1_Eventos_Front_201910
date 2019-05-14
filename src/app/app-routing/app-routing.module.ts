@@ -33,7 +33,6 @@ import {PatrocinadorCreateComponent} from '../patrocinador/patrocinador-create/p
 import {PatrocinadorDetailComponent} from '../patrocinador/patrocinador-detail/patrocinador-detail.component';
 import {PatrocinadorEditComponent} from '../patrocinador/patrocinador-edit/patrocinador-edit.component';
 
-
 import { Usuario } from '../usuario/usuario';
 import { UsuarioListComponent } from '../usuario/usuario-list/usuario-list.component';
 import { UsuarioEditComponent } from '../usuario/usuario-edit/usuario-edit.component';
@@ -46,10 +45,6 @@ import { MultimediaEditComponent } from '../multimedia/multimedia-edit/multimedi
 import { MultimediaCreateComponent } from '../multimedia/multimedia-create/multimedia-create.component';
 import { MultimediaDetailComponent } from '../multimedia/multimedia-detail/multimedia-detail.component';
 
-import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
-import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
-import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
-
 import {Evento} from '../evento/evento';
 import {EventoDetailComponent} from  '../evento/evento-detail/evento-detail.component';
 import {EventoListComponent} from  '../evento/evento-list/evento-list.component';
@@ -61,6 +56,11 @@ import {UbicacionDetailComponent} from  '../ubicacion/ubicacion-detail/ubicacion
 import {UbicacionListComponent} from  '../ubicacion/ubicacion-list/ubicacion-list.component';
 import {UbicacionCreateComponent} from '../ubicacion/ubicacion-create/ubicacion-create.component';
 import {UbicacionEditComponent} from '../ubicacion/ubicacion-edit/ubicacion-edit.component';
+
+
+import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
+import { EntradaDetailComponent } from '../entrada/entrada-detail/entrada-detail.component';
+import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
 
 const routes: Routes = [
     {
@@ -106,7 +106,6 @@ const routes: Routes = [
                 component: UbicacionListComponent
             },
             {
-
                 path: ':id',
                 component: UbicacionDetailComponent,
                 //runGuardsAndResolvers: 'always'
@@ -133,7 +132,8 @@ const routes: Routes = [
                 
             } 
         ]
-    } ,  
+    } ,
+        
     {
         path: 'organizadores',
         children: [
@@ -146,12 +146,12 @@ const routes: Routes = [
                 component: OrganizadorCreateComponent  
             },
             {
-                path: ':id',
-                component: OrganizadorDetailComponent
-            },
-            {
                 path: ':id/edit',
                 component: OrganizadorEditComponent
+            },
+            {
+                path: ':id',
+                component: OrganizadorDetailComponent  
             }
             
         ]
@@ -169,7 +169,7 @@ const routes: Routes = [
             },
             {
                 path: ':id',
-                component: PatrocinadorDetailComponent
+                component: PatrocinadorDetailComponent  
             },
             {
                 path: ':id/edit',
@@ -285,6 +285,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: CalificacionListComponent,
+            },
+            {
+                path: ':id',
+                component: CalificacionDetailComponent,
             }
         ]
     },
@@ -294,6 +298,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: EntradaListComponent,
+            },
+            {
+                path: ':id',
+                component: EntradaDetailComponent,
             }
         ]
     },
@@ -303,6 +311,10 @@ const routes: Routes = [
             {
                 path:'list',
                 component: MedioDePagoListComponent,
+            },
+            {
+                path: ':id',
+                component: MedioDePagoDetailComponent,
             }
         ]
     },
@@ -314,8 +326,7 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     }
-]
-;
+];
 
 @NgModule({
     imports: [
