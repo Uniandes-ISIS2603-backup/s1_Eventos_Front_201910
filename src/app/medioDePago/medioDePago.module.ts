@@ -8,7 +8,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MedioDePagoEditComponent } from  './medioDePago-edit/medioDePago-edit.component';
+import { MedioDePagoEditComponent } from './medioDePago-edit/medioDePago-edit.component';
 
 /**
  * Modulo de medio de pago
@@ -26,8 +26,9 @@ import { MedioDePagoEditComponent } from  './medioDePago-edit/medioDePago-edit.c
         FormsModule,
         NgbModule
     ],
-    declarations: [],
+  
+    declarations: [MedioDePagoListComponent, MedioDePagoDetailComponent, MedioDePagoCreateComponent, MedioDePagoEditComponent],
     providers: [MedioDePagoService],
-    exports:[]
+    exports:[MedioDePagoListComponent]
 })
 export class MedioDePagoModule{}

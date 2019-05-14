@@ -21,7 +21,7 @@ export class PatrocinadorListComponent implements OnInit {
     @Input() patrocinadores: Patrocinador[];
     patrocinador_id: number;
     selectedPatrocinador : Patrocinador;
-    evento_id:number;
+    
     
     /**
     * Asks the service to update the list of patrocinadores
@@ -30,11 +30,9 @@ export class PatrocinadorListComponent implements OnInit {
         this.patrocinadorService.getPatrocinadores()
             .subscribe(patrocinadores => {
                 this.patrocinadores = patrocinadores;
+
                 });
         }
-    
-    
-
 
     /**
     * This will initialize the component by retrieving the list of patrocinadores from the service

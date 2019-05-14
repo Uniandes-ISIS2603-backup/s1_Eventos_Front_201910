@@ -33,8 +33,6 @@ export class EventoDetailComponent implements OnInit {
     */
     eventoDetail: EventoDetail;
 
-
-
  getEventoDetail(): void {
          this.eventoService.getEventoDetail(this.evento_id)
             .subscribe(eventoDetail => {
@@ -42,100 +40,10 @@ export class EventoDetailComponent implements OnInit {
             });
     }
 
-    
-
-//ASOCIACIONES
-    
-        showCalif: boolean;
-        showDescripcion:boolean;
-        showEntradas:boolean;
-        showOrganizadores:boolean;
-        showPatrocinadores:boolean;
-        showMultimedias:boolean;
-        showAgendas:boolean;
-        
-        
-        showCalificacion(): void{
-        this.showCalif=true;
-        this.showDescripcion=false;
-        this.showEntradas=false;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=false;
-        this.showMultimedias=false;
-        this.showAgendas=false;
-    }
-    
-    showDescr(): void{
-        this.showCalif=false;
-        this.showDescripcion=true;
-        this.showEntradas=false;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=false;
-        this.showMultimedias=false;
-        this.showAgendas=false;
-    }
-    
-    showEntrada(): void{
-        this.showCalif=false;
-        this.showDescripcion=false;
-        this.showEntradas=true;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=false;
-        this.showMultimedias=false;
-        this.showAgendas=false;
-    }
-    
-    showOrganizador(): void{
-        this.showCalif=false;
-        this.showDescripcion=false;
-        this.showEntradas=false;
-        this.showOrganizadores=true;
-        this.showPatrocinadores=false;
-        this.showMultimedias=false;
-        this.showAgendas=false;
-    }
-    
-    showPatrocinador(): void{
-        this.showCalif=false;
-        this.showDescripcion=false;
-        this.showEntradas=false;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=true;
-        this.showMultimedias=false;
-        this.showAgendas=false;
-    }
-
-showMultimedia(): void{
-        this.showCalif=false;
-        this.showDescripcion=false;
-        this.showEntradas=false;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=false;
-        this.showMultimedias=true;
-        this.showAgendas=false;
-    }
-    
-    showAgenda(): void{
-        this.showCalif=false;
-        this.showDescripcion=false;
-        this.showEntradas=false;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=false;
-        this.showMultimedias=false;
-        this.showAgendas=true;
-    }
  ngOnInit() {
         this.evento_id = + this.route.snapshot.paramMap.get('id');
-        console.log("Este es el id del evento"+this.evento_id);
         this.eventoDetail = new EventoDetail();
         this.getEventoDetail();
-        this.showCalif=false;
-        this.showDescripcion=false;
-        this.showEntradas=false;
-        this.showOrganizadores=false;
-        this.showPatrocinadores=false;
-        this.showMultimedias=false;
-        this.showAgendas=false;
         
     }
 

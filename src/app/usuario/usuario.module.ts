@@ -10,10 +10,6 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {UsuarioDetailComponent} from './usuario-detail/usuario-detail.component';
 import {UsuarioCreateComponent} from './usuario-create/usuario-create.component';
 import {UsuarioEditComponent} from './usuario-edit/usuario-edit.component';
-import { MedioDePagoListComponent } from '../medioDePago/medioDePago-list/medioDePago-list.component';
-import { MedioDePagoCreateComponent } from '../medioDePago/medioDePago-create/medioDePago-create.component';
-import { MedioDePagoEditComponent } from '../medioDePago/medioDePago-edit/medioDePago-edit.component';
-import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/medioDePago-detail.component';
 
 @NgModule({
     imports: [
@@ -23,9 +19,8 @@ import { MedioDePagoDetailComponent } from '../medioDePago/medioDePago-detail/me
         CommonModule,
         FormsModule
     ],
-    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent,
-    MedioDePagoListComponent,MedioDePagoCreateComponent,MedioDePagoEditComponent,MedioDePagoDetailComponent],
+    declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
     providers: [UsuarioService],
-    exports: [UsuarioListComponent,MedioDePagoListComponent]
+    exports: [UsuarioListComponent]
 })
 export class UsuarioModule {}

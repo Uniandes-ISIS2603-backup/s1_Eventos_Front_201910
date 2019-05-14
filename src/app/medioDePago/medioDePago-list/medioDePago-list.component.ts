@@ -4,7 +4,6 @@ import {MedioDePagoService} from '../medioDePago.service';
 import { ModalDialogService } from 'ngx-modal-dialog';
 import { ToastrService } from 'ngx-toastr';
 import {MedioDePagoDetail} from '../medioDePago-detail';
-import { ActivatedRoute } from '@angular/router';
 
 /**
  * Componente que lista todos los medios de pago
@@ -24,7 +23,6 @@ export class MedioDePagoListComponent implements OnInit {
      */
     constructor(
         private medioDePagoService: MedioDePagoService,
-        private route: ActivatedRoute,
         private modalDialogService: ModalDialogService,
         private viewRef: ViewContainerRef,
         private toastrService: ToastrService
@@ -50,8 +48,6 @@ export class MedioDePagoListComponent implements OnInit {
          */
         showEdit: boolean;
 
-        usuario_id: number;
-
         /**
          * Variable que controla la aparicion del componente showView
          */
@@ -67,7 +63,7 @@ export class MedioDePagoListComponent implements OnInit {
          * Inicializa el arreglo de medios de pago trayendo la info desde service
          */
         getMediosDePago(): void{
-            this.medioDePagoService.getUsuarioMediosDePago(this.usuario_id).subscribe(
+            this.medioDePagoService.getMediosDePago().subscribe(
                 mediosDePago => {
                     this.mediosDePago=mediosDePago;
                     
@@ -97,7 +93,7 @@ export class MedioDePagoListComponent implements OnInit {
         onSelected(medioDePago_id: number){
             this.showCreate=false;
             this.showEdit=false;
-            this.showHideView();
+            this.showView=true;
             this.medioDePago_id=medioDePago_id;
             this.selectedMedioDePago=new MedioDePagoDetail();
             this.getMedioDePagoDetail();
@@ -123,11 +119,7 @@ export class MedioDePagoListComponent implements OnInit {
          * Metodo que se encarga de establecer la condicion para que el componente detail aparezca o se esconda
          */
         showHideView(): void{
-            if(this.showView==true)
             this.showView=false;
-            else
-            this.showView=true;
-            console.log(this.showView);
         }
 
         updateMedioDePago(): void{
@@ -139,7 +131,6 @@ export class MedioDePagoListComponent implements OnInit {
          * Al crear el componente, generar las condiciones que se establecen al interior del metodo
          */
     ngOnInit() {
-        this.usuario_id=+this.route.snapshot.paramMap.get('id');
         this.showCreate = false;
         this.showEdit=false;
         this.selectedMedioDePago=undefined;

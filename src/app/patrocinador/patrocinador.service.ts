@@ -10,7 +10,6 @@ import {PatrocinadorDetail} from './patrocinador-detail';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const patrocinadores = '/patrocinadores';
-const eventos = '/eventos';
 
 @Injectable()
 export class PatrocinadorService {
@@ -51,8 +50,5 @@ export class PatrocinadorService {
         return this.http.put<PatrocinadorDetail>(API_URL + patrocinadores + '/' + patrocinador.id, patrocinador);
     }
     
-    getEventoPatrocinadores(eventoId):Observable<Patrocinador[]>{
-        return this.http.get<Patrocinador[]>(API_URL+eventos+'/'+eventoId+'/'+'patrocinadores');
-    }
 
 }
