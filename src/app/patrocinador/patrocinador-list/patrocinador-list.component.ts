@@ -30,11 +30,9 @@ export class PatrocinadorListComponent implements OnInit {
         this.patrocinadorService.getPatrocinadores()
             .subscribe(patrocinadores => {
                 this.patrocinadores = patrocinadores;
-            });
-    }
-    
-    
 
+                });
+        }
 
     /**
     * This will initialize the component by retrieving the list of patrocinadores from the service

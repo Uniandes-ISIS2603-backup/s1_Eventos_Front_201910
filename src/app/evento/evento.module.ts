@@ -10,7 +10,13 @@ import { EventoCreateComponent } from './evento-create/evento-create.component';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { EventoEditComponent } from './evento-edit/evento-edit.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+
+import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
+import { CalificacionEditComponent } from '../calificacion/calificacion-edit/calificacion-edit.component';
+import { CalificacionCreateComponent } from '../calificacion/calificacion-create/calificacion-create.component';
+import { CalificacionDetailComponent } from '../calificacion/calificacion-detail/calificacion-detail.component';
 import {DatePipe} from '@angular/common';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,10 +24,9 @@ import {DatePipe} from '@angular/common';
     HttpClientModule,
     FormsModule,
     AppRoutingModule ,
-    NgbModule
   ],
-  declarations: [EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent],
-  providers:[EventoService,DatePipe],
+  declarations: [EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent, EventoDetallesComponent,CalificacionListComponent,CalificacionEditComponent,CalificacionCreateComponent,CalificacionDetailComponent],
+  providers:[EventoService],
   bootstrap:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent],
   exports:[EventoListComponent, EventoCreateComponent, EventoDetailComponent,EventoEditComponent]
 
