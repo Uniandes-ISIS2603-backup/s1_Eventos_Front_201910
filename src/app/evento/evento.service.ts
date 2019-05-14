@@ -8,6 +8,7 @@ import {EventoDetail}from './evento-detail';
 
 
 import { environment } from '../../environments/environment';
+import { Calificacion } from '../calificacion/calificacion';
 const API_URL = environment.apiURL;
 const eventos = '/eventos';
 
@@ -62,13 +63,5 @@ export class EventoService {
    getEventoDetail(evento_id): Observable<EventoDetail> {
     return this.http.get<EventoDetail>(API_URL + eventos + '/' + evento_id);
     }
-    
-    /**
-    * Elimina un evento
-    * @param eventoId The editorial which will be deleted
-    * @returns True if the editorial was deleted, false otherwise
-    */
-    deleteEvento(eventoId): Observable<EventoDetail> {
-        return this.http.delete<EventoDetail>(API_URL + eventos + '/' + eventoId);
-    }
+
 }

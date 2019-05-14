@@ -19,6 +19,7 @@
         <td> {{ubicacion.nombre}}</td>
         <td> {{ubicacion.latitud}}</td>
         <td>{{ubicacion.longitud}}</td>
+        <td><button class="btn btn-primary"  (click)="onSelected(ubicacion.id)" >Ver</button></td>
         <td><button class="btn btn-primary" (click)="showHideEdit(ubicacion.id)">Editar<span class="fa fa-pencil"></span></button></td>
       </tr>
     </table>
@@ -29,6 +30,9 @@
             </div>
              <div *ngIf="showEdit">
                 <app-ubicacion-edit [ubicacion]="selectedUbicacion" (cancel)="showHideEdit(selectedUbicacion.id)" (update)="updateUbicacion()" ></app-ubicacion-edit>
+            </div>
+        <div *ngIf="showView">
+                <app-ubicacion-detail [ubicacion]="selectedUbicacion"></app-ubicacion-detail>
             </div>
 </div> 
     <div class="col-sm">

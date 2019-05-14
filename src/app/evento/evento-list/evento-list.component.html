@@ -3,7 +3,7 @@
         <div class="row justify-content-center align-self-center" >
             
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear</button>
+                    (click)="showHideCreate()" >Crear</button>
           
     </div>
   <div class ="row">
@@ -15,14 +15,12 @@
         <div class="card-body">
              <!-- DETALLES DESPUES SE BORRAN-->
               <div class="row">
-                <div class ="col-3">
+                <div class ="col">
                 <button href="#" class="btn btn-primary" routerLink = "/eventos/{{evento.id}}">Ver </button>
                 </div>
                 <div class ="col">
-                    <button class="btn btn-primary" (click)="showHideEdit(evento.id)">Editar<span class="fa fa-pencil"></span></button>              
-                </div>
-                 <div class ="col-3">
-                    <button class="btn btn-danger" (click)="deleteEvento(evento.id)"><span class="fa fa-trash"></span></button>
+                    <button class="btn btn-primary" (click)="showHideEdit(evento.id)">Editar<span class="fa fa-pencil"></span></button>
+               
                 </div>
               </div>
         </div>
