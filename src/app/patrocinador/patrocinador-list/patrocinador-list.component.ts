@@ -26,10 +26,10 @@ export class PatrocinadorListComponent implements OnInit {
     /**
     * Asks the service to update the list of patrocinadores
     */
-    getPatrocinadores(): void{
-            this.patrocinadorService.getEventoPatrocinadores(this.evento_id).subscribe(
-                p => {
-                    this.patrocinadores=p;
+    getPatrocinadores(): void {
+        this.patrocinadorService.getPatrocinadores()
+            .subscribe(patrocinadores => {
+                this.patrocinadores = patrocinadores;
                 });
         }
     
