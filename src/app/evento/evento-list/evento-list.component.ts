@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,ViewContainerRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import 'rxjs/add/operator/filter';
 
 
@@ -35,7 +36,12 @@ export class EventoListComponent implements OnInit {
     */
     constructor(
     private eventoService: EventoService,
-      private route: ActivatedRoute) {  }
+      private route: ActivatedRoute,
+      private modalDialogService: ModalDialogService,
+        private router: Router,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService
+      ) {  }
 /**
     * Shows the evento
     */
@@ -79,6 +85,35 @@ export class EventoListComponent implements OnInit {
             });
     }
    
+    /**
+    * Esta función elimina el evento de la genda de eventos universitarios 
+    */
+    /**
+    * Deletes an editorial
+    */
+    deleteEvento(eventoId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete an editorial',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this evento from Eventos?'},
+            actionButtons: [
+                {
+                    text: 'Eliminar',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.eventoService.deleteEvento(eventoId).subscribe(() => {
+                            this.toastrService.error("El evento was successfully deleted", "Evento deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'Cancelar', onAction: () => true}
+            ]
+        });
+    }
 
 
     /**
