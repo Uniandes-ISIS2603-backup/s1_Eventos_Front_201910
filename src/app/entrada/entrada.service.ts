@@ -16,6 +16,8 @@ const eventos = '/eventos';
 @Injectable()
 export class EntradaService {
 
+entradas:Entrada[];
+
     constructor(private http: HttpClient) { }
 
     getEntradas(): Observable<Entrada[]> {
@@ -34,8 +36,16 @@ export class EntradaService {
         return this.http.put<EntradaDetail>(API_URL+entradas+'/'+entrada.id,entrada);
     }
 
+
 getEventoEntradas(eventoId):Observable<Entrada[]>{
         return this.http.get<Entrada[]>(API_URL+eventos+'/'+eventoId+'/'+'entradas');
+    }
+    
+      createEventoEntrada(eventoId,entrada):Observable<Entrada>{
+        console.log('ASTAROTH!');
+        console.log(API_URL+'/eventos/'+eventoId+'/entradas');
+        return this.http.post<Entrada>(API_URL+'/eventos/'+eventoId+'/entradas',entrada);
+            
     }
     
 }

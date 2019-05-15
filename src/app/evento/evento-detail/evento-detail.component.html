@@ -3,11 +3,28 @@
         <button routerLink="eventos/list"> Back</button>
     </div>
     <div class="row">
-        <div class="col"width="40%">
-            <img class="img-detail" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
+        <div class="col-sm">
+            <img class="img-fluid"  alt="Responsive image"   src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
+       
         </div>
+         <div class="col-sm">
+             <h3>Informacion</h3>
+             <h4>Descripcion:{{eventoDetail.descripcion}}</h4>
+             <h4>Fecha inicio:{{eventoDetail.fechaInicio}}</h4>
+             <h4>Fecha fin: {{eventoDetail.fechaFin}}</h4>
+             <h4>Detalles:{{eventoDetail.detalles}}</h4>
+             <h4>Privacidad:{{eventoDetail.privado}}</h4>
+             <h4>Capacidad maxima: {{eventoDetail.capacidadMaxima}}</h4>
+             <h4>Boletas Disponibles: {{eventoDetail.boletasDisponibles}}</h4>
+             <div>Organizadores: </div>
+              <div *ngFor = "let organizador of eventoDetail.organizadores">
+                  <div>{{organizador.name}}</div>
+                        </div>
+         </div>
+    </div>
+        <div class="row">
     <div class ="col" >
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"width="100%">
         <a class="navbar-brand" href="#"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,9 +33,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav mr-auto mt-0">
                   <ul class="nav nav-tabs">    
-                     <li class="nav-item">
-                      <td id="descripcionEvento" style="cursor: pointer;" class="nav-link"(click)="showDescr()" >Descripcion</td>
-                    </li>
+                    
                     <li class="nav-item">
                       <td id="entradaTag" style="cursor: pointer;"class="nav-link"(click)="showEntrada()">Entradas</td>
                     </li>
@@ -36,7 +51,7 @@
                       <td id="multimediaTag" style="cursor: pointer;"class="nav-link" (click)="showMultimedia()">Multimedia</td>
                    </li>
                     <li class="nav-item">
-                      <td id="agendasTag" style="cursor: pointer;"class="nav-link"(click)="showAgendas()"> Agenda</td>
+                      <td id="agendasTag" style="cursor: pointer;"class="nav-link"(click)="showAgenda()"> Agenda</td>
                     </li>
                   </ul>
                 </div>
@@ -44,25 +59,24 @@
               
       </nav>
       <div *ngIf="showCalif">
-          <!-- <app-calificacion-list></app-calificacion-list> -->
+           <app-calificacion-list></app-calificacion-list> 
         </div>
-        <div *ngIf="showDescripcion">
-        <!--  <app-evento-detalles></app-evento-detalles> -->
-        </div>
+        
+        
         <div *ngIf="showEntradas">
-       <!--   <app-entrada-list></app-entrada-list> -->
+         <app-entrada-list></app-entrada-list>
         </div>
         <div *ngIf="showOrganizadores">
       <!--    <app-organizador-list></app-organizador-list> -->
         </div>
         <div *ngIf="showPatrocinadores">
-      <!--    <app-patrocinador-list></app-patrocinador-list> -->
+        <app-patrocinador-list></app-patrocinador-list> 
         </div>
         <div *ngIf="showMultimedias">
-     <!--     <app-multimedia></app-multimedia> -->
+        <app-multimedia-list></app-multimedia-list> 
         </div>
         <div *ngIf="showAgendas">
-       <!--   <app-agenda></app-agenda> -->
+         <app-agenda></app-agenda> 
         </div>
   </div>
 </div>

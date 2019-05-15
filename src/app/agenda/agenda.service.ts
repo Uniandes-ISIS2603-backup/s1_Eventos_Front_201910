@@ -1,57 +1,90 @@
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { Agenda } from './agenda';
-import {AgendaDetail} from './agenda-detail'
-
+import { AgendaDetail } from './agenda-detail';
 
 import { environment } from '../../environments/environment';
-const API_URL = environment.apiURL;
-const agendas = '/agendas';
 
+import { delay } from 'rxjs/operators';
+
+const API_URL = environment.apiURL;
+const calific = '/agendas';
+const eventos = '/eventos';
 
 /**
-* The service provider for everything related to Agendas
-*/
+ * Clase service, se encarga de obtener la informacion por medio de http de la base de datos (servidor desplegado de back)
+ */
 @Injectable()
-export class AgendaService {
+export class AgendaService{
+
+    agendas: Agenda[];
+
     
     /**
-    * Constructor of the service
-    * @param http The HttpClient - This is necessary in order to perform requests
-    */
+     * Constructor de la clase service
+     * @param http protocolo que se usara
+     */
     constructor(private http: HttpClient) { }
-    
+
     /**
-    * Returns the Observable object containing the list of Agendas retrieved from the API
-    * @returns The list of agendas in real time
-    */
+   * Obtiene todos las agendas que existen en la base de datos
+   */
     getAgendas(): Observable<Agenda[]> {
-        return this.http.get<Agenda[]>(API_URL + agendas);
+        return this.http.get<Agenda[]>(API_URL + calific);
     }
+
+    addDeAcuerdo(agenda): void{
+        this.http.put<Agenda[]>(API_URL + calific+'/'+agenda.id,agenda);
+    }
+
+    /**
+     * Obtiene un agenda dado un id
+     * @param agendaId id del medio de pago buscado
+     */
+    getAgendaDetail(agendaId): Observable<AgendaDetail> {
+        return this.http.get<AgendaDetail>(API_URL + calific + '/' + agendaId);
+    }
+
     
     /**
-    * Returns the Observable object with the details of an agenda retrieved from the API
-    * @returns The agenda details
-    */
-   getAgendaDetail(AgendaId): Observable<AgendaDetail> {
-        return this.http.get<AgendaDetail>(API_URL + agendas + '/' + AgendaId);
+     * Crea un agenda en la base de datos
+     * @param agenda  - objetoDTO de califiacion
+     */
+    createAgenda(agenda): Observable<Agenda> {
+        return this.http.post<Agenda>(API_URL + calific, agenda);
     }
-    /**
-    * Creates an agenda
-    * @param agenda The new agenda
-    * @returns The confirmation that the agenda was created
-    */
-   createAgenda(agenda): Observable<Agenda> {
-        return this.http.post<Agenda>(API_URL + agendas, agenda);
+
+        createEventoAgenda(eventoId,agenda):Observable<Agenda>{
+        console.log('ASTAROTH!');
+        console.log(API_URL+'/eventos/'+eventoId+'/agendas');
+        return this.http.post<Agenda>(API_URL+'/eventos/'+eventoId+'/agendas',agenda);
+            
     }
+
+    deleteAgenda(eventoId,agendaId):Observable<AgendaDetail>{
+        console.log('ESTE ES EL ID A BORRAR '+agendaId);
+        return this.http.delete<AgendaDetail>(API_URL+'/eventos/'+eventoId+'/agendas/'+agendaId);
+    }
+
     /**
-    * Updates an agenda
-    * @param agenda The agenda's information updated
-    * @returns The confirmation that the agenda was updated
-    */
-   updateAgenda(agenda): Observable<AgendaDetail> {
-    return this.http.put<AgendaDetail>(API_URL + agendas + '/' + agenda.id, agenda);
-}
+     * Actualiza un agenda
+     * @param agenda agenda que se va a actualizar
+     */
+    updateAgenda(agenda): Observable<AgendaDetail>{
+        return this.http.put<AgendaDetail>(API_URL+calific+'/'+agenda.id,agenda);
+    }
+
+    getEventoAgendas(eventoId):Observable<Agenda[]>{
+        return this.http.get<Agenda[]>(API_URL+eventos+'/'+eventoId+'/'+'agendas');
+    }
+
+
+    //updateEventoAgendas(eventoId,agendas: Agenda[]): Observable<Agenda[]>{
+      //  return this.http.put<Agenda[]>(API_URL+eventos+'/'+eventoId+'/'+agendas);
+    //}
+
 }

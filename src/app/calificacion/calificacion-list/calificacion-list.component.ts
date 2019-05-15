@@ -8,6 +8,7 @@ import { CalificacionDetail } from '../calificacion-detail';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
+
 /**
  * Componente que lista todos los calificaciones
  */
@@ -33,8 +34,7 @@ export class CalificacionListComponent implements OnInit {
         private toastrService: ToastrService
         ){}
 
-        @Input() eventoId: number;
-
+public isCollapsed = {};
         /**
          * Lista de todos los calificaciones
          */

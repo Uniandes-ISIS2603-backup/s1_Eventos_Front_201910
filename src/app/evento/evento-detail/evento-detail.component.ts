@@ -47,12 +47,15 @@ export class EventoDetailComponent implements OnInit {
 //ASOCIACIONES
     
         showCalif: boolean;
-        showDescripcion:boolean;
         showEntradas:boolean;
+        
+        
         showOrganizadores:boolean;
         showPatrocinadores:boolean;
         showMultimedias:boolean;
         showAgendas:boolean;
+        showDescripcion:boolean;
+
         
         
         showCalificacion(): void{
@@ -64,6 +67,7 @@ export class EventoDetailComponent implements OnInit {
         this.showMultimedias=false;
         this.showAgendas=false;
     }
+  
     
     showDescr(): void{
         this.showCalif=false;

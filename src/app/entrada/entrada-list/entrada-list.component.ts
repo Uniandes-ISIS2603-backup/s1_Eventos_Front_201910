@@ -4,6 +4,8 @@ import {EntradaDetail} from '../entrada-detail';
 import { EntradaService } from '../entrada.service';
 import { ModalDialogService } from 'ngx-modal-dialog';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
     selector: 'app-entrada-list',
@@ -12,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EntradaListComponent implements OnInit {
     constructor(
+    
+            private route: ActivatedRoute,
         private entradaService: EntradaService,
         private modalDialogService: ModalDialogService,
         private viewRef: ViewContainerRef,
@@ -21,16 +25,16 @@ export class EntradaListComponent implements OnInit {
         entradas: Entrada[];
 
         showCreate: boolean;
-
+ 
         entrada_id: number;
-
-evento_id:number;
+ 
+     evento_id:number;
 
         showEdit: boolean;
 
         showView: boolean;
 
-        selectedEntrada: Entrada;
+        selectedEntrada: EntradaDetail;
 
         
          getEntradas(): void{
@@ -40,7 +44,7 @@ evento_id:number;
                 });
         }
 
-        showHideCreate(): void{
+     showHideCreate(): void{
             this.showCreate=!this.showCreate;
         }
 
@@ -81,11 +85,14 @@ evento_id:number;
     }
 
     ngOnInit() {
+                this.evento_id = + this.route.snapshot.paramMap.get('id');
     this.showCreate = false;
     this.showEdit=false;
     this.selectedEntrada=undefined;
     this.entrada_id=undefined;
     this.getEntradas();
+            this.showView=false;
+
     }
 
 

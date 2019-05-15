@@ -6,6 +6,7 @@ export class AgendaDetail extends Agenda {
     
     /** Los libros del agenda **/
     invitados : Invitado[];
+    ubicacion:Ubicacion;
 }
 
 
