@@ -1,58 +1,90 @@
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { Multimedia } from './multimedia';
 import { MultimediaDetail } from './multimedia-detail';
 
 import { environment } from '../../environments/environment';
-const API_URL = environment.apiURL;
-const multimedias = '/multimedias';
 
+import { delay } from 'rxjs/operators';
+
+const API_URL = environment.apiURL;
+const calific = '/multimedias';
+const eventos = '/eventos';
 
 /**
-* The service provider for everything related to multimedias
-*/
+ * Clase service, se encarga de obtener la informacion por medio de http de la base de datos (servidor desplegado de back)
+ */
 @Injectable()
-export class MultimediaService {
+export class MultimediaService{
 
+    multimedias: Multimedia[];
+
+    
     /**
-    * Constructor of the service
-    * @param http The HttpClient - This is necessary in order to perform requests
-    */
+     * Constructor de la clase service
+     * @param http protocolo que se usara
+     */
     constructor(private http: HttpClient) { }
 
     /**
-    * Returns the Observable object containing the list of multimedias retrieved from the API
-    * @returns The list of multimedias in real time
-    */
+   * Obtiene todos las multimedias que existen en la base de datos
+   */
     getMultimedias(): Observable<Multimedia[]> {
-        return this.http.get<Multimedia[]>(API_URL + multimedias);
+        return this.http.get<Multimedia[]>(API_URL + calific);
+    }
+
+    addDeAcuerdo(multimedia): void{
+        this.http.put<Multimedia[]>(API_URL + calific+'/'+multimedia.id,multimedia);
     }
 
     /**
-    * Returns the Observable object containing the multimedia retrieved from the API
-    * @returns The multimedia
-    */
+     * Obtiene un multimedia dado un id
+     * @param multimediaId id del medio de pago buscado
+     */
     getMultimediaDetail(multimediaId): Observable<MultimediaDetail> {
-        return this.http.get<MultimediaDetail>(API_URL + multimedias + '/' + multimediaId);
+        return this.http.get<MultimediaDetail>(API_URL + calific + '/' + multimediaId);
     }
+
     
     /**
-    * Creates an multimedia
-    * @param multimedia The multimedia which will be created
-    * @returns The confirmation of the multimedia's creation
-    */
+     * Crea un multimedia en la base de datos
+     * @param multimedia  - objetoDTO de califiacion
+     */
     createMultimedia(multimedia): Observable<Multimedia> {
-        return this.http.post<Multimedia>(API_URL + multimedias, multimedia);
+        return this.http.post<Multimedia>(API_URL + calific, multimedia);
     }
-    
+
+        createEventoMultimedia(eventoId,multimedia):Observable<Multimedia>{
+        console.log('ASTAROTH!');
+        console.log(API_URL+'/eventos/'+eventoId+'/multimedias');
+        return this.http.post<Multimedia>(API_URL+'/eventos/'+eventoId+'/multimedias',multimedia);
+            
+    }
+
+    deleteMultimedia(eventoId,multimediaId):Observable<MultimediaDetail>{
+        console.log('ESTE ES EL ID A BORRAR '+multimediaId);
+        return this.http.delete<MultimediaDetail>(API_URL+'/eventos/'+eventoId+'/multimedias/'+multimediaId);
+    }
+
     /**
-    * Updates an multimedia
-    * @param multimedia The multimedia which will be update
-    * @returns The confirmation of the multimedia's update
-    */
-    updateMultimedia(multimedia): Observable<MultimediaDetail> {
-        return this.http.put<MultimediaDetail>(API_URL + multimedias + '/' + multimedia.id, multimedia);
+     * Actualiza un multimedia
+     * @param multimedia multimedia que se va a actualizar
+     */
+    updateMultimedia(multimedia): Observable<MultimediaDetail>{
+        return this.http.put<MultimediaDetail>(API_URL+calific+'/'+multimedia.id,multimedia);
     }
+
+    getEventoMultimedias(eventoId):Observable<Multimedia[]>{
+        return this.http.get<Multimedia[]>(API_URL+eventos+'/'+eventoId+'/'+'multimedias');
+    }
+
+
+    //updateEventoMultimedias(eventoId,multimedias: Multimedia[]): Observable<Multimedia[]>{
+      //  return this.http.put<Multimedia[]>(API_URL+eventos+'/'+eventoId+'/'+multimedias);
+    //}
+
 }

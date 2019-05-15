@@ -10,6 +10,7 @@ import { PatrocinadorService} from './patrocinador.service';
 import { PatrocinadorCreateComponent } from './patrocinador-create/patrocinador-create.component';
 import { PatrocinadorDetailComponent } from './patrocinador-detail/patrocinador-detail.component';
 import { PatrocinadorEditComponent } from './patrocinador-edit/patrocinador-edit.component';
+import { EventoService } from '../evento/evento.service';
 
 @NgModule({
   imports: [
@@ -19,12 +20,14 @@ import { PatrocinadorEditComponent } from './patrocinador-edit/patrocinador-edit
     CommonModule,
     FormsModule
   ],
-  declarations: [PatrocinadorListComponent, PatrocinadorCreateComponent, PatrocinadorDetailComponent, PatrocinadorEditComponent],
+  declarations: [
+      
+  ],
   providers: [
-      PatrocinadorService
+      PatrocinadorService,EventoService
   ],
   exports: [
-    PatrocinadorListComponent, PatrocinadorEditComponent
+    
   ]
 })
 export class PatrocinadorModule { }

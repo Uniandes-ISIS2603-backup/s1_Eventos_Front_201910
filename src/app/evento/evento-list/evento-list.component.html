@@ -1,11 +1,10 @@
 <div class = 'container-fluid'>
+ <div class="row justify-content-end align-left">
     <div class="col">
-        <div class="row justify-content-center align-self-center" >
-            
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()" >Crear</button>
-          
     </div>
+  </div>
   <div class ="row">
     <div *ngFor= "let evento of eventos">
       <div class="card" style="width: 16rem;">
@@ -37,6 +36,6 @@
                 <app-evento-edit [evento]="selectedEvento" (cancel)="showHideEdit(selectedEvento.id)" (update)="updateEvento()" ></app-evento-edit>
             </div>
 </div> 
-</div>
+
 
 

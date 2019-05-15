@@ -13,7 +13,7 @@ export class AgendaDetailComponent implements OnInit {
     /**
     * The agenda
     */
-    @Input() agendaDetail: AgendaDetail;
+     @Input() agendaDetail: AgendaDetail;
     /**
     * Constructor for the component
     * @param route The route which helps to retrieves the id of the book to be shown
