@@ -8,7 +8,7 @@ import { UbicacionListComponent } from './ubicacion-list/ubicacion-list.componen
 import { UbicacionDetailComponent } from './ubicacion-detail/ubicacion-detail.component';
 import { UbicacionCreateComponent } from './ubicacion-create/ubicacion-create.component';
 import { UbicacionEditComponent } from './ubicacion-edit/ubicacion-edit.component';
-
+import {EventoService} from '../evento/evento.service';
 
 @NgModule({
   imports: [
@@ -17,10 +17,10 @@ import { UbicacionEditComponent } from './ubicacion-edit/ubicacion-edit.componen
     HttpClientModule,
     FormsModule,
   ],
-  declarations: [UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent],
-providers : [UbicacionService],
-bootstrap:[UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent ],
-  exports:[UbicacionListComponent, UbicacionDetailComponent, UbicacionCreateComponent, UbicacionEditComponent ]
+  declarations: [],
+providers : [UbicacionService,EventoService],
+bootstrap:[ ],
+  exports:[ ]
 
 })
 export class UbicacionModule { }

@@ -16,10 +16,7 @@
              <h4>Privacidad:{{eventoDetail.privado}}</h4>
              <h4>Capacidad maxima: {{eventoDetail.capacidadMaxima}}</h4>
              <h4>Boletas Disponibles: {{eventoDetail.boletasDisponibles}}</h4>
-             <div>Organizadores: </div>
-              <div *ngFor = "let organizador of eventoDetail.organizadores">
-                  <div>{{organizador.name}}</div>
-                        </div>
+              
          </div>
     </div>
         <div class="row">
@@ -61,13 +58,23 @@
       <div *ngIf="showCalif">
            <app-calificacion-list></app-calificacion-list> 
         </div>
-        
-        
         <div *ngIf="showEntradas">
          <app-entrada-list></app-entrada-list>
         </div>
         <div *ngIf="showOrganizadores">
-      <!--    <app-organizador-list></app-organizador-list> -->
+            <div>
+                <div *ngFor = "let organizador of eventoDetail.organizadores">
+                    <div class="card" style="width: 16rem;">
+                        <div class="cardody">
+                        <h4 class="card-title"></h4>
+                        <img class="card-img-top" src="https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121233262-stock-illustration-male-default-placeholder-avatar-profile.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        {{organizador.nombre}}
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="showPatrocinadores">
         <app-patrocinador-list></app-patrocinador-list> 
