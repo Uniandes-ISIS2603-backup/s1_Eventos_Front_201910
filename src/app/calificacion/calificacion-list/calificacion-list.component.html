@@ -1,14 +1,15 @@
 <div class="container-fluid">
-     
+    <br>
     <div class="container" *ngFor="let calificacion of calificaciones; let i = index">
   <a href="#List-{{ i }}" class="btn btn-info" data-toggle="collapse" (click)="onSelected(calificacion.id)">{{calificacion.id}}</a>
-  <div id="List-{{ i }}" class="collapse" aria-multiselectable="true">
+  <div id="List-{{ i }}" class="collapse" aria-multiselectable="false">
     <ul style="list-style: none">
          <app-calificacion-detail [calificacionDetail]="selectedCalificacion" ></app-calificacion-detail>
     </ul>
   </div>
     </div>
-     <div class="row justify-content-center align-left" >
+    <br>
+     <div class="row justify-content-center" >
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
             (click)="showHideCreate()">Agregar calificacion</button>
     </div>

@@ -1,32 +1,22 @@
 <div class="container-fluid">
-  <div class="row ">
-       <div class="col-sm"></div>
-       <div class="col-sm">Frente</div>
-        <div class="col-sm"></div>
+    <br>
+    <h3>Frente</h3>
 
-  </div>
-    <div class="row">
-         <div class="col-sm" ></div>   
-        <div class="col-6">  
-            <div class="row">
-            <div class="col-sm-1" *ngFor = "let entrada of entradas" >
-             
-                <button type="button" class="btn btn-secondary" style="cursor: pointer;" (click)="onSelected(entrada.id)" routerLink="/entradas/{{entrada.id}}">{{entrada.numero}}</button>
-            </div>
-            </div>
-        </div> 
-        <div class="col-sm"></div>       
+    <div id="listaEntradas" class="row">
+        
+        <div  class="col" *ngFor = "let entrada of entradas" >
+            <button type="button" class="btn btn-secondary" style="cursor: pointer;" (click)="onSelected(entrada.id)" routerLink="/entradas/{{entrada.id}}">{{entrada.numero}}</button>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-sm"></div>       
-      <div class="col-sm">     
+  <div class="row justify-content-center">   
+        
           <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
               (click)="showHideCreate()">Crear entrada</button>
            <div *ngIf="showCreate">
                 <app-entrada-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-entrada-create>
             </div>
-      </div>
-      <div class="col-sm"></div>       
+     
+        
     </div>
 </div>
 

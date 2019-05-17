@@ -1,35 +1,27 @@
 <div class="container-fluid">   
-    <div class ="row">
-        <button routerLink="eventos/list"> Back</button>
-    </div>
-    <div class="row">
-        <div class="col-sm">
+   <button  id="botonBack" routerLink="eventos/list"> Back</button>
+   <h2>{{eventoDetail.nombre}}</h2>
+   <br>
+     <div class="row">
+        <div id="imagen" class="col-sm">
             <img class="img-fluid"  alt="Responsive image"   src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
-       
         </div>
-         <div class="col-sm">
+         <div id="informacion" class="col-sm">
              <h3>Informacion</h3>
-             <h4>Descripcion:{{eventoDetail.descripcion}}</h4>
-             <h4>Fecha inicio:{{eventoDetail.fechaInicio}}</h4>
-             <h4>Fecha fin: {{eventoDetail.fechaFin}}</h4>
-             <h4>Detalles:{{eventoDetail.detalles}}</h4>
-             <h4>Privacidad:{{eventoDetail.privado}}</h4>
-             <h4>Capacidad maxima: {{eventoDetail.capacidadMaxima}}</h4>
-             <h4>Boletas Disponibles: {{eventoDetail.boletasDisponibles}}</h4>
+              <br>
+             <h5>Descripcion:{{eventoDetail.descripcion}}</h5>
+             <h5>Fecha inicio:{{eventoDetail.fechaInicio}}</h5>
+             <h5>Fecha fin: {{eventoDetail.fechaFin}}</h5>
+             <h5>Detalles:{{eventoDetail.detalles}}</h5>
+             <h5>Privacidad:{{eventoDetail.privado}}</h5>
+             <h5>Capacidad maxima: {{eventoDetail.capacidadMaxima}}</h5>
+             <h5>Boletas Disponibles: {{eventoDetail.boletasDisponibles}}</h5>
               
          </div>
     </div>
-        <div class="row">
-    <div class ="col" >
-      <nav class="navbar navbar-expand-lg navbar-light bg-light"width="100%">
-        <a class="navbar-brand" href="#"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="navbar-nav mr-auto mt-0">
-                  <ul class="nav nav-tabs">    
+        <div class="row" id="navDetail">
+   
+                  <nav class="nav">    
                     
                     <li class="nav-item">
                       <td id="entradaTag" style="cursor: pointer;"class="nav-link"(click)="showEntrada()">Entradas</td>
@@ -50,11 +42,12 @@
                     <li class="nav-item">
                       <td id="agendasTag" style="cursor: pointer;"class="nav-link"(click)="showAgenda()"> Agenda</td>
                     </li>
-                  </ul>
-                </div>
-              </div>
-              
-      </nav>
+                  </nav>
+                 
+    
+        </div>
+    <div class="row">
+        <div id="infoAdicional"  class="col">
       <div *ngIf="showCalif">
            <app-calificacion-list></app-calificacion-list> 
         </div>
@@ -62,19 +55,19 @@
          <app-entrada-list></app-entrada-list>
         </div>
         <div *ngIf="showOrganizadores">
-            <div>
+            <div class="col" id= "orgE" >
                 <div *ngFor = "let organizador of eventoDetail.organizadores">
                     <div class="card" style="width: 16rem;">
-                        <div class="cardody">
-                        <h4 class="card-title"></h4>
+                    <h4 class="card-title"></h4>
                         <img class="card-img-top" src="https://st2.depositphotos.com/4111759/12123/v/950/depositphotos_121233262-stock-illustration-male-default-placeholder-avatar-profile.jpg" alt="Card image cap">
                     <div class="card-body">
                         {{organizador.nombre}}
                     </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
+           
         </div>
         <div *ngIf="showPatrocinadores">
         <app-patrocinador-list></app-patrocinador-list> 
@@ -85,7 +78,7 @@
         <div *ngIf="showAgendas">
          <app-agenda></app-agenda> 
         </div>
-  </div>
+    </div>
 </div>
 </div>
 
