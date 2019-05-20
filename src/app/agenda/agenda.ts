@@ -13,7 +13,7 @@ export class Agenda {
     /**
     * The Agenda's name
     */
-    name: string;
+    nombre: string;
 
 
     /**

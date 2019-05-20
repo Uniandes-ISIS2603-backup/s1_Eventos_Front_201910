@@ -1,30 +1,28 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<div class="container">
-        <h2 class="text-center">Calificaciones</h2>
-        
-        <div class="card" *ngFor = "let calificacion of calificaciones" >
-            <td style="cursor: pointer;" (click)="onSelected(calificacion.id)"> <dd>Id Calificación: {{calificacion.id}}</dd>
-            </div>
-           
-            <div *ngIf="showView">
-                <app-calificacion-detail [calificacionDetail]="selectedCalificacion" ></app-calificacion-detail>
-              </div>
-    </div>
-
 <div class="container-fluid">
-  <div class="row justify-content-center align-left" >
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-            (click)="showHideCreate()">Crear entrada</button>
+     
+    <div class="container" *ngFor="let calificacion of calificaciones; let i = index">
+  <a href="#List-{{ i }}" class="btn btn-info" data-toggle="collapse" (click)="onSelected(calificacion.id)">{{calificacion.id}}</a>
+  <div id="List-{{ i }}" class="collapse" aria-multiselectable="true">
+    <ul style="list-style: none">
+         <app-calificacion-detail [calificacionDetail]="selectedCalificacion" ></app-calificacion-detail>
+    </ul>
   </div>
+    </div>
+     <div class="row justify-content-center align-left" >
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="showHideCreate()">Agregar calificacion</button>
+    </div>
+       
+   
     <div *ngIf="showCreate">
         <app-calificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-calificacion-create>
-     </div>
-  </div>
-
-  <div *ngIf="showEdit">
-      <app-calificacion-edit></app-calificacion-edit>
     </div>
+    <div *ngIf="showEdit">
+        <app-calificacion-edit></app-calificacion-edit>
+    </div>
+</div>
+  
+
+
+
+ 	

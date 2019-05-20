@@ -3,10 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-export class Ubicacion{
-    id:number;
-    latitud:number;
-    longitud:number;
-    nombre:string;
-} 
+declare module 'googlemaps';
+
 

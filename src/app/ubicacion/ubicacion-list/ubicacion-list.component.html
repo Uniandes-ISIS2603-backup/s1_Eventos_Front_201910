@@ -1,25 +1,44 @@
-<p>
-cliente-list works!
-</p>
-
 <div class ='container-fluid'>
-  <div class="row">
-  
-  <div class='col'>
+    <div class="row">
+  <div class='col-sm'>
     <table class ='table'>
       <thead id='titular' class='thead'>
         <tr>
-          <th>id</th>
-          <th>nombre</th>
+          <th>Nombre</th>
+          <th>Latitud</th>
+          <th>Longitud</th>
+          <th></th>
+          <th>   <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear</button>
+          </th>
           <th></th>
         </tr>
       </thead>
-      <td>1</td>
-      <td>ml-502</td>
-      <td><button>Edit</button></td>
+     <tr *ngFor="let ubicacion  of ubicaciones">
+  
+        <td> {{ubicacion.nombre}}</td>
+        <td> {{ubicacion.latitud}}</td>
+        <td>{{ubicacion.longitud}}</td>
+        <td><button class="btn btn-primary"  (click)="onSelected(ubicacion.id)" >Ver</button></td>
+        <td><button class="btn btn-primary" (click)="showHideEdit(ubicacion.id)">Editar<span class="fa fa-pencil"></span></button></td>
+      </tr>
     </table>
+       <div *ngIf="showCreate">
+                <app-ubicacion-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate">
+                    
+                </app-ubicacion-create>
+            </div>
+             <div *ngIf="showEdit">
+                <app-ubicacion-edit [ubicacion]="selectedUbicacion" (cancel)="showHideEdit(selectedUbicacion.id)" (update)="updateUbicacion()" ></app-ubicacion-edit>
+            </div>
+        <div *ngIf="showView">
+                <app-ubicacion-detail [ubicacion]="selectedUbicacion"></app-ubicacion-detail>
+            </div>
+</div> 
+    <div class="col-sm">
+        <!--<h2>Ubicacion</h2>-->
+        <app-ubicacion-detail></app-ubicacion-detail>
+    </div>
+    </div>
   </div>
-  <div class="col"><button>Create</button>
-  </div>
-</div>
-   
+    

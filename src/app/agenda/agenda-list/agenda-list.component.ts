@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
+
 
 import {AgendaService} from '../agenda.service';
 import {Agenda} from '../agenda';
@@ -25,6 +27,7 @@ export class AgendaListComponent implements OnInit {
         private agendaService: AgendaService,
         private modalDialogService: ModalDialogService,
         private viewRef: ViewContainerRef,
+        private route: ActivatedRoute,
         private toastrService: ToastrService) {}
 
     /**
@@ -56,7 +59,8 @@ export class AgendaListComponent implements OnInit {
      * the agenda that the user views.
      */
     selectedAgenda: Agenda;
-
+    
+ evento_id:number;
 
     /**
     * Shows the agenda
@@ -64,18 +68,28 @@ export class AgendaListComponent implements OnInit {
     onSelected(agenda_id: number): void {
         this.showCreate = false;
         this.showEdit = false;
-        this.showView = true;
+            this.showHideView();
         this.agenda_id = agenda_id;
         this.selectedAgenda = new AgendaDetail();
         this.getAgendaDetail();
     }
+    
+     /**
+         * Metodo que se encarga de establecer la condicion para que el componente detail aparezca o se esconda
+         */
+        showHideView(): void{
+            if(this.showView==true)
+                this.showView=false;
+            else
+                this.showView=true;
+            console.log(this.showView);
+        }
+
 
     /**
     * Shows or hides the create component
     */
     showHideCreate(): void {
-        this.showView = false;
-        this.showEdit = false;
         this.showCreate = !this.showCreate;
     }
 
@@ -84,28 +98,25 @@ export class AgendaListComponent implements OnInit {
     */
     showHideEdit(agenda_id: number): void {
         if (!this.showEdit || (this.showEdit && agenda_id != this.selectedAgenda.id)) {
-            this.showView = false;
-            this.showCreate = false;
-            this.showEdit = true;
-            this.agenda_id = agenda_id;
-            this.selectedAgenda = new AgendaDetail();
-            this.getAgendaDetail();
+             console.log("sí entra adentro");
+                 this.showEdit=!this.showEdit;
+                this.agenda_id=agenda_id;
         }
         else {
-            this.showEdit = false;
-            this.showView = true;
+             this.showEdit=false;
+                this.showView=true;
         }
     }
 
-    /**
-    * Asks the service to update the list of agendas
-    */
-    getAgendas(): void {
-        this.agendaService.getAgendas()
-            .subscribe(agendas => {
-                this.agendas = agendas;
-            });
-    }
+     /**
+         * Inicializa el arreglo de agendas trayendo la info desde service
+         */
+        getAgendas(): void{
+            this.agendaService.getEventoAgendas(this.evento_id).subscribe(
+                agendas => {
+                    this.agendas=agendas;
+                });
+        }
 
     getAgendaDetail(): void {
         this.agendaService.getAgendaDetail(this.agenda_id)
@@ -126,11 +137,13 @@ export class AgendaListComponent implements OnInit {
     * This method will be called when the component is created
     */
     ngOnInit() {
+       this.evento_id = + this.route.snapshot.paramMap.get('id');
+        console.log("Este es el id"+this.evento_id);
         this.showCreate = false;
-        this.showView = false;
-        this.showEdit = false;
-        this.selectedAgenda = undefined;
-        this.agenda_id = undefined;
+        this.showEdit=false;
+        this.selectedAgenda=undefined;
+        this.agendas=undefined;
         this.getAgendas();
+        this.showView=false;
     }
 }
