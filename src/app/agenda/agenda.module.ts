@@ -12,6 +12,7 @@ import { AgendaEditComponent } from './agenda-edit/agenda-edit.component';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventoService } from '../evento/evento.service';
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -22,9 +23,12 @@ import { EventoService } from '../evento/evento.service';
         NgbModule
     ],
     declarations: [
+     
        
     ],
     providers: [AgendaService, EventoService],
-    exports: []
+    exports: [
+        
+    ]
 })
 export class AgendaModule { }
