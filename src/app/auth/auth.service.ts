@@ -26,7 +26,11 @@ export class AuthService {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
-        } else {
+        }
+        else if (role === 'ORGANIZADOR') {
+            this.setOrganizadorRole();
+        }
+        else {
             this.setClientRole();
         }
     }
@@ -47,6 +51,12 @@ export class AuthService {
         this.roleService.addRole('ADMIN', ['edit_agenda_permission', 'delete_agenda_permission']);
         localStorage.setItem('role', 'ADMIN');
     }
+    
+    setOrganizadorRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('ORGANIZADOR', ['edit_agenda_permission', 'delete_agenda_permission']);
+        localStorage.setItem('role', 'ORGANIZADOR');
+    }
 
     printRole (): void {
         console.log(this.roleService.getRoles());
@@ -57,12 +67,16 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login (role): void {
-        if (role === 'Administrator') {
+        if (role === 'Administrador') {
             this.setAdministratorRole();
-        } else {
-            this.setClientRole()
         }
-        this.router.navigateByUrl('/');
+        else if (role === 'Organizador') {
+            this.setOrganizadorRole();
+        }
+        else {
+            this.setClientRole();
+        }
+        this.router.navigateByUrl('/eventos/list');
     }
 
     /**
@@ -72,6 +86,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('idUsuario');
         this.router.navigateByUrl('/');
     }
 }

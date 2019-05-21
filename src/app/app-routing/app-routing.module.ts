@@ -78,22 +78,22 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: EventoCreateComponent,
-//                canActivate: [NgxPermissionsGuard],
-//                data: {
-//                    permissions: {
-//                        only: ['ADMIN']
-//                    }
-//                }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'PATROCINADOR']
+                    }
+                }
             },
             {
                 path: ':id/edit',
                 component: EventoEditComponent,
-//                canActivate: [NgxPermissionsGuard],
-//                data: {
-//                    permissions: {
-//                        only: ['ADMIN']
-//                    }
-//                }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'PATROCINADOR']
+                    }
+                }
                 
             } 
         ]
@@ -113,22 +113,22 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: UbicacionCreateComponent,
-//                canActivate: [NgxPermissionsGuard],
-//                data: {
-//                    permissions: {
-//                        only: ['ADMIN']
-//                    }
-//                }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: ':id/edit',
                 component: UbicacionEditComponent,
-//                canActivate: [NgxPermissionsGuard],
-//                data: {
-//                    permissions: {
-//                        only: ['ADMIN']
-//                    }
-//                }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
                 
             } 
         ]
@@ -143,11 +143,23 @@ const routes: Routes = [
             },
             {
                 path: 'add',
-                component: OrganizadorCreateComponent  
+                component: OrganizadorCreateComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                } 
             },
             {
                 path: ':id/edit',
-                component: OrganizadorEditComponent
+                component: OrganizadorEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: ':id',
@@ -165,7 +177,13 @@ const routes: Routes = [
             },
             {
                 path: 'add',
-                component: PatrocinadorCreateComponent  
+                component: PatrocinadorCreateComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }  
             },
             {
                 path: ':id',
@@ -173,7 +191,13 @@ const routes: Routes = [
             },
             {
                 path: ':id/edit',
-                component: PatrocinadorEditComponent
+                component: PatrocinadorEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             }
         ]
     },
