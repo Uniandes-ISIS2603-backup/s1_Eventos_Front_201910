@@ -2,6 +2,7 @@ import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
+
 import {EventoService} from '../evento.service';
 import {Evento}from '../evento';
 
@@ -10,6 +11,7 @@ import {Evento}from '../evento';
   selector: 'app-evento-create',
   templateUrl: './evento-create.component.html',
   styleUrls: ['./evento-create.component.css'],
+    providers: [DatePipe]
 
 })
 export class EventoCreateComponent implements OnInit {
@@ -24,6 +26,8 @@ export class EventoCreateComponent implements OnInit {
     ) {}
 
 evento:Evento;
+
+ 
 /**entradasEvento:Entrada[];
 patrocinadoresEvento:Patrocinador[];
 organizadoresEvento:Organizador[];
@@ -40,20 +44,18 @@ agendasEvento:Agenda[];
     }
 
 
-/*getOrganizadores():void{
-             this.organizadorService.getOrganizadores()
-            .subscribe(o => {
-                this.organizadores = o;
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-        }
+
 /**
     * Creates a new evento
     */
     
  
 createEvento(): Evento {
+    let element = <HTMLInputElement> document.getElementById("eventoPrivado");  
+if (element.checked) { this.evento.privado=true;}
+if(!element.checked){
+    this.evento.privado=false;
+}
         let dateI: Date = new Date(this.evento.fechaInicio.year, this.evento.fechaInicio.month - 1, this.evento.fechaInicio.day);
         let dateF: Date = new Date(this.evento.fechaFin.year, this.evento.fechaFin.month - 1, this.evento.fechaFin.day);
 
@@ -63,12 +65,13 @@ createEvento(): Evento {
          this.evento.fechaInicio = this.dp.transform(dateI, 'yyyy-MM-dd');
          this.evento.fechaInicio += "T00:00:00-00:00"
 
+
         this.eventoService.createEvento(this.evento)
             .subscribe(e => {
 
                 this.evento.id = e.id;
                 this.create.emit();
-                this.router.navigate(['/eventos/' + e.id]);
+                this.router.navigate(['/eventos/list']);
                 this.toastrService.success("El evento fue creado","evento creation")
             }, err => {
                 this.toastrService.error(err, 'Error');

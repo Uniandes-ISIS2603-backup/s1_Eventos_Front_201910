@@ -4,45 +4,46 @@
             <br>
             <h2 class="text-center">Crear un evento</h2>
             <br>
+            
             <form name="evento" (ngSubmit)="f.form.valid && createEvento()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="eventoNombre"><b>Nombre</b></label>
                     <input type="text" name="eventoNombre" class="form-control" id="eventoNombre" [(ngModel)]="evento.nombre"
                         #eventoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoNombre.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>este campo es obligatorio</div>
-                    </div>
+                    
                 </div>
+                
                   <div class="form-group">
-                    <label for="eventoPrivado"><b>Privado</b></label>
-                    <input type="checkbox" name="eventoPrivado" class="form-control" id="eventoPrivado" [(ngModel)]="evento.privado"
-                        #eventoPrivado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoPrivado.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>este campo es obligatorio</div>
-                    </div> 
+                    <label for="eventoPrivado"><b>publicio</b></label>
+                    <input type="checkbox" name="eventoPrivado" class="form-control" id="eventoPrivado"  [(ngModel)]="evento.privado"
+                        #eventoPrivado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoPrivado.invalid }" required> 
                 </div>
-               <!-- <div class="form-group">
-                    <label for="fechaInicio"><b>Fecha de inicio</b></label>
-                    <div [ngClass]="{ 'is-invalid': f.submitted && fechaInicio.invalid }">
-                        <input class="form-control" id="fechaInicio" name="fechaInicio" [(ngModel)]="evento.fechaInicio"
-                            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaInicio ="ngModel"[ngClass]="{'is-invalid': (fechaInicio.untouched || fechaInicio.invalid) }"
+              
+              
+                 <div class="form-group">
+                    <label for="fechaInicioEvento"><b>Fecha Inicio</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && fechaInicioEvento.invalid }">
+                        <input class="form-control" id="fechaInicioEvento"  name ="fechaInicioEvento" [(ngModel)]="evento.fechaInicio"
+                            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaInicioEvento="ngModel" [ngClass]="{'is-invalid': (fechaInicioEvento.untouched || fechaInicioEvento.invalid) }"
                             required>
                         <div class="invalid-feedback">
-                        <div>este campo es obligatorio</div>
+                            <div>Falta la fecha de inicio del evento</div>
                         </div>
                     </div>
                 </div>
-                   <div class="form-group">
-                    <label for="fechaFin"><b>Fecha de fin</b></label>
-                    <div [ngClass]="{ 'is-invalid': f.submitted && fechaFin.invalid }">
-                        <input class="form-control" id="fechaFin" name="fechaFin" [(ngModel)]="evento.fechaFin"
-                            ngbDatepicker #c="ngbDatepicker" (click)="d.toggle()" #fechaFin="ngModel" [ngClass]="{'is-invalid': (fechaFin.untouched || fechaFin.invalid) }"
+                  
+                    <div class="form-group">
+                    <label for="fechaFinEvento"><b>Fecha Fin</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && fechaFinEvento.invalid }">
+                        <input class="form-control" id="fechaFinEvento" name="fechaFinEvento" [(ngModel)]="evento.fechaFin"
+                            ngbDatepicker #c="ngbDatepicker" (click)="c.toggle()" #fechaFinEvento="ngModel" [ngClass]="{'is-invalid': (fechaFinEvento.untouched || fechaFinEvento.invalid) }"
                             required>
                         <div class="invalid-feedback">
-                        <div>este campo es obligatorio</div>
+                            <div>Falta la fecha de fin del evento</div>
                         </div>
                     </div>
-                </div>-->
+                </div>
+                  
                 <div class="form-group">
                     <label for="eventoDescripcion"><b>Descripcion</b></label>
                     <textarea name="eventoDescripcion" class="form-control" id="eventoDescripcion" [(ngModel)]="evento.descripcion"
@@ -76,17 +77,7 @@
                         <div>este campo es obligatorio</div>
                         </div>
                 </div>
-                <div class="form-group">
-                    <label for="eventoOrganizador"><b>Organizadores</b></label>
-                    <select class="custom-select" name="eventoOrganizador" id="eventoOrganizador" [(ngModel)]="evento.organizadores.id"
-                        #eventoOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoOrganizador.invalid }"
-                        required>
-                        <option [value]="organizador.id" *ngFor="let organizador of organizadores">{{organizador.nombre}}</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        <div>debe agregar por lo menos un organizador</div>
-                    </div>
-                </div>
+                
                 <br>
                 <div class="row form-inline justify-content-center align-self-center">
                     <button type="submit" class="btn btn-primary">Create</button>
