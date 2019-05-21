@@ -1,10 +1,14 @@
-<div class="container-fluid">   
-   <button  id="botonBack" routerLink="eventos/list"> Back</button>
-   <h2>{{eventoDetail.nombre}}</h2>
-   <br>
-     <div class="row">
-        <div id="imagen" class="col-sm">
-            <img class="img-fluid"  alt="Responsive image"   src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
+<div class="container-fluid">  
+    <br>
+    <div class="row justify-content-end">
+     <button type="button" class="btn btn-primary" routerLink="/eventos/list">Volver</button>
+    </div>
+    <br>
+    <h2>{{eventoDetail.nombre}}</h2>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <img class="img-fluid"  alt="Responsive image"   src="{{eventoDetail.imagen}}" alt="Card image cap">
         </div>
          <div id="informacion" class="col-sm">
              <h3>Informacion</h3>
@@ -81,7 +85,3 @@
     </div>
 </div>
 </div>
-
-    
- 
-  

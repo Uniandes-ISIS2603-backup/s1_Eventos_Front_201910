@@ -40,6 +40,7 @@ import {AgendaListComponent} from '../agenda/agenda-list/agenda-list.component';
 import { AgendaEditComponent } from '../agenda/agenda-edit/agenda-edit.component';
 import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.component';
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 import {InvitadoListComponent} from '../invitado/invitado-list/invitado-list.component';
 import { InvitadoEditComponent } from '../invitado/invitado-edit/invitado-edit.component';
@@ -63,6 +64,7 @@ import { UbicacionDetailComponent } from '../ubicacion/ubicacion-detail/ubicacio
     HttpClientModule,
     FormsModule,
     AppRoutingModule ,
+    NgxPermissionsModule.forRoot()
   ],
   declarations: [
   EventoListComponent, EventoCreateComponent, EventoDetailComponent, EventoEditComponent,
