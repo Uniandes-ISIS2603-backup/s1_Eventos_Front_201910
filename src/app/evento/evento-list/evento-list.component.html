@@ -3,6 +3,8 @@
     <div class="col">
          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()" >Crear</button>
+         <button type="button" class="btn btn-dark"
+                    (click)="ordenarPorFecha()" routerLink="/eventos/list">Ordenar por Fecha (más recientes primero)</button>
     </div>
   </div>
   <div class ="row">
