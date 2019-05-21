@@ -1,25 +1,25 @@
 <div class="row">
     <div class="col-6 offset-3">
         <br>
-        <h2 class="text-center">Sign up</h2>
+        <h2 class="text-center">Registrarse</h2>
         <br>
         <form name="sign-up" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
             <div class="form-group">
-                <label for="username"><b>Name</b></label>
-                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name" required>
+                <label for="correoElectronico"><b>Correo Electrónico</b></label>
+                <input type="text" name="correoElectronico" class="form-control" id="correoElectronico" [(ngModel)]="user.correoElectronico" required>
             </div>
             <div class="form-group">
-                <label for="password"><b>Password</b></label>
-                <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password" required>
+                <label for="contrasenia"><b>Contraseña</b></label>
+                <input type="password" name="contrasenia" class="form-control" id="contrasenia" [(ngModel)]="user.contrasenia" required>
             </div>
             <div class="form-group">
-                <label for="role"><b>Role</b></label>
-                <select class="custom-select" name="role" id="role" [(ngModel)]="user.role" required>
-                    <option [value]="role" *ngFor="let role of roles">{{role}}</option>
+                <label for="rol"><b>Rol</b></label>
+                <select class="custom-select" name="rol" id="rol" [(ngModel)]="user.rol" required>
+                    <option [value]="rol" *ngFor="let rol of roles">{{rol}}</option>
                 </select>
             </div>
             <div class="justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary"> Sign Up</button>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
             </div>
         </form>
     </div>

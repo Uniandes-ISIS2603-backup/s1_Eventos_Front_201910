@@ -32,7 +32,7 @@ describe('Service: UsuarioService', () => {
 	
 	it('#createUsuario should return value from observable',
     (done: DoneFn) => {
-    let usuario:Usuario = {id:100,correoElectronico:"prueba@prueba.prueba",contrasena:"Prueba1234#",longitud:90,latitud:90,unialpino:false};
+    let usuario:Usuario = {id:100,correoElectronico:"prueba@prueba.prueba",contrasenia:"Prueba1234#",longitud:90,latitud:90,unialpino:false};
     service.createUsuario(usuario).subscribe(value => {
         expect(value.correoElectronico).toEqual(usuario.correoElectronico);
         done();
@@ -49,7 +49,7 @@ describe('Service: UsuarioService', () => {
 	
 	it('#updateUsuario should return the usuario updated',
     (done: DoneFn) => {
-	let usuario:Usuario = {id:100,correoElectronico:"prueba@prueba.prueba",contrasena:"Prueba1234#",longitud:90,latitud:90,unialpino:false};
+	let usuario:Usuario = {id:100,correoElectronico:"prueba@prueba.prueba",contrasenia:"Prueba1234#",longitud:90,latitud:90,unialpino:false};
     service.updateUsuario(usuario).subscribe(value => {
         expect(value.correoElectronico).toEqual(usuario.correoElectronico);
         done();

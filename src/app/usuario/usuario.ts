@@ -16,7 +16,7 @@ export class Usuario {
     /**
     * Contrasenia
     */
-    contrasena: string;
+    contrasenia: string;
 
     /**
     * longitud

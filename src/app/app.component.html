@@ -14,31 +14,31 @@
             <div class="navbar-nav mr-auto mt-0">
                     <ul class="nav nav-tabs">
                         
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
                                 <a id="agendaTag" class="nav-link" routerLink="/agendas/list">Agendas</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" >
                                 <a id="eventosTag" class="nav-link" routerLink="/eventos/list">Eventos</a>
                                  
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
                                 <a id="facturasTag" class="nav-link" routerLink="/facturas/list">Facturas</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
                                 <a id="invitadosTag" class="nav-link" routerLink="/invitados/list">Invitados</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="medioTag" class="nav-link" routerLink="/mediosDePago/list">Medio de Pago</a>
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
+                                <a id="medioTag" class="nav-link" routerLink="/mediosDePago/list">Medios de Pago</a>
                             </li>
                           
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
                                 <a id="organizadorTag" class="nav-link" routerLink="/organizadores/list">Organizador</a>
                             </li>
                            
-                            <li class="nav-item">
-                                <a id="ubicacionTag" class="nav-link" routerLink="/ubicaciones/list">Ubicacion</a>
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
+                                <a id="ubicacionTag" class="nav-link" routerLink="/ubicaciones/list">Ubicaciones</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
                                 <a id="usuariosTag" class="nav-link" routerLink="/usuarios/list">Usuarios</a>
                             </li>
                             
@@ -48,7 +48,7 @@
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
                         <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
-                                Sign Up</a></li>
+                                Sign Up  </a></li>
                         <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
                     </div>
                 </div>
