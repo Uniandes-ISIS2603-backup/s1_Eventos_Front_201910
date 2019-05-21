@@ -8,7 +8,7 @@ import { Invitado } from './invitado';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const invitados = '/invitados';
-
+ 
 
 /**
 * The service provider for everything related to invitados
@@ -16,6 +16,8 @@ const invitados = '/invitados';
 @Injectable()
 export class InvitadoService {
     
+    
+    invitados:Invitado[];
     /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
@@ -41,9 +43,7 @@ export class InvitadoService {
     * @param invitado The Invitado which will be update
     * @returns The confirmation of the Invitado's update
     */
-    updateInvitado(invitado):Observable<Invitado>{
-        return this.http.put<Invitado>(API_URL + invitados + '/' + invitado.id,invitado)
-    }
+    
     /**
     * Creates an Invitado
     * @param invitado The Invitado which will be created
@@ -52,4 +52,20 @@ export class InvitadoService {
     createInvitado(invitado): Observable<Invitado> {
         return this.http.post<Invitado>(API_URL + invitados, invitado);
     }
+
+        createAgendaInvitado(agendaId,invitado):Observable<Invitado>{
+        console.log('ASTAROTH!');
+        console.log(API_URL+'/agendas/'+agendaId+'/invitados');
+        return this.http.post<Invitado>(API_URL+'/agendas/'+agendaId+'/invitados',invitado);
+            
+    }
+     updateInvitado(invitado): Observable<Invitado>{
+        return this.http.put<Invitado>(API_URL+invitados+'/'+invitado.id,invitado);
+    }
+
+    getAgendaInvitados(agendaId):Observable<Invitado[]>{
+        return this.http.get<Invitado[]>(API_URL+'agendas'+'/'+agendaId+'/'+'invitados');
+    }
+
+
 }

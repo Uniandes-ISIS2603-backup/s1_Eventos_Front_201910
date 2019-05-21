@@ -1,15 +1,20 @@
 <div class = 'container-fluid'>
- <div class="row justify-content-end align-left">
-    <div class="col">
-         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+ <div class="row ">
+    <div class="col align-self-end">
+        
+         <button id="BotoncrearEvento"[ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()" >Crear</button>
+         <button type="button" class="btn btn-dark"
+                    (click)="ordenarPorFecha()" routerLink="/eventos/list">Ordenar por Fecha (más recientes primero)</button>
     </div>
   </div>
-  <div class ="row">
-    <div *ngFor= "let evento of eventos">
-      <div class="card" style="width: 16rem;">
+  <div class ="row"  id="listaEventos">
+    <div id="eventoLi"*ngFor= "let evento of eventos">
+      <div class="card"  style="width: 16rem;">
         <div class="cardody">
+       
           <h4 class="card-title">{{evento.nombre}}</h4>
+     
           <img class="card-img-top" src="https://www.retif.es/media/image/400x/papel-de-seda-50-x-75-cm-240-hojas-gris-perla_50.jpg" alt="Card image cap">
         <div class="card-body">
              <!-- DETALLES DESPUES SE BORRAN-->
@@ -38,6 +43,7 @@
                 <app-evento-edit [evento]="selectedEvento" (cancel)="showHideEdit(selectedEvento.id)" (update)="updateEvento()" ></app-evento-edit>
             </div>
 </div> 
+</div>
 
 
 
