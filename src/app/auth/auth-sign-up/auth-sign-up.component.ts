@@ -29,7 +29,7 @@ export class AuthSignUpComponent implements OnInit {
     * Sign the user up with the selected role
     */
     signUp(): void {
-        this.authService.login(this.user.role);
+        this.authService.login(this.user.rol);
         this.toastrService.success('Successfully signed up')
     }
 
@@ -38,7 +38,7 @@ export class AuthSignUpComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client'];
+        this.roles = ['Administrador', 'Organizador', 'Cliente' ];
     }
 
 }

@@ -114,7 +114,25 @@ export class EventoListComponent implements OnInit {
             ]
         });
     }
-
+    
+    /**
+     * EL metodo compara dos eventos segun su fecha de inicio.
+     * Retorna -1 si la fecha del evento 1 es menor a la fecha del evento 2.
+     * 1 si es mayor y 0 si son iguales
+     */
+    comparar(evento1,evento2){
+        var v:number =0;
+        if (evento1.fechaInicio < evento2.fechaInicio) v=-1;
+        if (evento1.fechaInicio > evento2.fechaInicio) v=1;
+        console.log(v);
+        return v;
+    }
+    /**
+     * El arreglo de eventos se ordena teniendo en cuenta el metodo comparar.
+    */
+    ordenarPorFecha():void{
+        this.eventos = this.eventos.sort(this.comparar);
+    }
 
     /**
     * The method which initializes the component
