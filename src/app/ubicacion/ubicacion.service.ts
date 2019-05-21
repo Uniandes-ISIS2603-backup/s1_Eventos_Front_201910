@@ -23,6 +23,7 @@ export class UbicacionService {
     */
     constructor(private http: HttpClient) { }
     
+    ubicacion:Ubicacion;
     /**
     * Returns the Observable object containing the list of ubicaciones retrieved from the API
     * @returns The list of ubicaciones in real time
@@ -42,15 +43,27 @@ export class UbicacionService {
     * @param ubicacion The Ubicacion which will be update
     * @returns The confirmation of the Ubicacion's update
     */
-    updateUbicacion(ubicacion):Observable<Ubicacion>{
-        return this.http.put<Ubicacion>(API_URL + ubicaciones + '/' + ubicacion.id,ubicacion)
+     createUbicacion(ubicacion): Observable<Ubicacion> {
+        return this.http.post<Ubicacion>(API_URL + ubicaciones, ubicacion);
     }
+
+        createAgendaUbicacion(agendaId,ubicacion):Observable<Ubicacion>{
+        console.log('ASTAROTH!');
+        console.log(API_URL+'/agendas/'+agendaId+'/ubicaciones');
+        return this.http.post<Ubicacion>(API_URL+'/agendas/'+agendaId+'/ubicaciones',ubicacion);
+            
+    }
+
     /**
     * Creates an Ubicacion
     * @param ubicacion The Ubicacion which will be created
     * @returns The confirmation of the Ubicacion's creation
     */
-    createUbicacion(ubicacion): Observable<Ubicacion> {
-        return this.http.post<Ubicacion>(API_URL + ubicaciones, ubicacion);
+     updateUbicacion(ubicacion): Observable<Ubicacion>{
+        return this.http.put<Ubicacion>(API_URL+ubicaciones+'/'+ubicacion.id,ubicacion);
+    }
+    
+    getAgendaUbicaciones(agendaId):Observable<Ubicacion[]>{
+        return this.http.get<Ubicacion[]>(API_URL+'agendas'+'/'+agendaId+'/'+'ubicaciones');
     }
 }

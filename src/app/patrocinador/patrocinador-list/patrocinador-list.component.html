@@ -1,10 +1,7 @@
 <div class = 'container-fluid'>
-    <div class="row">
-        <div class="col align-self-end">
-            <button  type="button" class="btn-primary" >Crear Patrocinador</button>
-        </div>
-    </div>
- <div class="row">
+    <br>
+    <button  type="button" class="btn-primary" >Agregar Patrocinador</button>
+     <div class="row" id="patrocinadores">
         <div *ngFor = "let patrocinador of patrocinadores" >
              <figure class="figure" routerLink="/patrocinadores/{{patrocinador.id}}" style="cursor: pointer;"> 
                 <div class="img-thumbnail border-1">                        
