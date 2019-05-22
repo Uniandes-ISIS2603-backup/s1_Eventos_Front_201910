@@ -15,6 +15,7 @@ export class Evento{
     privado:boolean;
     capacidadMaxima:number;
     boletasDisponibles:number;
+    imagen:string;
     
 }
 
