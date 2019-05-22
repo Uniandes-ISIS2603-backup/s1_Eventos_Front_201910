@@ -5,7 +5,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
-import {NgxPermissionsModule} from 'ngx-permissions';
 
 
 
@@ -58,7 +57,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     HttpClientModule,
     FormsModule,
     AppRoutingModule ,
-    NgbModule
+    NgbModule,
     NgxPermissionsModule.forRoot()
 
   ],
