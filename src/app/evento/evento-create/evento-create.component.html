@@ -12,7 +12,15 @@
                         #eventoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoNombre.invalid }" required>
                     
                 </div>
-                
+
+                <div class="form-group">
+                    <label for="eventoImagen"><b>Imagen</b></label>
+                    <input type="text" name="eventoImagen" class="form-control" id="eventoImagen" [(ngModel)]="evento.imagen"
+                        #eventoImagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoImagen.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>este campo es obligatorio</div>
+                    </div>
+                </div>
                   <div class="form-group">
                     <label for="eventoPrivado"><b>publicio</b></label>
                     <input type="checkbox" name="eventoPrivado" class="form-control" id="eventoPrivado"  [(ngModel)]="evento.privado"
