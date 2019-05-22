@@ -77,6 +77,7 @@ export class CalificacionService{
     updateCalificacion(eventoId, calificacionId,calificacion): Observable<Calificacion>{
         console.log('LLEGA AQUI EL PERRROOOOPO RORO -------------');
         console.log('EVENTO ID: '+eventoId);
+        console.log('NUMEROOSDOAIDO'+calificacion.estrellas);
         console.log('CALIFICACION ID: '+calificacionId);
         console.log('calificacionnnnnnn:'+calificacion.comentario);
         return this.http.put<Calificacion>(API_URL+'/eventos/'+eventoId+'/calificaciones/'+calificacion.id,calificacion);

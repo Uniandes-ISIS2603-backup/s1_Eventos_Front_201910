@@ -93,7 +93,7 @@
             <div class="col-md-10">
                 <p>
                     <a class="float-left" ><strong>UsuarioID_{{calificacionDetail.id}}</strong></a>
-                    <span id="pe" *ngFor="let h of calificacionDetail.estreNumb">
+                    <span id="pe" *ngFor="let h of kalimba.arr">
                         <span class="float" ><i id="po" class="text-warning fa fa-star"></i></span>
                     </span>
                </p>
@@ -101,7 +101,7 @@
                <div class="clearfix"></div>
                 <p>{{calificacionDetail.comentario}}</p>
                 <p>
-                    <button class="float-right btn text-white btn-danger" > <i class="fa fa-heart"></i> {{calificacionDetail.deAcuerdo}} Like</button>
+                    <button class="float-right btn text-white btn-danger" (click)="acuerdo()" > <i class="fa fa-heart"></i> {{calificacionDetail.deAcuerdo}} Like</button>
                     <i class="fa fa-grin-bea"></i>
                     
                </p>
