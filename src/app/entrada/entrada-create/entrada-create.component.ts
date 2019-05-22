@@ -1,10 +1,12 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import {NgForm} from '@angular/forms';
-
 import { EntradaService } from '../entrada.service';
 import { DatePipe } from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import { Entrada } from '../entrada';
+import { ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-entrada-create',
@@ -17,7 +19,9 @@ export class EntradaCreateComponent implements OnInit {
   constructor(
     private dp: DatePipe,
      private entradaService: EntradaService,
-     private toastrService: ToastrService
+     private toastrService: ToastrService,
+         private route: ActivatedRoute,
+
   ) { }
   
    /**
@@ -40,8 +44,9 @@ export class EntradaCreateComponent implements OnInit {
     @Output() create = new EventEmitter();
 
     createEntrada():Entrada{
-      this.entradaService.createEntrada(this.entrada).subscribe((entrada)=>{
-        this.entrada=entrada;
+      this.entradaService.createEventoEntrada(this.evento_id,this.entrada)
+          .subscribe(e=>{
+        this.entrada=e;
         this.create.emit();
         this.toastrService.success("La entrada fue creada","Creacion");
       })
@@ -58,6 +63,8 @@ export class EntradaCreateComponent implements OnInit {
     
   ngOnInit() {
       this.entrada = new Entrada();
+          this.evento_id = + this.route.snapshot.paramMap.get('id');
+
   }
 
 }

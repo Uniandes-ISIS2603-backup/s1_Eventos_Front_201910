@@ -41,3 +41,10 @@
   </div>
   <!-- Grid column -->
 </div>
+
+ <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Agregar Multimedia</button>
+           <div *ngIf="showCreate">
+                <app-multimedia-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-multimedia-create>
+            </div>
+</div> 

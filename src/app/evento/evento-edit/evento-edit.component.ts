@@ -10,7 +10,9 @@ import {EventoDetail} from '../evento-detail';
 @Component({
   selector: 'app-evento-edit',
   templateUrl: './evento-edit.component.html',
-  styleUrls: ['./evento-edit.component.css']
+  styleUrls: ['./evento-edit.component.css'],
+      providers: [DatePipe]
+
 })
 export class EventoEditComponent implements OnInit {
 
