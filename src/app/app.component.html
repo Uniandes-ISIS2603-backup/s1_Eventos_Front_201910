@@ -1,10 +1,7 @@
 <div class="container-fluid">
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <div class="form-inline">
-                <h2 class="mainTitle">s1_eventos-Front</h2>
-            </div>
-        </a>
+        <a href="#" class="navbar-left"><img src="https://i.imgur.com/imjiLeb.png" height="80"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,41 +10,31 @@
             <div class="navbar-nav mr-auto mt-0">
                     <ul class="nav nav-tabs">
                         
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
                                 <a id="agendaTag" class="nav-link" routerLink="/agendas/list">Agendas</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="calificacionTag" class="nav-link" routerLink="/calificaciones/list">Calificacion</a>
-                            </li>
-                            <li class="nav-item">
-                                <a id="entradaTag" class="nav-link" routerLink="/entradas/list">Entrada</a>
-                            </li>
-                            <li class="nav-item">
+                            <li class="nav-item" >
                                 <a id="eventosTag" class="nav-link" routerLink="/eventos/list">Eventos</a>
                                  
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
                                 <a id="facturasTag" class="nav-link" routerLink="/facturas/list">Facturas</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
                                 <a id="invitadosTag" class="nav-link" routerLink="/invitados/list">Invitados</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="medioTag" class="nav-link" routerLink="/mediosDePago/list">Medio de Pago</a>
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'ORGANIZADOR','CLIENT']">
+                                <a id="medioTag" class="nav-link" routerLink="/mediosDePago/list">Medios de Pago</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="multimediaTag" class="nav-link" routerLink="/multimedias/list">Multimedia</a>
-                            </li>
-                            <li class="nav-item">
+                          
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
                                 <a id="organizadorTag" class="nav-link" routerLink="/organizadores/list">Organizador</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="patrocinadorTag" class="nav-link" routerLink="/patrocinadores/list">Patrocinador</a>
+                           
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
+                                <a id="ubicacionTag" class="nav-link" routerLink="/ubicaciones/list">Ubicaciones</a>
                             </li>
-                            <li class="nav-item">
-                                <a id="ubicacionTag" class="nav-link" routerLink="/ubicaciones/list">Ubicacion</a>
-                            </li>
-                            <li class="nav-item">
+                            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
                                 <a id="usuariosTag" class="nav-link" routerLink="/usuarios/list">Usuarios</a>
                             </li>
                             
@@ -57,7 +44,7 @@
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
                         <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
-                                Sign Up</a></li>
+                                Sign Up  </a></li>
                         <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
                     </div>
                 </div>
@@ -80,10 +67,10 @@
         <div class="container">
             <p class="navbar-text text-center">
                 <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text"></span>
-                <a routerLink="/home"> s1_eventos-Front</a>
+                <a routerLink="/home"> Eventos Unialpes</a>
             </p>
         </div>
     </footer>
-    
+</div>
     
  

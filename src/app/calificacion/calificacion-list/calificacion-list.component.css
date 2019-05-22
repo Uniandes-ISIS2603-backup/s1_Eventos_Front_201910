@@ -1,8 +1,18 @@
 
-#po{
-    padding-lefet: 1%
+.container-fluid{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+ 
+   
 }
 
-#pe{
-    margin-left: 2%
+.btn-info{
+    width: 100%;
+    margin-top: 1%;
+    background-color: whitesmoke;
+    border-color: gray;
+   color:black;
+   text-align: left;
 }
+    

@@ -1,89 +1,166 @@
-import {Component, OnInit} from '@angular/core';
-
-import {Multimedia} from '../multimedia';
+import { Component, Input,OnInit,ViewContainerRef } from '@angular/core';
 import {MultimediaService} from '../multimedia.service';
+import {Multimedia} from '../multimedia';
+import { forEach } from '@angular/router/src/utils/collection';
+import { ModalDialogService } from 'ngx-modal-dialog';
+import {  ToastrService } from 'ngx-toastr';
+import { MultimediaDetail } from '../multimedia-detail';
+import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 
 /**
-* The component for the list of multimedias 
-*/
+ * Componente que lista todos los multimedias
+ */
 @Component({
-    selector: 'app-multimedia',
+    selector: 'app-multimedia-list',
     templateUrl: './multimedia-list.component.html',
     styleUrls: ['./multimedia-list.component.css']
 })
 export class MultimediaListComponent implements OnInit {
 
     /**
-    * Constructor for the component
-    * @param multimediaService The multimedia's services provider
-    */
+     * Constructor del componente multimedia list
+     * @param multimediaService 
+     * @param modalDialogService 
+     * @param viewRef 
+     * @param toastrService 
+     */
     constructor(
         private multimediaService: MultimediaService,
-    ) {}
+        private route: ActivatedRoute,
+        private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService
+        ){}
 
-    /**
-    * The list of multimedias 
-    */
-    multimedias: Multimedia[];
 
-    /**
-    * Shows or hides the create component
-    */
-    showCreate: boolean;
+        /**
+         * Lista de todos los multimedias
+         */
+        multimedias: Multimedia[];
 
-    /**
-     * Shows or hides the edit component.
-     */
-    showEdit: boolean;
+       
 
-    /**
-     * The id of the multimedia being edited.
-     */
-    multimedia_edit_id: number;
+         /**
+         * Numero id del multimedia que se vera en detail
+         */
+        multimedia_id: number;
 
-    /**
-    * Asks the service to update the list of multimedias
-    */
-    getMultimedias(): void {
-        this.multimediaService.getMultimedias()
-            .subscribe(multimedias => {
-                this.multimedias = multimedias;
-            });
-    }
+         /**
+         * Variable que controla la aparicion del componente create
+         */
+        showCreate: boolean;
 
-    /**
-    * Shows or hides the create component
-    */
-    showHideCreate(): void {
-        this.showEdit = false;
-        this.showCreate = !this.showCreate!
-    }
+         /**
+         * Variable que controla la aparicion del componente edit
+         */
+        showEdit: boolean;
 
-    /**
-    * Shows or hides the create component
-    */
-    showHideEdit(multimedia_id: number): void {
-        if (!this.showEdit || (this.showEdit && multimedia_id != this.multimedia_edit_id)) {
-            this.showCreate = false;
-            this.showEdit = true;
-            this.multimedia_edit_id = multimedia_id;
+        evento_id: number;
+
+        /**
+         * Variable que controla la aparicion del componente showView
+         */
+        showView: boolean;
+
+        /**
+         * Variable que almacena el multimedia seleccionado, para enviarselo al componente detail y que este muestre
+         * toda la info
+         */
+        selectedMultimedia: MultimediaDetail;
+
+        /**
+         * Inicializa el arreglo de multimedias trayendo la info desde service
+         */
+        getMultimedias(): void{
+            this.multimediaService.getEventoMultimedias(this.evento_id).subscribe(
+                multimedias => {
+                    this.multimedias=multimedias;
+                });
         }
-        else {
-            this.showEdit = false;
+ 
+        addDeAcuerdo(): void{
+            
         }
-    }
 
-    updateMultimedia(): void {
-        this.showEdit = false;
-    }
+        /**
+         * Metodo que se encarga de establecer la condicion para que el componente create aparezca o se esconda
+         */
+        showHideCreate(): void{
+            this.showCreate=!this.showCreate;
+        }
 
-    /**
-    * This will initialize the component by retrieving the list of multimedias from the service
-    * This method will be called when the component is created
-    */
+        /**
+         * Metodo que se encarga de establecer la condicion para que el componente detail aparezca o se esconda
+         */
+        showHideView(): void{
+            if(this.showView==true)
+                this.showView=false;
+            else
+                this.showView=true;
+            console.log(this.showView);
+        }
+
+        /**
+         * Metodo que establece las condiciones que se deben dar cuando un usuario de clic sobre un elemento de la lista
+         * para que seguidamente aparezca el detail de dicho elemento
+         * @param multimedia_id id del multimedia seleccionado
+         */
+        onSelected(multimedia_id: number){
+            console.log('corre');
+            this.showCreate=false;
+            this.showEdit=false;
+            this.showHideView();
+            this.multimedia_id=multimedia_id;
+            this.selectedMultimedia=new MultimediaDetail();
+            this.getMultimediaDetail();
+        }
+
+         /**
+        * Metodo que controla la aparicion del componente edit para un detail
+        * @param multimedia_id 
+        */
+        showHideEdit(multimedia_id: number): void{
+            console.log("llega a showHideEdit");
+            console.log(multimedia_id);
+            if(!this.showEdit || (this.showEdit && multimedia_id!=this.selectedMultimedia.id)){
+               console.log("sí entra adentro");
+                 this.showEdit=!this.showEdit;
+                this.multimedia_id=multimedia_id;
+            }
+            else{
+                this.showEdit=false;
+                this.showView=true;
+            }
+        }
+
+        /**
+         * Metodo que obtiene el multimedia detail
+         */
+        getMultimediaDetail(): void{
+            this.multimediaService.getMultimediaDetail(this.multimedia_id).subscribe(selectedMultimedia=>{
+                this.selectedMultimedia=selectedMultimedia;
+            })
+        }
+
+        updateMultimedia(): void{
+            this.showEdit=false;
+            this.showView=true;
+        }
+
+        /**
+         * Al crear el componente, generar las condiciones que se establecen al interior del metodo
+         */
     ngOnInit() {
+        this.evento_id = + this.route.snapshot.paramMap.get('id');
+        console.log("Este es el id"+this.evento_id);
         this.showCreate = false;
-        this.showEdit = false;
+        this.showEdit=false;
+        this.selectedMultimedia=undefined;
+        this.multimedia_id=undefined;
         this.getMultimedias();
+        this.showView=false;
     }
-}
+        
+    }

@@ -139,7 +139,7 @@ export class MedioDePagoListComponent implements OnInit {
          * Al crear el componente, generar las condiciones que se establecen al interior del metodo
          */
     ngOnInit() {
-        this.usuario_id=+this.route.snapshot.paramMap.get('id');
+        this.usuario_id= +localStorage.getItem('idUsuario');
         this.showCreate = false;
         this.showEdit=false;
         this.selectedMedioDePago=undefined;

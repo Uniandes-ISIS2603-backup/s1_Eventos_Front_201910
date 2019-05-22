@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewContainerRef, ɵConsole } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { Calificacion } from '../calificacion';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { Kalimba } from '../kalimba';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 /**
  * Component detail de calificacion
@@ -55,7 +57,11 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
    */
     calificacion_id: number;
 
+    kalimba: Kalimba;
+
     evento_id: number;
+
+    calificacion: number[];
 
     /**
      * Variable para mostar o no el detail
@@ -69,8 +75,11 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
     getCalificacionDetail(): void {
         this.calificacionService.getCalificacionDetail(this.calificacion_id)
             .subscribe(calificacionDetail => {
+            
                 this.calificacionDetail = calificacionDetail
+                
               });
+              
     }
 
     delete(): void{
@@ -99,6 +108,15 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
       });
     }
   
+    acuerdo(): void{
+      console.log('CHOLE CHUUU CHOLE HIJUEPTUA');
+      
+      this.calificacionDetail.deAcuerdo=(Number(this.calificacionDetail.deAcuerdo)+1)+'';
+      this.calificacionService.updateCalificacion(this.calificacion_id,this.calificacionDetail.id,this.calificacionDetail)
+      .subscribe(()=>{
+        this.toastrService.success("Se actualizo la calificacion");
+      })
+    }
 
     /**
      * Muestra o esconde el componente edit, cambiando una variable booleana
@@ -118,9 +136,12 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
  * Al iniciar, realizar las operaciones internas al metodo
  */
     ngOnInit() {
-      
+      console.log(this.calificacion_id+'TODOS LOS NIÑOS QUEREMOS CARIÑO, ABRAZOS Y BESOS')
+        this.kalimba=new Kalimba();
+        this.kalimba.generarNum();
         this.showEdit=false;
         this.calificacion_id = +this.route.snapshot.paramMap.get('id');
+
         if (this.calificacion_id){
         this.calificacionDetail = new CalificacionDetail();
         this.getCalificacionDetail();

@@ -1,0 +1,71 @@
+.img-fluid{
+    float:right;
+ max-width: 100%; 
+ height: auto;
+}
+#informacion{
+
+    margin-right: 10%;
+}
+imagen{
+
+    margin-left: 10%;
+}
+#infoAdicional{
+    margin-left: 10%;
+        margin-right: 10%;
+        border:solid;
+        border-color: grey;
+        height: 500px;
+        overflow-y: scroll;
+}
+h2{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+h5{
+     line-height: 1.8;
+}
+#botonBack{
+    margin-top:2%;
+    margin-bottom: 2%;
+    border-radius: 8px;
+}
+#navDetail{
+    margin-top: 5%;
+}
+/* Style the navigation menu */
+.nav{
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  margin-left: 10%;
+      margin-right: 10%;
+}
+
+/* Navigation links */
+.nav-item {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 16%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center; /* If you want the text to be centered */
+}
+#orgE{
+    margin-top:2%;
+    margin-left: 5%;
+    margin-right:5%;
+    margin-bottom: 2%;
+}
+.card-body{
+    text-align: center;
+}
+.card{
+    border: solid;
+    border-color: black;
+}
+

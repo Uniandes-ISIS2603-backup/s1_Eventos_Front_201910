@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { InvitadoCreateComponent } from './invitado-create/invitado-create.component';
 import { InvitadoEditComponent } from './invitado-edit/invitado-edit.component';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventoService } from '../evento/evento.service';
+import { InvitadoDetailComponent } from './invitado-detail/invitado-detail.component';
+
 
 @NgModule({
     imports: [
@@ -19,10 +22,10 @@ import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         NgbModule
     ],
-    declarations: [
-        InvitadoListComponent,InvitadoCreateComponent,InvitadoEditComponent
-    ],
+    declarations: [InvitadoListComponent,InvitadoCreateComponent,InvitadoEditComponent,InvitadoDetailComponent
+        
+ ],
     providers: [InvitadoService],
-    exports: [InvitadoListComponent]
+    exports: []
 })
 export class InvitadoModule { }

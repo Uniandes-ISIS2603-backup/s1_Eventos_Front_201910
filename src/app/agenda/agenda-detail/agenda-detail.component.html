@@ -1,7 +1,11 @@
-<div class="panel-body">
-    <div class="border margin">
-        <p class="h3 p-3">{{agendaDetail.name}}<p> 
-        
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <ul>
+                <li>{{agenda.actividad}}</li>
+                <li>{{agenda.ubicacion.nombre}}<a id="ubicacion.tag" style="cursor: pointer;"class="nav-link" (click)="showUbicacion()">Ver en el mapa</a></li>
+            </ul>
+        </div>
+       
 </div>
-
+</div>

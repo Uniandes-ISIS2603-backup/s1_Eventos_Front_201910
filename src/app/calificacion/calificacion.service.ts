@@ -74,17 +74,17 @@ export class CalificacionService{
      * Actualiza un calificacion
      * @param calificacion calificacion que se va a actualizar
      */
-    updateCalificacion(calificacion): Observable<CalificacionDetail>{
-        return this.http.put<CalificacionDetail>(API_URL+calific+'/'+calificacion.id,calificacion);
+    updateCalificacion(eventoId, calificacionId,calificacion): Observable<Calificacion>{
+        console.log('LLEGA AQUI EL PERRROOOOPO RORO -------------');
+        console.log('EVENTO ID: '+eventoId);
+        console.log('NUMEROOSDOAIDO'+calificacion.estrellas);
+        console.log('CALIFICACION ID: '+calificacionId);
+        console.log('calificacionnnnnnn:'+calificacion.comentario);
+        return this.http.put<Calificacion>(API_URL+'/eventos/'+eventoId+'/calificaciones/'+calificacion.id,calificacion);
     }
 
     getEventoCalificaciones(eventoId):Observable<Calificacion[]>{
         return this.http.get<Calificacion[]>(API_URL+eventos+'/'+eventoId+'/'+'calificaciones');
     }
-
-
-    //updateEventoCalificaciones(eventoId,calificaciones: Calificacion[]): Observable<Calificacion[]>{
-      //  return this.http.put<Calificacion[]>(API_URL+eventos+'/'+eventoId+'/'+calificaciones);
-    //}
 
 }

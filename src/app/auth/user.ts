@@ -6,15 +6,15 @@ export class User {
     /**
     * The user's name
     */
-    name: string;
+    correoElectronico: string;
 
     /**
     * The user's password
     */
-    password: string;
+    contrasenia: string;
 
     /**
     * The user's role
     */
-    role: string;
+    rol: string;
 }

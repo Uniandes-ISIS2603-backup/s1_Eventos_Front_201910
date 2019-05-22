@@ -13,7 +13,7 @@ export class AgendaDetailComponent implements OnInit {
     /**
     * The agenda
     */
-    @Input() agendaDetail: AgendaDetail;
+     @Input() agendaDetail: AgendaDetail;
     /**
     * Constructor for the component
     * @param route The route which helps to retrieves the id of the book to be shown
@@ -42,7 +42,20 @@ export class AgendaDetailComponent implements OnInit {
             });
     }
 
-   
+   //Asociaciones
+    
+    
+    showInv:boolean;
+    showUb:boolean;
+    
+    showInvitadosEspeciales():void{
+        this.showInv=true;
+        this.showUb=false
+    }
+    showUbicacion():void{
+        this.showUb=true;
+        this.showInv=false;
+    }
     /**
     * The method which initializes the component.
     * We need to create the agenda so it is never considered as undefined
@@ -53,5 +66,7 @@ export class AgendaDetailComponent implements OnInit {
         this.agendaDetail = new AgendaDetail();
         this.getAgendaDetail();
         }
+        this.showUb=false;
+        this.showInv=false;
     }
 }

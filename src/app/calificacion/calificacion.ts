@@ -17,6 +17,6 @@ export class Calificacion{
      */
     recomendado: string;
 
-    deAcuerdo: number;
+    deAcuerdo: string;
 
  }

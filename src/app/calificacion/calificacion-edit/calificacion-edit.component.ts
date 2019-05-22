@@ -4,6 +4,7 @@ import {DatePipe} from '@angular/common';
 import {CalificacionService} from '../calificacion.service';
 import {CalificacionDetail} from '../calificacion-detail';
 import {ToastrService} from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * Componente edit del recurso calificacion
@@ -27,6 +28,7 @@ export class CalificacionEditComponent implements OnInit{
         private dp: DatePipe,
         private calificacionaService: CalificacionService,
         private toastrService: ToastrService,
+        private route: ActivatedRoute
     ){}
 
     /**
@@ -48,6 +50,8 @@ export class CalificacionEditComponent implements OnInit{
      */
     @Output() update = new EventEmitter();
 
+    evento_id: number;
+
     /**
      * Cancela la edicion y emite el evento
      */
@@ -60,13 +64,16 @@ export class CalificacionEditComponent implements OnInit{
      *  a calificacionService
      */
     editCalificacion(): void{
-        this.calificacionaService.updateCalificacion(this.calificacion).subscribe(()=>{
+        this.calificacionaService.updateCalificacion(this.evento_id,this.calificacion.id,this.calificacion).subscribe(()=>{
             this.toastrService.success("La calificación se actualizó", "Calificacion");
         });
         this.update.emit();
     }
 
     ngOnInit(){
+        this.evento_id = + this.route.snapshot.paramMap.get('id');
+        console.log("ID DE LA CALIF:::::"+this.calificacion.id);
+        console.log(this.evento_id+"ESTE ES EL EVENTO ID DESDE EDIT");
         console.log("enrtaaaaasldkalñsd");
         console.log(this.calificacion);
     }
