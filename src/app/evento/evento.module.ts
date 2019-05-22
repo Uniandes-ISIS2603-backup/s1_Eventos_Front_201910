@@ -46,16 +46,6 @@ import { AgendaCreateComponent } from '../agenda/agenda-create/agenda-create.com
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
 
-import {InvitadoListComponent} from '../invitado/invitado-list/invitado-list.component';
-import { InvitadoEditComponent } from '../invitado/invitado-edit/invitado-edit.component';
-import { InvitadoCreateComponent } from '../invitado/invitado-create/invitado-create.component';
-import { InvitadoDetailComponent } from '../invitado/invitado-detail/invitado-detail.component';
-
-
-import {UbicacionListComponent} from '../ubicacion/ubicacion-list/ubicacion-list.component';
-import { UbicacionEditComponent } from '../ubicacion/ubicacion-edit/ubicacion-edit.component';
-import { UbicacionCreateComponent } from '../ubicacion/ubicacion-create/ubicacion-create.component';
-import { UbicacionDetailComponent } from '../ubicacion/ubicacion-detail/ubicacion-detail.component';
 
 
 
@@ -79,8 +69,6 @@ import { UbicacionDetailComponent } from '../ubicacion/ubicacion-detail/ubicacio
   AgendaListComponent,AgendaEditComponent,AgendaCreateComponent,AgendaDetailComponent,
   PatrocinadorListComponent,PatrocinadorEditComponent,PatrocinadorCreateComponent,PatrocinadorDetailComponent,
   MultimediaListComponent,MultimediaEditComponent,MultimediaCreateComponent,MultimediaDetailComponent,
- InvitadoListComponent,InvitadoEditComponent,InvitadoCreateComponent,InvitadoDetailComponent,
-  UbicacionListComponent,UbicacionEditComponent,UbicacionCreateComponent,UbicacionDetailComponent
 
 
 
@@ -93,9 +81,7 @@ import { UbicacionDetailComponent } from '../ubicacion/ubicacion-detail/ubicacio
   EntradaListComponent,
   AgendaListComponent,
   MultimediaListComponent,
-  PatrocinadorListComponent,
-  InvitadoListComponent,
-        UbicacionListComponent
+  PatrocinadorListComponent
 ]
 
 })
