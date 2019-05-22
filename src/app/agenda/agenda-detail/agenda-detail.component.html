@@ -6,14 +6,6 @@
                 <li>{{agenda.ubicacion.nombre}}<a id="ubicacion.tag" style="cursor: pointer;"class="nav-link" (click)="showUbicacion()">Ver en el mapa</a></li>
             </ul>
         </div>
-        <div class="col-sm">
-            Invitados Especiales
-             <app-invitado-list></app-invitado-list> 
-        </div>
-    </div>
-    
-
-        <div *ngIf="showUbicacion">
-        <app-ubicacion-list></app-ubicacion-list> 
-        </div>
+       
+</div>
 </div>

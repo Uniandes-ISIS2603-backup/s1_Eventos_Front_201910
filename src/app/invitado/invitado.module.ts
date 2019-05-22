@@ -22,10 +22,10 @@ import { InvitadoDetailComponent } from './invitado-detail/invitado-detail.compo
         FormsModule,
         NgbModule
     ],
-    declarations: [
+    declarations: [InvitadoListComponent,InvitadoCreateComponent,InvitadoEditComponent,InvitadoDetailComponent
         
  ],
-    providers: [InvitadoService,EventoService],
+    providers: [InvitadoService],
     exports: []
 })
 export class InvitadoModule { }

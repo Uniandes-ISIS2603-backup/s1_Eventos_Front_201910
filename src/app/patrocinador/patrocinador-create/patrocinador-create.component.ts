@@ -40,7 +40,7 @@ export class PatrocinadorCreateComponent implements OnInit {
         this.patrocinadorService.createPatrocinador(this.patrocinador)
             .subscribe(patrocinador => {
                 this.patrocinador.id = patrocinador.id;
-                this.router.navigate(['/patrocinadores/' + patrocinador.id]);
+                this.router.navigate(['/patrocinadores/list' ]);
             }, err => {
                 this.toastrService.error(err, 'Error');
             });

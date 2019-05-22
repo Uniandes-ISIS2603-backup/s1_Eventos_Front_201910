@@ -17,8 +17,8 @@ import {EventoService} from '../evento/evento.service';
     HttpClientModule,
     FormsModule,
   ],
-  declarations: [],
-providers : [UbicacionService,EventoService],
+  declarations: [UbicacionListComponent,UbicacionDetailComponent,UbicacionCreateComponent,UbicacionEditComponent],
+providers : [UbicacionService],
 bootstrap:[ ],
   exports:[ ]
 

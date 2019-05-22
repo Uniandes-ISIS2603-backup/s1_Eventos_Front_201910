@@ -56,7 +56,6 @@ public isCollapsed = {};
          */
         showEdit: boolean;
 
-        agenda_id: number;
 
         /**
          * Variable que controla la aparicion del componente showView
@@ -73,7 +72,7 @@ public isCollapsed = {};
          * Inicializa el arreglo de invitados trayendo la info desde service
          */
         getInvitados(): void{
-            this.invitadoService.getAgendaInvitados(this.agenda_id).subscribe(
+            this.invitadoService.getInvitados().subscribe(
                 invitados => {
                     this.invitados=invitados;
                 });
@@ -152,8 +151,6 @@ public isCollapsed = {};
          * Al crear el componente, generar las condiciones que se establecen al interior del metodo
          */
     ngOnInit() {
-        this.agenda_id = + this.route.snapshot.paramMap.get('id');
-        console.log("Este es el id"+this.agenda_id);
         this.showCreate = false;
         this.showEdit=false;
         this.selectedInvitado=undefined;
