@@ -1,6 +1,8 @@
 <div class = 'container-fluid'>
     <br>
-    <button  type="button" class="btn-primary" >Agregar Patrocinador</button>
+  <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear Patrocinador</button>
+          
      <div class="row" id="patrocinadores">
         <div *ngFor = "let patrocinador of patrocinadores" >
              <figure class="figure" routerLink="/patrocinadores/{{patrocinador.id}}" style="cursor: pointer;"> 
@@ -9,7 +11,10 @@
                 </div>
             </figure>
         </div>
-    </div>    
+    </div>   
+     <div *ngIf="showCreate">
+                <app-patrocinador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-patrocinador-create>
+            </div>
 </div>
 
        
